@@ -1,0 +1,100 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.lawyer_image {
+  height: auto;
+  width: auto;
+  max-width: 150px;
+}
+#main-image {
+  width: auto;
+  height: auto;
+  max-width: 30vw;
+  max-height: 550px;
+}
+
+@media (min-width:250px) and (max-width:900px) { 
+  #main-image {
+    max-width: 60vw !important;
+  }
+}
+.img {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 20px;
+  height: 300px !important;
+  overflow: hidden;
+}
+
+.menu-open {
+  transform: translate3d(0,0,0) !important;
+  transition: 0.5s ease !important;
+}
+.layout-menu-toggle a{
+  color: #000 !important;
+}
+.blog-img {
+  height: 75% !important;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.red {
+  color: red;
+}
+.videowrapper {
+  position: relative;
+  padding-bottom: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  min-height: 300px;
+}
+
+.videowrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
