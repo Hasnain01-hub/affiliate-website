@@ -30,7 +30,12 @@ app.use(cors());
 
 // Importing Routes
 const authRoute = require("./routes/auth.route");
+const generatelink = require("./routes/generate.link");
+const cloudinary = require("./routes/cloudinary.route");
+
 app.use("/api/auth", authRoute);
+app.use("/api/createlink", generatelink);
+app.use("/api/cloudinary", cloudinary);
 
 app.use("/", function (req, res) {
   res.sendFile(path.join(__dirname + "/express/index.html"));

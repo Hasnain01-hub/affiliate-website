@@ -16,11 +16,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    lastLogin: {
-      type: Date,
-      default: Date.now,
-      required: true,
-    },
   },
   { timestamps: true } // createdAt, updatedAt timestamps will be taken care of by this automatically
 );

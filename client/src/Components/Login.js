@@ -1,11 +1,71 @@
 import React from "react";
-import Footer from "../Layouts/Footer";
-import Header from "../Layouts/Header";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../reducers";
+import { loginUser, registerUser } from "../function/auth";
 const Login = () => {
+  const [data, setData] = React.useState({
+    email: "",
+    password: "",
+  });
+
+  const reduxDispatch = useDispatch();
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    loginUser(data.email, data.password)
+      .then((res) => {
+        // console.log(res);
+        if (res.status === 400) return toast.error("Invalid credentials");
+        if (res.status === 200) {
+          console.log(res);
+          reduxDispatch(
+            loginSuccess({
+              name: res.data.user.name,
+              email: res.data.user.email,
+              token: res.data.token,
+            })
+          );
+          setData({ email: "", password: "" });
+          //   window.location.href = "/";
+        } else {
+          toast.error("Invalid Credentials");
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    console.log("handleRegister");
+
+    if (data.email == "" && data.password.length < 5)
+      return toast("Please enter valid email and password");
+
+    await registerUser(data)
+      .then((res) => {
+        reduxDispatch(
+          loginSuccess({
+            name: res.data.user.name,
+            email: res.data.user.email,
+            token: res.data.token,
+          })
+        );
+        setData({ email: "", password: "" });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   return (
     <>
-      <Header />
       <div className="breadcrumbs_area">
         <div className="container">
           <div className="row">
@@ -36,13 +96,23 @@ const Login = () => {
                       <label>
                         Username or email <span>*</span>
                       </label>
-                      <input type="text" />
+                      <input
+                        value={data.email}
+                        onChange={handleChange}
+                        name="email"
+                        type="text"
+                      />
                     </p>
                     <p>
                       <label>
                         Passwords <span>*</span>
                       </label>
-                      <input type="password" />
+                      <input
+                        value={data.password}
+                        onChange={handleChange}
+                        name="password"
+                        type="password"
+                      />
                     </p>
                     <div className="login_submit">
                       <a href="#/">Lost your password?</a>
@@ -50,7 +120,7 @@ const Login = () => {
                         <input id="remember" type="checkbox" />
                         Remember me
                       </label>
-                      <button type="submit">login</button>
+                      <button onClick={handleLogin}>login</button>
                     </div>
                   </form>
                 </div>
@@ -65,16 +135,26 @@ const Login = () => {
                       <label>
                         Email address <span>*</span>
                       </label>
-                      <input type="text" />
+                      <input
+                        value={data.email}
+                        onChange={handleChange}
+                        name="email"
+                        type="text"
+                      />
                     </p>
                     <p>
                       <label>
                         Passwords <span>*</span>
                       </label>
-                      <input type="password" />
+                      <input
+                        value={data.password}
+                        onChange={handleChange}
+                        name="password"
+                        type="password"
+                      />
                     </p>
                     <div className="login_submit">
-                      <button type="submit">Register</button>
+                      <button onClick={handleRegister}>Register</button>
                     </div>
                   </form>
                 </div>
@@ -84,7 +164,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <ToastContainer />
     </>
   );
 };

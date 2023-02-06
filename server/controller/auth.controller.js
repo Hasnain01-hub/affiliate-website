@@ -4,7 +4,7 @@ const { validationResult } = require("express-validator");
 const User = require("../model/user.model");
 
 exports.registerController = (req, res) => {
-  const { name, email, password } = req.body;
+  const { email, password } = req.body;
   console.log(req.body);
 
   const errors = validationResult(req);
@@ -27,7 +27,7 @@ exports.registerController = (req, res) => {
       const salt = await bcrypt.genSalt(10);
       const hashed_password = await bcrypt.hash(password, salt);
       const user = new User({
-        name,
+        name: email.split("@")[0],
         email,
         password: hashed_password,
       });
@@ -110,20 +110,18 @@ exports.loginController = (req, res) => {
 };
 
 exports.fetchUserData = async (req, res) => {
-  console.log(req.body);
+  console.log("nody*******000", req.body);
 
-  await User.findOne({
-    email: req.user.email,
-  }).exec((err, user) => {
-    if (err) {
-      return res.status(400).json({
-        error: "User does not exists. Please register",
-      });
-    }
-    return res.status(200).json({
-      message: "User is fetch successfully!",
+  if (req.user) {
+    res.status(200).json({
+      message: "User is logged in successfully!",
       success: true,
-      user: user,
+      user: req.user,
     });
-  });
+  } else {
+    res.status(401).json({
+      message: "Invalid user id!",
+      success: false,
+    });
+  }
 };
