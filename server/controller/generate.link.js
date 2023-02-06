@@ -1,0 +1,56 @@
+exports.generateLink = async (req, res) => {
+  const d = "https://amzn.to/40t8nri";
+
+  /* This is the code that is responsible for the redirection. */
+  if (d.includes("a.co")) {
+    const de = await axios.get(d);
+
+    const url = de.request.res.responseUrl;
+
+    const new_url = url.replace("amazon.com", "amazon.in");
+
+    ds = new_url.split("?_encoding")[0];
+    const tag = "tag=ronak3103-21";
+    const modify = ds + "?" + tag;
+
+    res.json(modify);
+  }
+
+  /* This is the code that is responsible for the redirection. */
+  if (d.includes("amzn.to")) {
+    const de = await axios.get(d);
+
+    const url = de.request.res.responseUrl;
+
+    let ds;
+
+    if (url.includes("?th=1")) {
+      ds = url.split("?th=1")[0];
+    } else if (url.includes("crid=")) {
+      ds = url.split("crid=")[0];
+    } else if (url.includes("qid=")) {
+      ds = url.split("qid=")[0];
+    } else {
+      ds = url.split("?&linkCode=sl1")[0];
+    }
+
+    const tag = "tag=ronak3103-21";
+    const modify = ds + "?" + tag;
+
+    res.json(modify);
+  } else {
+    const de = await axios.get(d);
+
+    const url = de.request.res.responseUrl;
+
+    if (url.includes("psc=")) {
+      ds = url.split("psc=")[0];
+    } else {
+      ds = url;
+    }
+    const tag = "tag=ronak3103-21";
+    const modify = ds + "?" + tag;
+
+    res.json(modify);
+  }
+};
