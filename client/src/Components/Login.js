@@ -45,7 +45,7 @@ const Login = () => {
                       <input type="password" />
                     </p>
                     <div className="login_submit">
-                      <a href="#">Lost your password?</a>
+                      <a href="#/">Lost your password?</a>
                       <label htmlFor="remember">
                         <input id="remember" type="checkbox" />
                         Remember me

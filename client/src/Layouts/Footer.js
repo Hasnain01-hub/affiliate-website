@@ -18,12 +18,12 @@ const Footer = () => {
                   </div>
                   <div className="app_img">
                     <figure className="app_img">
-                      <a href="#">
+                      <a href="#/">
                         <img src="assets/img/icon/icon-appstore.png" alt="" />
                       </a>
                     </figure>
                     <figure className="app_img">
-                      <a href="#">
+                      <a href="#/">
                         <img src="assets/img/icon/icon-googleplay.png" alt="" />
                       </a>
                     </figure>
@@ -39,19 +39,19 @@ const Footer = () => {
                         <a href="about.html">About Us</a>
                       </li>
                       <li>
-                        <a href="#">Delivery Information</a>
+                        <a href="#/">Delivery Information</a>
                       </li>
                       <li>
-                        <a href="#">New products</a>
+                        <a href="#/">New products</a>
                       </li>
                       <li>
-                        <a href="#">Best sales</a>
+                        <a href="#/">Best sales</a>
                       </li>
                       <li>
                         <a href="my-account.html">My Account</a>
                       </li>
                       <li>
-                        <a href="#">Order History</a>
+                        <a href="#/">Order History</a>
                       </li>
                     </ul>
                   </div>
@@ -72,13 +72,13 @@ const Footer = () => {
                         <a href="wishlist.html">Wish List</a>
                       </li>
                       <li>
-                        <a href="#">Prices drop</a>
+                        <a href="#/">Prices drop</a>
                       </li>
                       <li>
-                        <a href="#">Order History</a>
+                        <a href="#/">Order History</a>
                       </li>
                       <li>
-                        <a href="#">International Orders</a>
+                        <a href="#/">International Orders</a>
                       </li>
                     </ul>
                   </div>
@@ -90,22 +90,22 @@ const Footer = () => {
                   <div className="footer_menu">
                     <ul>
                       <li>
-                        <a href="#">Sitemap</a>
+                        <a href="#/">Sitemap</a>
                       </li>
                       <li>
                         <a href="my-account.html">My Account</a>
                       </li>
                       <li>
-                        <a href="#">Delivery Information</a>
+                        <a href="#/">Delivery Information</a>
                       </li>
                       <li>
-                        <a href="#">Order History</a>
+                        <a href="#/">Order History</a>
                       </li>
                       <li>
                         <a href="wishlist.html">Wish List</a>
                       </li>
                       <li>
-                        <a href="#">Specials</a>
+                        <a href="#/">Specials</a>
                       </li>
                     </ul>
                   </div>
@@ -132,27 +132,27 @@ const Footer = () => {
                   <div className="footer_social">
                     <ul>
                       <li>
-                        <a className="facebook" href="#">
+                        <a className="facebook" href="#/">
                           <i className="fa fa-facebook" />
                         </a>
                       </li>
                       <li>
-                        <a className="twitter" href="#">
+                        <a className="twitter" href="#/">
                           <i className="fa fa-twitter" />
                         </a>
                       </li>
                       <li>
-                        <a className="instagram" href="#">
+                        <a className="instagram" href="#/">
                           <i className="fa fa-instagram" />
                         </a>
                       </li>
                       <li>
-                        <a className="linkedin" href="#">
+                        <a className="linkedin" href="#/">
                           <i className="fa fa-linkedin" />
                         </a>
                       </li>
                       <li>
-                        <a className="rss" href="#">
+                        <a className="rss" href="#/">
                           <i className="fa fa-rss" />
                         </a>
                       </li>
@@ -174,9 +174,7 @@ const Footer = () => {
                       ANTOMI
                     </a>
                     . Made with <i className="fa fa-heart" /> by{" "}
-                    <a target="_blank" href="https://www.hasthemes.com/">
-                      HasThemes
-                    </a>
+                    <a href="https://www.hasthemes.com/">HasThemes</a>
                   </p>
                 </div>
               </div>

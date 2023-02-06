@@ -9,13 +9,13 @@ const Header = () => {
           <div className="row">
             <div className="col-12">
               <div className="canvas_open canvas4_open">
-                <a href="javascript:void(0)">
+                <a href="#/">
                   <i className="ion-navicon" />
                 </a>
               </div>
               <div className="Offcanvas_menu_wrapper">
                 <div className="canvas_close">
-                  <a href="javascript:void(0)">
+                  <a href="#/">
                     <i className="ion-android-close" />
                   </a>
                 </div>
@@ -25,10 +25,10 @@ const Header = () => {
                 <div className="header_top_settings text-end">
                   <ul>
                     <li>
-                      <a href="#">Store Locations</a>
+                      <a href="#/">Store Locations</a>
                     </li>
                     <li>
-                      <a href="#">Track Your Order</a>
+                      <a href="#/">Track Your Order</a>
                     </li>
                     <li>
                       Hotline: <a href="tel:+0123456789">0123456789 </a>
@@ -39,13 +39,13 @@ const Header = () => {
                 <div id="menu" className="text-start ">
                   <ul className="offcanvas_main_menu">
                     <li className="menu-item-has-children active">
-                      <a href="#">Home</a>
+                      <a href="#/">Home</a>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="#">Shop</a>
+                      <a href="#/">Shop</a>
                       <ul className="sub-menu">
                         <li className="menu-item-has-children">
-                          <a href="#">Shop Layouts</a>
+                          <a href="#/">Shop Layouts</a>
                           <ul className="sub-menu">
                             <li>
                               <a href="shop.html">shop</a>
@@ -75,7 +75,7 @@ const Header = () => {
                           </ul>
                         </li>
                         <li className="menu-item-has-children">
-                          <a href="#">other Pages</a>
+                          <a href="#/">other Pages</a>
                           <ul className="sub-menu">
                             <li>
                               <a href="cart.html">cart</a>
@@ -95,7 +95,7 @@ const Header = () => {
                           </ul>
                         </li>
                         <li className="menu-item-has-children">
-                          <a href="#">Product Types</a>
+                          <a href="#/">Product Types</a>
                           <ul className="sub-menu">
                             <li>
                               <a href="product-details.html">product details</a>
@@ -121,7 +121,7 @@ const Header = () => {
                       </ul>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="#">blog</a>
+                      <a href="#/">blog</a>
                       <ul className="sub-menu">
                         <li>
                           <a href="blog.html">blog</a>
@@ -141,7 +141,7 @@ const Header = () => {
                       </ul>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="#">pages </a>
+                      <a href="#/">pages </a>
                       <ul className="sub-menu">
                         <li>
                           <a href="about.html">About Us</a>
@@ -182,33 +182,33 @@ const Header = () => {
                 </div>
                 <div className="Offcanvas_footer">
                   <span>
-                    <a href="#">
+                    <a href="#/">
                       <i className="fa fa-envelope-o" /> demo@example.com
                     </a>
                   </span>
                   <ul>
                     <li className="facebook">
-                      <a href="#">
+                      <a href="#/">
                         <i className="fa fa-facebook" />
                       </a>
                     </li>
                     <li className="twitter">
-                      <a href="#">
+                      <a href="#/">
                         <i className="fa fa-twitter" />
                       </a>
                     </li>
                     <li className="pinterest">
-                      <a href="#">
+                      <a href="#/">
                         <i className="fa fa-pinterest-p" />
                       </a>
                     </li>
                     <li className="google-plus">
-                      <a href="#">
+                      <a href="#/">
                         <i className="fa fa-google-plus" />
                       </a>
                     </li>
                     <li className="linkedin">
-                      <a href="#">
+                      <a href="#/">
                         <i className="fa fa-linkedin" />
                       </a>
                     </li>
@@ -247,43 +247,43 @@ const Header = () => {
                   <h3>cart</h3>
                 </div>
                 <div className="mini_cart_close">
-                  <a href="javascript:void(0)">
+                  <a href="#/">
                     <i className="ion-android-close" />
                   </a>
                 </div>
               </div>
               <div className="cart_item">
                 <div className="cart_img">
-                  <a href="#">
+                  <a href="#/">
                     <img src="assets/img/s-product/product.jpg" alt="" />
                   </a>
                 </div>
                 <div className="cart_info">
-                  <a href="#">Primis In Faucibus</a>
+                  <a href="#/">Primis In Faucibus</a>
                   <p>
                     Qty: 1 X <span> $60.00 </span>
                   </p>
                 </div>
                 <div className="cart_remove">
-                  <a href="#">
+                  <a href="#/">
                     <i className="ion-android-close" />
                   </a>
                 </div>
               </div>
               <div className="cart_item">
                 <div className="cart_img">
-                  <a href="#">
+                  <a href="#/">
                     <img src="assets/img/s-product/product2.jpg" alt="" />
                   </a>
                 </div>
                 <div className="cart_info">
-                  <a href="#">Letraset Sheets</a>
+                  <a href="#/">Letraset Sheets</a>
                   <p>
                     Qty: 1 X <span> $60.00 </span>
                   </p>
                 </div>
                 <div className="cart_remove">
-                  <a href="#">
+                  <a href="#/">
                     <i className="ion-android-close" />
                   </a>
                 </div>
@@ -321,251 +321,251 @@ const Header = () => {
                     <div className="categories_menu_toggle">
                       <ul>
                         <li className="menu_item_children">
-                          <a href="#">
+                          <a href="#/">
                             Brake Parts <i className="fa fa-angle-right" />
                           </a>
                           <ul className="categories_mega_menu">
                             <li className="menu_item_children">
-                              <a href="#">Dresses</a>
+                              <a href="#/">Dresses</a>
                               <ul className="categorie_sub_menu">
                                 <li>
-                                  <a href="#">Sweater</a>
+                                  <a href="#/">Sweater</a>
                                 </li>
                                 <li>
-                                  <a href="#">Evening</a>
+                                  <a href="#/">Evening</a>
                                 </li>
                                 <li>
-                                  <a href="#">Day</a>
+                                  <a href="#/">Day</a>
                                 </li>
                                 <li>
-                                  <a href="#">Sports</a>
+                                  <a href="#/">Sports</a>
                                 </li>
                               </ul>
                             </li>
                             <li className="menu_item_children">
-                              <a href="#">Handbags</a>
+                              <a href="#/">Handbags</a>
                               <ul className="categorie_sub_menu">
                                 <li>
-                                  <a href="#">Shoulder</a>
+                                  <a href="#/">Shoulder</a>
                                 </li>
                                 <li>
-                                  <a href="#">Satchels</a>
+                                  <a href="#/">Satchels</a>
                                 </li>
                                 <li>
-                                  <a href="#">kids</a>
+                                  <a href="#/">kids</a>
                                 </li>
                                 <li>
-                                  <a href="#">coats</a>
+                                  <a href="#/">coats</a>
                                 </li>
                               </ul>
                             </li>
                             <li className="menu_item_children">
-                              <a href="#">shoes</a>
+                              <a href="#/">shoes</a>
                               <ul className="categorie_sub_menu">
                                 <li>
-                                  <a href="#">Ankle Boots</a>
+                                  <a href="#/">Ankle Boots</a>
                                 </li>
                                 <li>
-                                  <a href="#">Clog sandals </a>
+                                  <a href="#/">Clog sandals </a>
                                 </li>
                                 <li>
-                                  <a href="#">run</a>
+                                  <a href="#/">run</a>
                                 </li>
                                 <li>
-                                  <a href="#">Books</a>
+                                  <a href="#/">Books</a>
                                 </li>
                               </ul>
                             </li>
                             <li className="menu_item_children">
-                              <a href="#">Clothing</a>
+                              <a href="#/">Clothing</a>
                               <ul className="categorie_sub_menu">
                                 <li>
-                                  <a href="#">Coats Jackets </a>
+                                  <a href="#/">Coats Jackets </a>
                                 </li>
                                 <li>
-                                  <a href="#">Raincoats</a>
+                                  <a href="#/">Raincoats</a>
                                 </li>
                                 <li>
-                                  <a href="#">Jackets</a>
+                                  <a href="#/">Jackets</a>
                                 </li>
                                 <li>
-                                  <a href="#">T-shirts</a>
+                                  <a href="#/">T-shirts</a>
                                 </li>
                               </ul>
                             </li>
                           </ul>
                         </li>
                         <li className="menu_item_children">
-                          <a href="#">
+                          <a href="#/">
                             {" "}
                             Wheels &amp; Tires{" "}
                             <i className="fa fa-angle-right" />
                           </a>
                           <ul className="categories_mega_menu column_3">
                             <li className="menu_item_children">
-                              <a href="#">Chair</a>
+                              <a href="#/">Chair</a>
                               <ul className="categorie_sub_menu">
                                 <li>
-                                  <a href="#">Dining room</a>
+                                  <a href="#/">Dining room</a>
                                 </li>
                                 <li>
-                                  <a href="#">bedroom</a>
+                                  <a href="#/">bedroom</a>
                                 </li>
                                 <li>
-                                  <a href="#"> Home &amp; Office</a>
+                                  <a href="#/"> Home &amp; Office</a>
                                 </li>
                                 <li>
-                                  <a href="#">living room</a>
+                                  <a href="#/">living room</a>
                                 </li>
                               </ul>
                             </li>
                             <li className="menu_item_children">
-                              <a href="#">Lighting</a>
+                              <a href="#/">Lighting</a>
                               <ul className="categorie_sub_menu">
                                 <li>
-                                  <a href="#">Ceiling Lighting</a>
+                                  <a href="#/">Ceiling Lighting</a>
                                 </li>
                                 <li>
-                                  <a href="#">Wall Lighting</a>
+                                  <a href="#/">Wall Lighting</a>
                                 </li>
                                 <li>
-                                  <a href="#">Outdoor Lighting</a>
+                                  <a href="#/">Outdoor Lighting</a>
                                 </li>
                                 <li>
-                                  <a href="#">Smart Lighting</a>
+                                  <a href="#/">Smart Lighting</a>
                                 </li>
                               </ul>
                             </li>
                             <li className="menu_item_children">
-                              <a href="#">Sofa</a>
+                              <a href="#/">Sofa</a>
                               <ul className="categorie_sub_menu">
                                 <li>
-                                  <a href="#">Fabric Sofas</a>
+                                  <a href="#/">Fabric Sofas</a>
                                 </li>
                                 <li>
-                                  <a href="#">Leather Sofas</a>
+                                  <a href="#/">Leather Sofas</a>
                                 </li>
                                 <li>
-                                  <a href="#">Corner Sofas</a>
+                                  <a href="#/">Corner Sofas</a>
                                 </li>
                                 <li>
-                                  <a href="#">Sofa Beds</a>
+                                  <a href="#/">Sofa Beds</a>
                                 </li>
                               </ul>
                             </li>
                           </ul>
                         </li>
                         <li className="menu_item_children">
-                          <a href="#">
+                          <a href="#/">
                             {" "}
                             Furnitured &amp; Decor{" "}
                             <i className="fa fa-angle-right" />
                           </a>
                           <ul className="categories_mega_menu column_2">
                             <li className="menu_item_children">
-                              <a href="#">Brake Tools</a>
+                              <a href="#/">Brake Tools</a>
                               <ul className="categorie_sub_menu">
                                 <li>
-                                  <a href="#">Driveshafts</a>
+                                  <a href="#/">Driveshafts</a>
                                 </li>
                                 <li>
-                                  <a href="#">Spools</a>
+                                  <a href="#/">Spools</a>
                                 </li>
                                 <li>
-                                  <a href="#">Diesel </a>
+                                  <a href="#/">Diesel </a>
                                 </li>
                                 <li>
-                                  <a href="#">Gasoline</a>
+                                  <a href="#/">Gasoline</a>
                                 </li>
                               </ul>
                             </li>
                             <li className="menu_item_children">
-                              <a href="#">Emergency Brake</a>
+                              <a href="#/">Emergency Brake</a>
                               <ul className="categorie_sub_menu">
                                 <li>
-                                  <a href="#">Dolls for Girls</a>
+                                  <a href="#/">Dolls for Girls</a>
                                 </li>
                                 <li>
-                                  <a href="#">Girls' Learning Toys</a>
+                                  <a href="#/">Girls' Learning Toys</a>
                                 </li>
                                 <li>
-                                  <a href="#">Arts and Crafts for Girls</a>
+                                  <a href="#/">Arts and Crafts for Girls</a>
                                 </li>
                                 <li>
-                                  <a href="#">Video Games for Girls</a>
+                                  <a href="#/">Video Games for Girls</a>
                                 </li>
                               </ul>
                             </li>
                           </ul>
                         </li>
                         <li className="menu_item_children">
-                          <a href="#">
+                          <a href="#/">
                             {" "}
                             Turbo System <i className="fa fa-angle-right" />
                           </a>
                           <ul className="categories_mega_menu column_2">
                             <li className="menu_item_children">
-                              <a href="#">Check Trousers</a>
+                              <a href="#/">Check Trousers</a>
                               <ul className="categorie_sub_menu">
                                 <li>
-                                  <a href="#">Building</a>
+                                  <a href="#/">Building</a>
                                 </li>
                                 <li>
-                                  <a href="#">Electronics</a>
+                                  <a href="#/">Electronics</a>
                                 </li>
                                 <li>
-                                  <a href="#">action figures </a>
+                                  <a href="#/">action figures </a>
                                 </li>
                                 <li>
-                                  <a href="#">specialty &amp; boutique toy</a>
+                                  <a href="#/">specialty &amp; boutique toy</a>
                                 </li>
                               </ul>
                             </li>
                             <li className="menu_item_children">
-                              <a href="#">Calculators</a>
+                              <a href="#/">Calculators</a>
                               <ul className="categorie_sub_menu">
                                 <li>
-                                  <a href="#">Dolls for Girls</a>
+                                  <a href="#/">Dolls for Girls</a>
                                 </li>
                                 <li>
-                                  <a href="#">Girls' Learning Toys</a>
+                                  <a href="#/">Girls' Learning Toys</a>
                                 </li>
                                 <li>
-                                  <a href="#">Arts and Crafts for Girls</a>
+                                  <a href="#/">Arts and Crafts for Girls</a>
                                 </li>
                                 <li>
-                                  <a href="#">Video Games for Girls</a>
+                                  <a href="#/">Video Games for Girls</a>
                                 </li>
                               </ul>
                             </li>
                           </ul>
                         </li>
                         <li>
-                          <a href="#"> Lighting</a>
+                          <a href="#/"> Lighting</a>
                         </li>
                         <li>
-                          <a href="#"> Accessories</a>
+                          <a href="#/"> Accessories</a>
                         </li>
                         <li>
-                          <a href="#">Body Parts</a>
+                          <a href="#/">Body Parts</a>
                         </li>
                         <li>
-                          <a href="#">Networking</a>
+                          <a href="#/">Networking</a>
                         </li>
                         <li>
-                          <a href="#">Perfomance Filters</a>
+                          <a href="#/">Perfomance Filters</a>
                         </li>
                         <li>
-                          <a href="#"> Engine Parts</a>
+                          <a href="#/"> Engine Parts</a>
                         </li>
                         <li className="hidden">
-                          <a href="#">New Sofas</a>
+                          <a href="#/">New Sofas</a>
                         </li>
                         <li className="hidden">
-                          <a href="#">Sleight Sofas</a>
+                          <a href="#/">Sleight Sofas</a>
                         </li>
                         <li>
-                          <a href="#" id="more-btn">
+                          <a href="#/" id="more-btn">
                             <i className="fa fa-plus" aria-hidden="true" /> More
                             Categories
                           </a>
@@ -620,7 +620,7 @@ const Header = () => {
                 </div>
                 <div className="column3 col-lg-3 col-md-6">
                   <div className="header_bigsale h_bigsale_four">
-                    <a href="#">BIG SALE BLACK FRIDAY</a>
+                    <a href="#/">BIG SALE BLACK FRIDAY</a>
                   </div>
                 </div>
               </div>

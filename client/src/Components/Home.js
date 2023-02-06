@@ -190,7 +190,7 @@ const Home = () => {
                             </li>
                             <li className="compare">
                               <a
-                                href="#"
+                                href="#/"
                                 data-tippy-placement="top"
                                 data-tippy-arrow="true"
                                 data-tippy-inertia="true"
@@ -201,7 +201,7 @@ const Home = () => {
                             </li>
                             <li className="quick_button">
                               <a
-                                href="#"
+                                href="#/"
                                 data-tippy-placement="top"
                                 data-tippy-arrow="true"
                                 data-tippy-inertia="true"
@@ -300,7 +300,7 @@ const Home = () => {
                             </li>
                             <li className="compare">
                               <a
-                                href="#"
+                                href="#/"
                                 data-tippy-placement="top"
                                 data-tippy-arrow="true"
                                 data-tippy-inertia="true"
@@ -311,7 +311,7 @@ const Home = () => {
                             </li>
                             <li className="quick_button">
                               <a
-                                href="#"
+                                href="#/"
                                 data-tippy-placement="top"
                                 data-tippy-arrow="true"
                                 data-tippy-inertia="true"
@@ -410,7 +410,7 @@ const Home = () => {
                             </li>
                             <li className="compare">
                               <a
-                                href="#"
+                                href="#/"
                                 data-tippy-placement="top"
                                 data-tippy-arrow="true"
                                 data-tippy-inertia="true"
@@ -421,7 +421,7 @@ const Home = () => {
                             </li>
                             <li className="quick_button">
                               <a
-                                href="#"
+                                href="#/"
                                 data-tippy-placement="top"
                                 data-tippy-arrow="true"
                                 data-tippy-inertia="true"
@@ -520,7 +520,7 @@ const Home = () => {
                             </li>
                             <li className="compare">
                               <a
-                                href="#"
+                                href="#/"
                                 data-tippy-placement="top"
                                 data-tippy-arrow="true"
                                 data-tippy-inertia="true"
@@ -531,7 +531,7 @@ const Home = () => {
                             </li>
                             <li className="quick_button">
                               <a
-                                href="#"
+                                href="#/"
                                 data-tippy-placement="top"
                                 data-tippy-arrow="true"
                                 data-tippy-inertia="true"
