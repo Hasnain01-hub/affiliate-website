@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import { Link } from "react-router-dom";
@@ -14,6 +15,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
   const reduxDispatch = useDispatch();
   const handleLogin = (e) => {
     e.preventDefault();
@@ -31,8 +33,10 @@ const Login = () => {
               token: res.data.token,
             })
           );
+          window.localStorage.setItem("token", res.data.token);
           setlogindata({ email: "", password: "" });
           toast.success("Login Success");
+          navigate("/");
         } else {
           toast.error("Invalid Credentials");
         }
@@ -65,7 +69,10 @@ const Login = () => {
             token: res.data.token,
           })
         );
+        window.localStorage.setItem("token", res.data.token);
         setregisterdata({ email: "", password: "" });
+        toast.success("Register Success");
+        navigate("/");
       })
       .catch((e) => {
         console.log(e);

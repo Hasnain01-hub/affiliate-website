@@ -1,6 +1,11 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
 const Header = () => {
+  const logout = () => {
+    window.localStorage.removeItem("token");
+    window.location.href = "/";
+  };
+  const { user } = useSelector((state) => state.user);
   return (
     <>
       <div class="off_canvars_overlay"></div>
@@ -614,6 +619,11 @@ const Header = () => {
                         <li>
                           <a href="contact.html"> Contact Us</a>
                         </li>
+                        {user && (
+                          <li onClick={logout}>
+                            <a href="/"> logout</a>
+                          </li>
+                        )}
                       </ul>
                     </nav>
                   </div>
