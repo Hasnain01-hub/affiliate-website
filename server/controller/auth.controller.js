@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { validationResult } = require("express-validator");
 const User = require("../model/user.model");
+const AdminModel = require("../model/Admin.model");
 
 exports.registerController = (req, res) => {
   const { email, password } = req.body;
@@ -129,4 +130,22 @@ exports.fetchUserData = async (req, res) => {
       success: false,
     });
   }
+};
+
+exports.adminLogin = (req, res) => {
+  const admin = req.body;
+
+  console.log(req.body);
+
+  AdminModel.findOne({ email: admin.email })
+    .then((doc) => {
+      if (doc.password === admin.password) {
+        return res.status(200).json(doc);
+      } else {
+        return res.status(403).json({ code: "InvPass" });
+      }
+    })
+    .catch((err) => {
+      return res.status(404).json({ message: "noAccFound" });
+    });
 };
