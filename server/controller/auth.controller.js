@@ -62,51 +62,57 @@ exports.registerController = (req, res) => {
 
 exports.loginController = (req, res) => {
   const { email, password } = req.body;
-  const errors = validationResult(req);
+  // const errors = validationResult(req);
 
-  if (!errors.isEmpty()) {
-    const firstError = errors.array().map((error) => error.msg)[0];
-    return res.status(400).json({
-      error: firstError,
-    });
-  } else {
-    User.findOne({
-      email: email,
-    }).exec(async (err, user) => {
-      if (err || !user) {
-        return res.status(400).json({
-          error: "User does not exists. Please register",
+  // if (!errors.isEmpty()) {
+  //   const firstError = errors.array().map((error) => error.msg)[0];
+  //   return res.status(400).json({
+  //     error: firstError,
+  //   });
+  // } else {
+  User.findOne({
+    email: email,
+  }).exec(async (err, user) => {
+    if (err || !user) {
+      return res.status(401).json({
+        error: "User does not exists. Please register",
+      });
+    }
+
+    bcrypt.compare(password, user.password, function (err, result) {
+      if (err) {
+        return res.status(401).json({
+          error: "Invalid Password",
         });
       }
+      console.log(result);
+      if (result) {
+        const token = jwt.sign(
+          {
+            _id: user._id,
+          },
+          process.env.JWT_SECRET,
+          {
+            expiresIn: "24h",
+          }
+        );
 
-      bcrypt.compare(password, user.password, function (err, result) {
-        if (err) {
-          return res.status(400).json({
-            error: "Invalid Password",
-          });
-        }
-      });
-
-      const token = jwt.sign(
-        {
-          _id: user._id,
-        },
-        process.env.JWT_SECRET,
-        {
-          expiresIn: "24h",
-        }
-      );
-
-      const { _id } = user;
-      res.cookie("jwt", token);
-      return res.json({
-        token,
-        user: {
-          _id,
-        },
-      });
+        const { _id } = user;
+        res.cookie("jwt", token);
+        return res.json({
+          token,
+          user: {
+            _id,
+          },
+        });
+      } else {
+        res.status(401).json({
+          error: "Invalid Password",
+        });
+      }
     });
-  }
+  });
+  // }
 };
 
 exports.fetchUserData = async (req, res) => {

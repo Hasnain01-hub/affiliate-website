@@ -26,7 +26,12 @@ app.use(express.json());
 app.use(morgan("common"));
 
 app.use(bodyParser.json({ limit: "2mb" }));
-app.use(cors());
+app.use(
+  cors({
+    origin: [process.env.CLIENT_URL, "*"],
+    credentials: true,
+  })
+);
 
 // Importing Routes
 const authRoute = require("./routes/auth.route");

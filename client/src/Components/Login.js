@@ -6,20 +6,23 @@ import { useDispatch } from "react-redux";
 import { loginSuccess } from "../reducers";
 import { loginUser, registerUser } from "../function/auth";
 const Login = () => {
-  const [data, setData] = React.useState({
+  const [logindata, setlogindata] = React.useState({
     email: "",
     password: "",
   });
-
+  const [registerdata, setregisterdata] = React.useState({
+    email: "",
+    password: "",
+  });
   const reduxDispatch = useDispatch();
   const handleLogin = (e) => {
     e.preventDefault();
 
-    loginUser(data.email, data.password)
+    loginUser(logindata.email, logindata.password)
       .then((res) => {
-        // console.log(res);
-        if (res.status === 400) return toast.error("Invalid credentials");
-        if (res.status === 200) {
+        console.log(res.status);
+
+        if (res.status == 200) {
           console.log(res);
           reduxDispatch(
             loginSuccess({
@@ -28,28 +31,32 @@ const Login = () => {
               token: res.data.token,
             })
           );
-          setData({ email: "", password: "" });
-          //   window.location.href = "/";
+          setlogindata({ email: "", password: "" });
+          toast.success("Login Success");
         } else {
           toast.error("Invalid Credentials");
         }
       })
       .catch((e) => {
+        if (e.response.status == 401) return toast.error("Invalid credentials");
         console.log(e);
       });
   };
-  const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+  const handleloginChange = (e) => {
+    setlogindata({ ...logindata, [e.target.name]: e.target.value });
   };
 
+  const handleregisterChange = (e) => {
+    setregisterdata({ ...registerdata, [e.target.name]: e.target.value });
+  };
   const handleRegister = async (e) => {
     e.preventDefault();
     console.log("handleRegister");
 
-    if (data.email == "" && data.password.length < 5)
+    if (registerdata.email == "" && registerdata.password.length < 5)
       return toast("Please enter valid email and password");
 
-    await registerUser(data)
+    await registerUser(registerdata)
       .then((res) => {
         reduxDispatch(
           loginSuccess({
@@ -58,7 +65,7 @@ const Login = () => {
             token: res.data.token,
           })
         );
-        setData({ email: "", password: "" });
+        setregisterdata({ email: "", password: "" });
       })
       .catch((e) => {
         console.log(e);
@@ -97,8 +104,8 @@ const Login = () => {
                         Username or email <span>*</span>
                       </label>
                       <input
-                        value={data.email}
-                        onChange={handleChange}
+                        value={loginSuccess.email}
+                        onChange={handleloginChange}
                         name="email"
                         type="text"
                       />
@@ -108,8 +115,8 @@ const Login = () => {
                         Passwords <span>*</span>
                       </label>
                       <input
-                        value={data.password}
-                        onChange={handleChange}
+                        value={logindata.password}
+                        onChange={handleloginChange}
                         name="password"
                         type="password"
                       />
@@ -136,8 +143,8 @@ const Login = () => {
                         Email address <span>*</span>
                       </label>
                       <input
-                        value={data.email}
-                        onChange={handleChange}
+                        value={registerdata.email}
+                        onChange={handleregisterChange}
                         name="email"
                         type="text"
                       />
@@ -147,8 +154,8 @@ const Login = () => {
                         Passwords <span>*</span>
                       </label>
                       <input
-                        value={data.password}
-                        onChange={handleChange}
+                        value={registerdata.password}
+                        onChange={handleregisterChange}
                         name="password"
                         type="password"
                       />
