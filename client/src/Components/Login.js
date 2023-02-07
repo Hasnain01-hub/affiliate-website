@@ -104,7 +104,7 @@ const Login = () => {
                         Username or email <span>*</span>
                       </label>
                       <input
-                        value={loginSuccess.email}
+                        value={logindata.email}
                         onChange={handleloginChange}
                         name="email"
                         type="text"

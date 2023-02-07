@@ -31,7 +31,7 @@ exports.registerController = (req, res) => {
         email,
         password: hashed_password,
       });
-      console.log(user);
+
       user.save((err, user) => {
         if (err) {
           return res.status(400).json({
@@ -48,7 +48,7 @@ exports.registerController = (req, res) => {
             }
           );
           res.cookie("jwt", token);
-          return res.status(200).json({
+          res.status(200).json({
             success: true,
             user,
             token,
@@ -85,7 +85,7 @@ exports.loginController = (req, res) => {
           error: "Invalid Password",
         });
       }
-      console.log(result);
+
       if (result) {
         const token = jwt.sign(
           {
@@ -97,12 +97,13 @@ exports.loginController = (req, res) => {
           }
         );
 
-        const { _id } = user;
+        // const { _id } = user;
         res.cookie("jwt", token);
-        return res.json({
+        res.json({
           token,
           user: {
-            _id,
+            email: user.email,
+            name: user.name,
           },
         });
       } else {
@@ -116,8 +117,6 @@ exports.loginController = (req, res) => {
 };
 
 exports.fetchUserData = async (req, res) => {
-  console.log("nody*******000", req.body);
-
   if (req.user) {
     res.status(200).json({
       message: "User is logged in successfully!",
