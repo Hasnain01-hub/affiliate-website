@@ -1,4 +1,5 @@
 const express = require("express");
+const helmet = require("helmet");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
@@ -13,16 +14,16 @@ const app = express();
 mongoose
   .connect(process.env.MONGODB_URI || "", {
     useNewUrlParser: true,
+    // useCreateIndex: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: true,
   })
 
   .then(() => console.log("DB CONNECTED"))
   .catch((err) => console.log("DB CONNECTION ERR", err));
 
 app.use(express.json());
-
+app.set("trust proxy", 1);
+app.use(helmet());
 app.use(morgan("common"));
 
 app.use(bodyParser.json({ limit: "2mb" }));

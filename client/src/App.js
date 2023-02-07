@@ -14,7 +14,8 @@ function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    const token = Cookies.get("jwt");
+    // const token = Cookies.get("jwt");
+    const token = window.localStorage.getItem("token");
     if (token) {
       getcurrentuser(token)
         .then((res) => {

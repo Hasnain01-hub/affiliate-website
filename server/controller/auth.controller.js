@@ -47,7 +47,7 @@ exports.registerController = (req, res) => {
               expiresIn: "24h",
             }
           );
-          res.cookie("jwt", token);
+          // res.cookie("jwt", token);
           res.status(200).json({
             success: true,
             user,
@@ -98,7 +98,7 @@ exports.loginController = (req, res) => {
         );
 
         // const { _id } = user;
-        res.cookie("jwt", token);
+        // res.cookie("jwt", token);
         res.json({
           token,
           user: {
