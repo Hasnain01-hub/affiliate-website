@@ -2,9 +2,9 @@ const cloudinary = require("cloudinary");
 
 //config
 cloudinary.config({
-  cloud_name: "",
-  api_key: "",
-  api_secret: "",
+  cloud_name: "ddt2jhpyh",
+  api_key: "364562372471364",
+  api_secret: "7v-BV__uluVroUSB5UsisZR3tx4",
 });
 
 /* This is the function that is called when the user uploads a file. It takes the file and uploads it
