@@ -149,6 +149,12 @@ const Header = () => {
                   </li>
                 </ul>
               </li>
+              <li className="menu-item ">
+                <a href="/Add-Store" className="menu-link">
+                  <Users size={22} className="menu-icon" />
+                  <div data-i18n="Authentications">Stores</div>
+                </a>
+              </li>
             </ul>
           </aside>
         </>

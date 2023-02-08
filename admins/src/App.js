@@ -6,6 +6,7 @@ import ViewAdmins from "./Components/Admins/ViewAdmins";
 import ViewDeals from "./Components/Admins/ViewDeals";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
+import AddStores from "./Components/Stores/AddStores";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/view-admins" element={<ViewAdmins />} />
       <Route path="/add-deals" element={<AddDeals />} />
       <Route path="/view-deals" element={<ViewDeals />} />
+      <Route path="/Add-Store" element={<AddStores />} />
     </Routes>
   );
 }

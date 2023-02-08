@@ -1,5 +1,6 @@
 const AdminModel = require("../model/Admin.model");
 const productModel = require("../model/product.model");
+const StoreMode = require("../model/Store.mode");
 
 exports.addAdmin = (req, res) => {
   const admin = new AdminModel(req.body);
@@ -43,5 +44,29 @@ exports.deletedeals = (req, res) => {
     .exec((err, data) => {
       if (err) throw new Error(err);
       res.json("Paper deleted successfully");
+    });
+};
+
+exports.AddStore = (req, res) => {
+  const name = req.body;
+  const store = new StoreMode(name);
+
+  store
+    .save()
+    .then((doc) => {
+      return res.status(200).json({ message: "Store Added" });
+    })
+    .catch((err) => {
+      return res.status(400).json({ message: "Internal Server Error" });
+    });
+};
+
+exports.viewStore = (req, res) => {
+  const store = StoreMode.find({})
+    .then((doc) => {
+      res.json(doc);
+    })
+    .catch((err) => {
+      res.json(err);
     });
 };
