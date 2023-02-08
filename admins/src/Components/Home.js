@@ -3,16 +3,18 @@ import Header from "../Layout/Slider";
 import Nav from "../Layout/Nav";
 
 const Home = () => {
-  <>
-    <div className="layout-wrapper layout-content-navbar">
-      <div className="layout-container">
-        <Header />
-        <div className="layout-page">
-          <Nav />
+  return (
+    <>
+      <div className="layout-wrapper layout-content-navbar">
+        <div className="layout-container">
+          <Header />
+          <div className="layout-page">
+            <Nav />
+          </div>
         </div>
       </div>
-    </div>
-  </>;
+    </>
+  );
 };
 
 export default Home;

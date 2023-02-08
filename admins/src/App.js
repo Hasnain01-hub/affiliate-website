@@ -16,7 +16,6 @@ function App() {
       <Route path="/view-admins" element={<ViewAdmins />} />
       <Route path="/add-deals" element={<AddDeals />} />
       <Route path="/view-deals" element={<ViewDeals />} />
-      
     </Routes>
   );
 }
