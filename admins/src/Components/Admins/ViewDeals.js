@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 import React, { useEffect, useState } from "react";
 import Nav from "../../Layout/Nav";
 import Header from "../../Layout/Slider";
@@ -7,8 +8,7 @@ const ViewDeals = () => {
   const [deals, setdeals] = useState([]);
 
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
+  const loaddeals = async () => {
     axios
       .get("http://localhost:8000/api/admin/view-deals")
       .then((res) => {
@@ -18,7 +18,35 @@ const ViewDeals = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+  useEffect(() => {
+    loaddeals();
   }, []);
+
+  const deletep = async (e, _id, pub_id) => {
+    e.preventDefault();
+    if (window.confirm("Are you sure you want to delete this Deal?")) {
+      console.log(pub_id);
+
+      axios
+        .post(`http://localhost:8000/api/cloudinary/removeimage`, {
+          public_id: pub_id,
+        })
+        .then(async (res) => {
+          console.log(res);
+
+          await axios
+            .post(`http://localhost:8000/api/admin/removedeals`, {
+              _id,
+            })
+            .then((res) => {
+              loaddeals();
+              toast.success("Paper deleted successfully");
+            });
+        })
+        .catch((err) => {});
+    }
+  };
   return (
     <>
       <div className="layout-wrapper layout-content-navbar">
@@ -67,6 +95,22 @@ const ViewDeals = () => {
                                       .toString()
                                       .substring(0, 15)}
                                   </p>
+                                  <i
+                                    onClick={(e) => {
+                                      deletep(
+                                        e,
+                                        item._id,
+                                        item.images[0]["public_id"]
+                                      );
+                                    }}
+                                    style={{
+                                      float: "right",
+                                      color: "red",
+                                      fontSize: "20px",
+                                      cursor: "pointer",
+                                    }}
+                                    className="ri-delete-bin-7-line"
+                                  ></i>
                                 </div>
                               </div>
                             </div>
@@ -81,6 +125,7 @@ const ViewDeals = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
