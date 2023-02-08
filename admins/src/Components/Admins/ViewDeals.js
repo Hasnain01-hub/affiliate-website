@@ -91,7 +91,7 @@ const ViewDeals = () => {
                                   <p className="card-text">{item.p_link}</p>
                                   <b>End Date :</b>
                                   <p className="card-text">
-                                    {Date(item.end_date)
+                                    {new Date(item.end_date)
                                       .toString()
                                       .substring(0, 15)}
                                   </p>
