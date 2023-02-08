@@ -1,0 +1,179 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import Nav from "../../Layout/Nav";
+import Header from "../../Layout/Slider";
+
+const AddAffiliateId = () => {
+  const [affiliate, setAffiliate] = useState({
+    name: "",
+    store: "",
+  });
+
+  const [stores, setStores] = useState();
+
+  const [ids, setIDS] = useState();
+
+  useEffect(() => {
+    axios.get(process.env.REACT_APP_API + "api/admin/store/get").then((res) => {
+      setStores(res.data);
+    });
+
+    axios
+      .get(process.env.REACT_APP_API + "api/admin/affiliate/get")
+      .then((res) => {
+        setIDS(res.data);
+        setLoading(false);
+      });
+  }, []);
+
+  const [loading, setLoading] = useState(true);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setAffiliate((event) => {
+      return {
+        ...event,
+        [name]: value,
+      };
+    });
+  };
+
+  const handleSubmit = () => {
+    axios
+      .post(process.env.REACT_APP_API + "api/admin/affiliate/add", affiliate)
+      .then((res) => {
+        toast.success("Affiliate ID Added Successfully");
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  return (
+    <>
+      <div className="layout-wrapper layout-content-navbar">
+        <div className="layout-container">
+          <Header />
+          <div className="layout-page">
+            <Nav />
+            <div className="content-wrapper">
+              <div className="container-xxl flex-grow-1 container-p-y">
+                <h4 className="fw-bold py-3 mb-4">
+                  <span className="text-muted fw-light">ConnectWithRMT /</span>{" "}
+                  Add Affiliate IDS
+                </h4>
+                <div className="row">
+                  <div className="col-xl">
+                    <div className="card mb-4">
+                      <div className="card-body">
+                        <div className="mb-3">
+                          <label
+                            className="form-label"
+                            htmlFor="basic-default-fullname"
+                          >
+                            Affiliate ID
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="amlinker-21"
+                            name="name"
+                            required
+                            onChange={handleChange}
+                          />
+                        </div>
+
+                        <div className="mb-3">
+                          <label
+                            className="form-label"
+                            htmlFor="basic-default-fullname"
+                          >
+                            Select Store
+                          </label>
+                          <select
+                            name="store"
+                            className="form-control"
+                            onChange={handleChange}
+                          >
+                            {loading === true ? (
+                              <>
+                                <option selected>
+                                  Loading Stores Please Wait
+                                </option>
+                              </>
+                            ) : (
+                              <>
+                                <option selected>-----------</option>
+                                {stores.map((store, i) => (
+                                  <>
+                                    <option value={store.name}>
+                                      {store.name}
+                                    </option>
+                                  </>
+                                ))}
+                              </>
+                            )}
+                          </select>
+                        </div>
+
+                        <button
+                          type="submit"
+                          className="btn btn-primary"
+                          onClick={handleSubmit}
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <h4 className="fw-bold py-3 mb-4">
+                    <span className="text-muted fw-light">
+                      {process.env.REACT_APP_NAME} /
+                    </span>{" "}
+                    Affiliate IDS
+                  </h4>
+                  <div className="row mb-5">
+                    {loading === true ? (
+                      <>
+                        <p>Loaidng Stores</p>
+                      </>
+                    ) : (
+                      <>
+                        {ids.map((store, i) => (
+                          <>
+                            <div className="col-md-6 col-lg-4 mb-3" key={i}>
+                              <div className="card h-80">
+                                <div className="card-body">
+                                  ID: {store.name}
+                                  <br />
+                                  <br />
+                                  Store: {store.store}
+                                  <br />
+                                  <br />
+                                  <button className="btn btn-outline-danger">
+                                    Delete
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </>
+                        ))}
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ToastContainer />
+    </>
+  );
+};
+
+export default AddAffiliateId;

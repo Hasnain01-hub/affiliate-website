@@ -46,7 +46,6 @@ app.use("/api/createlink", generatelink);
 app.use("/api/cloudinary", cloudinary);
 app.use("/api/admin", adminRoutes);
 app.use("/", function (req, res) {
-  res.sendFile(path.join(__dirname + "/express/index.html"));
   //__dirname : It will resolve to your project folder.
 });
 

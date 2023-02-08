@@ -1,4 +1,5 @@
 const AdminModel = require("../model/Admin.model");
+const AffiliateIDModel = require("../model/AffiliateID.model");
 const productModel = require("../model/product.model");
 const StoreMode = require("../model/Store.mode");
 
@@ -63,6 +64,28 @@ exports.AddStore = (req, res) => {
 
 exports.viewStore = (req, res) => {
   const store = StoreMode.find({})
+    .then((doc) => {
+      res.json(doc);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+};
+
+exports.addAFfiliateID = (req, res) => {
+  const id = new AffiliateIDModel(req.body);
+
+  id.save()
+    .then((doc) => {
+      return res.status(200).json({ message: "added" });
+    })
+    .catch((err) => {
+      res.status(400).json({ message: "error" });
+    });
+};
+
+exports.getAffiliateIDS = (req, res) => {
+  const ids = AffiliateIDModel.find({})
     .then((doc) => {
       res.json(doc);
     })

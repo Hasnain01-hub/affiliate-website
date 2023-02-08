@@ -155,6 +155,32 @@ const Header = () => {
                   <div data-i18n="Authentications">Stores</div>
                 </a>
               </li>
+
+              <li className="menu-item affiliate">
+                <a
+                  href="#/"
+                  className="menu-link menu-toggle"
+                  onClick={() => {
+                    menu("affiliate");
+                  }}
+                >
+                  <Users size={22} className="menu-icon" />
+                  <div data-i18n="Authentications">Affiliates</div>
+                </a>
+                <ul className="menu-sub">
+                  <li className="menu-item">
+                    <Link to="/Add-Affiliate-ID" className="menu-link">
+                      <div data-i18n="Basic">Add Affiliates IDs</div>
+                    </Link>
+                  </li>
+
+                  <li className="menu-item">
+                    <a href="/Attach-Affiliate" className="menu-link">
+                      <div data-i18n="Basic">Attach IDs to Users</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </aside>
         </>
