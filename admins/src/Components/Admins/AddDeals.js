@@ -29,9 +29,9 @@ const AddDeals = () => {
     try {
       if (deals.p_link !== "" && deals.p_name) {
         axios
-          .post(`http://localhost:8000/api/admin/add-product`, { deals })
+          .post(process.env.REACT_APP_API + `api/admin/add-product`, { deals })
           .then((res) => {
-            if (res.status == 200) {
+            if (res.status === 200) {
               toast.success("Deals Added Successfully");
               setdeals({ images: [], p_name: "", p_link: "", end_date: "" });
             }

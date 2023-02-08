@@ -5,8 +5,7 @@ const User = require("../model/user.model");
 const AdminModel = require("../model/Admin.model");
 
 exports.registerController = (req, res) => {
-  const { email, password } = req.body;
-  console.log(req.body);
+  const { email, password, name, phoneNumber } = req.body;
 
   const errors = validationResult(req);
 
@@ -28,9 +27,10 @@ exports.registerController = (req, res) => {
       const salt = await bcrypt.genSalt(10);
       const hashed_password = await bcrypt.hash(password, salt);
       const user = new User({
-        name: email.split("@")[0],
+        name,
         email,
         password: hashed_password,
+        phoneNumber,
       });
 
       user.save((err, user) => {

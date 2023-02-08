@@ -10,7 +10,7 @@ const ViewDeals = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/admin/view-deals")
+      .get(process.env.REACT_APP_API + "api/admin/view-deals")
       .then((res) => {
         setdeals(res.data);
         setLoading(false);

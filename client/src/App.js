@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 
 import { Route, Routes } from "react-router-dom";
-import Cookies from "js-cookie";
 import Login from "./Components/Login";
 import Header from "./Layouts/Header";
 import Footer from "./Layouts/Footer";

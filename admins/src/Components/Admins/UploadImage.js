@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { lazy } from "react";
+import React from "react";
 import Resizer from "react-image-file-resizer";
 import "./helper.css";
 const UploadFile = ({ loading, values, setValues, setLoading }) => {
@@ -20,7 +20,7 @@ const UploadFile = ({ loading, values, setValues, setLoading }) => {
           0,
           (uri) => {
             axios
-              .post(`http://localhost:8000/api/cloudinary/uploadimages`, {
+              .post(process.env.REACT_APP_API + `api/cloudinary/uploadimages`, {
                 image: uri,
               })
               .then((res) => {
@@ -43,7 +43,9 @@ const UploadFile = ({ loading, values, setValues, setLoading }) => {
   const handleImageRemove = (public_id) => {
     setLoading(true);
     axios
-      .post(`http://localhost:8000/api/cloudinary/removeimage`, { public_id })
+      .post(process.env.REACT_APP_API + `api/cloudinary/removeimage`, {
+        public_id,
+      })
       .then((res) => {
         setLoading(false);
         const { images } = values;
@@ -114,7 +116,6 @@ const UploadFile = ({ loading, values, setValues, setLoading }) => {
             textAlign: "center",
             margin: "14px auto",
             width: "200px",
-            textAlign: "center",
           }}
           className=" btn-primary btn-raised"
         >

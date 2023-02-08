@@ -12,8 +12,10 @@ const Login = () => {
     password: "",
   });
   const [registerdata, setregisterdata] = React.useState({
+    name: "",
     email: "",
     password: "",
+    phoneNumber: "",
   });
   const navigate = useNavigate();
   const reduxDispatch = useDispatch();
@@ -22,9 +24,7 @@ const Login = () => {
 
     loginUser(logindata.email, logindata.password)
       .then((res) => {
-        console.log(res.status);
-
-        if (res.status == 200) {
+        if (res.status === 200) {
           console.log(res);
           reduxDispatch(
             loginSuccess({
@@ -42,7 +42,8 @@ const Login = () => {
         }
       })
       .catch((e) => {
-        if (e.response.status == 401) return toast.error("Invalid credentials");
+        if (e.response.status === 401)
+          return toast.error("Invalid credentials");
         console.log(e);
       });
   };
@@ -55,9 +56,8 @@ const Login = () => {
   };
   const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("handleRegister");
 
-    if (registerdata.email == "" && registerdata.password.length < 5)
+    if (registerdata.email === "" && registerdata.password.length < 5)
       return toast("Please enter valid email and password");
 
     await registerUser(registerdata)
@@ -147,6 +147,17 @@ const Login = () => {
                   <form action="#">
                     <p>
                       <label>
+                        Name <span>*</span>
+                      </label>
+                      <input
+                        value={registerdata.name}
+                        onChange={handleregisterChange}
+                        name="name"
+                        type="text"
+                      />
+                    </p>
+                    <p>
+                      <label>
                         Email address <span>*</span>
                       </label>
                       <input
@@ -165,6 +176,17 @@ const Login = () => {
                         onChange={handleregisterChange}
                         name="password"
                         type="password"
+                      />
+                    </p>
+                    <p>
+                      <label>
+                        Phone Number <span>*</span>
+                      </label>
+                      <input
+                        value={registerdata.phoneNumber}
+                        onChange={handleregisterChange}
+                        name="phoneNumber"
+                        type="number"
                       />
                     </p>
                     <div className="login_submit">

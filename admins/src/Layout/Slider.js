@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import $ from "jquery";
-import { House, User, Users, X, FilePlus } from "phosphor-react";
+import { House, User, Users, X } from "phosphor-react";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
@@ -10,12 +10,12 @@ const Header = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setAdmin(JSON.parse(localStorage.getItem("admin")));
-    setLoading(false);
-
     if (localStorage.getItem("admin") === null) {
       window.location.href = "/login";
+      console.log(localStorage.getItem("admin"));
     }
+    setAdmin(JSON.parse(localStorage.getItem("admin")));
+    setLoading(false);
   }, []);
 
   const menu = (argument) => {
@@ -98,17 +98,30 @@ const Header = () => {
                   <div data-i18n="Analytics">Dashboard</div>
                 </Link>
               </li>
-              <li className="menu-item">
-                <Link to="/add-deals" className="menu-link">
-                  <FilePlus size={22} className="menu-icon" />
-                  <div data-i18n="Analytics">Add Deals</div>
-                </Link>
-              </li>
-              <li className="menu-item">
-                <Link to="/view-deals" className="menu-link">
-                  <FilePlus size={22} className="menu-icon" />
-                  <div data-i18n="Analytics">View Deals</div>
-                </Link>
+              <li className="menu-item deals">
+                <a
+                  href="#/"
+                  className="menu-link menu-toggle"
+                  onClick={() => {
+                    menu("deals");
+                  }}
+                >
+                  <Users size={22} className="menu-icon" />
+                  Deals
+                </a>
+                <ul className="menu-sub">
+                  <li className="menu-item">
+                    <Link to="/view-deals" className="menu-link">
+                      <div data-i18n="Analytics">View Deals</div>
+                    </Link>
+                  </li>
+
+                  <li className="menu-item">
+                    <Link to="/add-deals" className="menu-link">
+                      <div data-i18n="Analytics">Add Deals</div>
+                    </Link>
+                  </li>
+                </ul>
               </li>
 
               <li className="menu-item tag">
