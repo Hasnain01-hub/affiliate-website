@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import $ from "jquery";
-import { House, User, Users, X } from "phosphor-react";
+import { House, User, Users, X, FilePlus } from "phosphor-react";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [admin, setAdmin] = useState();
@@ -92,10 +93,22 @@ const Header = () => {
                 <span className="menu-header-text">Attorney</span>
               </li>
               <li className="menu-item">
-                <a href="/" className="menu-link">
+                <Link to="/" className="menu-link">
                   <House size={22} className="menu-icon" />
                   <div data-i18n="Analytics">Dashboard</div>
-                </a>
+                </Link>
+              </li>
+              <li className="menu-item">
+                <Link to="/add-deals" className="menu-link">
+                  <FilePlus size={22} className="menu-icon" />
+                  <div data-i18n="Analytics">Add Deals</div>
+                </Link>
+              </li>
+              <li className="menu-item">
+                <Link to="/view-deals" className="menu-link">
+                  <FilePlus size={22} className="menu-icon" />
+                  <div data-i18n="Analytics">View Deals</div>
+                </Link>
               </li>
 
               <li className="menu-item tag">
@@ -111,13 +124,13 @@ const Header = () => {
                 </a>
                 <ul className="menu-sub">
                   <li className="menu-item">
-                    <a href="/Add-Admins" className="menu-link">
+                    <Link to="/add-admins" className="menu-link">
                       <div data-i18n="Basic">Add Admins</div>
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="menu-item">
-                    <a href="/View-Admins" className="menu-link">
+                    <a href="/view-admins" className="menu-link">
                       <div data-i18n="Basic">View Admins</div>
                     </a>
                   </li>

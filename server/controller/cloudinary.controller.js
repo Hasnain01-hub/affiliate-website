@@ -2,9 +2,9 @@ const cloudinary = require("cloudinary");
 
 //config
 cloudinary.config({
-  cloud_name: "",
-  api_key: "",
-  api_secret: "",
+  cloud_name: "dpwustwce",
+  api_key: "547464747529574",
+  api_secret: "VYOzdC-MG3FUbPKZCAQk0GXxgfA",
 });
 
 /* This is the function that is called when the user uploads a file. It takes the file and uploads it
@@ -21,9 +21,10 @@ exports.upload = async (req, res) => {
 };
 
 exports.remove = (req, res) => {
-  let resume_id = req.body.asset_id;
-  console.log(resume_id);
-  cloudinary.uploader.destroy(resume_id, (err, result) => {
+  let product_id = req.body.public_id;
+  console.log(product_id);
+  console.log(req.body);
+  cloudinary.uploader.destroy(product_id, (err, result) => {
     if (err) return res.json({ success: false, err });
     console.log(result);
     res.send("ok");

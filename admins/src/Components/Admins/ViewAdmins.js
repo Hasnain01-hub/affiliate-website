@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Header from "../../Layout/Header";
+import Header from "../../Layout/Slider";
 import Nav from "../../Layout/Nav";
 
 const ViewAdmins = () => {
@@ -10,7 +10,7 @@ const ViewAdmins = () => {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_API + "api/admin/view-admins")
+      .get("http://localhost:8000/api/admin/view-admins")
       .then((res) => {
         setAdmins(res.data);
         setLoading(false);

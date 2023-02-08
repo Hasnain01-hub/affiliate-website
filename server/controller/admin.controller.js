@@ -1,4 +1,5 @@
 const AdminModel = require("../model/Admin.model");
+const productModel = require("../model/product.model");
 
 exports.addAdmin = (req, res) => {
   const admin = new AdminModel(req.body);
@@ -17,6 +18,17 @@ exports.addAdmin = (req, res) => {
 
 exports.viewAdmin = (req, res) => {
   const admin = AdminModel.find({})
+    .sort({ _id: -1 })
+    .then((doc) => {
+      if (doc) {
+        res.json(doc);
+      }
+    });
+};
+
+exports.viewDeals = (req, res) => {
+  const product = productModel
+    .find({})
     .sort({ _id: -1 })
     .then((doc) => {
       if (doc) {

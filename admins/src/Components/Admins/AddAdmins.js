@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import Header from "../../Layout/Header";
+import Header from "../../Layout/Slider";
 import Nav from "../../Layout/Nav";
 
 const AddAdmins = () => {

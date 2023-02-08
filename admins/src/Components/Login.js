@@ -2,13 +2,21 @@ import axios from "axios";
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  React.useEffect(() => {
+    const admin = JSON.parse(window.localStorage.getItem("admin"));
+    console.log("admin", admin);
+    if (admin && admin.email) {
+      // navigate("/");
+      window.location.href = "/";
+    }
+  }, []);
   const [admin, setAdmin] = useState({
     email: "",
     password: "",
   });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setAdmin((event) => {
@@ -27,16 +35,14 @@ const Login = () => {
       });
     } else {
       axios
-        .post(process.env.REACT_APP_API + "api/auth/admin/login", admin)
+        .post("http://localhost:8000/api/auth/admin/login", admin)
         .then((res) => {
-          localStorage.setItem("admin", JSON.stringify(admin));
+          window.localStorage.setItem("admin", JSON.stringify(admin));
           toast.success("Logged in Successful", {
             position: toast.POSITION.TOP_CENTER,
             theme: "dark",
           });
-          setInterval(() => {
-            window.location.href = "/";
-          }, 1000);
+          navigate("/");
         })
         .catch((err) => {
           if (err.response.status === 404) {

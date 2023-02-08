@@ -1,19 +1,23 @@
-import "./App.css";
-import Header from "./Layout/Header";
-import Nav from "./Layout/Nav";
+import { Route, Routes } from "react-router-dom";
+
+import AddAdmins from "./Components/Admins/AddAdmins";
+import AddDeals from "./Components/Admins/AddDeals";
+import ViewAdmins from "./Components/Admins/ViewAdmins";
+import ViewDeals from "./Components/Admins/ViewDeals";
 import Home from "./Components/Home";
+import Login from "./Components/Login";
 
 function App() {
   return (
-    <div className="layout-wrapper layout-content-navbar">
-      <div className="layout-container">
-        <Header />
-        <div className="layout-page">
-          <Nav />
-          <Home />
-        </div>
-      </div>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/add-admins" element={<AddAdmins />} />
+      <Route path="/view-admins" element={<ViewAdmins />} />
+      <Route path="/add-deals" element={<AddDeals />} />
+      <Route path="/view-deals" element={<ViewDeals />} />
+      
+    </Routes>
   );
 }
 
