@@ -18,15 +18,17 @@ const AddAffiliateId = () => {
     axios.get(process.env.REACT_APP_API + "api/admin/store/get").then((res) => {
       setStores(res.data);
     });
+    getaffiliate();
+  }, []);
 
-    axios
+  const getaffiliate = async () => {
+    await axios
       .get(process.env.REACT_APP_API + "api/admin/affiliate/get")
       .then((res) => {
         setIDS(res.data);
         setLoading(false);
       });
-  }, []);
-
+  };
   const [loading, setLoading] = useState(true);
 
   const handleChange = (e) => {
@@ -51,6 +53,17 @@ const AddAffiliateId = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+  const deleteStore = (e, _id) => {
+    e.preventDefault();
+    if (window.confirm("Are you sure you want to delete this id?")) {
+      axios
+        .get(process.env.REACT_APP_API + "api/admin/affiliate/delete/" + _id)
+        .then((res) => {
+          getaffiliate();
+          toast.success("Affiliate id Deleted Successfully");
+        });
+    }
   };
 
   return (
@@ -154,7 +167,12 @@ const AddAffiliateId = () => {
                                   Store: {store.store}
                                   <br />
                                   <br />
-                                  <button className="btn btn-outline-danger">
+                                  <button
+                                    onClick={(e) => {
+                                      deleteStore(e, store._id);
+                                    }}
+                                    className="btn btn-outline-danger"
+                                  >
                                     Delete
                                   </button>
                                 </div>

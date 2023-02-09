@@ -84,6 +84,12 @@ exports.addAFfiliateID = (req, res) => {
     });
 };
 
+exports.deleteAffiliateID = (req, res) => {
+  AffiliateIDModel.findOneAndDelete({ _id: req.params.id }).then((doc) => {
+    return res.status(200).json({ message: "deleted" });
+  });
+};
+
 exports.getAffiliateIDS = (req, res) => {
   const ids = AffiliateIDModel.find({})
     .then((doc) => {

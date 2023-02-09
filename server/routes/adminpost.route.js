@@ -8,6 +8,7 @@ const {
   viewStore,
   getAffiliateIDS,
   addAFfiliateID,
+  deleteAffiliateID,
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
 const router = express.Router();
@@ -20,6 +21,7 @@ router.post("/removedeals", deletedeals);
 router.post("/store/add", AddStore);
 router.get("/store/get", viewStore);
 router.post("/affiliate/add", addAFfiliateID);
+router.get("/affiliate/delete/:id", deleteAffiliateID);
 router.get("/affiliate/get", getAffiliateIDS);
 
 module.exports = router;
