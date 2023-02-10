@@ -1,9 +1,12 @@
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
+import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 const Home = () => {
   const [deals, setdeals] = useState([]);
+
+  const [category, setCategory] = useState();
 
   const [loading, setLoading] = useState(true);
   const loaddeals = async () => {
@@ -11,7 +14,6 @@ const Home = () => {
       .get(process.env.REACT_APP_API + "api/admin/view-deals")
       .then((res) => {
         setdeals(res.data);
-        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -19,6 +21,16 @@ const Home = () => {
   };
   useEffect(() => {
     loaddeals();
+
+    axios
+      .get(process.env.REACT_APP_API + "api/admin/category/get")
+      .then((res) => {
+        setCategory(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        toast.error("Internal Server Error");
+      });
   }, []);
   return (
     <>
@@ -27,136 +39,32 @@ const Home = () => {
         <div className="categories_product_area mb-55">
           <div className="container">
             <div className="categories_product_inner">
-              <div className="single_categories_product">
-                <div className="categories_product_content">
-                  <h4>
-                    <a href="shop.html"> Cells &amp; Tablets</a>
-                  </h4>
-                  <p>12 Products</p>
-                </div>
-                <div className="categories_product_thumb">
-                  <a href="shop.html">
-                    <img src="assets/img/s-product/category1.jpg" alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className="single_categories_product">
-                <div className="categories_product_content">
-                  <h4>
-                    <a href="shop.html"> Computer</a>
-                  </h4>
-                  <p>24 Products</p>
-                </div>
-                <div className="categories_product_thumb">
-                  <a href="shop.html">
-                    <img src="assets/img/s-product/category2.jpg" alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className="single_categories_product">
-                <div className="categories_product_content">
-                  <h4>
-                    <a href="shop.html"> Fashion</a>
-                  </h4>
-                  <p>22 Products</p>
-                </div>
-                <div className="categories_product_thumb">
-                  <a href="shop.html">
-                    <img src="assets/img/s-product/category3.jpg" alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className="single_categories_product">
-                <div className="categories_product_content">
-                  <h4>
-                    <a href="shop.html"> Sunglasses</a>
-                  </h4>
-                  <p>06 Products</p>
-                </div>
-                <div className="categories_product_thumb">
-                  <a href="shop.html">
-                    <img src="assets/img/s-product/category4.jpg" alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className="single_categories_product">
-                <div className="categories_product_content">
-                  <h4>
-                    <a href="shop.html"> Baby &amp; Kids</a>
-                  </h4>
-                  <p>20 Products</p>
-                </div>
-                <div className="categories_product_thumb">
-                  <a href="shop.html">
-                    <img src="assets/img/s-product/category5.jpg" alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className="single_categories_product">
-                <div className="categories_product_content">
-                  <h4>
-                    <a href="shop.html"> Accessories</a>
-                  </h4>
-                  <p>04 Products</p>
-                </div>
-                <div className="categories_product_thumb">
-                  <a href="shop.html">
-                    <img src="assets/img/s-product/category6.jpg" alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className="single_categories_product">
-                <div className="categories_product_content">
-                  <h4>
-                    <a href="shop.html"> Cells &amp; Tablets</a>
-                  </h4>
-                  <p>12 Products</p>
-                </div>
-                <div className="categories_product_thumb">
-                  <a href="shop.html">
-                    <img src="assets/img/s-product/category7.jpg" alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className="single_categories_product">
-                <div className="categories_product_content">
-                  <h4>
-                    <a href="shop.html"> Accessories</a>
-                  </h4>
-                  <p>12 Products</p>
-                </div>
-                <div className="categories_product_thumb">
-                  <a href="shop.html">
-                    <img src="assets/img/s-product/category8.jpg" alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className="single_categories_product">
-                <div className="categories_product_content">
-                  <h4>
-                    <a href="shop.html"> Cells &amp; Tablets</a>
-                  </h4>
-                  <p>12 Products</p>
-                </div>
-                <div className="categories_product_thumb">
-                  <a href="shop.html">
-                    <img src="assets/img/s-product/category9.jpg" alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className="single_categories_product">
-                <div className="categories_product_content">
-                  <h4>
-                    <a href="shop.html"> Baby &amp; Kids</a>
-                  </h4>
-                  <p>12 Products</p>
-                </div>
-                <div className="categories_product_thumb">
-                  <a href="shop.html">
-                    <img src="assets/img/s-product/category10.jpg" alt="" />
-                  </a>
-                </div>
-              </div>
+              {loading === false ? (
+                <>
+                  {category.map((cat, i) => (
+                    <>
+                      <div
+                        className="single_categories_product"
+                        style={{ height: "100px" }}
+                      >
+                        <div className="categories_product_content">
+                          <h4>
+                            <a href={"/shop/" + cat.name}> {cat.name}</a>
+                          </h4>
+                          <p>{cat.number_of_product} Products Available</p>
+                        </div>
+                        <div className="categories_product_thumb">
+                          <a href="shop.html">
+                            <img src={cat.image} alt="" />
+                          </a>
+                        </div>
+                      </div>
+                    </>
+                  ))}
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </div>
@@ -195,7 +103,7 @@ const Home = () => {
                                 alt=""
                               />
                             </a>
-                            <a className="secondary_img" href="#">
+                            <a className="secondary_img" href="#/">
                               <img
                                 style={{
                                   height: "200px",
@@ -209,45 +117,6 @@ const Home = () => {
                             <div className="label_product">
                               <span className="label_sale">Sale</span>
                             </div>
-                            <div className="action_links">
-                              <ul>
-                                <li className="wishlist">
-                                  <a
-                                    href="wishlist.html"
-                                    data-tippy-placement="top"
-                                    data-tippy-arrow="true"
-                                    data-tippy-inertia="true"
-                                    data-tippy="Add to Wishlist"
-                                  >
-                                    <i className="ion-android-favorite-outline" />
-                                  </a>
-                                </li>
-                                <li className="compare">
-                                  <a
-                                    href="#/"
-                                    data-tippy-placement="top"
-                                    data-tippy-arrow="true"
-                                    data-tippy-inertia="true"
-                                    data-tippy="Add to Compare"
-                                  >
-                                    <i className="ion-ios-settings-strong" />
-                                  </a>
-                                </li>
-                                <li className="quick_button">
-                                  <a
-                                    href="#/"
-                                    data-tippy-placement="top"
-                                    data-tippy-arrow="true"
-                                    data-tippy-inertia="true"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modal_box"
-                                    data-tippy="quick view"
-                                  >
-                                    <i className="ion-ios-search-strong" />
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
                           </div>
                           <div className="product_content">
                             <div className="product_content_inner">
@@ -256,10 +125,6 @@ const Home = () => {
                                   {item.p_name}
                                 </a>
                               </h4>
-                              <div className="price_box">
-                                <span className="old_price">$80.00</span>
-                                <span className="current_price">$70.00</span>
-                              </div>
                               <div className="countdown_text">
                                 <p>
                                   <span>Hurry Up!</span> Offers ends in:{" "}
@@ -294,11 +159,7 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                <p>
-                                  {new Date(item.end_date)
-                                    .toString()
-                                    .substring(0, 15)}
-                                </p>
+                                <p>{moment(item.end_date).format("LLL")}</p>
                               </div>
                             </div>
                             <div className="add_to_cart">
@@ -647,6 +508,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

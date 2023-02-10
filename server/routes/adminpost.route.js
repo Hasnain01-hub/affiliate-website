@@ -13,6 +13,7 @@ const {
   viewProductCategory,
   addProductCategory,
   deleteAffiliateID,
+  getCategoryProducts,
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
 const router = express.Router();
@@ -26,6 +27,7 @@ router.get("/store/get", viewStore);
 router.get("/affiliate/get", getAffiliateIDS);
 router.get("/affiliate/delete/:id", deleteAffiliateID);
 router.get("/affiliate/get", getAffiliateIDS);
+router.get("/category/:cat", getCategoryProducts);
 
 //Post Routes
 router.post("/add-admin", addAdmin);

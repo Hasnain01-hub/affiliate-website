@@ -29,10 +29,11 @@ app.use(morgan("common"));
 
 app.use(bodyParser.json({ limit: "500mb" }));
 app.use(
-  cors({
-    origin: [process.env.CLIENT_URL, "*"],
-    credentials: true,
-  })
+  cors()
+  // cors({
+  //   origin: [process.env.CLIENT_URL, "*"],
+  //   credentials: true,
+  // })
 );
 
 // Importing Routes

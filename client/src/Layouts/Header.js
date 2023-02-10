@@ -584,38 +584,23 @@ const Header = () => {
                     <nav>
                       <ul>
                         <li>
-                          <a className="active" href="index-2.html">
-                            home
-                            <i className="fa fa-angle-down" />
-                          </a>
-                          <ul className="sub_menu">
-                            <li>
-                              <a href="index-2.html">Home shop 1</a>
-                            </li>
-                            <li>
-                              <a href="index-3.html">Home shop 2</a>
-                            </li>
-                            <li>
-                              <a href="index-4.html">Home shop 3</a>
-                            </li>
-                            <li>
-                              <a href="index-5.html">Home shop 4</a>
-                            </li>
-                            <li>
-                              <a href="index-6.html">Home shop 5</a>
-                            </li>
-                            <li>
-                              <a href="index-7.html">Home shop 6</a>
-                            </li>
-                            <li>
-                              <a href="index-8.html">Home shop 7</a>
-                            </li>
-                          </ul>
+                          <a href="/">home</a>
                         </li>
-
                         <li>
-                          <a href="/login">Login</a>
+                          <a href="/Shop">Shop</a>
                         </li>
+                        <li>
+                          <a href="/deals">Deals</a>
+                        </li>
+                        <li>
+                          <a href="/Links">Make-Links</a>
+                        </li>
+                        {!user && (
+                          <li>
+                            <a href="/login">Login</a>
+                          </li>
+                        )}
+
                         <li>
                           <a href="contact.html"> Contact Us</a>
                         </li>

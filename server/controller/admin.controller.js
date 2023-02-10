@@ -122,7 +122,7 @@ exports.viewProducts = (req, res) => {
       return res.json(doc);
     })
     .catch((err) => {
-      res.json(err);
+      return res.json(err);
     });
 };
 
@@ -140,11 +140,35 @@ exports.addProductCategory = (req, res) => {
 };
 
 exports.viewProductCategory = (req, res) => {
-  const category = ProductCategoryModel.find({})
+  const category = ProductCategoryModel.aggregate([
+    {
+      $lookup: {
+        from: "Items",
+        localField: "name",
+        foreignField: "category",
+        as: "counts",
+      },
+    },
+    {
+      $project: {
+        _id: 1,
+        name: 1,
+        image: 1,
+        number_of_product: { $size: "$counts" },
+      },
+    },
+  ]).exec(function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+};
+
+exports.getCategoryProducts = (req, res) => {
+  const products = ItemModel.find({ category: req.params.cat })
     .then((doc) => {
-      res.json(doc);
+      return res.json(doc);
     })
     .catch((err) => {
-      res.json(err);
+      return res.json(err);
     });
 };

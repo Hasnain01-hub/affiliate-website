@@ -16,6 +16,7 @@ const Login = () => {
     email: "",
     password: "",
     phoneNumber: "",
+    tag: "",
   });
   const navigate = useNavigate();
   const reduxDispatch = useDispatch();

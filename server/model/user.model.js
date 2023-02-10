@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    tag: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true } // createdAt, updatedAt timestamps will be taken care of by this automatically
 );
