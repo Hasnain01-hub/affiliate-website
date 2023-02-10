@@ -18,7 +18,7 @@ const AddStores = () => {
       setStores(res.data);
       setLoading(false);
     });
-  });
+  }, []);
 
   const handleChange = (e) => {
     name.name = e.target.value;

@@ -8,18 +8,29 @@ const {
   viewStore,
   getAffiliateIDS,
   addAFfiliateID,
+  addProducts,
+  viewProducts,
+  viewProductCategory,
+  addProductCategory,
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
 const router = express.Router();
 
-router.post("/add-admin", addAdmin);
+//Get Routes
+router.get("/product/get", viewProducts);
+router.get("/category/get", viewProductCategory);
 router.get("/view-admins", viewAdmin);
 router.get("/view-deals", viewDeals);
+router.get("/store/get", viewStore);
+router.get("/affiliate/get", getAffiliateIDS);
+
+//Post Routes
+router.post("/add-admin", addAdmin);
 router.post("/add-product", addproduct);
 router.post("/removedeals", deletedeals);
 router.post("/store/add", AddStore);
-router.get("/store/get", viewStore);
 router.post("/affiliate/add", addAFfiliateID);
-router.get("/affiliate/get", getAffiliateIDS);
+router.post("/product/add", addProducts);
+router.post("/category/add", addProductCategory);
 
 module.exports = router;

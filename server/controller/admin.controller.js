@@ -1,7 +1,10 @@
 const AdminModel = require("../model/Admin.model");
 const AffiliateIDModel = require("../model/AffiliateID.model");
 const productModel = require("../model/product.model");
+const ProductsModel = require("../model/Item.model");
 const StoreMode = require("../model/Store.mode");
+const ItemModel = require("../model/Item.model");
+const ProductCategoryModel = require("../model/ProductCategory.model");
 
 exports.addAdmin = (req, res) => {
   const admin = new AdminModel(req.body);
@@ -65,10 +68,10 @@ exports.AddStore = (req, res) => {
 exports.viewStore = (req, res) => {
   const store = StoreMode.find({})
     .then((doc) => {
-      res.json(doc);
+      return res.json(doc);
     })
     .catch((err) => {
-      res.json(err);
+      return res.json(err);
     });
 };
 
@@ -86,6 +89,52 @@ exports.addAFfiliateID = (req, res) => {
 
 exports.getAffiliateIDS = (req, res) => {
   const ids = AffiliateIDModel.find({})
+    .then((doc) => {
+      return res.json(doc);
+    })
+    .catch((err) => {
+      return res.json(err);
+    });
+};
+
+exports.addProducts = (req, res) => {
+  const item = new ItemModel(req.body);
+
+  item
+    .save()
+    .then((doc) => {
+      return res.status(200).json({ message: "Added" });
+    })
+    .catch((err) => {
+      return res.status(400).json({ message: "Error" });
+    });
+};
+
+exports.viewProducts = (req, res) => {
+  const item = ItemModel.find({})
+    .then((doc) => {
+      return res.json(doc);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+};
+
+exports.addProductCategory = (req, res) => {
+  const category = new ProductCategoryModel(req.body);
+
+  category
+    .save()
+    .then((doc) => {
+      return res.json({ message: "Done" });
+    })
+    .catch((err) => {
+      return res.json({ message: "error" });
+    });
+};
+
+exports.viewProductCategory = (req, res) => {
+  const category = ProductCategoryModel.find({})
     .then((doc) => {
       res.json(doc);
     })

@@ -26,8 +26,6 @@ const ViewDeals = () => {
   const deletep = async (e, _id, pub_id) => {
     e.preventDefault();
     if (window.confirm("Are you sure you want to delete this Deal?")) {
-      console.log(pub_id);
-
       axios
         .post(`http://localhost:8000/api/cloudinary/removeimage`, {
           public_id: pub_id,

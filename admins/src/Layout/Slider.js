@@ -181,6 +181,38 @@ const Header = () => {
                   </li>
                 </ul>
               </li>
+
+              <li className="menu-item dd">
+                <a
+                  href="#/"
+                  className="menu-link menu-toggle"
+                  onClick={() => {
+                    menu("dd");
+                  }}
+                >
+                  <Users size={22} className="menu-icon" />
+                  <div data-i18n="Authentications">Products</div>
+                </a>
+                <ul className="menu-sub">
+                  <li className="menu-item">
+                    <Link to="/Add-Products" className="menu-link">
+                      <div data-i18n="Basic">Add Products</div>
+                    </Link>
+                  </li>
+
+                  <li className="menu-item">
+                    <a href="/View-Products" className="menu-link">
+                      <div data-i18n="Basic">View / Remove Products</div>
+                    </a>
+                  </li>
+
+                  <li className="menu-item">
+                    <a href="/Add-Category" className="menu-link">
+                      <div data-i18n="Basic">Add Category</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </aside>
         </>
