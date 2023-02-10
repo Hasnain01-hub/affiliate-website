@@ -8,6 +8,7 @@ import Home from "./Components/Home";
 import { loginSuccess } from "./reducers";
 import React from "react";
 import { currentUser } from "./function/auth";
+import NotFound from "./Components/NotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function App() {
               name: res.data.user.name,
               email: res.data.user.email,
               _id: res.data.user._id,
+              tag: res.data.user.tag,
             })
           );
         })
@@ -41,6 +43,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

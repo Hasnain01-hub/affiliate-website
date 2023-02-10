@@ -54,7 +54,6 @@ exports.deletedeals = (req, res) => {
 exports.AddStore = (req, res) => {
   const name = req.body;
   const store = new StoreMode(name);
-
   store
     .save()
     .then((doc) => {

@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const Header = () => {
   const logout = () => {
     window.localStorage.removeItem("token");
@@ -14,15 +15,15 @@ const Header = () => {
           <div className="row">
             <div className="col-12">
               <div className="canvas_open canvas4_open">
-                <a href="#/">
+                <Link to="#/">
                   <i className="ion-navicon" />
-                </a>
+                </Link>
               </div>
               <div className="Offcanvas_menu_wrapper">
                 <div className="canvas_close">
-                  <a href="#/">
+                  <Link to="#/">
                     <i className="ion-android-close" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="antomi_message">
                   <p>Get free shipping – Free 30 day money back guarantee</p>
@@ -30,13 +31,13 @@ const Header = () => {
                 <div className="header_top_settings text-end">
                   <ul>
                     <li>
-                      <a href="#/">Store Locations</a>
+                      <Link to="#/">Store Locations</Link>
                     </li>
                     <li>
-                      <a href="#/">Track Your Order</a>
+                      <Link to="#/">Track Your Order</Link>
                     </li>
                     <li>
-                      Hotline: <a href="tel:+0123456789">0123456789 </a>
+                      Hotline: <Link to="tel:+0123456789">0123456789 </Link>
                     </li>
                     <li>Quality Guarantee Of Products</li>
                   </ul>
@@ -44,178 +45,184 @@ const Header = () => {
                 <div id="menu" className="text-start ">
                   <ul className="offcanvas_main_menu">
                     <li className="menu-item-has-children active">
-                      <a href="#/">Home</a>
+                      <Link to="#/">Home</Link>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="#/">Shop</a>
+                      <Link to="#/">Shop</Link>
                       <ul className="sub-menu">
                         <li className="menu-item-has-children">
-                          <a href="#/">Shop Layouts</a>
+                          <Link to="#/">Shop Layouts</Link>
                           <ul className="sub-menu">
                             <li>
-                              <a href="shop.html">shop</a>
+                              <Link to="shop.html">shop</Link>
                             </li>
                             <li>
-                              <a href="shop-fullwidth.html">Full Width</a>
+                              <Link to="shop-fullwidth.html">Full Width</Link>
                             </li>
                             <li>
-                              <a href="shop-fullwidth-list.html">
+                              <Link to="shop-fullwidth-list.html">
                                 Full Width list
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a href="shop-right-sidebar.html">
+                              <Link to="shop-right-sidebar.html">
                                 Right Sidebar{" "}
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a href="shop-right-sidebar-list.html">
+                              <Link to="shop-right-sidebar-list.html">
                                 {" "}
                                 Right Sidebar list
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a href="shop-list.html">List View</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="menu-item-has-children">
-                          <a href="#/">other Pages</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="cart.html">cart</a>
-                            </li>
-                            <li>
-                              <a href="wishlist.html">Wishlist</a>
-                            </li>
-                            <li>
-                              <a href="checkout.html">Checkout</a>
-                            </li>
-                            <li>
-                              <a href="my-account.html">my account</a>
-                            </li>
-                            <li>
-                              <a href="404.html">Error 404</a>
+                              <Link to="shop-list.html">List View</Link>
                             </li>
                           </ul>
                         </li>
                         <li className="menu-item-has-children">
-                          <a href="#/">Product Types</a>
+                          <Link to="#/">other Pages</Link>
                           <ul className="sub-menu">
                             <li>
-                              <a href="product-details.html">product details</a>
+                              <Link to="cart.html">cart</Link>
                             </li>
                             <li>
-                              <a href="product-sidebar.html">product sidebar</a>
+                              <Link to="wishlist.html">Wishlist</Link>
                             </li>
                             <li>
-                              <a href="product-grouped.html">product grouped</a>
+                              <Link to="checkout.html">Checkout</Link>
                             </li>
                             <li>
-                              <a href="variable-product.html">
+                              <Link to="my-account.html">my account</Link>
+                            </li>
+                            <li>
+                              <Link to="404.html">Error 404</Link>
+                            </li>
+                          </ul>
+                        </li>
+                        <li className="menu-item-has-children">
+                          <Link to="#/">Product Types</Link>
+                          <ul className="sub-menu">
+                            <li>
+                              <Link to="product-details.html">
+                                product details
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="product-sidebar.html">
+                                product sidebar
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="product-grouped.html">
+                                product grouped
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="variable-product.html">
                                 product variable
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a href="product-countdown.html">
+                              <Link to="product-countdown.html">
                                 product countdown
-                              </a>
+                              </Link>
                             </li>
                           </ul>
                         </li>
                       </ul>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="#/">blog</a>
+                      <Link to="#/">blog</Link>
                       <ul className="sub-menu">
                         <li>
-                          <a href="blog.html">blog</a>
+                          <Link to="blog.html">blog</Link>
                         </li>
                         <li>
-                          <a href="blog-details.html">blog details</a>
+                          <Link to="blog-details.html">blog details</Link>
                         </li>
                         <li>
-                          <a href="blog-fullwidth.html">blog fullwidth</a>
+                          <Link to="blog-fullwidth.html">blog fullwidth</Link>
                         </li>
                         <li>
-                          <a href="blog-sidebar.html">blog sidebar</a>
+                          <Link to="blog-sidebar.html">blog sidebar</Link>
                         </li>
                         <li>
-                          <a href="blog-no-sidebar.html">blog no sidebar</a>
+                          <Link to="blog-no-sidebar.html">blog no sidebar</Link>
                         </li>
                       </ul>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="#/">pages </a>
+                      <Link to="#/">pages </Link>
                       <ul className="sub-menu">
                         <li>
-                          <a href="about.html">About Us</a>
+                          <Link to="about.html">About Us</Link>
                         </li>
                         <li>
-                          <a href="faq.html">Frequently Questions</a>
+                          <Link to="faq.html">Frequently Questions</Link>
                         </li>
                         <li>
-                          <a href="privacy-policy.html">privacy policy</a>
+                          <Link to="privacy-policy.html">privacy policy</Link>
                         </li>
                         <li>
-                          <a href="contact.html">contact</a>
+                          <Link to="contact.html">contact</Link>
                         </li>
                         <li>
-                          <a href="login.html">login</a>
+                          <Link to="login.html">login</Link>
                         </li>
                         <li>
-                          <a href="404.html">Error 404</a>
+                          <Link to="404.html">Error 404</Link>
                         </li>
                         <li>
-                          <a href="compare.html">compare</a>
+                          <Link to="compare.html">compare</Link>
                         </li>
                         <li>
-                          <a href="coming-soon.html">coming soon</a>
+                          <Link to="coming-soon.html">coming soon</Link>
                         </li>
                       </ul>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="my-account.html">my account</a>
+                      <Link to="my-account.html">my account</Link>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="about.html">About Us</a>
+                      <Link to="about.html">About Us</Link>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="contact.html"> Contact Us</a>
+                      <Link to="contact.html"> Contact Us</Link>
                     </li>
                   </ul>
                 </div>
                 <div className="Offcanvas_footer">
                   <span>
-                    <a href="#/">
+                    <Link to="#/">
                       <i className="fa fa-envelope-o" /> demo@example.com
-                    </a>
+                    </Link>
                   </span>
                   <ul>
                     <li className="facebook">
-                      <a href="#/">
+                      <Link to="#/">
                         <i className="fa fa-facebook" />
-                      </a>
+                      </Link>
                     </li>
                     <li className="twitter">
-                      <a href="#/">
+                      <Link to="#/">
                         <i className="fa fa-twitter" />
-                      </a>
+                      </Link>
                     </li>
                     <li className="pinterest">
-                      <a href="#/">
+                      <Link to="#/">
                         <i className="fa fa-pinterest-p" />
-                      </a>
+                      </Link>
                     </li>
                     <li className="google-plus">
-                      <a href="#/">
+                      <Link to="#/">
                         <i className="fa fa-google-plus" />
-                      </a>
+                      </Link>
                     </li>
                     <li className="linkedin">
-                      <a href="#/">
+                      <Link to="#/">
                         <i className="fa fa-linkedin" />
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -235,9 +242,9 @@ const Header = () => {
               <div className="row align-items-center">
                 <div className="column1 col-lg-3 col-md-3 col-4">
                   <div className="logo">
-                    <a href="index-2.html">
-                      <img src="assets/img/logo/logo.png" alt="" />
-                    </a>
+                    <Link to="index-2.html">
+                      <img src="/assets/img/logo/logo.png" alt="" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -252,45 +259,45 @@ const Header = () => {
                   <h3>cart</h3>
                 </div>
                 <div className="mini_cart_close">
-                  <a href="#/">
+                  <Link to="#/">
                     <i className="ion-android-close" />
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="cart_item">
                 <div className="cart_img">
-                  <a href="#/">
+                  <Link to="#/">
                     <img src="assets/img/s-product/product.jpg" alt="" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="cart_info">
-                  <a href="#/">Primis In Faucibus</a>
+                  <Link to="#/">Primis In Faucibus</Link>
                   <p>
                     Qty: 1 X <span> $60.00 </span>
                   </p>
                 </div>
                 <div className="cart_remove">
-                  <a href="#/">
+                  <Link to="#/">
                     <i className="ion-android-close" />
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="cart_item">
                 <div className="cart_img">
-                  <a href="#/">
+                  <Link to="#/">
                     <img src="assets/img/s-product/product2.jpg" alt="" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="cart_info">
-                  <a href="#/">Letraset Sheets</a>
+                  <Link to="#/">Letraset Sheets</Link>
                   <p>
                     Qty: 1 X <span> $60.00 </span>
                   </p>
                 </div>
                 <div className="cart_remove">
-                  <a href="#/">
+                  <Link to="#/">
                     <i className="ion-android-close" />
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="mini_cart_table">
@@ -305,12 +312,7 @@ const Header = () => {
               </div>
               <div className="mini_cart_footer">
                 <div className="cart_button">
-                  <a href="cart.html">View cart</a>
-                </div>
-                <div className="cart_button">
-                  <a className="active" href="checkout.html">
-                    Checkout
-                  </a>
+                  <Link to="cart.html">View cart</Link>
                 </div>
               </div>
             </div>
@@ -318,304 +320,46 @@ const Header = () => {
             {/*header bottom satrt*/}
             <div className="header_bottom">
               <div className="row align-items-center">
-                <div className="column1 col-lg-3 col-md-6">
-                  <div className="categories_menu categories_four">
-                    <div className="categories_title">
-                      <h2 className="categori_toggle">ALL CATEGORIES</h2>
-                    </div>
-                    <div className="categories_menu_toggle">
-                      <ul>
-                        <li className="menu_item_children">
-                          <a href="#/">
-                            Brake Parts <i className="fa fa-angle-right" />
-                          </a>
-                          <ul className="categories_mega_menu">
-                            <li className="menu_item_children">
-                              <a href="#/">Dresses</a>
-                              <ul className="categorie_sub_menu">
-                                <li>
-                                  <a href="#/">Sweater</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Evening</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Day</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Sports</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li className="menu_item_children">
-                              <a href="#/">Handbags</a>
-                              <ul className="categorie_sub_menu">
-                                <li>
-                                  <a href="#/">Shoulder</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Satchels</a>
-                                </li>
-                                <li>
-                                  <a href="#/">kids</a>
-                                </li>
-                                <li>
-                                  <a href="#/">coats</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li className="menu_item_children">
-                              <a href="#/">shoes</a>
-                              <ul className="categorie_sub_menu">
-                                <li>
-                                  <a href="#/">Ankle Boots</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Clog sandals </a>
-                                </li>
-                                <li>
-                                  <a href="#/">run</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Books</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li className="menu_item_children">
-                              <a href="#/">Clothing</a>
-                              <ul className="categorie_sub_menu">
-                                <li>
-                                  <a href="#/">Coats Jackets </a>
-                                </li>
-                                <li>
-                                  <a href="#/">Raincoats</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Jackets</a>
-                                </li>
-                                <li>
-                                  <a href="#/">T-shirts</a>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="menu_item_children">
-                          <a href="#/">
-                            {" "}
-                            Wheels &amp; Tires{" "}
-                            <i className="fa fa-angle-right" />
-                          </a>
-                          <ul className="categories_mega_menu column_3">
-                            <li className="menu_item_children">
-                              <a href="#/">Chair</a>
-                              <ul className="categorie_sub_menu">
-                                <li>
-                                  <a href="#/">Dining room</a>
-                                </li>
-                                <li>
-                                  <a href="#/">bedroom</a>
-                                </li>
-                                <li>
-                                  <a href="#/"> Home &amp; Office</a>
-                                </li>
-                                <li>
-                                  <a href="#/">living room</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li className="menu_item_children">
-                              <a href="#/">Lighting</a>
-                              <ul className="categorie_sub_menu">
-                                <li>
-                                  <a href="#/">Ceiling Lighting</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Wall Lighting</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Outdoor Lighting</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Smart Lighting</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li className="menu_item_children">
-                              <a href="#/">Sofa</a>
-                              <ul className="categorie_sub_menu">
-                                <li>
-                                  <a href="#/">Fabric Sofas</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Leather Sofas</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Corner Sofas</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Sofa Beds</a>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="menu_item_children">
-                          <a href="#/">
-                            {" "}
-                            Furnitured &amp; Decor{" "}
-                            <i className="fa fa-angle-right" />
-                          </a>
-                          <ul className="categories_mega_menu column_2">
-                            <li className="menu_item_children">
-                              <a href="#/">Brake Tools</a>
-                              <ul className="categorie_sub_menu">
-                                <li>
-                                  <a href="#/">Driveshafts</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Spools</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Diesel </a>
-                                </li>
-                                <li>
-                                  <a href="#/">Gasoline</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li className="menu_item_children">
-                              <a href="#/">Emergency Brake</a>
-                              <ul className="categorie_sub_menu">
-                                <li>
-                                  <a href="#/">Dolls for Girls</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Girls' Learning Toys</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Arts and Crafts for Girls</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Video Games for Girls</a>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="menu_item_children">
-                          <a href="#/">
-                            {" "}
-                            Turbo System <i className="fa fa-angle-right" />
-                          </a>
-                          <ul className="categories_mega_menu column_2">
-                            <li className="menu_item_children">
-                              <a href="#/">Check Trousers</a>
-                              <ul className="categorie_sub_menu">
-                                <li>
-                                  <a href="#/">Building</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Electronics</a>
-                                </li>
-                                <li>
-                                  <a href="#/">action figures </a>
-                                </li>
-                                <li>
-                                  <a href="#/">specialty &amp; boutique toy</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li className="menu_item_children">
-                              <a href="#/">Calculators</a>
-                              <ul className="categorie_sub_menu">
-                                <li>
-                                  <a href="#/">Dolls for Girls</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Girls' Learning Toys</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Arts and Crafts for Girls</a>
-                                </li>
-                                <li>
-                                  <a href="#/">Video Games for Girls</a>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="#/"> Lighting</a>
-                        </li>
-                        <li>
-                          <a href="#/"> Accessories</a>
-                        </li>
-                        <li>
-                          <a href="#/">Body Parts</a>
-                        </li>
-                        <li>
-                          <a href="#/">Networking</a>
-                        </li>
-                        <li>
-                          <a href="#/">Perfomance Filters</a>
-                        </li>
-                        <li>
-                          <a href="#/"> Engine Parts</a>
-                        </li>
-                        <li className="hidden">
-                          <a href="#/">New Sofas</a>
-                        </li>
-                        <li className="hidden">
-                          <a href="#/">Sleight Sofas</a>
-                        </li>
-                        <li>
-                          <a href="#/" id="more-btn">
-                            <i className="fa fa-plus" aria-hidden="true" /> More
-                            Categories
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="column2 col-lg-6 ">
-                  <div className="main_menu menu_four menu_position text-center">
+                <div className="column2 col-lg-3">
+                  <div className="main_menu menu_four menu_position">
                     <nav>
                       <ul>
                         <li>
-                          <a href="/">home</a>
+                          <Link to="/">home</Link>
                         </li>
                         <li>
-                          <a href="/Shop">Shop</a>
+                          <Link to="/Shop">Shop</Link>
                         </li>
                         <li>
-                          <a href="/deals">Deals</a>
+                          <Link to="/deals">Deals</Link>
                         </li>
-                        <li>
-                          <a href="/Links">Make-Links</a>
-                        </li>
+
                         {!user && (
                           <li>
-                            <a href="/login">Login</a>
+                            <Link to="/login">Login</Link>
                           </li>
                         )}
 
                         <li>
-                          <a href="contact.html"> Contact Us</a>
+                          <Link to="contact.html"> Contact Us</Link>
                         </li>
                         {user && (
-                          <li onClick={logout}>
-                            <a href="/"> logout</a>
-                          </li>
+                          <>
+                            <li>
+                              <Link to="/Links">Make-Links</Link>
+                            </li>
+                            <li onClick={logout}>
+                              <Link to="/"> logout</Link>
+                            </li>
+                          </>
                         )}
                       </ul>
                     </nav>
                   </div>
                 </div>
-                <div className="column3 col-lg-3 col-md-6">
+                <div className="column3 col-lg-6 col-md-6">
                   <div className="header_bigsale h_bigsale_four">
-                    <a href="#/">BIG SALE BLACK FRIDAY</a>
+                    <Link to="#/">BIG SALE BLACK FRIDAY</Link>
                   </div>
                 </div>
               </div>
