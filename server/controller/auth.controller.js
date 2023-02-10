@@ -20,7 +20,7 @@ exports.registerController = (req, res) => {
     email: email,
   }).exec(async (err, user) => {
     if (user) {
-      return res.status(400).json({
+      return res.status(402).json({
         error: "User already exists",
       });
     } else {

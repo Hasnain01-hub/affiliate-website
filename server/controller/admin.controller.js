@@ -36,8 +36,24 @@ exports.viewDeals = (req, res) => {
     .find({})
     .sort({ _id: -1 })
     .then((doc) => {
+      var datas = [];
       if (doc) {
-        res.json(doc);
+        doc.forEach((element) => {
+          const curr_date = new Date();
+          const end_date = new Date(element.end_date);
+
+          if (curr_date.getFullYear() <= end_date.getFullYear()) {
+            if (curr_date.getMonth() < end_date.getMonth()) {
+              datas.push(element);
+            } else if (curr_date.getMonth() == end_date.getMonth()) {
+              if (curr_date.getDate() <= end_date.getDate()) {
+                datas.push(element);
+              }
+            }
+          }
+        });
+
+        res.json(datas);
       }
     });
 };

@@ -11,9 +11,9 @@ exports.verifyuser = async (req, res, next) => {
       if (err) {
         return res.status(403).json("Token is not valid!");
       }
-      console.log(user);
+
       const userData = await User.findOne({ _id: user._id });
-      console.log(userData);
+
       if (!userData) {
         return res.status(403).json("User not found!");
       }

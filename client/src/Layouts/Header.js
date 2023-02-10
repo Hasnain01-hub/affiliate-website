@@ -160,9 +160,11 @@ const Header = () => {
                         <li>
                           <a href="contact.html">contact</a>
                         </li>
-                        <li>
-                          <a href="login.html">login</a>
-                        </li>
+                        {!user && (
+                          <li>
+                            <a href="login.html">login</a>
+                          </li>
+                        )}
                         <li>
                           <a href="404.html">Error 404</a>
                         </li>
