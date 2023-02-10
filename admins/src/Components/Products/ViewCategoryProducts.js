@@ -13,8 +13,11 @@ const ViewCategoryProducts = () => {
   const params = useParams();
 
   useEffect(() => {
+    loadCatogery(params.cat);
+  }, [params.cat]);
+  const loadCatogery = (id) => {
     axios
-      .get(process.env.REACT_APP_API + "api/admin/category/" + params.cat)
+      .get(process.env.REACT_APP_API + "api/admin/category/" + id)
       .then((res) => {
         setProducts(res.data);
         setLoading(false);
@@ -22,8 +25,19 @@ const ViewCategoryProducts = () => {
       .catch((err) => {
         toast.error("Internal Server Error");
       });
-  }, [params.cat]);
-
+  };
+  const deleteCatogery = async (e, _id) => {
+    e.preventDefault();
+    if (window.confirm("Are you sure you want to delete this Deal?")) {
+      await axios
+        .get(`http://localhost:8000/api/admin/removeproduct/${_id}`)
+        .then((res) => {
+          window.location.href = "/View-Products";
+          toast.success("Product deleted successfully");
+        })
+        .catch((err) => {});
+    }
+  };
   return (
     <>
       <div className="layout-wrapper layout-content-navbar">
@@ -77,7 +91,12 @@ const ViewCategoryProducts = () => {
                                       </button>
                                     </Link>
                                     <Link className="col-3">
-                                      <button className="btn btn-outline-danger">
+                                      <button
+                                        onClick={(e) =>
+                                          deleteCatogery(e, item._id)
+                                        }
+                                        className="btn btn-outline-danger"
+                                      >
                                         Delete
                                       </button>
                                     </Link>

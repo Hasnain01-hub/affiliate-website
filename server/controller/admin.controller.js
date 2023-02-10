@@ -1,7 +1,6 @@
 const AdminModel = require("../model/Admin.model");
 const AffiliateIDModel = require("../model/AffiliateID.model");
 const productModel = require("../model/product.model");
-const ProductsModel = require("../model/Item.model");
 const StoreMode = require("../model/Store.mode");
 const ItemModel = require("../model/Item.model");
 const ProductCategoryModel = require("../model/ProductCategory.model");
@@ -23,6 +22,18 @@ exports.addAdmin = (req, res) => {
 
 exports.viewAdmin = (req, res) => {
   const admin = AdminModel.find({})
+    .sort({ _id: -1 })
+    .then((doc) => {
+      if (doc) {
+        res.json(doc);
+      }
+    });
+};
+
+//View all admin side deals
+exports.viewAllDeals = (req, res) => {
+  productModel
+    .find({})
     .sort({ _id: -1 })
     .then((doc) => {
       if (doc) {
@@ -183,6 +194,26 @@ exports.getCategoryProducts = (req, res) => {
   const products = ItemModel.find({ category: req.params.cat })
     .then((doc) => {
       return res.json(doc);
+    })
+    .catch((err) => {
+      return res.json(err);
+    });
+};
+
+exports.removeProduct = (req, res) => {
+  ItemModel.findOneAndDelete({ _id: req.params.id })
+    .then(() => {
+      return res.json({ message: "Deleted" });
+    })
+    .catch((err) => {
+      return res.json(err);
+    });
+};
+
+exports.removeStore = (req, res) => {
+  StoreMode.findOneAndDelete({ _id: req.params.id })
+    .then(() => {
+      return res.json({ message: "Deleted" });
     })
     .catch((err) => {
       return res.json(err);
