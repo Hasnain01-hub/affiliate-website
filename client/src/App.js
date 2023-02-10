@@ -10,6 +10,10 @@ import React from "react";
 import { currentUser } from "./function/auth";
 import NotFound from "./Components/NotFound";
 import Deals from "./Components/Deals";
+import Shop from "./Components/Shop";
+import CategoryProducts from "./Components/CategoryProducts";
+import NotAvailable from "./Components/NotAvailable";
+import Links from "./Components/Links";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,7 +50,11 @@ function App() {
         <Route path="/deals" element={<Deals />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop/:cat" element={<CategoryProducts />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/Incomplete-Profile" element={<NotAvailable />} />
+        <Route path="/Links" element={<Links />} />
       </Routes>
       <Footer />
     </>

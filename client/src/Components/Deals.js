@@ -1,12 +1,9 @@
 import axios from "axios";
 import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
 
 const Deals = () => {
   const [deals, setdeals] = useState([]);
-
-  const [category, setCategory] = useState();
 
   const [loading, setLoading] = useState(true);
   const loaddeals = async () => {
@@ -14,6 +11,7 @@ const Deals = () => {
       .get(process.env.REACT_APP_API + "api/admin/view-deals")
       .then((res) => {
         setdeals(res.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -21,16 +19,6 @@ const Deals = () => {
   };
   useEffect(() => {
     loaddeals();
-
-    axios
-      .get(process.env.REACT_APP_API + "api/admin/category/get")
-      .then((res) => {
-        setCategory(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        toast.error("Internal Server Error");
-      });
   }, []);
 
   return (
@@ -48,56 +36,65 @@ const Deals = () => {
               </div>
             </div>
             <div className="row">
-              {deals.map((item) => {
-                return (
-                  <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
-                    <div className="owl-item active">
-                      <article className="single_product">
-                        <figure>
-                          <div className="product_thumb">
-                            <a
-                              className="primary_img"
-                              href="product-countdown.html"
-                            >
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <a className="secondary_img" href="#/">
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <div className="label_product">
-                              <span className="label_sale">Sale</span>
-                            </div>
-                          </div>
-                          <div className="product_content">
-                            <div className="product_content_inner">
-                              <h4 className="product_name">
-                                <a href="product-countdown.html">
-                                  {item.p_name}
+              {loading === true ? (
+                <>
+                  <h3>Loading Deals....</h3>
+                </>
+              ) : (
+                <>
+                  {deals.map((item) => {
+                    return (
+                      <div
+                        key={item._id}
+                        className="col-lg-3 col-md-4 col-sm-6"
+                      >
+                        <div className="owl-item active">
+                          <article className="single_product">
+                            <figure>
+                              <div className="product_thumb">
+                                <a
+                                  className="primary_img"
+                                  href="product-countdown.html"
+                                >
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
                                 </a>
-                              </h4>
-                              <div className="countdown_text">
-                                <p>
-                                  <span>Hurry Up!</span> Offers ends in:{" "}
-                                </p>
+                                <a className="secondary_img" href="#/">
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
+                                </a>
+                                <div className="label_product">
+                                  <span className="label_sale">Sale</span>
+                                </div>
                               </div>
-                              <div className="product_timing">
-                                {/* <div data-countdown="2023/02/15">
+                              <div className="product_content">
+                                <div className="product_content_inner">
+                                  <h4 className="product_name">
+                                    <a href="product-countdown.html">
+                                      {item.p_name}
+                                    </a>
+                                  </h4>
+                                  <div className="countdown_text">
+                                    <p>
+                                      <span>Hurry Up!</span> Offers ends in:{" "}
+                                    </p>
+                                  </div>
+                                  <div className="product_timing">
+                                    {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
                                     <div className="single_countdown">
                                       <div className="countdown_number">08</div>
@@ -125,21 +122,23 @@ const Deals = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                <p>{moment(item.end_date).format("LLL")}</p>
+                                    <p>{moment(item.end_date).format("LLL")}</p>
+                                  </div>
+                                </div>
+                                <div className="add_to_cart">
+                                  <a href="cart.html" title="Add to cart">
+                                    Add to cart
+                                  </a>
+                                </div>
                               </div>
-                            </div>
-                            <div className="add_to_cart">
-                              <a href="cart.html" title="Add to cart">
-                                Add to cart
-                              </a>
-                            </div>
-                          </div>
-                        </figure>
-                      </article>
-                    </div>
-                  </div>
-                );
-              })}
+                            </figure>
+                          </article>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
             </div>
           </div>
         </div>

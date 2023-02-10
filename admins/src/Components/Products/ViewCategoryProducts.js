@@ -28,7 +28,7 @@ const ViewCategoryProducts = () => {
   };
   const deleteCatogery = async (e, _id) => {
     e.preventDefault();
-    if (window.confirm("Are you sure you want to delete this Deal?")) {
+    if (window.confirm("Are you sure you want to delete this Product?")) {
       await axios
         .get(`http://localhost:8000/api/admin/removeproduct/${_id}`)
         .then((res) => {

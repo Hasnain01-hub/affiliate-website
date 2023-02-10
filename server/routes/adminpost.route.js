@@ -17,6 +17,8 @@ const {
   removeStore,
   deleteAffiliateID,
   getCategoryProducts,
+  getUsers,
+  attachAffiliate,
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
 const router = express.Router();
@@ -30,10 +32,10 @@ router.get("/view-all-deals", viewAllDeals);
 router.get("/store/get", viewStore);
 router.get("/affiliate/get", getAffiliateIDS);
 router.get("/affiliate/delete/:id", deleteAffiliateID);
-router.get("/affiliate/get", getAffiliateIDS);
 router.get("/category/:cat", getCategoryProducts);
 router.get("/removeproduct/:id", removeProduct);
 router.get("/removestore/:id", removeStore);
+router.get("/get_users", getUsers);
 
 //Post Routes
 router.post("/add-admin", addAdmin);
@@ -43,5 +45,6 @@ router.post("/store/add", AddStore);
 router.post("/affiliate/add", addAFfiliateID);
 router.post("/product/add", addProducts);
 router.post("/category/add", addProductCategory);
+router.post("/affiliate/attach", attachAffiliate);
 
 module.exports = router;

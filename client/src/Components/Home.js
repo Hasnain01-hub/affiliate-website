@@ -1,6 +1,7 @@
 import axios from "axios";
 import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 const Home = () => {
@@ -50,7 +51,7 @@ const Home = () => {
                       >
                         <div className="categories_product_content">
                           <h4>
-                            <a href={"/shop/" + cat.name}> {cat.name}</a>
+                            <Link to={"/shop/" + cat.name}> {cat.name}</Link>
                           </h4>
                           <p>{cat.number_of_product} Products Available</p>
                         </div>

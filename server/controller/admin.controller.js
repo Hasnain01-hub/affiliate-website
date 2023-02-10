@@ -4,6 +4,7 @@ const productModel = require("../model/product.model");
 const StoreMode = require("../model/Store.mode");
 const ItemModel = require("../model/Item.model");
 const ProductCategoryModel = require("../model/ProductCategory.model");
+const userModel = require("../model/user.model");
 
 exports.addAdmin = (req, res) => {
   const admin = new AdminModel(req.body);
@@ -217,4 +218,37 @@ exports.removeStore = (req, res) => {
     .catch((err) => {
       return res.json(err);
     });
+};
+
+exports.getUsers = (req, res) => {
+  userModel
+    .find({ tag: "" })
+    .then((doc) => {
+      return res.json(doc);
+    })
+    .catch((err) => {
+      return res.json(err);
+    });
+};
+
+exports.attachAffiliate = (req, res) => {
+  userModel.findByIdAndUpdate(
+    req.body.users,
+    {
+      tag: req.body.tags,
+    },
+    function (err, docs) {
+      if (err) {
+        console.log(err);
+      } else {
+        AffiliateIDModel.findOneAndDelete({ name: req.body.tags })
+          .then((doc) => {
+            return res.json({ message: "Id Attached" });
+          })
+          .catch((err) => {
+            res.status(400).json({ message: "Err" });
+          });
+      }
+    }
+  );
 };
