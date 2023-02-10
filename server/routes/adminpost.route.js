@@ -12,6 +12,7 @@ const {
   viewProducts,
   viewProductCategory,
   addProductCategory,
+  deleteAffiliateID,
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
 const router = express.Router();
@@ -22,6 +23,8 @@ router.get("/category/get", viewProductCategory);
 router.get("/view-admins", viewAdmin);
 router.get("/view-deals", viewDeals);
 router.get("/store/get", viewStore);
+router.get("/affiliate/get", getAffiliateIDS);
+router.get("/affiliate/delete/:id", deleteAffiliateID);
 router.get("/affiliate/get", getAffiliateIDS);
 
 //Post Routes
