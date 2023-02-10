@@ -10,7 +10,7 @@ const ViewDeals = () => {
   const [loading, setLoading] = useState(true);
   const loaddeals = async () => {
     axios
-      .get(process.env.REACT_APP_API + "api/admin/view-deals")
+      .get(process.env.REACT_APP_API + "api/admin/view-all-deals")
       .then((res) => {
         setdeals(res.data);
         setLoading(false);
@@ -39,7 +39,7 @@ const ViewDeals = () => {
             })
             .then((res) => {
               loaddeals();
-              toast.success("Paper deleted successfully");
+              toast.success("Deal deleted successfully");
             });
         })
         .catch((err) => {});

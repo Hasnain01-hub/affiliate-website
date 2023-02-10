@@ -9,6 +9,7 @@ import { loginSuccess } from "./reducers";
 import React from "react";
 import { currentUser } from "./function/auth";
 import NotFound from "./Components/NotFound";
+import Deals from "./Components/Deals";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/deals" element={<Deals />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

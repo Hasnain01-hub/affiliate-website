@@ -76,6 +76,9 @@ const Login = () => {
         navigate("/");
       })
       .catch((e) => {
+        if (e.response.status === 402)
+          return toast.error("User Already Exists");
+
         console.log(e);
       });
   };

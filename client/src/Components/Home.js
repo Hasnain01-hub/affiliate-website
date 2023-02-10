@@ -32,7 +32,7 @@ const Home = () => {
         toast.error("Internal Server Error");
       });
   }, []);
-  const today_date = new Date();
+
   return (
     <>
       <div className="home_section_bg">
@@ -83,12 +83,8 @@ const Home = () => {
               </div>
             </div>
             <div className="row">
-              {deals.map((item) => {
-                const d1 = new Date(item.end_date);
-                console.log(d1.getMonth());
-                return today_date.getDate() <= d1.getDate() &&
-                  today_date.getMonth() <= d1.getMonth() &&
-                  today_date.getFullYear() <= d1.getFullYear() ? (
+              {deals.slice(0, 5).map((item) => {
+                return (
                   <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
                     <div className="owl-item active">
                       <article className="single_product">
@@ -177,8 +173,6 @@ const Home = () => {
                       </article>
                     </div>
                   </div>
-                ) : (
-                  console.log()
                 );
               })}
 

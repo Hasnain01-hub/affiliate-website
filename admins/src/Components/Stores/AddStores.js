@@ -14,16 +14,31 @@ const AddStores = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_API + "api/admin/store/get").then((res) => {
-      setStores(res.data);
-      setLoading(false);
-    });
+    loadStores();
   }, []);
-
+  const loadStores = async () => {
+    return await axios
+      .get(process.env.REACT_APP_API + "api/admin/store/get")
+      .then((res) => {
+        setStores(res.data);
+        setLoading(false);
+      });
+  };
   const handleChange = (e) => {
     name.name = e.target.value;
   };
-
+  const deleteStore = async (e, _id) => {
+    e.preventDefault();
+    if (window.confirm("Are you sure you want to delete this Store?")) {
+      await axios
+        .get(`http://localhost:8000/api/admin/removestore/${_id}`)
+        .then((res) => {
+          loadStores();
+          toast.success("Store deleted successfully");
+        })
+        .catch((err) => {});
+    }
+  };
   const handleSubmit = () => {
     axios
       .post(process.env.REACT_APP_API + "api/admin/store/add", name)
@@ -99,7 +114,21 @@ const AddStores = () => {
                           <>
                             <div className="col-md-6 col-lg-4 mb-3" key={i}>
                               <div className="card h-80">
-                                <div className="card-body">{store.name}</div>
+                                <div className="card-body">
+                                  {store.name}
+                                  <i
+                                    onClick={(e) => {
+                                      deleteStore(e, store._id);
+                                    }}
+                                    style={{
+                                      float: "right",
+                                      color: "red",
+                                      fontSize: "20px",
+                                      cursor: "pointer",
+                                    }}
+                                    className="ri-delete-bin-7-line"
+                                  ></i>
+                                </div>
                               </div>
                             </div>
                           </>

@@ -1,7 +1,6 @@
 const AdminModel = require("../model/Admin.model");
 const AffiliateIDModel = require("../model/AffiliateID.model");
 const productModel = require("../model/product.model");
-const ProductsModel = require("../model/Item.model");
 const StoreMode = require("../model/Store.mode");
 const ItemModel = require("../model/Item.model");
 const ProductCategoryModel = require("../model/ProductCategory.model");
@@ -31,13 +30,41 @@ exports.viewAdmin = (req, res) => {
     });
 };
 
-exports.viewDeals = (req, res) => {
-  const product = productModel
+//View all admin side deals
+exports.viewAllDeals = (req, res) => {
+  productModel
     .find({})
     .sort({ _id: -1 })
     .then((doc) => {
       if (doc) {
         res.json(doc);
+      }
+    });
+};
+
+exports.viewDeals = (req, res) => {
+  const product = productModel
+    .find({})
+    .sort({ _id: -1 })
+    .then((doc) => {
+      var datas = [];
+      if (doc) {
+        doc.forEach((element) => {
+          const curr_date = new Date();
+          const end_date = new Date(element.end_date);
+
+          if (curr_date.getFullYear() <= end_date.getFullYear()) {
+            if (curr_date.getMonth() < end_date.getMonth()) {
+              datas.push(element);
+            } else if (curr_date.getMonth() == end_date.getMonth()) {
+              if (curr_date.getDate() <= end_date.getDate()) {
+                datas.push(element);
+              }
+            }
+          }
+        });
+
+        res.json(datas);
       }
     });
 };
@@ -166,6 +193,26 @@ exports.getCategoryProducts = (req, res) => {
   const products = ItemModel.find({ category: req.params.cat })
     .then((doc) => {
       return res.json(doc);
+    })
+    .catch((err) => {
+      return res.json(err);
+    });
+};
+
+exports.removeProduct = (req, res) => {
+  ItemModel.findOneAndDelete({ _id: req.params.id })
+    .then(() => {
+      return res.json({ message: "Deleted" });
+    })
+    .catch((err) => {
+      return res.json(err);
+    });
+};
+
+exports.removeStore = (req, res) => {
+  StoreMode.findOneAndDelete({ _id: req.params.id })
+    .then(() => {
+      return res.json({ message: "Deleted" });
     })
     .catch((err) => {
       return res.json(err);
