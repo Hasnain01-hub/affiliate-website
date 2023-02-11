@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import $ from "jquery";
+
 const Header = () => {
+  useEffect(() => {
+    $(".canvas_open").on("click", function () {
+      $(".Offcanvas_menu_wrapper").addClass("active");
+    });
+
+    $(".canvas_close").on("click", function () {
+      $(".Offcanvas_menu_wrapper").removeClass("active");
+    });
+  }, []);
+
   const logout = () => {
     window.localStorage.removeItem("token");
     window.location.href = "/";
@@ -47,91 +59,7 @@ const Header = () => {
                     <li className="menu-item-has-children active">
                       <Link to="#/">Home</Link>
                     </li>
-                    <li className="menu-item-has-children">
-                      <Link to="#/">Shop</Link>
-                      <ul className="sub-menu">
-                        <li className="menu-item-has-children">
-                          <Link to="#/">Shop Layouts</Link>
-                          <ul className="sub-menu">
-                            <li>
-                              <Link to="shop.html">shop</Link>
-                            </li>
-                            <li>
-                              <Link to="shop-fullwidth.html">Full Width</Link>
-                            </li>
-                            <li>
-                              <Link to="shop-fullwidth-list.html">
-                                Full Width list
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="shop-right-sidebar.html">
-                                Right Sidebar{" "}
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="shop-right-sidebar-list.html">
-                                {" "}
-                                Right Sidebar list
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="shop-list.html">List View</Link>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="menu-item-has-children">
-                          <Link to="#/">other Pages</Link>
-                          <ul className="sub-menu">
-                            <li>
-                              <Link to="cart.html">cart</Link>
-                            </li>
-                            <li>
-                              <Link to="wishlist.html">Wishlist</Link>
-                            </li>
-                            <li>
-                              <Link to="checkout.html">Checkout</Link>
-                            </li>
-                            <li>
-                              <Link to="my-account.html">my account</Link>
-                            </li>
-                            <li>
-                              <Link to="404.html">Error 404</Link>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="menu-item-has-children">
-                          <Link to="#/">Product Types</Link>
-                          <ul className="sub-menu">
-                            <li>
-                              <Link to="product-details.html">
-                                product details
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="product-sidebar.html">
-                                product sidebar
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="product-grouped.html">
-                                product grouped
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="variable-product.html">
-                                product variable
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="product-countdown.html">
-                                product countdown
-                              </Link>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
+
                     <li className="menu-item-has-children">
                       <Link to="#/">blog</Link>
                       <ul className="sub-menu">
@@ -165,7 +93,7 @@ const Header = () => {
                           <Link to="privacy-policy.html">privacy policy</Link>
                         </li>
                         <li>
-                          <Link to="contact.html">contact</Link>
+                          <Link to="/contact">contact</Link>
                         </li>
                         <li>
                           <Link to="login.html">login</Link>
@@ -188,7 +116,7 @@ const Header = () => {
                       <Link to="about.html">About Us</Link>
                     </li>
                     <li className="menu-item-has-children">
-                      <Link to="contact.html"> Contact Us</Link>
+                      <Link to="/contact"> Contact Us</Link>
                     </li>
                   </ul>
                 </div>
@@ -327,12 +255,6 @@ const Header = () => {
                         <li>
                           <Link to="/">home</Link>
                         </li>
-                        <li>
-                          <Link to="/Shop">Shop</Link>
-                        </li>
-                        <li>
-                          <Link to="/deals">Deals</Link>
-                        </li>
 
                         {!user && (
                           <li>
@@ -341,7 +263,7 @@ const Header = () => {
                         )}
 
                         <li>
-                          <Link to="contact.html"> Contact Us</Link>
+                          <Link to="/contact"> Contact Us</Link>
                         </li>
                         {user && (
                           <>
@@ -355,11 +277,6 @@ const Header = () => {
                         )}
                       </ul>
                     </nav>
-                  </div>
-                </div>
-                <div className="column3 col-lg-6 col-md-6">
-                  <div className="header_bigsale h_bigsale_four">
-                    <Link to="#/">BIG SALE BLACK FRIDAY</Link>
                   </div>
                 </div>
               </div>

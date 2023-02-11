@@ -17,6 +17,8 @@ const Login = () => {
     password: "",
     phoneNumber: "",
     tag: "",
+    upi: "",
+    profit: 0,
   });
   const navigate = useNavigate();
   const reduxDispatch = useDispatch();
@@ -26,26 +28,25 @@ const Login = () => {
     loginUser(logindata.email, logindata.password)
       .then((res) => {
         if (res.status === 200) {
-          console.log(res);
+          console.log(res.data);
           reduxDispatch(
             loginSuccess({
               name: res.data.user.name,
               email: res.data.user.email,
               token: res.data.token,
+              tag: res.data.user.tag,
+              profit: res.data.user.profit,
             })
           );
           window.localStorage.setItem("token", res.data.token);
           setlogindata({ email: "", password: "" });
           toast.success("Login Success");
-          navigate("/");
-        } else {
-          toast.error("Invalid Credentials");
+          window.location.href = "/";
         }
       })
-      .catch((e) => {
-        if (e.response.status === 401)
+      .catch((err) => {
+        if (err.response.status === 400)
           return toast.error("Invalid credentials");
-        console.log(e);
       });
   };
   const handleloginChange = (e) => {
@@ -58,8 +59,16 @@ const Login = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    if (registerdata.email === "" && registerdata.password.length < 5)
-      return toast("Please enter valid email and password");
+    if (
+      registerdata.email === "" ||
+      registerdata.password.length < 5 ||
+      registerdata.upi === "" ||
+      registerdata.phoneNumber === "" ||
+      registerdata.name === ""
+    )
+      return toast(
+        "Please Valid Deatils and Password should be greater than length of 5"
+      );
 
     await registerUser(registerdata)
       .then((res) => {
@@ -68,6 +77,8 @@ const Login = () => {
             name: res.data.user.name,
             email: res.data.user.email,
             token: res.data.token,
+            tag: res.data.user.tag,
+            profit: res.data.user.profit,
           })
         );
         window.localStorage.setItem("token", res.data.token);
@@ -191,6 +202,18 @@ const Login = () => {
                         onChange={handleregisterChange}
                         name="phoneNumber"
                         type="number"
+                      />
+                    </p>
+
+                    <p>
+                      <label>
+                        Your Upi ID <span>*</span>
+                      </label>
+                      <input
+                        value={registerdata.upi}
+                        onChange={handleregisterChange}
+                        name="upi"
+                        type="text"
                       />
                     </p>
                     <div className="login_submit">

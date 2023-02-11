@@ -14,6 +14,7 @@ import Shop from "./Components/Shop";
 import CategoryProducts from "./Components/CategoryProducts";
 import NotAvailable from "./Components/NotAvailable";
 import Links from "./Components/Links";
+import Contact from "./Components/Contact";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function App() {
               email: res.data.user.email,
               _id: res.data.user._id,
               tag: res.data.user.tag,
+              profit: res.data.user.profit,
             })
           );
         })
@@ -48,13 +50,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/deals" element={<Deals />} />
-
+        <Route path="/Links" element={<Links />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/:cat" element={<CategoryProducts />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/Incomplete-Profile" element={<NotAvailable />} />
-        <Route path="/Links" element={<Links />} />
       </Routes>
       <Footer />
     </>

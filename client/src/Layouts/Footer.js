@@ -12,7 +12,7 @@ const Footer = () => {
                   <h3>GET THE APP</h3>
                   <div className="aff_content">
                     <p>
-                      <strong>ANTOMI</strong> App is now available on Google
+                      <strong>LameFame</strong> App is now available on Google
                       Play &amp; App Store. Get it now.
                     </p>
                   </div>
@@ -171,10 +171,10 @@ const Footer = () => {
                   <p>
                     © 2022{" "}
                     <a href="index-2.html" className="text-uppercase">
-                      ANTOMI
+                      LameFame
                     </a>
                     . Made with <i className="fa fa-heart" /> by{" "}
-                    <a href="https://www.hasthemes.com/">HasThemes</a>
+                    <a href="https://www.darkcoders.com/">darkcoders</a>
                   </p>
                 </div>
               </div>

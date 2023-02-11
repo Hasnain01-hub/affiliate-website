@@ -22,6 +22,13 @@ const userSchema = new mongoose.Schema(
     },
     tag: {
       type: String,
+    },
+    upi: {
+      type: String,
+      required: true,
+    },
+    profit: {
+      type: Number,
       required: true,
     },
   },

@@ -59,7 +59,7 @@ const AttachAffiliate = () => {
           toast.success("ID Attached Successfully");
           setTimeout(() => {
             window.location.reload();
-          }, 500);
+          }, 1000);
         })
         .catch((err) => {
           toast.error("Internal Server Error");

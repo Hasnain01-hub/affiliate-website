@@ -3,9 +3,10 @@ const bcrypt = require("bcrypt");
 const { validationResult } = require("express-validator");
 const User = require("../model/user.model");
 const AdminModel = require("../model/Admin.model");
+const AffiliateIDModel = require("../model/AffiliateID.model");
 
 exports.registerController = (req, res) => {
-  const { email, password, name, phoneNumber } = req.body;
+  let { email, password, name, phoneNumber, upi, tag, profit } = req.body;
 
   const errors = validationResult(req);
 
@@ -26,34 +27,81 @@ exports.registerController = (req, res) => {
     } else {
       const salt = await bcrypt.genSalt(10);
       const hashed_password = await bcrypt.hash(password, salt);
-      const user = new User({
-        name,
-        email,
-        password: hashed_password,
-        phoneNumber,
-      });
 
-      user.save((err, user) => {
-        if (err) {
-          return res.status(400).json({
-            error: "Some error occured! Please try again" + err,
+      const data = AffiliateIDModel.find({}).then((doc) => {
+        if (doc.length <= 0) {
+          tag = "";
+          const user = new User({
+            name,
+            email,
+            password: hashed_password,
+            phoneNumber,
+            upi,
+            tag,
+            profit,
+          });
+
+          user.save((err, user) => {
+            if (err) {
+              return res.status(400).json({
+                error: "Some error occured! Please try again" + err,
+              });
+            } else {
+              const token = jwt.sign(
+                {
+                  _id: user._id,
+                },
+                process.env.JWT_SECRET,
+                {
+                  expiresIn: "24h",
+                }
+              );
+              // res.cookie("jwt", token);
+              res.status(200).json({
+                success: true,
+                user,
+                token,
+                message: "Register Success! Please Login now to continue.",
+              });
+            }
           });
         } else {
-          const token = jwt.sign(
-            {
-              _id: user._id,
-            },
-            process.env.JWT_SECRET,
-            {
-              expiresIn: "24h",
-            }
-          );
-          // res.cookie("jwt", token);
-          res.status(200).json({
-            success: true,
-            user,
-            token,
-            message: "Register Success! Please Login now to continue.",
+          tag = doc[0].name;
+          AffiliateIDModel.findByIdAndDelete(doc[0]._id).then((doc) => {
+            const user = new User({
+              name,
+              email,
+              password: hashed_password,
+              phoneNumber,
+              upi,
+              tag,
+              profit,
+            });
+
+            user.save((err, user) => {
+              if (err) {
+                return res.status(400).json({
+                  error: "Some error occured! Please try again" + err,
+                });
+              } else {
+                const token = jwt.sign(
+                  {
+                    _id: user._id,
+                  },
+                  process.env.JWT_SECRET,
+                  {
+                    expiresIn: "24h",
+                  }
+                );
+                // res.cookie("jwt", token);
+                res.status(200).json({
+                  success: true,
+                  user,
+                  token,
+                  message: "Register Success! Please Login now to continue.",
+                });
+              }
+            });
           });
         }
       });
@@ -86,7 +134,6 @@ exports.loginController = (req, res) => {
           error: "Invalid Password",
         });
       }
-
       if (result) {
         const token = jwt.sign(
           {
@@ -105,6 +152,8 @@ exports.loginController = (req, res) => {
           user: {
             email: user.email,
             name: user.name,
+            tag: user.tag,
+            profit: user.profit,
           },
         });
       } else {
