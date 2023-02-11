@@ -156,6 +156,20 @@ const Header = () => {
                 </a>
               </li>
 
+              <li className="menu-item ">
+                <a href="/users" className="menu-link">
+                  <Users size={22} className="menu-icon" />
+                  <div data-i18n="Authentications">Users</div>
+                </a>
+              </li>
+
+              <li className="menu-item ">
+                <a href="/Banners" className="menu-link">
+                  <Users size={22} className="menu-icon" />
+                  <div data-i18n="Authentications">Banners</div>
+                </a>
+              </li>
+
               <li className="menu-item affiliate">
                 <a
                   href="#/"

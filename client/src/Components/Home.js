@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import Sliders from "./Sliders";
 
 const Home = () => {
   const [deals, setdeals] = useState([]);
@@ -47,17 +48,19 @@ const Home = () => {
               <>
                 {user.profit === null ? (
                   <>
-                    <h4>Your Total Profits Till Now : 0.00</h4>
+                    <h3>Your Total Profits Till Now : 0.00</h3>
                   </>
                 ) : (
                   <>
-                    <h4>Your Total Profits Till Now : {user.profit}.00</h4>
+                    <h3>Your Total Profits Till Now : INR {user.profit}.00</h3>
                   </>
                 )}
               </>
             ) : (
               <></>
             )}
+            <br />
+            <Sliders />
 
             <div className="categories_product_inner">
               {loading === false ? (

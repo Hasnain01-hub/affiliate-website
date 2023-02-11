@@ -19,6 +19,12 @@ const {
   getCategoryProducts,
   getUsers,
   attachAffiliate,
+  viewUsers,
+  getSingleUser,
+  updateUser,
+  addBanner,
+  getBanners,
+  deleteBanner,
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
 const router = express.Router();
@@ -36,6 +42,10 @@ router.get("/category/:cat", getCategoryProducts);
 router.get("/removeproduct/:id", removeProduct);
 router.get("/removestore/:id", removeStore);
 router.get("/get_users", getUsers);
+router.get("/get_all_users", viewUsers);
+router.get("/single_user/:id", getSingleUser);
+router.get("/banners/get", getBanners);
+router.get("/banner/delete/:id", deleteBanner);
 
 //Post Routes
 router.post("/add-admin", addAdmin);
@@ -46,5 +56,7 @@ router.post("/affiliate/add", addAFfiliateID);
 router.post("/product/add", addProducts);
 router.post("/category/add", addProductCategory);
 router.post("/affiliate/attach", attachAffiliate);
+router.post("/user/edit", updateUser);
+router.post("/banner/add", addBanner);
 
 module.exports = router;

@@ -5,6 +5,7 @@ const StoreMode = require("../model/Store.mode");
 const ItemModel = require("../model/Item.model");
 const ProductCategoryModel = require("../model/ProductCategory.model");
 const userModel = require("../model/user.model");
+const BannersModel = require("../model/Banners.model");
 
 exports.addAdmin = (req, res) => {
   const admin = new AdminModel(req.body);
@@ -251,4 +252,69 @@ exports.attachAffiliate = (req, res) => {
       }
     }
   );
+};
+
+exports.viewUsers = (req, res) => {
+  userModel.find({}).then((doc) => {
+    res.json(doc);
+  });
+};
+
+exports.getSingleUser = (req, res) => {
+  userModel
+    .findById(req.params.id)
+    .then((doc) => {
+      res.json(doc);
+    })
+    .catch((err) => {
+      res.status(400).json({ error: "Bad Req" });
+    });
+};
+
+exports.updateUser = (req, res) => {
+  const user = req.body;
+
+  userModel
+    .findByIdAndUpdate(req.body._id, user)
+    .then((doc) => {
+      res.status(200).json({ message: "Doc Updated" });
+    })
+    .catch((err) => {
+      res.status(400).json({ message: "Error" });
+    });
+};
+
+exports.addBanner = (req, res) => {
+  const banner = new BannersModel(req.body);
+
+  console.log(req.body);
+
+  banner
+    .save()
+    .then((doc) => {
+      return res.status(200).json(doc);
+    })
+    .catch((err) => {
+      return res.json(err);
+    });
+};
+
+exports.getBanners = (req, res) => {
+  BannersModel.find({})
+    .then((doc) => {
+      return res.json(doc);
+    })
+    .catch((err) => {
+      return res.json(err);
+    });
+};
+
+exports.deleteBanner = (req, res) => {
+  BannersModel.findByIdAndDelete(req.params.id)
+    .then((res) => {
+      res.status(200).json({ message: "Document Deleted" });
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 };

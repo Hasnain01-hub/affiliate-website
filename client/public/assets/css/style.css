@@ -1955,18 +1955,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   overflow: auto;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .search_container {
-    margin-bottom: 22px;
-    display: none;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .search_container {
-    margin-bottom: 22px;
-    display: none;
-  }
-}
+
 .search_container form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3951,6 +3940,15 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 .section_title {
   margin-bottom: 28px;
+}
+.product_thumb img {
+  max-width: 250px;
+    max-height: 250px;
+}
+.product_thumb a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media only screen and (max-width: 767px) {
   .section_title {
