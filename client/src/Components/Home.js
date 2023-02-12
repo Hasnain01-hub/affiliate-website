@@ -1,7 +1,7 @@
 import axios from "axios";
 import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
-// import { useSelector } from "react-redux";
+// import { useSelector } from "react-#e91e63ux";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import Sliders from "./Sliders";
@@ -150,7 +150,18 @@ const Home = () => {
                               />
                             </a>
                             <div className="label_product">
-                              <span className="label_sale">Sale</span>
+                              <span
+                                style={{
+                                  background: "#e91e63",
+                                  color: "white",
+                                }}
+                                className="label_sale"
+                              >
+                                {(((item.price - item.discount_price) /
+                                  item.discount_price) *
+                                  100).toFixed(2)}
+                                %
+                              </span>
                             </div>
                           </div>
                           <div className="product_content">
@@ -266,7 +277,18 @@ const Home = () => {
                               />
                             </a>
                             <div className="label_product">
-                              <span className="label_sale">Sale</span>
+                              <span
+                                style={{
+                                  background: "#e91e63",
+                                  color: "white",
+                                }}
+                                className="label_sale"
+                              >
+                                {(((item.price - item.discount_price) /
+                                  item.discount_price) *
+                                  100).toFixed(2)}
+                                %
+                              </span>
                             </div>
                           </div>
                           <div className="product_content">
@@ -382,7 +404,18 @@ const Home = () => {
                               />
                             </a>
                             <div className="label_product">
-                              <span className="label_sale">Sale</span>
+                              <span
+                                style={{
+                                  background: "#e91e63",
+                                  color: "white",
+                                }}
+                                className="label_sale"
+                              >
+                                {(((item.price - item.discount_price) /
+                                  item.discount_price) *
+                                  100).toFixed(2)}
+                                %
+                              </span>
                             </div>
                           </div>
                           <div className="product_content">
@@ -498,7 +531,18 @@ const Home = () => {
                               />
                             </a>
                             <div className="label_product">
-                              <span className="label_sale">Sale</span>
+                              <span
+                                style={{
+                                  background: "#e91e63",
+                                  color: "white",
+                                }}
+                                className="label_sale"
+                              >
+                                {(((item.price - item.discount_price) /
+                                  item.discount_price) *
+                                  100).toFixed(2)}
+                                %
+                              </span>
                             </div>
                           </div>
                           <div className="product_content">
@@ -614,7 +658,18 @@ const Home = () => {
                               />
                             </a>
                             <div className="label_product">
-                              <span className="label_sale">Sale</span>
+                              <span
+                                style={{
+                                  background: "#e91e63",
+                                  color: "white",
+                                }}
+                                className="label_sale"
+                              >
+                                {(((item.price - item.discount_price) /
+                                  item.discount_price) *
+                                  100).toFixed(2)}
+                                %
+                              </span>
                             </div>
                           </div>
                           <div className="product_content">
