@@ -24,6 +24,7 @@ export const MakeLink = () => {
           } else {
             navigator.clipboard.writeText(res.data).then(function () {
               toast.success("Affiliate Link Copied");
+              setlink("");
             });
           }
         });
@@ -45,6 +46,7 @@ export const MakeLink = () => {
             <div className="search_container">
               <div className="search_box">
                 <input
+                  value={link}
                   onChange={(e) => setlink(e.target.value)}
                   placeholder="Search product..."
                   type="text"
