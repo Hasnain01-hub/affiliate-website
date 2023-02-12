@@ -157,9 +157,11 @@ const Home = () => {
                                 }}
                                 className="label_sale"
                               >
-                                {(((item.price - item.discount_price) /
-                                  item.discount_price) *
-                                  100).toFixed(2)}
+                                {(
+                                  ((item.price - item.discount_price) /
+                                    item.discount_price) *
+                                  100
+                                ).toFixed(2)}
                                 %
                               </span>
                             </div>
@@ -167,9 +169,9 @@ const Home = () => {
                           <div className="product_content">
                             <div className="product_content_inner">
                               <h4 className="product_name">
-                                <a href="product-countdown.html">
+                                <Link to={"/Deal/" + item._id}>
                                   {item.p_name}
-                                </a>
+                                </Link>
                               </h4>
                               <div className="countdown_text">
                                 <p>
@@ -284,9 +286,11 @@ const Home = () => {
                                 }}
                                 className="label_sale"
                               >
-                                {(((item.price - item.discount_price) /
-                                  item.discount_price) *
-                                  100).toFixed(2)}
+                                {(
+                                  ((item.price - item.discount_price) /
+                                    item.discount_price) *
+                                  100
+                                ).toFixed(2)}
                                 %
                               </span>
                             </div>
@@ -294,9 +298,9 @@ const Home = () => {
                           <div className="product_content">
                             <div className="product_content_inner">
                               <h4 className="product_name">
-                                <a href="product-countdown.html">
+                                <Link to={"/Deal/" + item._id}>
                                   {item.p_name}
-                                </a>
+                                </Link>
                               </h4>
                               <div className="countdown_text">
                                 <p>
@@ -411,9 +415,11 @@ const Home = () => {
                                 }}
                                 className="label_sale"
                               >
-                                {(((item.price - item.discount_price) /
-                                  item.discount_price) *
-                                  100).toFixed(2)}
+                                {(
+                                  ((item.price - item.discount_price) /
+                                    item.discount_price) *
+                                  100
+                                ).toFixed(2)}
                                 %
                               </span>
                             </div>
@@ -421,9 +427,9 @@ const Home = () => {
                           <div className="product_content">
                             <div className="product_content_inner">
                               <h4 className="product_name">
-                                <a href="product-countdown.html">
+                                <Link to={"/Deal/" + item._id}>
                                   {item.p_name}
-                                </a>
+                                </Link>
                               </h4>
                               <div className="countdown_text">
                                 <p>
@@ -538,9 +544,11 @@ const Home = () => {
                                 }}
                                 className="label_sale"
                               >
-                                {(((item.price - item.discount_price) /
-                                  item.discount_price) *
-                                  100).toFixed(2)}
+                                {(
+                                  ((item.price - item.discount_price) /
+                                    item.discount_price) *
+                                  100
+                                ).toFixed(2)}
                                 %
                               </span>
                             </div>
@@ -548,9 +556,9 @@ const Home = () => {
                           <div className="product_content">
                             <div className="product_content_inner">
                               <h4 className="product_name">
-                                <a href="product-countdown.html">
+                                <Link to={"/Deal/" + item._id}>
                                   {item.p_name}
-                                </a>
+                                </Link>
                               </h4>
                               <div className="countdown_text">
                                 <p>
@@ -665,9 +673,11 @@ const Home = () => {
                                 }}
                                 className="label_sale"
                               >
-                                {(((item.price - item.discount_price) /
-                                  item.discount_price) *
-                                  100).toFixed(2)}
+                                {(
+                                  ((item.price - item.discount_price) /
+                                    item.discount_price) *
+                                  100
+                                ).toFixed(2)}
                                 %
                               </span>
                             </div>
@@ -675,9 +685,9 @@ const Home = () => {
                           <div className="product_content">
                             <div className="product_content_inner">
                               <h4 className="product_name">
-                                <a href="product-countdown.html">
+                                <Link to={"/Deal/" + item._id}>
                                   {item.p_name}
-                                </a>
+                                </Link>
                               </h4>
                               <div className="countdown_text">
                                 <p>

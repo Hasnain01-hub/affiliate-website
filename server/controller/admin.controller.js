@@ -353,3 +353,12 @@ exports.getDashboard = (req, res) => {
     res.json(data);
   });
 };
+
+exports.getSingleDeal = (req, res) => {
+    const deal = productModel.findById(req.params.id).then((doc) => {
+        return res.json(doc);
+
+    }).catch((err) => {
+        return res.json(err);
+    })
+}

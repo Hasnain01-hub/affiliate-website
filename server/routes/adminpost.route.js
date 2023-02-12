@@ -26,6 +26,7 @@ const {
   getBanners,
   deleteBanner,
   getDashboard,
+  getSingleDeal,
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
 const router = express.Router();
@@ -48,6 +49,7 @@ router.get("/single_user/:id", getSingleUser);
 router.get("/banners/get", getBanners);
 router.get("/banner/delete/:id", deleteBanner);
 router.get("/home", getDashboard);
+router.get('/single_deal/:id', getSingleDeal);
 
 //Post Routes
 router.post("/add-admin", addAdmin);

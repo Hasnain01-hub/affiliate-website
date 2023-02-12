@@ -15,6 +15,7 @@ import CategoryProducts from "./Components/CategoryProducts";
 import NotAvailable from "./Components/NotAvailable";
 import Links from "./Components/Links";
 import Contact from "./Components/Contact";
+import SingleDeal from "./Components/SingleDeal";
 
 function App() {
   const dispatch = useDispatch();
@@ -55,6 +56,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/:cat" element={<CategoryProducts />} />
+        <Route path="/Deal/:id" element={<SingleDeal />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/Incomplete-Profile" element={<NotAvailable />} />
       </Routes>
