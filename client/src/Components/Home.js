@@ -40,6 +40,7 @@ const Home = () => {
 
   return (
     <>
+      {console.log(deals)}
       <div className="home_section_bg">
         {/*Categories product area start*/}
         <div className="categories_product_area mb-55">
@@ -65,8 +66,8 @@ const Home = () => {
             <div className="categories_product_inner">
               {loading === false ? (
                 <>
-                  {category.map((cat, i) => (
-                    <>
+                  {category.map((cat, i) => {
+                    return (
                       <div
                         className="single_categories_product"
                         style={{ height: "100px" }}
@@ -77,8 +78,8 @@ const Home = () => {
                           </Link>
                         </div>
                       </div>
-                    </>
-                  ))}
+                    );
+                  })}
                 </>
               ) : (
                 <></>
@@ -110,7 +111,8 @@ const Home = () => {
               }}
             >
               {deals.slice(0, 5).map((item) => {
-                return (
+                return item.category === "Deal of The Day" &&
+                  item.category.length <= 0 ? (
                   <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
                     <div className="owl-item active">
                       <article className="single_product">
@@ -199,7 +201,7 @@ const Home = () => {
                       </article>
                     </div>
                   </div>
-                );
+                ) : null;
               })}
             </div>
 
@@ -223,7 +225,7 @@ const Home = () => {
               }}
             >
               {deals.slice(0, 5).map((item) => {
-                return (
+                return item.category === "Fashion Deals" ? (
                   <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
                     <div className="owl-item active">
                       <article className="single_product">
@@ -312,7 +314,7 @@ const Home = () => {
                       </article>
                     </div>
                   </div>
-                );
+                ) : null;
               })}
             </div>
 
@@ -336,7 +338,7 @@ const Home = () => {
               }}
             >
               {deals.slice(0, 5).map((item) => {
-                return (
+                return item.category === "Best- In- Beauty" ? (
                   <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
                     <div className="owl-item active">
                       <article className="single_product">
@@ -425,7 +427,7 @@ const Home = () => {
                       </article>
                     </div>
                   </div>
-                );
+                ) : null;
               })}
             </div>
 
@@ -449,7 +451,7 @@ const Home = () => {
               }}
             >
               {deals.slice(0, 5).map((item) => {
-                return (
+                return item.category === "Mobiles& TV" ? (
                   <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
                     <div className="owl-item active">
                       <article className="single_product">
@@ -538,7 +540,7 @@ const Home = () => {
                       </article>
                     </div>
                   </div>
-                );
+                ) : null;
               })}
             </div>
 
@@ -562,7 +564,7 @@ const Home = () => {
               }}
             >
               {deals.slice(0, 5).map((item) => {
-                return (
+                return item.category === "Seasonal Product" ? (
                   <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
                     <div className="owl-item active">
                       <article className="single_product">
@@ -651,7 +653,7 @@ const Home = () => {
                       </article>
                     </div>
                   </div>
-                );
+                ) : null;
               })}
             </div>
           </div>

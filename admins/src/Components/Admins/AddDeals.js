@@ -4,7 +4,28 @@ import { toast, ToastContainer } from "react-toastify";
 import Header from "../../Layout/Slider";
 import Nav from "../../Layout/Nav";
 import UploadImage from "./UploadImage";
-
+const catogery = [
+  {
+    id: 1,
+    name: "Deal of The Day",
+  },
+  {
+    id: 2,
+    name: "Fashion Deals",
+  },
+  {
+    id: 3,
+    name: "Best- In- Beauty",
+  },
+  {
+    id: 4,
+    name: "Mobiles& TV",
+  },
+  {
+    id: 5,
+    name: "seasonal product",
+  },
+];
 const AddDeals = () => {
   const [loading, setLoading] = useState(false);
   const [deals, setdeals] = useState({
@@ -12,6 +33,9 @@ const AddDeals = () => {
     p_name: "",
     p_link: "",
     end_date: "",
+    category: "Select",
+    how_avail: "",
+    description: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,13 +51,25 @@ const AddDeals = () => {
     e.preventDefault();
 
     try {
-      if (deals.p_link !== "" && deals.p_name) {
+      if (
+        deals.p_link !== "" &&
+        deals.p_name !== "" &&
+        deals.category != "Select"
+      ) {
         axios
           .post(process.env.REACT_APP_API + `api/admin/add-product`, { deals })
           .then((res) => {
             if (res.status === 200) {
               toast.success("Deals Added Successfully");
-              setdeals({ images: [], p_name: "", p_link: "", end_date: "" });
+              setdeals({
+                images: [],
+                p_name: "",
+                p_link: "",
+                end_date: "",
+                category: "Select",
+                how_avail: "",
+                description: "",
+              });
             }
           });
       } else {
@@ -91,6 +127,29 @@ const AddDeals = () => {
                             className="form-label"
                             htmlFor="basic-default-fullname"
                           >
+                            Category
+                          </label>
+
+                          <select
+                            name="category"
+                            onChange={handleChange}
+                            className="form-control"
+                          >
+                            <option value="Select">Select Category</option>;
+                            {catogery.map((item) => {
+                              return (
+                                <option value={item.name} key={item.id}>
+                                  {item.name}
+                                </option>
+                              );
+                            })}
+                          </select>
+                        </div>
+                        <div className="mb-3">
+                          <label
+                            className="form-label"
+                            htmlFor="basic-default-fullname"
+                          >
                             Product Link
                           </label>
                           <input
@@ -99,6 +158,41 @@ const AddDeals = () => {
                             placeholder="https://amzn.eu/d/fVpAfUt"
                             name="p_link"
                             value={deals.p_link}
+                            required
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label
+                            className="form-label"
+                            htmlFor="basic-default-fullname"
+                          >
+                            Description
+                          </label>
+                          <input
+                            type="email"
+                            className="form-control"
+                            placeholder="description"
+                            name="description"
+                            value={deals.description}
+                            required
+                            onChange={handleChange}
+                          />
+                        </div>
+
+                        <div className="mb-3">
+                          <label
+                            className="form-label"
+                            htmlFor="basic-default-fullname"
+                          >
+                            How to avail
+                          </label>
+                          <input
+                            type="email"
+                            className="form-control"
+                            placeholder="How to avail"
+                            name="how_avail"
+                            value={deals.how_avail}
                             required
                             onChange={handleChange}
                           />
@@ -122,22 +216,6 @@ const AddDeals = () => {
                           />
                         </div>
 
-                        {/* <div className="mb-3">
-                          <label
-                            className="form-label"
-                            htmlFor="basic-default-fullname"
-                          >
-                            Confirm Password
-                          </label>
-                          <input
-                            type="password"
-                            className="form-control"
-                            placeholder="Password....."
-                            name="cp"
-                            required
-                            onChange={handleChange}
-                          />
-                        </div> */}
                         <button
                           onClick={handleSubmit}
                           type="submit"

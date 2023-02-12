@@ -18,6 +18,16 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    category: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+    },
+    how_avail: {
+      type: String,
+    },
   },
   { timestamps: true } // createdAt, updatedAt timestamps will be taken care of by this automatically
 );

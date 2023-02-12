@@ -1,14 +1,32 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
 
+import { toast, ToastContainer } from "react-toastify";
+import { useSelector } from "react-redux";
 const CategoryProducts = () => {
+  const { user } = useSelector((state) => state.user);
   const [product, setProduct] = useState();
 
   const [loading, setLoaidng] = useState(true);
 
   const params = useParams();
+  // const [link, setLink] = useState("");
+  const generatelink = (e, link) => {
+    e.preventDefault();
+
+    if (user && user.tag !== "") {
+      let res = link.split("/com")[0];
+
+      let cp_link = res + "/?tag=" + user.tag;
+
+      navigator.clipboard.writeText(cp_link).then(function () {
+        toast.success("Link Copied");
+      });
+    } else {
+      toast.error("You don't have any tag");
+    }
+  };
 
   useEffect(() => {
     axios
@@ -43,7 +61,7 @@ const CategoryProducts = () => {
                       <>
                         {product.map((p, i) => (
                           <>
-                            <div className="col-lg-3 col-md-4 col-12 ">
+                            <div key={i} className="col-lg-3 col-md-4 col-12 ">
                               <article className="single_product">
                                 <figure>
                                   <div className="product_thumb">
@@ -79,7 +97,10 @@ const CategoryProducts = () => {
                                         </span>
                                       </div>
                                     </div>
-                                    <div className="add_to_cart">
+                                    <div
+                                      onClick={(e) => generatelink(e, p.link)}
+                                      className="add_to_cart"
+                                    >
                                       <a href="#/" title="Copy Link">
                                         Copy Link
                                       </a>
@@ -98,7 +119,10 @@ const CategoryProducts = () => {
                                         $70.00
                                       </span>
                                     </div>
-                                    <div className="add_to_cart">
+                                    <div
+                                      onClick={(e) => generatelink(e, p.link)}
+                                      className="add_to_cart"
+                                    >
                                       <a href="#/" title="Copy Link">
                                         Copy Link
                                       </a>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 const Shop = () => {
+  
   const [product, setProduct] = useState();
 
   const [loading, setLoaidng] = useState(true);
@@ -21,6 +22,7 @@ const Shop = () => {
 
   return (
     <>
+      {console.log(product)}
       <div className="shop_area shop_fullwidth">
         <div className="container">
           <div className="row">

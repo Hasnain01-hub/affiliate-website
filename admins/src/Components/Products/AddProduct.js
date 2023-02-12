@@ -106,6 +106,7 @@ const AddProduct = () => {
                               onChange={handleChange}
                             />
                           </div>
+
                           <div className="mb-3 col-md-6">
                             <label className="form-label">
                               Store <span className="red">*</span>
