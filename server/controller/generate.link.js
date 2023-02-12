@@ -3,7 +3,7 @@ exports.generateLink = async (req, res) => {
   // const d = "https://amzn.to/40t8nri";
   const d = req.body.link;
   /* This is the code that is responsible for the redirection. */
-  if (d.includes("a.co")) {
+  if (d.includes("a.co") || d.includes("amazon.com")) {
     const de = await axios.get(d);
 
     const url = de.request.res.responseUrl;
@@ -15,10 +15,8 @@ exports.generateLink = async (req, res) => {
     const modify = ds + "?" + tag;
 
     res.json(modify);
-  }
-
-  /* This is the code that is responsible for the redirection. */
-  if (d.includes("amzn.to") || d.includes("B0")) {
+  } else if (d.includes("amzn.to") || d.includes("B0")) {
+    /* This is the code that is responsible for the redirection. */
     const de = await axios.get(d);
 
     const url = de.request.res.responseUrl;
@@ -39,6 +37,14 @@ exports.generateLink = async (req, res) => {
     const modify = ds + "?" + tag;
 
     res.json(modify);
+  } else if (
+    !d.includes("amzn.to") ||
+    !d.includes("a.co") ||
+    !d.includes("amazon.in") ||
+    !d.includes("amazon.com") ||
+    !d.includes("amzn")
+  ) {
+    res.status(404).json({ message: "Invalid Link" });
   } else {
     const de = await axios.get(d);
 

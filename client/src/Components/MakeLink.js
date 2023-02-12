@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { ReactTinyLink } from "react-tiny-link";
+
 export const MakeLink = () => {
   const { user } = useSelector((state) => state.user);
   const [link, setlink] = React.useState("");
@@ -26,9 +27,9 @@ export const MakeLink = () => {
             }
           )
           .then((res) => {
-            console.log(res);
             if (res.data === "Invalid Link") {
               toast.error("Invalid Link");
+              setAmz(null);
             } else {
               navigator.clipboard.writeText(res.data).then(function () {
                 toast.success("Affiliate Link Copied");
@@ -40,6 +41,10 @@ export const MakeLink = () => {
           .catch((err) => {
             if (err.response.status === 403)
               return toast.error("User not logined!");
+
+            if (err.response.status === 404) {
+              toast.error("Invalid URL");
+            }
           });
       } else {
         toast.error("You don't have any tag");
