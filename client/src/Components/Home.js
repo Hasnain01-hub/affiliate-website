@@ -201,7 +201,7 @@ const Home = () => {
                               onClick={(e) => generatelink(e, item.p_link)}
                               className="add_to_cart"
                             >
-                              <a href="" title="Copy Link">
+                              <a href="#/" title="Copy Link">
                                 Copy Link
                               </a>
                             </div>
@@ -317,7 +317,7 @@ const Home = () => {
                               onClick={(e) => generatelink(e, item.p_link)}
                               className="add_to_cart"
                             >
-                              <a href="" title="Copy Link">
+                              <a href="#/" title="Copy Link">
                                 Copy Link
                               </a>
                             </div>
@@ -433,7 +433,7 @@ const Home = () => {
                               onClick={(e) => generatelink(e, item.p_link)}
                               className="add_to_cart"
                             >
-                              <a href="" title="Copy Link">
+                              <a href="#/" title="Copy Link">
                                 Copy Link
                               </a>
                             </div>
@@ -549,7 +549,7 @@ const Home = () => {
                               onClick={(e) => generatelink(e, item.p_link)}
                               className="add_to_cart"
                             >
-                              <a href="" title="Copy Link">
+                              <a href="#/" title="Copy Link">
                                 Copy Link
                               </a>
                             </div>
@@ -665,7 +665,7 @@ const Home = () => {
                               onClick={(e) => generatelink(e, item.p_link)}
                               className="add_to_cart"
                             >
-                              <a href="" title="Copy Link">
+                              <a href="#/" title="Copy Link">
                                 Copy Link
                               </a>
                             </div>

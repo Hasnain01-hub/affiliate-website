@@ -1,11 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { toast, ToastContainer } from "react-toastify";
-import { useSelector } from "react-redux";
+
 const CategoryProducts = () => {
-  const { user } = useSelector((state) => state.user);
   const [product, setProduct] = useState();
 
   const [loading, setLoaidng] = useState(true);
@@ -15,17 +13,13 @@ const CategoryProducts = () => {
   const generatelink = (e, link) => {
     e.preventDefault();
 
-    if (user && user.tag !== "") {
-      let res = link.split("/com")[0];
+    let res = link.split("/com")[0];
 
-      let cp_link = res + "/?tag=" + user.tag;
+    let cp_link = res;
 
-      navigator.clipboard.writeText(cp_link).then(function () {
-        toast.success("Link Copied");
-      });
-    } else {
-      toast.error("You don't have any tag");
-    }
+    navigator.clipboard.writeText(cp_link).then(function () {
+      toast.success("Link Copied");
+    });
   };
 
   useEffect(() => {
