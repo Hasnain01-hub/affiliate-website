@@ -37,6 +37,13 @@ const Home = () => {
         toast.error("Internal Server Error");
       });
   }, []);
+  const generatelink = (e, link) => {
+    e.preventDefault();
+
+    navigator.clipboard.writeText(link).then(function () {
+      toast.success("Link Copied");
+    });
+  };
 
   return (
     <>
@@ -190,8 +197,11 @@ const Home = () => {
                                 <p>{moment(item.end_date).format("LLL")}</p>
                               </div>
                             </div>
-                            <div className="add_to_cart">
-                              <a href="cart.html" title="Copy Link">
+                            <div
+                              onClick={(e) => generatelink(e, item.p_link)}
+                              className="add_to_cart"
+                            >
+                              <a href="" title="Copy Link">
                                 Copy Link
                               </a>
                             </div>
@@ -303,8 +313,11 @@ const Home = () => {
                                 <p>{moment(item.end_date).format("LLL")}</p>
                               </div>
                             </div>
-                            <div className="add_to_cart">
-                              <a href="cart.html" title="Copy Link">
+                            <div
+                              onClick={(e) => generatelink(e, item.p_link)}
+                              className="add_to_cart"
+                            >
+                              <a href="" title="Copy Link">
                                 Copy Link
                               </a>
                             </div>
@@ -416,8 +429,11 @@ const Home = () => {
                                 <p>{moment(item.end_date).format("LLL")}</p>
                               </div>
                             </div>
-                            <div className="add_to_cart">
-                              <a href="cart.html" title="Copy Link">
+                            <div
+                              onClick={(e) => generatelink(e, item.p_link)}
+                              className="add_to_cart"
+                            >
+                              <a href="" title="Copy Link">
                                 Copy Link
                               </a>
                             </div>
@@ -529,8 +545,11 @@ const Home = () => {
                                 <p>{moment(item.end_date).format("LLL")}</p>
                               </div>
                             </div>
-                            <div className="add_to_cart">
-                              <a href="cart.html" title="Copy Link">
+                            <div
+                              onClick={(e) => generatelink(e, item.p_link)}
+                              className="add_to_cart"
+                            >
+                              <a href="" title="Copy Link">
                                 Copy Link
                               </a>
                             </div>
@@ -642,8 +661,11 @@ const Home = () => {
                                 <p>{moment(item.end_date).format("LLL")}</p>
                               </div>
                             </div>
-                            <div className="add_to_cart">
-                              <a href="cart.html" title="Copy Link">
+                            <div
+                              onClick={(e) => generatelink(e, item.p_link)}
+                              className="add_to_cart"
+                            >
+                              <a href="" title="Copy Link">
                                 Copy Link
                               </a>
                             </div>
