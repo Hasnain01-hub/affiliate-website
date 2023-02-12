@@ -27,6 +27,10 @@ export const MakeLink = () => {
               setlink("");
             });
           }
+        })
+        .catch((err) => {
+          if (err.response.status === 403)
+            return toast.error("User not logined!");
         });
     } else {
       toast.error("You don't have any tag");
