@@ -2,7 +2,6 @@ const Product = require("../model/product.model");
 exports.addproduct = (req, res) => {
   console.log("req.body", req.body.deals);
   const product = new Product(req.body.deals);
-
   product
     .save()
     .then((doc) => {

@@ -35,6 +35,8 @@ const AddDeals = () => {
     end_date: "",
     category: "Select",
     how_avail: "",
+    price: "",
+    discount_price: "",
     description: "",
   });
   const handleChange = (e) => {
@@ -68,6 +70,8 @@ const AddDeals = () => {
                 end_date: "",
                 category: "Select",
                 how_avail: "",
+                discount_price: "",
+                price: "",
                 description: "",
               });
             }
@@ -133,6 +137,7 @@ const AddDeals = () => {
                           <select
                             name="category"
                             onChange={handleChange}
+                            value={deals.category}
                             className="form-control"
                           >
                             <option value="Select">Select Category</option>;
@@ -153,7 +158,7 @@ const AddDeals = () => {
                             Product Link
                           </label>
                           <input
-                            type="email"
+                            type="text"
                             className="form-control"
                             placeholder="https://amzn.eu/d/fVpAfUt"
                             name="p_link"
@@ -169,8 +174,7 @@ const AddDeals = () => {
                           >
                             Description
                           </label>
-                          <input
-                            type="email"
+                          <textarea
                             className="form-control"
                             placeholder="description"
                             name="description"
@@ -187,8 +191,7 @@ const AddDeals = () => {
                           >
                             How to avail
                           </label>
-                          <input
-                            type="email"
+                          <textarea
                             className="form-control"
                             placeholder="How to avail"
                             name="how_avail"
@@ -216,6 +219,40 @@ const AddDeals = () => {
                           />
                         </div>
 
+                        <div className="mb-3">
+                          <label
+                            className="form-label"
+                            htmlFor="basic-default-fullname"
+                          >
+                            Price
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="0.00"
+                            value={deals.price}
+                            name="price"
+                            required
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label
+                            className="form-label"
+                            htmlFor="basic-default-fullname"
+                          >
+                            Discounted Price
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="0.00"
+                            value={deals.discount_price}
+                            name="discount_price"
+                            required
+                            onChange={handleChange}
+                          />
+                        </div>
                         <button
                           onClick={handleSubmit}
                           type="submit"
