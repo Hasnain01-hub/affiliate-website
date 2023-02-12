@@ -1,7 +1,7 @@
 import axios from "axios";
 import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import Sliders from "./Sliders";
@@ -9,7 +9,7 @@ import Sliders from "./Sliders";
 const Home = () => {
   const [deals, setdeals] = useState([]);
 
-  const { user } = useSelector((state) => state.user);
+  // const { user } = useSelector((state) => state.user);
 
   const [category, setCategory] = useState();
 
@@ -45,7 +45,7 @@ const Home = () => {
         {/*Categories product area start*/}
         <div className="categories_product_area mb-55">
           <div className="container">
-            {user !== null ? (
+            {/* {user !== null ? (
               <>
                 {user.profit === null ? (
                   <>
@@ -60,7 +60,7 @@ const Home = () => {
             ) : (
               <></>
             )}
-            <br />
+            <br /> */}
             <Sliders />
 
             <div className="categories_product_inner">
