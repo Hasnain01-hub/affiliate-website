@@ -1,6 +1,8 @@
+const axios = require("axios");
 exports.generateLink = async (req, res) => {
-  const d = "https://amzn.to/40t8nri";
-
+  // const d = "https://amzn.to/40t8nri";
+  const d = req.body.link;
+  console.log(d);
   /* This is the code that is responsible for the redirection. */
   if (d.includes("a.co")) {
     const de = await axios.get(d);

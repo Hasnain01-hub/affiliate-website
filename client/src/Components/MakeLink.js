@@ -1,8 +1,35 @@
+import axios from "axios";
 import React from "react";
-
+import { toast, ToastContainer } from "react-toastify";
 export const MakeLink = () => {
+  const [link, setlink] = React.useState("");
   const handleSubmit = () => {
-    // logic here
+    if (link !== "") {
+      axios
+        .post(
+          process.env.REACT_APP_API + "api/createlink/generate-link",
+          {
+            link: link,
+          },
+          {
+            headers: {
+              authtoken: window.localStorage.getItem("token"),
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          if (res.data === "Invalid Link") {
+            toast.error("Invalid Link");
+          } else {
+            navigator.clipboard.writeText(res.data).then(function () {
+              toast.success("Affiliate Link Copied");
+            });
+          }
+        });
+    } else {
+      toast.error("You don't have any tag");
+    }
   };
 
   return (
@@ -17,7 +44,11 @@ export const MakeLink = () => {
             </p>
             <div className="search_container">
               <div className="search_box">
-                <input placeholder="Search product..." type="text" />
+                <input
+                  onChange={(e) => setlink(e.target.value)}
+                  placeholder="Search product..."
+                  type="text"
+                />
                 <button type="submit" onClick={handleSubmit}>
                   Make Link Now
                 </button>
@@ -26,6 +57,7 @@ export const MakeLink = () => {
           </div>
         </center>
       </div>
+      <ToastContainer />
     </>
   );
 };
