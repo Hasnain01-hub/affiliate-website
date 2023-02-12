@@ -1,10 +1,14 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
+import { ReactTinyLink } from "react-tiny-link";
 export const MakeLink = () => {
   const { user } = useSelector((state) => state.user);
   const [link, setlink] = React.useState("");
+
+  const [amz, setAmz] = useState(null);
+
   const handleSubmit = () => {
     if (link !== "") {
       if (user && user.tag !== "") {
@@ -29,6 +33,7 @@ export const MakeLink = () => {
               navigator.clipboard.writeText(res.data).then(function () {
                 toast.success("Affiliate Link Copied");
                 setlink("");
+                setAmz(res.data);
               });
             }
           })
@@ -67,6 +72,29 @@ export const MakeLink = () => {
                 </button>
               </div>
             </div>
+            <br />
+            {amz !== null ? (
+              <>
+                <h2>
+                  Link is automatically copied
+                  <br />
+                  The Affiliate Link is Here :
+                </h2>
+                <p>
+                  <a href={amz} target="_blank" rel="noreferrer">
+                    <ReactTinyLink
+                      maxLine={1}
+                      minLine={1}
+                      url={amz}
+                      showGraphic={false}
+                      cardSize="small"
+                    />
+                  </a>
+                </p>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
         </center>
       </div>

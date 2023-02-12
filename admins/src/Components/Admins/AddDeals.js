@@ -54,7 +54,7 @@ const AddDeals = () => {
       if (
         deals.p_link !== "" &&
         deals.p_name !== "" &&
-        deals.category != "Select"
+        deals.category !== "Select"
       ) {
         axios
           .post(process.env.REACT_APP_API + `api/admin/add-product`, { deals })

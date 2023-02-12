@@ -111,8 +111,7 @@ const Home = () => {
               }}
             >
               {deals.slice(0, 5).map((item) => {
-                return item.category === "Deal of The Day" &&
-                  item.category.length <= 0 ? (
+                return item.category === "Deal of The Day" ? (
                   <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
                     <div className="owl-item active">
                       <article className="single_product">
@@ -192,8 +191,8 @@ const Home = () => {
                               </div>
                             </div>
                             <div className="add_to_cart">
-                              <a href="cart.html" title="Add to cart">
-                                Add to cart
+                              <a href="cart.html" title="Copy Link">
+                                Copy Link
                               </a>
                             </div>
                           </div>
@@ -305,8 +304,8 @@ const Home = () => {
                               </div>
                             </div>
                             <div className="add_to_cart">
-                              <a href="cart.html" title="Add to cart">
-                                Add to cart
+                              <a href="cart.html" title="Copy Link">
+                                Copy Link
                               </a>
                             </div>
                           </div>
@@ -418,8 +417,8 @@ const Home = () => {
                               </div>
                             </div>
                             <div className="add_to_cart">
-                              <a href="cart.html" title="Add to cart">
-                                Add to cart
+                              <a href="cart.html" title="Copy Link">
+                                Copy Link
                               </a>
                             </div>
                           </div>
@@ -531,8 +530,8 @@ const Home = () => {
                               </div>
                             </div>
                             <div className="add_to_cart">
-                              <a href="cart.html" title="Add to cart">
-                                Add to cart
+                              <a href="cart.html" title="Copy Link">
+                                Copy Link
                               </a>
                             </div>
                           </div>
@@ -644,8 +643,8 @@ const Home = () => {
                               </div>
                             </div>
                             <div className="add_to_cart">
-                              <a href="cart.html" title="Add to cart">
-                                Add to cart
+                              <a href="cart.html" title="Copy Link">
+                                Copy Link
                               </a>
                             </div>
                           </div>

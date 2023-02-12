@@ -37,121 +37,29 @@ const Header = () => {
                     <i className="ion-android-close" />
                   </Link>
                 </div>
-                <div className="antomi_message">
-                  <p>Get free shipping – Free 30 day money back guarantee</p>
-                </div>
-                <div className="header_top_settings text-end">
-                  <ul>
-                    <li>
-                      <Link to="#/">Store Locations</Link>
-                    </li>
-                    <li>
-                      <Link to="#/">Track Your Order</Link>
-                    </li>
-                    <li>
-                      Hotline: <Link to="tel:+0123456789">0123456789 </Link>
-                    </li>
-                    <li>Quality Guarantee Of Products</li>
-                  </ul>
-                </div>
                 <div id="menu" className="text-start ">
                   <ul className="offcanvas_main_menu">
                     <li className="menu-item-has-children active">
-                      <Link to="#/">Home</Link>
+                      <Link to="/">Home</Link>
                     </li>
+                    {!user && (
+                      <>
+                        <li className="menu-item-has-children">
+                          <Link to="/login">Login</Link>
+                        </li>
+                      </>
+                    )}
 
-                    <li className="menu-item-has-children">
-                      <Link to="#/">blog</Link>
-                      <ul className="sub-menu">
-                        <li>
-                          <Link to="blog.html">blog</Link>
+                    {user && (
+                      <>
+                        <li className="menu-item-has-children">
+                          <Link to="/Make-Links">Make-Links</Link>
                         </li>
-                        <li>
-                          <Link to="blog-details.html">blog details</Link>
+                        <li className="menu-item-has-children">
+                          <Link onClick={logout}>Logout</Link>
                         </li>
-                        <li>
-                          <Link to="blog-fullwidth.html">blog fullwidth</Link>
-                        </li>
-                        <li>
-                          <Link to="blog-sidebar.html">blog sidebar</Link>
-                        </li>
-                        <li>
-                          <Link to="blog-no-sidebar.html">blog no sidebar</Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <Link to="#/">pages </Link>
-                      <ul className="sub-menu">
-                        <li>
-                          <Link to="about.html">About Us</Link>
-                        </li>
-                        <li>
-                          <Link to="faq.html">Frequently Questions</Link>
-                        </li>
-                        <li>
-                          <Link to="privacy-policy.html">privacy policy</Link>
-                        </li>
-                        <li>
-                          <Link to="/contact">contact</Link>
-                        </li>
-                        <li>
-                          <Link to="login.html">login</Link>
-                        </li>
-                        <li>
-                          <Link to="404.html">Error 404</Link>
-                        </li>
-                        <li>
-                          <Link to="compare.html">compare</Link>
-                        </li>
-                        <li>
-                          <Link to="coming-soon.html">coming soon</Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <Link to="my-account.html">my account</Link>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <Link to="about.html">About Us</Link>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <Link to="/contact"> Contact Us</Link>
-                    </li>
-                  </ul>
-                </div>
-                <div className="Offcanvas_footer">
-                  <span>
-                    <Link to="#/">
-                      <i className="fa fa-envelope-o" /> demo@example.com
-                    </Link>
-                  </span>
-                  <ul>
-                    <li className="facebook">
-                      <Link to="#/">
-                        <i className="fa fa-facebook" />
-                      </Link>
-                    </li>
-                    <li className="twitter">
-                      <Link to="#/">
-                        <i className="fa fa-twitter" />
-                      </Link>
-                    </li>
-                    <li className="pinterest">
-                      <Link to="#/">
-                        <i className="fa fa-pinterest-p" />
-                      </Link>
-                    </li>
-                    <li className="google-plus">
-                      <Link to="#/">
-                        <i className="fa fa-google-plus" />
-                      </Link>
-                    </li>
-                    <li className="linkedin">
-                      <Link to="#/">
-                        <i className="fa fa-linkedin" />
-                      </Link>
-                    </li>
+                      </>
+                    )}
                   </ul>
                 </div>
               </div>

@@ -318,3 +318,38 @@ exports.deleteBanner = (req, res) => {
       res.json(err);
     });
 };
+
+exports.getDashboard = (req, res) => {
+  let data = {
+    id: null,
+    products: null,
+    deals: null,
+    stores: null,
+    categories: null,
+    banners: null,
+    users: null,
+    admins: null,
+  };
+
+  Promise.all([
+    AffiliateIDModel.count().exec(),
+    ItemModel.count().exec(),
+    productModel.count().exec(),
+    StoreMode.count().exec(),
+    ProductCategoryModel.count().exec(),
+    BannersModel.count().exec(),
+    userModel.count().exec(),
+    AdminModel.count().exec(),
+  ]).then((counts) => {
+    (data.id = counts[0]),
+      (data.products = counts[1]),
+      (data.deals = counts[2]),
+      (data.stores = counts[3]),
+      (data.categories = counts[4]),
+      (data.banners = counts[5]),
+      (data.users = counts[6]),
+      (data.admins = counts[7]);
+
+    res.json(data);
+  });
+};
