@@ -1,37 +1,44 @@
 import axios from "axios";
 import React from "react";
+import { useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 export const MakeLink = () => {
+  const { user } = useSelector((state) => state.user);
   const [link, setlink] = React.useState("");
   const handleSubmit = () => {
     if (link !== "") {
-      axios
-        .post(
-          process.env.REACT_APP_API + "api/createlink/generate-link",
-          {
-            link: link,
-          },
-          {
-            headers: {
-              authtoken: window.localStorage.getItem("token"),
+      if (user && user.tag !== "") {
+        axios
+          .post(
+            process.env.REACT_APP_API + "api/createlink/generate-link",
+            {
+              link: link,
+              tag: user.tag,
             },
-          }
-        )
-        .then((res) => {
-          console.log(res);
-          if (res.data === "Invalid Link") {
-            toast.error("Invalid Link");
-          } else {
-            navigator.clipboard.writeText(res.data).then(function () {
-              toast.success("Affiliate Link Copied");
-              setlink("");
-            });
-          }
-        })
-        .catch((err) => {
-          if (err.response.status === 403)
-            return toast.error("User not logined!");
-        });
+            {
+              headers: {
+                authtoken: window.localStorage.getItem("token"),
+              },
+            }
+          )
+          .then((res) => {
+            console.log(res);
+            if (res.data === "Invalid Link") {
+              toast.error("Invalid Link");
+            } else {
+              navigator.clipboard.writeText(res.data).then(function () {
+                toast.success("Affiliate Link Copied");
+                setlink("");
+              });
+            }
+          })
+          .catch((err) => {
+            if (err.response.status === 403)
+              return toast.error("User not logined!");
+          });
+      } else {
+        toast.error("You don't have any tag");
+      }
     } else {
       toast.error("You don't have any tag");
     }

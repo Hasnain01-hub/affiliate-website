@@ -3,7 +3,7 @@ const User = require("../model/user.model");
 
 exports.verifyuser = async (req, res, next) => {
   const authHeader = req.headers.authtoken;
-  console.log(authHeader);
+
   if (authHeader) {
     const token = authHeader;
 

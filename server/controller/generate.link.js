@@ -2,7 +2,6 @@ const axios = require("axios");
 exports.generateLink = async (req, res) => {
   // const d = "https://amzn.to/40t8nri";
   const d = req.body.link;
-  console.log(d);
   /* This is the code that is responsible for the redirection. */
   if (d.includes("a.co")) {
     const de = await axios.get(d);
@@ -12,14 +11,14 @@ exports.generateLink = async (req, res) => {
     const new_url = url.replace("amazon.com", "amazon.in");
 
     ds = new_url.split("?_encoding")[0];
-    const tag = "tag=ronak3103-21";
+    const tag = `tag=${req.body.tag}`;
     const modify = ds + "?" + tag;
 
     res.json(modify);
   }
 
   /* This is the code that is responsible for the redirection. */
-  if (d.includes("amzn.to")) {
+  if (d.includes("amzn.to") || d.includes("B0")) {
     const de = await axios.get(d);
 
     const url = de.request.res.responseUrl;
@@ -36,7 +35,7 @@ exports.generateLink = async (req, res) => {
       ds = url.split("?&linkCode=sl1")[0];
     }
 
-    const tag = "tag=ronak3103-21";
+    const tag = `tag=${req.body.tag}`;
     const modify = ds + "?" + tag;
 
     res.json(modify);
@@ -50,7 +49,7 @@ exports.generateLink = async (req, res) => {
     } else {
       ds = url;
     }
-    const tag = "tag=ronak3103-21";
+    const tag = `tag=${req.body.tag}`;
     const modify = ds + "?" + tag;
 
     res.json(modify);
