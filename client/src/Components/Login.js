@@ -28,7 +28,6 @@ const Login = () => {
     loginUser(logindata.email, logindata.password)
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data);
           reduxDispatch(
             loginSuccess({
               name: res.data.user.name,
