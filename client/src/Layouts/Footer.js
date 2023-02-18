@@ -12,8 +12,18 @@ const Footer = () => {
                   <h3>GET THE APP</h3>
                   <div className="aff_content">
                     <p>
-                      <strong>LameFame</strong> App is now available on Google
-                      Play &amp; App Store. Get it now.
+                      sitename.domain is a participant in the Amazon Associates
+                      Program, an affiliate advertising program designed to
+                      provide a means for sites to earn advertising fees by
+                      advertising and linking to amazon.in.” site.domain is the
+                      world’s best website for deals, offers and discount. We
+                      work effortlessly to complete your shopping needs. One
+                      stop solution to all your shopping needs..
+                    </p>
+                    <p>
+                      Amazon and the Amazon logo are trademarks of{" "}
+                      <b>Amazon.in</b>, <b>Amazon.com</b>, Inc. or its
+                      affiliates.
                     </p>
                   </div>
                   <div className="app_img">
@@ -30,82 +40,25 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-2 col-md-3 col-sm-5">
+              <div className="col-lg-6 col-md-3 col-sm-5">
                 <div className="widgets_container widget_menu">
                   <h3>Information</h3>
                   <div className="footer_menu">
                     <ul>
                       <li>
-                        <a href="about.html">About Us</a>
+                        <a href="/about">About Us</a>
                       </li>
                       <li>
-                        <a href="#/">Delivery Information</a>
+                        <a href="/contact">Contact Us</a>
                       </li>
                       <li>
-                        <a href="#/">New products</a>
+                        <a href="/privacy-policy">Privacy Policy</a>
                       </li>
                       <li>
-                        <a href="#/">Best sales</a>
+                        <a href="/affiliate-disclosure">Affiliate Disclosure</a>
                       </li>
                       <li>
-                        <a href="my-account.html">My Account</a>
-                      </li>
-                      <li>
-                        <a href="#/">Order History</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-2 col-md-4 col-sm-6">
-                <div className="widgets_container widget_menu">
-                  <h3>My Account</h3>
-                  <div className="footer_menu">
-                    <ul>
-                      <li>
-                        <a href="my-account.html">My Account</a>
-                      </li>
-                      <li>
-                        <a href="cart.html">Shopping Cart</a>
-                      </li>
-                      <li>
-                        <a href="wishlist.html">Wish List</a>
-                      </li>
-                      <li>
-                        <a href="#/">Prices drop</a>
-                      </li>
-                      <li>
-                        <a href="#/">Order History</a>
-                      </li>
-                      <li>
-                        <a href="#/">International Orders</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-2 col-md-5 col-sm-6">
-                <div className="widgets_container widget_menu">
-                  <h3>Customer Service</h3>
-                  <div className="footer_menu">
-                    <ul>
-                      <li>
-                        <a href="#/">Sitemap</a>
-                      </li>
-                      <li>
-                        <a href="my-account.html">My Account</a>
-                      </li>
-                      <li>
-                        <a href="#/">Delivery Information</a>
-                      </li>
-                      <li>
-                        <a href="#/">Order History</a>
-                      </li>
-                      <li>
-                        <a href="wishlist.html">Wish List</a>
-                      </li>
-                      <li>
-                        <a href="#/">Specials</a>
+                        <a href="/agreement">Amazon Affiliate Agreement</a>
                       </li>
                     </ul>
                   </div>
@@ -151,11 +104,6 @@ const Footer = () => {
                           <i className="fa fa-linkedin" />
                         </a>
                       </li>
-                      <li>
-                        <a className="rss" href="#/">
-                          <i className="fa fa-rss" />
-                        </a>
-                      </li>
                     </ul>
                   </div>
                 </div>
@@ -176,11 +124,6 @@ const Footer = () => {
                     . Made with <i className="fa fa-heart" /> by{" "}
                     <a href="https://www.darkcoders.com/">darkcoders</a>
                   </p>
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-6">
-                <div className="footer_payment text-end">
-                  <img src="assets/img/icon/payment.png" alt="" />
                 </div>
               </div>
             </div>

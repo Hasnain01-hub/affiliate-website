@@ -16,6 +16,8 @@ import NotAvailable from "./Components/NotAvailable";
 import Links from "./Components/Links";
 import Contact from "./Components/Contact";
 import SingleDeal from "./Components/SingleDeal";
+import PrivacyPolicy from "./Components/PrivacyPolicy";
+import About from "./Components/About";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,6 +59,8 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/:cat" element={<CategoryProducts />} />
         <Route path="/Deal/:id" element={<SingleDeal />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/Incomplete-Profile" element={<NotAvailable />} />
       </Routes>
