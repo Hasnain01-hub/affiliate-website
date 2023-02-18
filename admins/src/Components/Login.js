@@ -35,7 +35,7 @@ const Login = () => {
       });
     } else {
       axios
-        .post("http://localhost:8000/api/auth/admin/login", admin)
+        .post(`${process.env.REACT_APP_API}/api/auth/admin/login`, admin)
         .then((res) => {
           window.localStorage.setItem("admin", JSON.stringify(admin));
           toast.success("Logged in Successful", {

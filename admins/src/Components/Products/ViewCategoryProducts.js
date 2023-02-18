@@ -30,7 +30,7 @@ const ViewCategoryProducts = () => {
     e.preventDefault();
     if (window.confirm("Are you sure you want to delete this Product?")) {
       await axios
-        .get(`http://localhost:8000/api/admin/removeproduct/${_id}`)
+        .get(`${process.env.REACT_APP_API}/api/admin/removeproduct/${_id}`)
         .then((res) => {
           window.location.href = "/View-Products";
           toast.success("Product deleted successfully");
