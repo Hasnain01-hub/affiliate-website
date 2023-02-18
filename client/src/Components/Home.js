@@ -112,6 +112,7 @@ const Home = () => {
               style={{
                 flexWrap: "nowrap",
                 overflowX: "auto",
+                scrollSnapType: "x mandatory",
                 gap: "15px",
                 overflowY: `hidden`,
                 padding: "30px",
@@ -119,7 +120,11 @@ const Home = () => {
             >
               {deals.slice(0, 5).map((item) => {
                 return item.category === "Deal of The Day" ? (
-                  <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
+                  <div
+                    key={item._id}
+                    style={{ scrollSnapAlign: "start" }}
+                    className="col-lg-3 col-md-4 col-sm-6"
+                  >
                     <div className="owl-item active">
                       <article className="single_product">
                         <figure>
@@ -243,12 +248,17 @@ const Home = () => {
                 overflowX: "auto",
                 gap: "15px",
                 overflowY: `hidden`,
+                scrollSnapType: "x mandatory",
                 padding: "30px",
               }}
             >
               {deals.slice(0, 5).map((item) => {
                 return item.category === "Fashion Deals" ? (
-                  <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
+                  <div
+                    key={item._id}
+                    style={{ scrollSnapAlign: "start" }}
+                    className="col-lg-3 col-md-4 col-sm-6"
+                  >
                     <div className="owl-item active">
                       <article className="single_product">
                         <figure>
@@ -371,13 +381,18 @@ const Home = () => {
                 flexWrap: "nowrap",
                 overflowX: "auto",
                 gap: "15px",
+                scrollSnapType: "x mandatory",
                 overflowY: `hidden`,
                 padding: "30px",
               }}
             >
               {deals.slice(0, 5).map((item) => {
                 return item.category === "Best- In- Beauty" ? (
-                  <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
+                  <div
+                    key={item._id}
+                    style={{ scrollSnapAlign: "start" }}
+                    className="col-lg-3 col-md-4 col-sm-6"
+                  >
                     <div className="owl-item active">
                       <article className="single_product">
                         <figure>

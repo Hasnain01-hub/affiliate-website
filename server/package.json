@@ -2,9 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.server.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "server": "nodemon npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
