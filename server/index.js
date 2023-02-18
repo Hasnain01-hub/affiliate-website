@@ -47,7 +47,7 @@ app.use("/api/createlink", generatelink);
 app.use("/api/cloudinary", cloudinary);
 app.use("/api/admin", adminRoutes);
 app.use("/", function (req, res) {
-  //__dirname : It will resolve to your project folder.
+  res.send("Hello World");
 });
 
 //port
