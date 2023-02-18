@@ -1,5 +1,5 @@
 import axios from "axios";
-export const baseURL = `${process.env.REACT_APP_API}/api`;
+export const baseURL = `${process.env.REACT_APP_API}api`;
 
 let axiosConfig = {
   headers: {

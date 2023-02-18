@@ -31,7 +31,7 @@ const AddStores = () => {
     e.preventDefault();
     if (window.confirm("Are you sure you want to delete this Store?")) {
       await axios
-        .get(`${process.env.REACT_APP_API}/api/admin/removestore/${_id}`)
+        .get(`${process.env.REACT_APP_API}api/admin/removestore/${_id}`)
         .then((res) => {
           loadStores();
           toast.success("Store deleted successfully");

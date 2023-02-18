@@ -10,7 +10,7 @@ const ViewAdmins = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API}/api/admin/view-admins`)
+      .get(`${process.env.REACT_APP_API}api/admin/view-admins`)
       .then((res) => {
         setAdmins(res.data);
         setLoading(false);
