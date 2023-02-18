@@ -27,7 +27,7 @@ app.set("trust proxy", 1);
 app.use(helmet());
 app.use(morgan("common"));
 
-app.use(bodyParser.json({ limit: "500mb" }));
+app.use(bodyParser.json({ limit: "500mb", extended: true }));
 app.use(
   cors()
   // cors({
