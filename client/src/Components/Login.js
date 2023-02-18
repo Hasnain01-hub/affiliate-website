@@ -86,7 +86,7 @@ const Login = () => {
         navigate("/");
       })
       .catch((e) => {
-        if (e.response.status === 402)
+        if (e.response.status === 400)
           return toast.error("User Already Exists");
 
         console.log(e);
