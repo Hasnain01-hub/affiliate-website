@@ -135,7 +135,7 @@ const SingleDeal = () => {
                         Copy(deal.p_link);
                       }}
                     >
-                      Copy Link
+                      Grab Deal
                     </button>
                   </div>
                 </div>

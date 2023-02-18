@@ -95,8 +95,8 @@ const CategoryProducts = () => {
                                       onClick={(e) => generatelink(e, p.link)}
                                       className="add_to_cart"
                                     >
-                                      <a href="#/" title="Copy Link">
-                                        Copy Link
+                                      <a href="#/" title="Grab Deal">
+                                        Grab Deal
                                       </a>
                                     </div>
                                   </div>
@@ -117,8 +117,8 @@ const CategoryProducts = () => {
                                       onClick={(e) => generatelink(e, p.link)}
                                       className="add_to_cart"
                                     >
-                                      <a href="#/" title="Copy Link">
-                                        Copy Link
+                                      <a href="#/" title="Grab Deal">
+                                        Grab Deal
                                       </a>
                                     </div>
                                   </div>

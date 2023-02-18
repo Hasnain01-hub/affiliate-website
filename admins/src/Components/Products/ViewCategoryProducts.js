@@ -82,14 +82,14 @@ const ViewCategoryProducts = () => {
                                     <b> {item.discount} /-</b>
                                   </h6>
                                   <div className="row">
-                                    <Link
+                                    {/* <Link
                                       to={"/products/" + item._id}
                                       className="col-3"
                                     >
                                       <button className="btn btn-outline-primary">
                                         View
                                       </button>
-                                    </Link>
+                                    </Link> */}
                                     <Link className="col-3">
                                       <button
                                         onClick={(e) =>

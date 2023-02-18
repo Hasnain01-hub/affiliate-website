@@ -219,8 +219,8 @@ const Home = () => {
                               onClick={(e) => generatelink(e, item.p_link)}
                               className="add_to_cart"
                             >
-                              <a href="#/" title="Copy Link">
-                                Copy Link
+                              <a href="#/" title="Grab Deal">
+                                Grab Deal
                               </a>
                             </div>
                           </div>
@@ -353,8 +353,8 @@ const Home = () => {
                               onClick={(e) => generatelink(e, item.p_link)}
                               className="add_to_cart"
                             >
-                              <a href="#/" title="Copy Link">
-                                Copy Link
+                              <a href="#/" title="Grab Deal">
+                                Grab Deal
                               </a>
                             </div>
                           </div>
@@ -487,8 +487,8 @@ const Home = () => {
                               onClick={(e) => generatelink(e, item.p_link)}
                               className="add_to_cart"
                             >
-                              <a href="#/" title="Copy Link">
-                                Copy Link
+                              <a href="#/" title="Grab Deal">
+                                Grab Deal
                               </a>
                             </div>
                           </div>
@@ -616,8 +616,8 @@ const Home = () => {
                               onClick={(e) => generatelink(e, item.p_link)}
                               className="add_to_cart"
                             >
-                              <a href="#/" title="Copy Link">
-                                Copy Link
+                              <a href="#/" title="Grab Deal">
+                                Grab Deal
                               </a>
                             </div>
                           </div>
@@ -745,8 +745,8 @@ const Home = () => {
                               onClick={(e) => generatelink(e, item.p_link)}
                               className="add_to_cart"
                             >
-                              <a href="#/" title="Copy Link">
-                                Copy Link
+                              <a href="#/" title="Grab Deal">
+                                Grab Deal
                               </a>
                             </div>
                           </div>

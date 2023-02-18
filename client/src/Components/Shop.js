@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 const Shop = () => {
-  
   const [product, setProduct] = useState();
 
   const [loading, setLoaidng] = useState(true);
@@ -71,8 +70,8 @@ const Shop = () => {
                                   </div>
                                 </div>
                                 <div className="add_to_cart">
-                                  <a href="#/" title="Copy Link">
-                                    Copy Link
+                                  <a href="#/" title="Grab Deal">
+                                    Grab Deal
                                   </a>
                                 </div>
                               </div>
@@ -88,8 +87,8 @@ const Shop = () => {
                                   <span className="current_price">$70.00</span>
                                 </div>
                                 <div className="add_to_cart">
-                                  <a href="#/" title="Copy Link">
-                                    Copy Link
+                                  <a href="#/" title="Grab Deal">
+                                    Grab Deal
                                   </a>
                                 </div>
                               </div>
