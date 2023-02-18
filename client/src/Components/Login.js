@@ -44,7 +44,7 @@ const Login = () => {
         }
       })
       .catch((err) => {
-        if (err.response.status === 400)
+        if (err.response.status === 401)
           return toast.error("Invalid credentials");
       });
   };
