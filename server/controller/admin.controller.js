@@ -240,7 +240,6 @@ exports.attachAffiliate = (req, res) => {
     },
     function (err, docs) {
       if (err) {
-        console.log(err);
       } else {
         AffiliateIDModel.findOneAndDelete({ name: req.body.tags })
           .then((doc) => {
@@ -286,8 +285,6 @@ exports.updateUser = (req, res) => {
 
 exports.addBanner = (req, res) => {
   const banner = new BannersModel(req.body);
-
-  console.log(req.body);
 
   banner
     .save()
@@ -355,10 +352,12 @@ exports.getDashboard = (req, res) => {
 };
 
 exports.getSingleDeal = (req, res) => {
-    const deal = productModel.findById(req.params.id).then((doc) => {
-        return res.json(doc);
-
-    }).catch((err) => {
-        return res.json(err);
+  const deal = productModel
+    .findById(req.params.id)
+    .then((doc) => {
+      return res.json(doc);
     })
-}
+    .catch((err) => {
+      return res.json(err);
+    });
+};
