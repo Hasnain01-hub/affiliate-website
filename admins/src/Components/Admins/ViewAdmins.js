@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Header from "../../Layout/Slider";
 import Nav from "../../Layout/Nav";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const ViewAdmins = () => {
   const [admins, setAdmins] = useState();
