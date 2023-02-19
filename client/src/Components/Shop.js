@@ -21,7 +21,6 @@ const Shop = () => {
 
   return (
     <>
-      {console.log(product)}
       <div className="shop_area shop_fullwidth">
         <div className="container">
           <div className="row">

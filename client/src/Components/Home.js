@@ -2,7 +2,6 @@ import axios from "axios";
 import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
 // import { useSelector } from "react-#e91e63ux";
-import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import Sliders from "./Sliders";
 import "./Slider.css";
@@ -28,9 +27,7 @@ const Home = () => {
       .then((res) => {
         setdeals(res.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
   useEffect(() => {
     loaddeals();
@@ -101,9 +98,9 @@ const Home = () => {
                         style={{ height: "100px" }}
                       >
                         <div className="categories_product_thumb">
-                          <Link to={"/shop/" + cat.name}>
+                          <a href={"/shop/" + cat.name}>
                             <img src={cat.image} alt="" />
-                          </Link>
+                          </a>
                         </div>
                       </div>
                     );
@@ -195,9 +192,7 @@ const Home = () => {
                           <div className="product_content">
                             <div className="product_content_inner">
                               <h4 className="product_name">
-                                <Link to={"/Deal/" + item._id}>
-                                  {item.p_name}
-                                </Link>
+                                <a href={"/Deal/" + item._id}>{item.p_name}</a>
                               </h4>
                               <div className="countdown_text">
                                 <p>
@@ -329,9 +324,7 @@ const Home = () => {
                           <div className="product_content">
                             <div className="product_content_inner">
                               <h4 className="product_name">
-                                <Link to={"/Deal/" + item._id}>
-                                  {item.p_name}
-                                </Link>
+                                <a href={"/Deal/" + item._id}>{item.p_name}</a>
                               </h4>
                               <div className="countdown_text">
                                 <p>
@@ -463,9 +456,7 @@ const Home = () => {
                           <div className="product_content">
                             <div className="product_content_inner">
                               <h4 className="product_name">
-                                <Link to={"/Deal/" + item._id}>
-                                  {item.p_name}
-                                </Link>
+                                <a href={"/Deal/" + item._id}>{item.p_name}</a>
                               </h4>
                               <div className="countdown_text">
                                 <p>
@@ -592,9 +583,7 @@ const Home = () => {
                           <div className="product_content">
                             <div className="product_content_inner">
                               <h4 className="product_name">
-                                <Link to={"/Deal/" + item._id}>
-                                  {item.p_name}
-                                </Link>
+                                <a href={"/Deal/" + item._id}>{item.p_name}</a>
                               </h4>
                               <div className="countdown_text">
                                 <p>
@@ -721,9 +710,7 @@ const Home = () => {
                           <div className="product_content">
                             <div className="product_content_inner">
                               <h4 className="product_name">
-                                <Link to={"/Deal/" + item._id}>
-                                  {item.p_name}
-                                </Link>
+                                <a href={"/Deal/" + item._id}>{item.p_name}</a>
                               </h4>
                               <div className="countdown_text">
                                 <p>

@@ -31,7 +31,9 @@ const SingleDeal = () => {
     <>
       {loading === true ? (
         <>
-          <h1>Loading Deal....</h1>
+          <center>
+            <h1 className="p-5">Loading Deal....</h1>
+          </center>
         </>
       ) : (
         <>

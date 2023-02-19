@@ -13,9 +13,7 @@ const Deals = () => {
         setdeals(res.data);
         setLoading(false);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
   useEffect(() => {
     loaddeals();

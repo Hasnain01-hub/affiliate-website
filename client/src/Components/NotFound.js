@@ -1,12 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const NotFound = () => {
-  const { user } = useSelector((state) => state.user);
-
-  console.log(user);
-
   return (
     <>
       <div className="error_page_bg">
