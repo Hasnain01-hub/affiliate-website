@@ -5,9 +5,17 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import Sliders from "./Sliders";
+import "./Slider.css";
+import $ from "jquery";
+import { HashLoader } from "react-spinners";
 
 const Home = () => {
   const [deals, setdeals] = useState([]);
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+  };
 
   // const { user } = useSelector((state) => state.user);
 
@@ -31,7 +39,10 @@ const Home = () => {
       .get(process.env.REACT_APP_API + "api/admin/category/get")
       .then((res) => {
         setCategory(res.data);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+          $(".loader").fadeOut();
+        }, 2000);
       })
       .catch((err) => {
         toast.error("Internal Server Error");
@@ -47,7 +58,17 @@ const Home = () => {
 
   return (
     <>
-      {console.log(deals)}
+      <div className="loader">
+        <HashLoader
+          color="#c40316"
+          loading={loading}
+          cssOverride={override}
+          size={90}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+        <h1>Loading</h1>
+      </div>{" "}
       <div className="home_section_bg">
         {/*Categories product area start*/}
         <div className="categories_product_area mb-55">

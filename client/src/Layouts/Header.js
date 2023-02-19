@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import $ from "jquery";
+import "../App.css";
 
 const Header = () => {
   useEffect(() => {

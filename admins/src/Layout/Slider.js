@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import $ from "jquery";
 import { House, User, Users, X } from "phosphor-react";
 import { toast } from "react-toastify";
+import "../App.css";
 import { Link } from "react-router-dom";
 
 const Header = () => {

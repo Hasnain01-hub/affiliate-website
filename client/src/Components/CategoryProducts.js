@@ -59,16 +59,10 @@ const CategoryProducts = () => {
                               <article className="single_product">
                                 <figure>
                                   <div className="product_thumb">
-                                    <a
-                                      className="primary_img"
-                                      href="product-details.html"
-                                    >
+                                    <a className="primary_img" href="#/">
                                       <img src={p.image} alt="" />
                                     </a>
-                                    <a
-                                      className="secondary_img"
-                                      href="product-details.html"
-                                    >
+                                    <a className="secondary_img" href="#/">
                                       <img src={p.image} alt="" />
                                     </a>
                                     <div className="label_product">
@@ -78,9 +72,7 @@ const CategoryProducts = () => {
                                   <div className="product_content grid_content">
                                     <div className="product_content_inner">
                                       <h4 className="product_name">
-                                        <a href="product-details.html">
-                                          {p.name}
-                                        </a>
+                                        <a href="#/">{p.name}</a>
                                       </h4>
                                       <div className="price_box">
                                         <span className="old_price">
@@ -102,7 +94,7 @@ const CategoryProducts = () => {
                                   </div>
                                   <div className="product_content list_content">
                                     <h4 className="product_name">
-                                      <a href="product-details.html">
+                                      <a href="#/">
                                         Natus erro at congue massa commodo sit
                                         Natus erro
                                       </a>
