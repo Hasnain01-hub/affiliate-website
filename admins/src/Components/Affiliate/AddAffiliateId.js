@@ -51,7 +51,7 @@ const AddAffiliateId = () => {
         }, 500);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Internal Server Error");
       });
   };
   const deleteStore = (e, _id) => {

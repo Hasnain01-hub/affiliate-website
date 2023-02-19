@@ -13,7 +13,6 @@ const Header = () => {
   useEffect(() => {
     if (localStorage.getItem("admin") === null) {
       window.location.href = "/login";
-      console.log(localStorage.getItem("admin"));
     }
     setAdmin(JSON.parse(localStorage.getItem("admin")));
     setLoading(false);

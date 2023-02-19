@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../Layout/Slider";
 import Nav from "../Layout/Nav";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 
 const Home = () => {
   const [data, setData] = useState();
@@ -16,7 +17,7 @@ const Home = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Internal Server Error");
       });
   }, []);
 
@@ -363,6 +364,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

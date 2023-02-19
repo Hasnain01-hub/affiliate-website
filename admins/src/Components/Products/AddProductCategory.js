@@ -43,7 +43,7 @@ const AddProductCategory = () => {
         }, 500);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Internal Server Error");
       });
   };
 

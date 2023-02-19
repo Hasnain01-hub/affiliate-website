@@ -16,7 +16,7 @@ const ViewDeals = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Internal Server Error");
       });
   };
   useEffect(() => {
@@ -31,8 +31,6 @@ const ViewDeals = () => {
           public_id: pub_id,
         })
         .then(async (res) => {
-          console.log(res);
-
           await axios
             .post(`${process.env.REACT_APP_API}api/admin/removedeals`, {
               _id,

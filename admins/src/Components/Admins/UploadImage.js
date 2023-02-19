@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import Resizer from "react-image-file-resizer";
+import { toast, ToastContainer } from "react-toastify";
 import "./helper.css";
 const UploadFile = ({ loading, values, setValues, setLoading }) => {
   //to upload images to cloudinary
@@ -27,11 +28,10 @@ const UploadFile = ({ loading, values, setValues, setLoading }) => {
                 setLoading(false);
                 allUploadedFiles.push(res.data);
                 setValues({ ...values, images: allUploadedFiles });
-                console.log(allUploadedFiles);
               })
               .catch((err) => {
                 setLoading(false);
-                console.log("UPLOAD EROR", err);
+                toast.error("Internal Server Error");
               });
           },
           "base64"
@@ -55,7 +55,7 @@ const UploadFile = ({ loading, values, setValues, setLoading }) => {
         setValues({ ...values, images: filteredImages });
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Internal Server Error");
         setLoading(false);
       });
   };
@@ -131,6 +131,7 @@ const UploadFile = ({ loading, values, setValues, setLoading }) => {
           />
         </label>
       </div>
+      <ToastContainer />
     </>
   );
 };

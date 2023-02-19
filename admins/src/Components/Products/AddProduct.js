@@ -67,7 +67,6 @@ const AddProduct = () => {
         })
         .catch((err) => {
           toast.error("Internal Server Error");
-          console.log(err);
         });
     }
   };

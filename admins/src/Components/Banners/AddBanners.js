@@ -47,12 +47,11 @@ const AddBanners = () => {
     axios
       .get(process.env.REACT_APP_API + "api/admin/banners/get")
       .then((res) => {
-        console.log(res);
         setBanners(res.data);
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Internal Server Error");
       });
   }, []);
 

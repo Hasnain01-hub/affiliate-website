@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   React.useEffect(() => {
     const admin = JSON.parse(window.localStorage.getItem("admin"));
-    console.log("admin", admin);
     if (admin && admin.email) {
       // navigate("/");
       window.location.href = "/";

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import Nav from "../../Layout/Nav";
 import Header from "../../Layout/Slider";
 
@@ -13,12 +13,11 @@ const ViewProducts = () => {
     axios
       .get(process.env.REACT_APP_API + "api/admin/category/get")
       .then((res) => {
-        console.log(res);
         setProduct(res.data);
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Internal Server Error");
       });
   }, []);
 

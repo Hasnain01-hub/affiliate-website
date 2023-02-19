@@ -40,7 +40,7 @@ const AttachAffiliate = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Internal Server Error");
       });
   };
 
