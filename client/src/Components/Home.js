@@ -60,7 +60,7 @@ const Home = () => {
           color="#c40316"
           loading={loading}
           cssOverride={override}
-          size={90}
+          size={40}
           aria-label="Loading Spinner"
           data-testid="loader"
         />
