@@ -79,7 +79,7 @@ const Header = () => {
               <div className="row align-items-center">
                 <div className="column1 col-lg-3 col-md-3 col-4">
                   <div className="logo">
-                    <Link to="index-2.html">
+                    <Link to="/">
                       <img src="/assets/img/logo/logo.png" alt="" />
                     </Link>
                   </div>
