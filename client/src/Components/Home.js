@@ -17,7 +17,11 @@ const Home = () => {
   };
 
   // const { user } = useSelector((state) => state.user);
-
+  let c = 0;
+  let d = 0;
+  let e = 0;
+  let f = 0;
+  let g = 0;
   const [category, setCategory] = useState();
 
   const [loading, setLoading] = useState(true);
@@ -136,71 +140,75 @@ const Home = () => {
                 padding: "30px",
               }}
             >
-              {deals.slice(0, 5).map((item) => {
-                return item.category === "Deal of The Day" ? (
-                  <div
-                    key={item._id}
-                    style={{ scrollSnapAlign: "start" }}
-                    className="col-lg-3 col-md-4 col-sm-6"
-                  >
-                    <div className="owl-item active">
-                      <article className="single_product">
-                        <figure>
-                          <div className="product_thumb">
-                            <a
-                              className="primary_img"
-                              href="product-countdown.html"
-                            >
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <a className="secondary_img" href="#/">
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <div className="label_product">
-                              <span
-                                style={{
-                                  background: "#e91e63",
-                                  color: "white",
-                                }}
-                                className="label_sale"
-                              >
-                                {(
-                                  ((item.price - item.discount_price) /
-                                    item.discount_price) *
-                                  100
-                                ).toFixed(2)}
-                                %
-                              </span>
-                            </div>
-                          </div>
-                          <div className="product_content">
-                            <div className="product_content_inner">
-                              <h4 className="product_name">
-                                <a href={"/Deal/" + item._id}>{item.p_name}</a>
-                              </h4>
-                              <div className="countdown_text">
-                                <p>
-                                  <span>Hurry Up!</span> Offers ends in:{" "}
-                                </p>
+              {deals.map((item, i) => {
+                return item.category === "Deal of The Day"
+                  ? ((c += 1),
+                    c <= 5 ? (
+                      <div
+                        key={item._id}
+                        style={{ scrollSnapAlign: "start" }}
+                        className="col-lg-3 col-md-4 col-sm-6"
+                      >
+                        <div className="owl-item active">
+                          <article className="single_product">
+                            <figure>
+                              <div className="product_thumb">
+                                <a
+                                  className="primary_img"
+                                  href="product-countdown.html"
+                                >
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
+                                </a>
+                                <a className="secondary_img" href="#/">
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
+                                </a>
+                                <div className="label_product">
+                                  <span
+                                    style={{
+                                      background: "#e91e63",
+                                      color: "white",
+                                    }}
+                                    className="label_sale"
+                                  >
+                                    {(
+                                      ((item.price - item.discount_price) /
+                                        item.discount_price) *
+                                      100
+                                    ).toFixed(2)}
+                                    %
+                                  </span>
+                                </div>
                               </div>
-                              <div className="product_timing">
-                                {/* <div data-countdown="2023/02/15">
+                              <div className="product_content">
+                                <div className="product_content_inner">
+                                  <h4 className="product_name">
+                                    <a href={"/Deal/" + item._id}>
+                                      {item.p_name}
+                                    </a>
+                                  </h4>
+                                  <div className="countdown_text">
+                                    <p>
+                                      <span>Hurry Up!</span> Offers ends in:{" "}
+                                    </p>
+                                  </div>
+                                  <div className="product_timing">
+                                    {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
                                     <div className="single_countdown">
                                       <div className="countdown_number">08</div>
@@ -228,23 +236,24 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                <p>{moment(item.end_date).format("LLL")}</p>
+                                    <p>{moment(item.end_date).format("LLL")}</p>
+                                  </div>
+                                </div>
+                                <div
+                                  onClick={(e) => generatelink(e, item.p_link)}
+                                  className="add_to_cart"
+                                >
+                                  <a href="#/" title="Grab Deal">
+                                    Grab Deal
+                                  </a>
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              onClick={(e) => generatelink(e, item.p_link)}
-                              className="add_to_cart"
-                            >
-                              <a href="#/" title="Grab Deal">
-                                Grab Deal
-                              </a>
-                            </div>
-                          </div>
-                        </figure>
-                      </article>
-                    </div>
-                  </div>
-                ) : null;
+                            </figure>
+                          </article>
+                        </div>
+                      </div>
+                    ) : null)
+                  : null;
               })}
             </div>
 
@@ -268,71 +277,75 @@ const Home = () => {
                 padding: "30px",
               }}
             >
-              {deals.slice(0, 5).map((item) => {
-                return item.category === "Fashion Deals" ? (
-                  <div
-                    key={item._id}
-                    style={{ scrollSnapAlign: "start" }}
-                    className="col-lg-3 col-md-4 col-sm-6"
-                  >
-                    <div className="owl-item active">
-                      <article className="single_product">
-                        <figure>
-                          <div className="product_thumb">
-                            <a
-                              className="primary_img"
-                              href="product-countdown.html"
-                            >
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <a className="secondary_img" href="#/">
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <div className="label_product">
-                              <span
-                                style={{
-                                  background: "#e91e63",
-                                  color: "white",
-                                }}
-                                className="label_sale"
-                              >
-                                {(
-                                  ((item.price - item.discount_price) /
-                                    item.discount_price) *
-                                  100
-                                ).toFixed(2)}
-                                %
-                              </span>
-                            </div>
-                          </div>
-                          <div className="product_content">
-                            <div className="product_content_inner">
-                              <h4 className="product_name">
-                                <a href={"/Deal/" + item._id}>{item.p_name}</a>
-                              </h4>
-                              <div className="countdown_text">
-                                <p>
-                                  <span>Hurry Up!</span> Offers ends in:{" "}
-                                </p>
+              {deals.map((item) => {
+                return item.category === "Fashion Deals"
+                  ? ((d += 1),
+                    d <= 5 ? (
+                      <div
+                        key={item._id}
+                        style={{ scrollSnapAlign: "start" }}
+                        className="col-lg-3 col-md-4 col-sm-6"
+                      >
+                        <div className="owl-item active">
+                          <article className="single_product">
+                            <figure>
+                              <div className="product_thumb">
+                                <a
+                                  className="primary_img"
+                                  href="product-countdown.html"
+                                >
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
+                                </a>
+                                <a className="secondary_img" href="#/">
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
+                                </a>
+                                <div className="label_product">
+                                  <span
+                                    style={{
+                                      background: "#e91e63",
+                                      color: "white",
+                                    }}
+                                    className="label_sale"
+                                  >
+                                    {(
+                                      ((item.price - item.discount_price) /
+                                        item.discount_price) *
+                                      100
+                                    ).toFixed(2)}
+                                    %
+                                  </span>
+                                </div>
                               </div>
-                              <div className="product_timing">
-                                {/* <div data-countdown="2023/02/15">
+                              <div className="product_content">
+                                <div className="product_content_inner">
+                                  <h4 className="product_name">
+                                    <a href={"/Deal/" + item._id}>
+                                      {item.p_name}
+                                    </a>
+                                  </h4>
+                                  <div className="countdown_text">
+                                    <p>
+                                      <span>Hurry Up!</span> Offers ends in:{" "}
+                                    </p>
+                                  </div>
+                                  <div className="product_timing">
+                                    {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
                                     <div className="single_countdown">
                                       <div className="countdown_number">08</div>
@@ -360,23 +373,24 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                <p>{moment(item.end_date).format("LLL")}</p>
+                                    <p>{moment(item.end_date).format("LLL")}</p>
+                                  </div>
+                                </div>
+                                <div
+                                  onClick={(e) => generatelink(e, item.p_link)}
+                                  className="add_to_cart"
+                                >
+                                  <a href="#/" title="Grab Deal">
+                                    Grab Deal
+                                  </a>
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              onClick={(e) => generatelink(e, item.p_link)}
-                              className="add_to_cart"
-                            >
-                              <a href="#/" title="Grab Deal">
-                                Grab Deal
-                              </a>
-                            </div>
-                          </div>
-                        </figure>
-                      </article>
-                    </div>
-                  </div>
-                ) : null;
+                            </figure>
+                          </article>
+                        </div>
+                      </div>
+                    ) : null)
+                  : null;
               })}
             </div>
 
@@ -400,71 +414,75 @@ const Home = () => {
                 padding: "30px",
               }}
             >
-              {deals.slice(0, 5).map((item) => {
-                return item.category === "Best- In- Beauty" ? (
-                  <div
-                    key={item._id}
-                    style={{ scrollSnapAlign: "start" }}
-                    className="col-lg-3 col-md-4 col-sm-6"
-                  >
-                    <div className="owl-item active">
-                      <article className="single_product">
-                        <figure>
-                          <div className="product_thumb">
-                            <a
-                              className="primary_img"
-                              href="product-countdown.html"
-                            >
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <a className="secondary_img" href="#/">
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <div className="label_product">
-                              <span
-                                style={{
-                                  background: "#e91e63",
-                                  color: "white",
-                                }}
-                                className="label_sale"
-                              >
-                                {(
-                                  ((item.price - item.discount_price) /
-                                    item.discount_price) *
-                                  100
-                                ).toFixed(2)}
-                                %
-                              </span>
-                            </div>
-                          </div>
-                          <div className="product_content">
-                            <div className="product_content_inner">
-                              <h4 className="product_name">
-                                <a href={"/Deal/" + item._id}>{item.p_name}</a>
-                              </h4>
-                              <div className="countdown_text">
-                                <p>
-                                  <span>Hurry Up!</span> Offers ends in:{" "}
-                                </p>
+              {deals.map((item) => {
+                return item.category === "Best- In- Beauty"
+                  ? ((e += 1),
+                    e <= 5 ? (
+                      <div
+                        key={item._id}
+                        style={{ scrollSnapAlign: "start" }}
+                        className="col-lg-3 col-md-4 col-sm-6"
+                      >
+                        <div className="owl-item active">
+                          <article className="single_product">
+                            <figure>
+                              <div className="product_thumb">
+                                <a
+                                  className="primary_img"
+                                  href="product-countdown.html"
+                                >
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
+                                </a>
+                                <a className="secondary_img" href="#/">
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
+                                </a>
+                                <div className="label_product">
+                                  <span
+                                    style={{
+                                      background: "#e91e63",
+                                      color: "white",
+                                    }}
+                                    className="label_sale"
+                                  >
+                                    {(
+                                      ((item.price - item.discount_price) /
+                                        item.discount_price) *
+                                      100
+                                    ).toFixed(2)}
+                                    %
+                                  </span>
+                                </div>
                               </div>
-                              <div className="product_timing">
-                                {/* <div data-countdown="2023/02/15">
+                              <div className="product_content">
+                                <div className="product_content_inner">
+                                  <h4 className="product_name">
+                                    <a href={"/Deal/" + item._id}>
+                                      {item.p_name}
+                                    </a>
+                                  </h4>
+                                  <div className="countdown_text">
+                                    <p>
+                                      <span>Hurry Up!</span> Offers ends in:{" "}
+                                    </p>
+                                  </div>
+                                  <div className="product_timing">
+                                    {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
                                     <div className="single_countdown">
                                       <div className="countdown_number">08</div>
@@ -492,23 +510,24 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                <p>{moment(item.end_date).format("LLL")}</p>
+                                    <p>{moment(item.end_date).format("LLL")}</p>
+                                  </div>
+                                </div>
+                                <div
+                                  onClick={(e) => generatelink(e, item.p_link)}
+                                  className="add_to_cart"
+                                >
+                                  <a href="#/" title="Grab Deal">
+                                    Grab Deal
+                                  </a>
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              onClick={(e) => generatelink(e, item.p_link)}
-                              className="add_to_cart"
-                            >
-                              <a href="#/" title="Grab Deal">
-                                Grab Deal
-                              </a>
-                            </div>
-                          </div>
-                        </figure>
-                      </article>
-                    </div>
-                  </div>
-                ) : null;
+                            </figure>
+                          </article>
+                        </div>
+                      </div>
+                    ) : null)
+                  : null;
               })}
             </div>
 
@@ -531,67 +550,74 @@ const Home = () => {
                 padding: "30px",
               }}
             >
-              {deals.slice(0, 5).map((item) => {
-                return item.category === "Mobiles& TV" ? (
-                  <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
-                    <div className="owl-item active">
-                      <article className="single_product">
-                        <figure>
-                          <div className="product_thumb">
-                            <a
-                              className="primary_img"
-                              href="product-countdown.html"
-                            >
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <a className="secondary_img" href="#/">
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <div className="label_product">
-                              <span
-                                style={{
-                                  background: "#e91e63",
-                                  color: "white",
-                                }}
-                                className="label_sale"
-                              >
-                                {(
-                                  ((item.price - item.discount_price) /
-                                    item.discount_price) *
-                                  100
-                                ).toFixed(2)}
-                                %
-                              </span>
-                            </div>
-                          </div>
-                          <div className="product_content">
-                            <div className="product_content_inner">
-                              <h4 className="product_name">
-                                <a href={"/Deal/" + item._id}>{item.p_name}</a>
-                              </h4>
-                              <div className="countdown_text">
-                                <p>
-                                  <span>Hurry Up!</span> Offers ends in:{" "}
-                                </p>
+              {deals.map((item) => {
+                return item.category === "Mobiles& TV"
+                  ? ((f += 1),
+                    f <= 5 ? (
+                      <div
+                        key={item._id}
+                        className="col-lg-3 col-md-4 col-sm-6"
+                      >
+                        <div className="owl-item active">
+                          <article className="single_product">
+                            <figure>
+                              <div className="product_thumb">
+                                <a
+                                  className="primary_img"
+                                  href="product-countdown.html"
+                                >
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
+                                </a>
+                                <a className="secondary_img" href="#/">
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
+                                </a>
+                                <div className="label_product">
+                                  <span
+                                    style={{
+                                      background: "#e91e63",
+                                      color: "white",
+                                    }}
+                                    className="label_sale"
+                                  >
+                                    {(
+                                      ((item.price - item.discount_price) /
+                                        item.discount_price) *
+                                      100
+                                    ).toFixed(2)}
+                                    %
+                                  </span>
+                                </div>
                               </div>
-                              <div className="product_timing">
-                                {/* <div data-countdown="2023/02/15">
+                              <div className="product_content">
+                                <div className="product_content_inner">
+                                  <h4 className="product_name">
+                                    <a href={"/Deal/" + item._id}>
+                                      {item.p_name}
+                                    </a>
+                                  </h4>
+                                  <div className="countdown_text">
+                                    <p>
+                                      <span>Hurry Up!</span> Offers ends in:{" "}
+                                    </p>
+                                  </div>
+                                  <div className="product_timing">
+                                    {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
                                     <div className="single_countdown">
                                       <div className="countdown_number">08</div>
@@ -619,23 +645,24 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                <p>{moment(item.end_date).format("LLL")}</p>
+                                    <p>{moment(item.end_date).format("LLL")}</p>
+                                  </div>
+                                </div>
+                                <div
+                                  onClick={(e) => generatelink(e, item.p_link)}
+                                  className="add_to_cart"
+                                >
+                                  <a href="#/" title="Grab Deal">
+                                    Grab Deal
+                                  </a>
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              onClick={(e) => generatelink(e, item.p_link)}
-                              className="add_to_cart"
-                            >
-                              <a href="#/" title="Grab Deal">
-                                Grab Deal
-                              </a>
-                            </div>
-                          </div>
-                        </figure>
-                      </article>
-                    </div>
-                  </div>
-                ) : null;
+                            </figure>
+                          </article>
+                        </div>
+                      </div>
+                    ) : null)
+                  : null;
               })}
             </div>
 
@@ -658,67 +685,74 @@ const Home = () => {
                 padding: "30px",
               }}
             >
-              {deals.slice(0, 5).map((item) => {
-                return item.category === "seasonal product" ? (
-                  <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
-                    <div className="owl-item active">
-                      <article className="single_product">
-                        <figure>
-                          <div className="product_thumb">
-                            <a
-                              className="primary_img"
-                              href="product-countdown.html"
-                            >
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <a className="secondary_img" href="#/">
-                              <img
-                                style={{
-                                  height: "200px",
-                                  display: "block",
-                                  margin: "0 auto",
-                                }}
-                                src={item.images[0]["url"]}
-                                alt=""
-                              />
-                            </a>
-                            <div className="label_product">
-                              <span
-                                style={{
-                                  background: "#e91e63",
-                                  color: "white",
-                                }}
-                                className="label_sale"
-                              >
-                                {(
-                                  ((item.price - item.discount_price) /
-                                    item.discount_price) *
-                                  100
-                                ).toFixed(2)}
-                                %
-                              </span>
-                            </div>
-                          </div>
-                          <div className="product_content">
-                            <div className="product_content_inner">
-                              <h4 className="product_name">
-                                <a href={"/Deal/" + item._id}>{item.p_name}</a>
-                              </h4>
-                              <div className="countdown_text">
-                                <p>
-                                  <span>Hurry Up!</span> Offers ends in:{" "}
-                                </p>
+              {deals.map((item) => {
+                return item.category === "seasonal product"
+                  ? ((g += 1),
+                    g <= 5 ? (
+                      <div
+                        key={item._id}
+                        className="col-lg-3 col-md-4 col-sm-6"
+                      >
+                        <div className="owl-item active">
+                          <article className="single_product">
+                            <figure>
+                              <div className="product_thumb">
+                                <a
+                                  className="primary_img"
+                                  href="product-countdown.html"
+                                >
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
+                                </a>
+                                <a className="secondary_img" href="#/">
+                                  <img
+                                    style={{
+                                      height: "200px",
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                    src={item.images[0]["url"]}
+                                    alt=""
+                                  />
+                                </a>
+                                <div className="label_product">
+                                  <span
+                                    style={{
+                                      background: "#e91e63",
+                                      color: "white",
+                                    }}
+                                    className="label_sale"
+                                  >
+                                    {(
+                                      ((item.price - item.discount_price) /
+                                        item.discount_price) *
+                                      100
+                                    ).toFixed(2)}
+                                    %
+                                  </span>
+                                </div>
                               </div>
-                              <div className="product_timing">
-                                {/* <div data-countdown="2023/02/15">
+                              <div className="product_content">
+                                <div className="product_content_inner">
+                                  <h4 className="product_name">
+                                    <a href={"/Deal/" + item._id}>
+                                      {item.p_name}
+                                    </a>
+                                  </h4>
+                                  <div className="countdown_text">
+                                    <p>
+                                      <span>Hurry Up!</span> Offers ends in:{" "}
+                                    </p>
+                                  </div>
+                                  <div className="product_timing">
+                                    {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
                                     <div className="single_countdown">
                                       <div className="countdown_number">08</div>
@@ -746,23 +780,24 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                <p>{moment(item.end_date).format("LLL")}</p>
+                                    <p>{moment(item.end_date).format("LLL")}</p>
+                                  </div>
+                                </div>
+                                <div
+                                  onClick={(e) => generatelink(e, item.p_link)}
+                                  className="add_to_cart"
+                                >
+                                  <a href="#/" title="Grab Deal">
+                                    Grab Deal
+                                  </a>
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              onClick={(e) => generatelink(e, item.p_link)}
-                              className="add_to_cart"
-                            >
-                              <a href="#/" title="Grab Deal">
-                                Grab Deal
-                              </a>
-                            </div>
-                          </div>
-                        </figure>
-                      </article>
-                    </div>
-                  </div>
-                ) : null;
+                            </figure>
+                          </article>
+                        </div>
+                      </div>
+                    ) : null)
+                  : null;
               })}
             </div>
           </div>
