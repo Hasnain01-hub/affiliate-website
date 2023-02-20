@@ -659,7 +659,7 @@ const Home = () => {
               }}
             >
               {deals.slice(0, 5).map((item) => {
-                return item.category === "Seasonal Product" ? (
+                return item.category === "seasonal product" ? (
                   <div key={item._id} className="col-lg-3 col-md-4 col-sm-6">
                     <div className="owl-item active">
                       <article className="single_product">
