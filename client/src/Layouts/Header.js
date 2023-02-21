@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import $ from "jquery";
 import "../App.css";
-
+import logo from "../asset/logo.png";
 const Header = () => {
   useEffect(() => {
     $(".canvas_open").on("click", function () {
@@ -72,15 +72,18 @@ const Header = () => {
         <div className="main_header header_four m-0">
           <div className="container">
             {/*header top start*/}
-            <div className="header_top"></div>
+            {/* <div className="header_top"></div> */}
             {/*header top start*/}
             {/*header middel start*/}
-            <div className="header_middle header_middle_style4">
-              <div className="row align-items-center">
+            <div style={{ display: "none" }} className="header_middle_style4">
+              <div
+                style={{ padding: "5px" }}
+                className="row align-items-center"
+              >
                 <div className="column1 col-lg-3 col-md-3 col-4">
                   <div className="logo">
                     <Link to="/">
-                      <img src="/assets/img/logo/logo.png" alt="" />
+                      <img width="100" src={logo} alt="" />
                     </Link>
                   </div>
                 </div>
@@ -161,6 +164,13 @@ const Header = () => {
                   <div className="main_menu menu_four menu_position">
                     <nav>
                       <ul>
+                        <li>
+                          <div className="logo">
+                            <Link to="/">
+                              <img width="100" src={logo} alt="" />
+                            </Link>
+                          </div>
+                        </li>
                         <li>
                           <Link to="/">home</Link>
                         </li>
