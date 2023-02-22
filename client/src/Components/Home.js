@@ -50,11 +50,10 @@ const Home = () => {
       });
   }, []);
   const generatelink = (e, link) => {
-    e.preventDefault();
-
-    navigator.clipboard.writeText(link).then(function () {
-      toast.success("Link Copied");
-    });
+    // e.preventDefault();
+    // navigator.clipboard.writeText(link).then(function () {
+    //   toast.success("Link Copied");
+    // });
   };
 
   return (
@@ -240,10 +239,14 @@ const Home = () => {
                                   </div>
                                 </div>
                                 <div
-                                  onClick={(e) => generatelink(e, item.p_link)}
+                                  // onClick={(e) => generatelink(e, item.p_link)}
                                   className="add_to_cart"
                                 >
-                                  <a href="#/" title="Grab Deal">
+                                  <a
+                                    href={item.p_link}
+                                    target="_blank"
+                                    title="Grab Deal"
+                                  >
                                     Grab Deal
                                   </a>
                                 </div>
@@ -377,10 +380,14 @@ const Home = () => {
                                   </div>
                                 </div>
                                 <div
-                                  onClick={(e) => generatelink(e, item.p_link)}
+                                  // onClick={(e) => generatelink(e, item.p_link)}
                                   className="add_to_cart"
                                 >
-                                  <a href="#/" title="Grab Deal">
+                                  <a
+                                    href={item.p_link}
+                                    target="_blank"
+                                    title="Grab Deal"
+                                  >
                                     Grab Deal
                                   </a>
                                 </div>
@@ -514,10 +521,14 @@ const Home = () => {
                                   </div>
                                 </div>
                                 <div
-                                  onClick={(e) => generatelink(e, item.p_link)}
+                                  // onClick={(e) => generatelink(e, item.p_link)}
                                   className="add_to_cart"
                                 >
-                                  <a href="#/" title="Grab Deal">
+                                  <a
+                                    href={item.p_link}
+                                    target="_blank"
+                                    title="Grab Deal"
+                                  >
                                     Grab Deal
                                   </a>
                                 </div>
@@ -649,10 +660,14 @@ const Home = () => {
                                   </div>
                                 </div>
                                 <div
-                                  onClick={(e) => generatelink(e, item.p_link)}
+                                  // onClick={(e) => generatelink(e, item.p_link)}
                                   className="add_to_cart"
                                 >
-                                  <a href="#/" title="Grab Deal">
+                                  <a
+                                    href={item.p_link}
+                                    target="_blank"
+                                    title="Grab Deal"
+                                  >
                                     Grab Deal
                                   </a>
                                 </div>
@@ -784,10 +799,14 @@ const Home = () => {
                                   </div>
                                 </div>
                                 <div
-                                  onClick={(e) => generatelink(e, item.p_link)}
+                                  // onClick={(e) => generatelink(e, item.p_link)}
                                   className="add_to_cart"
                                 >
-                                  <a href="#/" title="Grab Deal">
+                                  <a
+                                    href={item.p_link}
+                                    target="_blank"
+                                    title="Grab Deal"
+                                  >
                                     Grab Deal
                                   </a>
                                 </div>
