@@ -60,7 +60,7 @@ const Home = () => {
     <>
       <div className="loader">
         <HashLoader
-          color="#c40316"
+          color="#ff3130"
           loading={loading}
           cssOverride={override}
           size={40}
@@ -72,6 +72,7 @@ const Home = () => {
       <div className="home_section_bg">
         {/*Categories product area start*/}
         <div className="categories_product_area mb-55">
+          <Sliders />
           <div className="container">
             {/* {user !== null ? (
               <>
@@ -89,7 +90,6 @@ const Home = () => {
               <></>
             )}
             <br /> */}
-            <Sliders />
 
             <div className="categories_product_inner">
               {loading === false ? (
