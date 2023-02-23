@@ -152,10 +152,7 @@ const Home = () => {
                           <article className="single_product">
                             <figure>
                               <div className="product_thumb">
-                                <a
-                                  className="primary_img"
-                                  href="product-countdown.html"
-                                >
+                                <a className="primary_img" href="#/">
                                   <img
                                     style={{
                                       height: "200px",
@@ -238,20 +235,21 @@ const Home = () => {
                                     <p>{moment(item.end_date).format("LLL")}</p>
                                   </div>
                                 </div>
-                                <div
-                                  // onClick={(e) => generatelink(e, item.p_link)}
-                                  className="add_to_cart"
-                                >
-                                  <a
-                                    href={item.p_link}
-                                    target="_blank"
-                                    title="Grab Deal"
-                                  >
-                                    Grab Deal
-                                  </a>
-                                </div>
                               </div>
                             </figure>
+                            <div
+                              // onClick={(e) => generatelink(e, item.p_link)}
+                              className="add_to_cart"
+                            >
+                              <a
+                                href={item.p_link}
+                                target="_blank"
+                                rel="noreferrer"
+                                title="Grab Deal"
+                              >
+                                Grab Deal
+                              </a>
+                            </div>
                           </article>
                         </div>
                       </div>
@@ -293,10 +291,7 @@ const Home = () => {
                           <article className="single_product">
                             <figure>
                               <div className="product_thumb">
-                                <a
-                                  className="primary_img"
-                                  href="product-countdown.html"
-                                >
+                                <a className="primary_img" href="#/">
                                   <img
                                     style={{
                                       height: "200px",
@@ -379,20 +374,21 @@ const Home = () => {
                                     <p>{moment(item.end_date).format("LLL")}</p>
                                   </div>
                                 </div>
-                                <div
-                                  // onClick={(e) => generatelink(e, item.p_link)}
-                                  className="add_to_cart"
-                                >
-                                  <a
-                                    href={item.p_link}
-                                    target="_blank"
-                                    title="Grab Deal"
-                                  >
-                                    Grab Deal
-                                  </a>
-                                </div>
                               </div>
                             </figure>
+                            <div
+                              // onClick={(e) => generatelink(e, item.p_link)}
+                              className="add_to_cart"
+                            >
+                              <a
+                                href={item.p_link}
+                                target="_blank"
+                                rel="noreferrer"
+                                title="Grab Deal"
+                              >
+                                Grab Deal
+                              </a>
+                            </div>
                           </article>
                         </div>
                       </div>
@@ -434,10 +430,7 @@ const Home = () => {
                           <article className="single_product">
                             <figure>
                               <div className="product_thumb">
-                                <a
-                                  className="primary_img"
-                                  href="product-countdown.html"
-                                >
+                                <a className="primary_img" href="#/">
                                   <img
                                     style={{
                                       height: "200px",
@@ -527,6 +520,7 @@ const Home = () => {
                                   <a
                                     href={item.p_link}
                                     target="_blank"
+                                    rel="noreferrer"
                                     title="Grab Deal"
                                   >
                                     Grab Deal
@@ -573,10 +567,7 @@ const Home = () => {
                           <article className="single_product">
                             <figure>
                               <div className="product_thumb">
-                                <a
-                                  className="primary_img"
-                                  href="product-countdown.html"
-                                >
+                                <a className="primary_img" href="#/">
                                   <img
                                     style={{
                                       height: "200px",
@@ -666,6 +657,7 @@ const Home = () => {
                                   <a
                                     href={item.p_link}
                                     target="_blank"
+                                    rel="noreferrer"
                                     title="Grab Deal"
                                   >
                                     Grab Deal
@@ -712,10 +704,7 @@ const Home = () => {
                           <article className="single_product">
                             <figure>
                               <div className="product_thumb">
-                                <a
-                                  className="primary_img"
-                                  href="product-countdown.html"
-                                >
+                                <a className="primary_img" href="#/">
                                   <img
                                     style={{
                                       height: "200px",
@@ -805,6 +794,7 @@ const Home = () => {
                                   <a
                                     href={item.p_link}
                                     target="_blank"
+                                    rel="noreferrer"
                                     title="Grab Deal"
                                   >
                                     Grab Deal

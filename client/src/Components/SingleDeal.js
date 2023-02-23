@@ -53,49 +53,6 @@ const SingleDeal = () => {
                         />
                       </a>
                     </div>
-                    <div className="single-zoom-thumb">
-                      <ul
-                        className="s-tab-zoom owl-carousel single-product-active owl-loaded owl-drag"
-                        id="gallery_01"
-                      >
-                        <div className="owl-stage-outer">
-                          <div
-                            className="owl-stage"
-                            style={{
-                              transform: "translate3d(-507px, 0px, 0px)",
-                              transition: "all 0s ease 0s",
-                              width: "1521px",
-                            }}
-                          >
-                            <div
-                              className="owl-item cloned"
-                              style={{ width: "111.75px", marginRight: "15px" }}
-                            >
-                              <li>
-                                <a
-                                  href="#/"
-                                  className="elevatezoom-gallery active"
-                                  data-update
-                                  data-image={deal.images[0].url}
-                                  data-zoom-image={deal.images[0].url}
-                                >
-                                  <img src={deal.images[0].url} alt="zo-th-1" />
-                                </a>
-                              </li>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="owl-nav disabled">
-                          <div className="owl-prev">
-                            <i className="fa fa-angle-left" />
-                          </div>
-                          <div className="owl-next">
-                            <i className="fa fa-angle-right" />
-                          </div>
-                        </div>
-                        <div className="owl-dots disabled" />
-                      </ul>
-                    </div>
                   </div>
                 </div>
                 <div className="col-lg-7 col-md-6">

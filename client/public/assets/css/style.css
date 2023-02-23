@@ -4112,18 +4112,17 @@ textarea:-ms-input-placeholder {
 }
 
 .add_to_cart {
-  bottom: 0;
+  bottom: 10px;
   left: 0;
-  position: absolute;
   right: 0;
   text-align: center;
-  visibility: hidden;
   z-index: 9;
-  opacity: 0;
+  opacity: 1;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   background: #fff;
   padding: 20px 10px 25px;
+  visibility: visible;
 }
 .add_to_cart a {
   border: 2px solid #ebebeb;
