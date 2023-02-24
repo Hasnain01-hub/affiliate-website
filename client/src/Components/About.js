@@ -92,7 +92,7 @@ const About = () => {
           </div>
           {/*chose us area end*/}
           {/*services img area*/}
-          <div className="about_gallery_section mb-55">
+          <div className="about_gallery_section mb-45">
             <div className="row">
               <div className="col-lg-4 col-md-4">
                 <article className="single_gallery_section">

@@ -37,7 +37,7 @@ const SingleDeal = () => {
         </>
       ) : (
         <>
-          <div className="product_details_wrapper mb-55">
+          <div className="product_details_wrapper mb-45">
             {/*product details start*/}
             <div className="product_details">
               <div className="row">

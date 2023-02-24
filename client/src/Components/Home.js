@@ -71,7 +71,7 @@ const Home = () => {
       </div>{" "}
       <div className="home_section_bg">
         {/*Categories product area start*/}
-        <div className="categories_product_area mb-55">
+        <div className="categories_product_area mb-45">
           <Sliders />
           <div className="container">
             {/* {user !== null ? (
@@ -119,6 +119,7 @@ const Home = () => {
         {/*product area start*/}
         <div className="product_area deals_product">
           <div className="container">
+            <hr />
             <div className="row">
               <div className="col-12">
                 <div className="product_header">
@@ -128,6 +129,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            <hr />
             <div
               className="row"
               style={{
@@ -136,7 +138,7 @@ const Home = () => {
                 scrollSnapType: "x mandatory",
                 gap: "15px",
                 overflowY: `hidden`,
-                padding: "30px",
+                padding: "10px",
               }}
             >
               {deals.map((item, i) => {
@@ -177,7 +179,7 @@ const Home = () => {
                                 <div className="label_product">
                                   <span
                                     style={{
-                                      background: "#e91e63",
+                                      background: "rgb(255 49 48)",
                                       color: "white",
                                     }}
                                     className="label_sale"
@@ -257,7 +259,7 @@ const Home = () => {
                   : null;
               })}
             </div>
-
+            <hr />
             <div className="row">
               <div className="col-12">
                 <div className="product_header">
@@ -267,6 +269,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            <hr />
             <div
               className="row"
               style={{
@@ -275,7 +278,7 @@ const Home = () => {
                 gap: "15px",
                 overflowY: `hidden`,
                 scrollSnapType: "x mandatory",
-                padding: "30px",
+                padding: "10px",
               }}
             >
               {deals.map((item) => {
@@ -316,7 +319,7 @@ const Home = () => {
                                 <div className="label_product">
                                   <span
                                     style={{
-                                      background: "#e91e63",
+                                      background: "rgb(255 49 48)",
                                       color: "white",
                                     }}
                                     className="label_sale"
@@ -396,7 +399,7 @@ const Home = () => {
                   : null;
               })}
             </div>
-
+            <hr />
             <div className="row">
               <div className="col-12">
                 <div className="product_header">
@@ -406,6 +409,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            <hr />
             <div
               className="row"
               style={{
@@ -414,7 +418,7 @@ const Home = () => {
                 gap: "15px",
                 scrollSnapType: "x mandatory",
                 overflowY: `hidden`,
-                padding: "30px",
+                padding: "10px",
               }}
             >
               {deals.map((item) => {
@@ -455,7 +459,7 @@ const Home = () => {
                                 <div className="label_product">
                                   <span
                                     style={{
-                                      background: "#e91e63",
+                                      background: "rgb(255 49 48)",
                                       color: "white",
                                     }}
                                     className="label_sale"
@@ -535,7 +539,7 @@ const Home = () => {
                   : null;
               })}
             </div>
-
+            <hr />
             <div className="row">
               <div className="col-12">
                 <div className="product_header">
@@ -545,6 +549,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            <hr />
             <div
               className="row"
               style={{
@@ -552,7 +557,7 @@ const Home = () => {
                 overflowX: "auto",
                 gap: "15px",
                 overflowY: `hidden`,
-                padding: "30px",
+                padding: "10px",
               }}
             >
               {deals.map((item) => {
@@ -592,7 +597,7 @@ const Home = () => {
                                 <div className="label_product">
                                   <span
                                     style={{
-                                      background: "#e91e63",
+                                      background: "rgb(255 49 48)",
                                       color: "white",
                                     }}
                                     className="label_sale"
@@ -672,7 +677,7 @@ const Home = () => {
                   : null;
               })}
             </div>
-
+            <hr />
             <div className="row">
               <div className="col-12">
                 <div className="product_header">
@@ -682,6 +687,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            <hr />
             <div
               className="row"
               style={{
@@ -689,7 +695,7 @@ const Home = () => {
                 overflowX: "auto",
                 gap: "15px",
                 overflowY: `hidden`,
-                padding: "30px",
+                padding: "10px",
               }}
             >
               {deals.map((item) => {
@@ -729,7 +735,7 @@ const Home = () => {
                                 <div className="label_product">
                                   <span
                                     style={{
-                                      background: "#e91e63",
+                                      background: "rgb(255 49 48)",
                                       color: "white",
                                     }}
                                     className="label_sale"
