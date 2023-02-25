@@ -4098,6 +4098,10 @@ textarea:-ms-input-placeholder {
   color: #ff3130;
   text-decoration: underline;
 }
+::-webkit-scrollbar {
+  height: 0px;   
+  width: 1px;           /* height of horizontal scrollbar ← You're missing this */
+}
 
 .add_to_cart {
   bottom: 10px;
@@ -4110,7 +4114,7 @@ textarea:-ms-input-placeholder {
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   background: #fff;
-  padding: 20px 10px 25px;
+  padding: 10px 10px 15px;
   visibility: visible;
 }
 .main_header {
