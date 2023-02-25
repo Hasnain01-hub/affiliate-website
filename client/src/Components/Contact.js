@@ -24,7 +24,7 @@ const Contact = () => {
                   </li>
                   <li>
                     <i className="fa fa-phone" />{" "}
-                    <a href="#/">demo@example.com</a>
+                    <a href="#/">admin@dealsghar.com</a>
                   </li>
                   <li>
                     <i className="fa fa-envelope-o" /> 0123456789

@@ -26,7 +26,15 @@ const Sliders = () => {
         <></>
       ) : (
         <>
-          <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+          <Swiper
+            slidesPerView={"auto"}
+            spaceBetween={30}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+          >
             {banners.map((b, i) => (
               <>
                 <SwiperSlide>

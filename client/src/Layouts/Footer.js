@@ -79,7 +79,7 @@ const Footer = () => {
                       </div>
                     </div>
                     <p>
-                      Your address goes here. <br /> demo@example.com
+                      Your address goes here. <br /> admin@dealsghar.com
                     </p>
                   </div>
                   <div className="footer_social">

@@ -58,7 +58,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="loader">
+      {/* <div className="loader">
         <HashLoader
           color="#ff3130"
           loading={loading}
@@ -68,12 +68,12 @@ const Home = () => {
           data-testid="loader"
         />
         <h1>Loading</h1>
-      </div>{" "}
+      </div>{" "} */}
       <div className="home_section_bg">
         {/*Categories product area start*/}
         <div className="categories_product_area mb-45">
-          <Sliders />
           <div className="container">
+            <Sliders />
             {/* {user !== null ? (
               <>
                 {user.profit === null ? (
@@ -200,11 +200,7 @@ const Home = () => {
                                       {item.p_name}
                                     </a>
                                   </h4>
-                                  <div className="countdown_text">
-                                    <p>
-                                      <span>Hurry Up!</span> Offers ends in:{" "}
-                                    </p>
-                                  </div>
+
                                   <div className="product_timing">
                                     {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
@@ -234,24 +230,35 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                    <p>{moment(item.end_date).format("LLL")}</p>
+                                    <p>
+                                      <del>Rs{item.price}</del>&nbsp;&nbsp;
+                                      <b>Rs{item.discount_price}</b>
+                                    </p>
                                   </div>
                                 </div>
                               </div>
                             </figure>
-                            <div
-                              // onClick={(e) => generatelink(e, item.p_link)}
-                              className="add_to_cart"
+                            <a
+                              href={item.p_link}
+                              target="_blank"
+                              rel="noreferrer"
+                              title="Grab Deal"
                             >
-                              <a
-                                href={item.p_link}
-                                target="_blank"
-                                rel="noreferrer"
-                                title="Grab Deal"
+                              <div
+                                // onClick={(e) => generatelink(e, item.p_link)}
+                                className="add_to_cart"
                               >
-                                Grab Deal
-                              </a>
-                            </div>
+                                <a
+                                  href={item.p_link}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  title="Grab Deal"
+                                >
+                                  {" "}
+                                  Grab Deal
+                                </a>
+                              </div>
+                            </a>
                           </article>
                         </div>
                       </div>
@@ -340,11 +347,7 @@ const Home = () => {
                                       {item.p_name}
                                     </a>
                                   </h4>
-                                  <div className="countdown_text">
-                                    <p>
-                                      <span>Hurry Up!</span> Offers ends in:{" "}
-                                    </p>
-                                  </div>
+
                                   <div className="product_timing">
                                     {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
@@ -374,24 +377,35 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                    <p>{moment(item.end_date).format("LLL")}</p>
+                                    <p>
+                                      <del>Rs{item.price}</del>&nbsp;&nbsp;
+                                      <b>Rs{item.discount_price}</b>
+                                    </p>
                                   </div>
                                 </div>
                               </div>
                             </figure>
-                            <div
-                              // onClick={(e) => generatelink(e, item.p_link)}
-                              className="add_to_cart"
+                            <a
+                              href={item.p_link}
+                              target="_blank"
+                              rel="noreferrer"
+                              title="Grab Deal"
                             >
-                              <a
-                                href={item.p_link}
-                                target="_blank"
-                                rel="noreferrer"
-                                title="Grab Deal"
+                              <div
+                                // onClick={(e) => generatelink(e, item.p_link)}
+                                className="add_to_cart"
                               >
-                                Grab Deal
-                              </a>
-                            </div>
+                                <a
+                                  href={item.p_link}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  title="Grab Deal"
+                                >
+                                  {" "}
+                                  Grab Deal
+                                </a>
+                              </div>
+                            </a>
                           </article>
                         </div>
                       </div>
@@ -480,11 +494,7 @@ const Home = () => {
                                       {item.p_name}
                                     </a>
                                   </h4>
-                                  <div className="countdown_text">
-                                    <p>
-                                      <span>Hurry Up!</span> Offers ends in:{" "}
-                                    </p>
-                                  </div>
+
                                   <div className="product_timing">
                                     {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
@@ -514,22 +524,34 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                    <p>{moment(item.end_date).format("LLL")}</p>
+                                    <p>
+                                      <del>Rs{item.price}</del>&nbsp;&nbsp;
+                                      <b>Rs{item.discount_price}</b>
+                                    </p>
                                   </div>
                                 </div>
-                                <div
-                                  // onClick={(e) => generatelink(e, item.p_link)}
-                                  className="add_to_cart"
+
+                                <a
+                                  href={item.p_link}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  title="Grab Deal"
                                 >
-                                  <a
-                                    href={item.p_link}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    title="Grab Deal"
+                                  <div
+                                    // onClick={(e) => generatelink(e, item.p_link)}
+                                    className="add_to_cart"
                                   >
-                                    Grab Deal
-                                  </a>
-                                </div>
+                                    <a
+                                      href={item.p_link}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      title="Grab Deal"
+                                    >
+                                      {" "}
+                                      Grab Deal
+                                    </a>
+                                  </div>
+                                </a>
                               </div>
                             </figure>
                           </article>
@@ -618,11 +640,7 @@ const Home = () => {
                                       {item.p_name}
                                     </a>
                                   </h4>
-                                  <div className="countdown_text">
-                                    <p>
-                                      <span>Hurry Up!</span> Offers ends in:{" "}
-                                    </p>
-                                  </div>
+
                                   <div className="product_timing">
                                     {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
@@ -652,22 +670,33 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                    <p>{moment(item.end_date).format("LLL")}</p>
+                                    <p>
+                                      <del>Rs{item.price}</del>&nbsp;&nbsp;
+                                      <b>Rs{item.discount_price}</b>
+                                    </p>
                                   </div>
                                 </div>
-                                <div
-                                  // onClick={(e) => generatelink(e, item.p_link)}
-                                  className="add_to_cart"
+                                <a
+                                  href={item.p_link}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  title="Grab Deal"
                                 >
-                                  <a
-                                    href={item.p_link}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    title="Grab Deal"
+                                  <div
+                                    // onClick={(e) => generatelink(e, item.p_link)}
+                                    className="add_to_cart"
                                   >
-                                    Grab Deal
-                                  </a>
-                                </div>
+                                    <a
+                                      href={item.p_link}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      title="Grab Deal"
+                                    >
+                                      {" "}
+                                      Grab Deal
+                                    </a>
+                                  </div>
+                                </a>
                               </div>
                             </figure>
                           </article>
@@ -756,11 +785,7 @@ const Home = () => {
                                       {item.p_name}
                                     </a>
                                   </h4>
-                                  <div className="countdown_text">
-                                    <p>
-                                      <span>Hurry Up!</span> Offers ends in:{" "}
-                                    </p>
-                                  </div>
+
                                   <div className="product_timing">
                                     {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
@@ -790,7 +815,10 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                    <p>{moment(item.end_date).format("LLL")}</p>
+                                    <p>
+                                      <del>Rs{item.price}</del>&nbsp;&nbsp;
+                                      <b>Rs{item.discount_price}</b>
+                                    </p>
                                   </div>
                                 </div>
                                 <div

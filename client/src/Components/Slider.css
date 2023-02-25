@@ -1,18 +1,15 @@
-.swiper {
-    width: 100%;
-    height: 500px;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-  
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.swiper-slide {
+  width: 80%;
+  height: 300px;
+}
+
+.swiper-slide:nth-child(2n) {
+  width: 60%;
+}
+
+.swiper-slide:nth-child(3n) {
+  width: 40%;
+}
   
   .swiper-slide img {
     display: block;
@@ -26,17 +23,21 @@
     .swiper {
       height: 20vh !important;
     }
+    .swiper-slide {
+      width: 80%;
+      height: 20vh !important;
+    }
   }
 
   
   @media (min-width:730px) and (max-width:946px) {
-    .swiper {
+    .swiper, .swiper-slide {
       height: 45vh !important;
     }
   }
 
   @media (min-width:947px) and (max-width:1024px) {
-    .swiper {
+    .swiper, .swiper-slide {
       height: 50vh !important;
     }
   }

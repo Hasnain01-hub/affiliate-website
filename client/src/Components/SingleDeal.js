@@ -55,7 +55,14 @@ const SingleDeal = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-7 col-md-6">
+                <div
+                  className="col-lg-7 col-md-6"
+                  style={{
+                    overflow: "hidden",
+                    textOverflow: "inherit",
+                    wordWrap: "break-word",
+                  }}
+                >
                   <div className="product_d_right">
                     <form action="#">
                       <h3>
