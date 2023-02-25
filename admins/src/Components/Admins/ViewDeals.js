@@ -79,9 +79,9 @@ const ViewDeals = () => {
                                 <div className="card-body">
                                   <img
                                     style={{
-                                      width: "100%",
+                                      maxWidth: "95%",
                                       margin: "10px 0",
-                                      height: "250px",
+                                      // height: "250px",
                                     }}
                                     src={item.images[0]["url"]}
                                     alt="items"
