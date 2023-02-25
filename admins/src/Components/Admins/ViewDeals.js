@@ -80,7 +80,7 @@ const ViewDeals = () => {
                                   <img
                                     style={{
                                       maxWidth: "95%",
-                                      margin: "10px 0",
+                                      margin: "10px 0px",
                                       // height: "250px",
                                     }}
                                     src={item.images[0]["url"]}
