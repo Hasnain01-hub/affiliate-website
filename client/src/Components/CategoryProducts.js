@@ -40,7 +40,10 @@ const CategoryProducts = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <div className="row no-gutters shop_wrapper">
+              <div
+                className="row no-gutters shop_wrapper"
+                style={{ width: "100vw" }}
+              >
                 {loading === true ? (
                   <>
                     <h2>Loading Data....</h2>

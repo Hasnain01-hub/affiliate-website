@@ -6277,8 +6277,8 @@ textarea:-ms-input-placeholder {
   }
 }
 .grid_content h4.product_name {
-  margin-bottom: 15px;
-  height: 35px;
+  margin-bottom: 0px !important;
+  padding: 20px !important;
 }
 
 .grid_list .product_name {
