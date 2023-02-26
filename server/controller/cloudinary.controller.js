@@ -22,11 +22,8 @@ exports.upload = async (req, res) => {
 
 exports.remove = (req, res) => {
   let product_id = req.body.public_id;
-  console.log(product_id);
-  console.log(req.body);
   cloudinary.uploader.destroy(product_id, (err, result) => {
     if (err) return res.json({ success: false, err });
-    console.log(result);
     res.send("ok");
   });
 };

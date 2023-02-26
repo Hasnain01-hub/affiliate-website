@@ -361,3 +361,14 @@ exports.getSingleDeal = (req, res) => {
       return res.json(err);
     });
 };
+
+exports.getSingleProductDeal = (req, res) => {
+  ItemModel.findById(req.params.id)
+    .then((doc) => {
+      console.log(doc);
+      return res.json(doc);
+    })
+    .catch((err) => {
+      return res.json(err);
+    });
+};

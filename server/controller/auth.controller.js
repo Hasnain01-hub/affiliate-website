@@ -184,8 +184,6 @@ exports.fetchUserData = async (req, res) => {
 exports.adminLogin = (req, res) => {
   const admin = req.body;
 
-  console.log(req.body);
-
   AdminModel.findOne({ email: admin.email })
     .then((doc) => {
       if (doc.password === admin.password) {
