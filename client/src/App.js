@@ -18,6 +18,7 @@ import Contact from "./Components/Contact";
 import SingleDeal from "./Components/SingleDeal";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import About from "./Components/About";
+import SingleProductDeal from "./Components/SingleProductDeal";
 
 function App() {
   const dispatch = useDispatch();
@@ -61,6 +62,7 @@ function App() {
         <Route path="/Deal/:id" element={<SingleDeal />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/about" element={<About />} />
+        <Route path="/Deal/Product/:id" element={<SingleProductDeal />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/Incomplete-Profile" element={<NotAvailable />} />
       </Routes>

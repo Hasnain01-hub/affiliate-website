@@ -22,6 +22,10 @@ const CategoryProducts = () => {
     });
   };
 
+  const handleRedirect = (id) => {
+    window.location.href = "/Deal/Product/" + id;
+  };
+
   useEffect(() => {
     axios
       .get(process.env.REACT_APP_API + "api/admin/category/" + params.cat)
@@ -40,10 +44,7 @@ const CategoryProducts = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <div
-                className="row no-gutters shop_wrapper"
-                style={{ width: "100vw" }}
-              >
+              <div className="row no-gutters shop_wrapper">
                 {loading === true ? (
                   <>
                     <h2>Loading Data....</h2>
@@ -75,7 +76,13 @@ const CategoryProducts = () => {
                                   <div className="product_content grid_content">
                                     <div className="product_content_inner">
                                       <h4 className="product_name">
-                                        <a href="#/">{p.name}</a>
+                                        <a
+                                          onClick={() => {
+                                            handleRedirect(p._id);
+                                          }}
+                                        >
+                                          {p.name}
+                                        </a>
                                       </h4>
                                       <div className="price_box">
                                         <span className="old_price">
@@ -85,28 +92,6 @@ const CategoryProducts = () => {
                                           {p.discount}.00 INR
                                         </span>
                                       </div>
-                                    </div>
-                                    <div
-                                      onClick={(e) => generatelink(e, p.link)}
-                                      className="add_to_cart"
-                                    >
-                                      <a href="#/" title="Grab Deal">
-                                        Grab Deal
-                                      </a>
-                                    </div>
-                                  </div>
-                                  <div className="product_content list_content">
-                                    <h4 className="product_name">
-                                      <a href="#/">
-                                        Natus erro at congue massa commodo sit
-                                        Natus erro
-                                      </a>
-                                    </h4>
-                                    <div className="price_box">
-                                      <span className="old_price">$80.00</span>
-                                      <span className="current_price">
-                                        $70.00
-                                      </span>
                                     </div>
                                     <div
                                       onClick={(e) => generatelink(e, p.link)}

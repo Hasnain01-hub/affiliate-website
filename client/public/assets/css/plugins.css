@@ -1186,6 +1186,7 @@ progress {
   .col-lg-3 {
     flex: 0 0 auto;
     width: 25%;
+    padding: 10px;
   }
   .col-lg-4 {
     flex: 0 0 auto;

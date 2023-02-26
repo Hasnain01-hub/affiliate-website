@@ -1,12 +1,11 @@
 import axios from "axios";
-import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
 // import { useSelector } from "react-#e91e63ux";
 import { toast, ToastContainer } from "react-toastify";
 import Sliders from "./Sliders";
 import "./Slider.css";
 import $ from "jquery";
-import { HashLoader } from "react-spinners";
+// import { HashLoader } from "react-spinners";
 
 const Home = () => {
   const [deals, setdeals] = useState([]);
@@ -119,7 +118,6 @@ const Home = () => {
         {/*product area start*/}
         <div className="product_area deals_product">
           <div className="container">
-            <hr />
             <div className="row">
               <div className="col-12">
                 <div className="product_header">
@@ -129,7 +127,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <hr />
+
             <div
               className="row"
               style={{
@@ -266,7 +264,7 @@ const Home = () => {
                   : null;
               })}
             </div>
-            <hr />
+
             <div className="row">
               <div className="col-12">
                 <div className="product_header">
@@ -276,7 +274,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <hr />
+
             <div
               className="row"
               style={{
@@ -413,7 +411,7 @@ const Home = () => {
                   : null;
               })}
             </div>
-            <hr />
+
             <div className="row">
               <div className="col-12">
                 <div className="product_header">
@@ -423,7 +421,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <hr />
+
             <div
               className="row"
               style={{
@@ -561,7 +559,7 @@ const Home = () => {
                   : null;
               })}
             </div>
-            <hr />
+
             <div className="row">
               <div className="col-12">
                 <div className="product_header">
@@ -571,7 +569,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <hr />
+
             <div
               className="row"
               style={{
@@ -706,7 +704,7 @@ const Home = () => {
                   : null;
               })}
             </div>
-            <hr />
+
             <div className="row">
               <div className="col-12">
                 <div className="product_header">
@@ -716,7 +714,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <hr />
+
             <div
               className="row"
               style={{

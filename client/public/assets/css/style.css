@@ -3996,6 +3996,13 @@ textarea:-ms-input-placeholder {
   .section_title {
     margin-bottom: 15px;
   }
+  .product_thumb img {
+    max-width: 250px !important;
+  }
+  .product_thumb {
+    height: auto !important;
+    max-height: 300px;
+  }
   .categories_product_thumb img {
     width: 130% !important;
   }
@@ -4004,7 +4011,7 @@ textarea:-ms-input-placeholder {
   }
 }
 .section_title h2 {
-  font-size: 40px;
+  font-size: 30px;
   line-height: 28px;
   font-weight: 500;
   display: inline-block;
@@ -4100,7 +4107,12 @@ textarea:-ms-input-placeholder {
 }
 ::-webkit-scrollbar {
   height: 0px;   
-  width: 1px;           /* height of horizontal scrollbar ← You're missing this */
+  width: 5px;           /* height of horizontal scrollbar ← You're missing this */
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #888;
 }
 
 .add_to_cart {
@@ -4342,7 +4354,6 @@ textarea:-ms-input-placeholder {
 .product_header .section_title {
   margin-bottom: 0;
   display: flex;
-  width: 100%;
   justify-content: center;
   align-items: center;
   height: 80px;
@@ -6279,6 +6290,7 @@ textarea:-ms-input-placeholder {
 .grid_content h4.product_name {
   margin-bottom: 0px !important;
   padding: 20px !important;
+  height: 75px;
 }
 
 .grid_list .product_name {
