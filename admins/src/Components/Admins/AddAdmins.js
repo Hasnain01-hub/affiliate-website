@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import Header from "../../Layout/Slider";
 import Nav from "../../Layout/Nav";
+import axiosConfig from "../AxiosConfig";
 
 const AddAdmins = () => {
   const [admin, setAdmin] = useState({
@@ -36,7 +37,11 @@ const AddAdmins = () => {
         });
       }
       axios
-        .post(process.env.REACT_APP_API + "api/admin/add-admin", admin)
+        .post(
+          process.env.REACT_APP_API + "api/admin/add-admin",
+          admin,
+          axiosConfig
+        )
         .then((res) => {
           if (res.status === 200) {
             toast.success("Admin Added Successfully", {

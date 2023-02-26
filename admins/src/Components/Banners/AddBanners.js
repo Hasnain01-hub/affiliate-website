@@ -8,6 +8,7 @@ import axios from "axios";
 const AddBanners = () => {
   const [banner, setBanner] = useState({
     image: "",
+    url: "",
   });
 
   const [banners, setBanners] = useState();
@@ -39,6 +40,10 @@ const AddBanners = () => {
       },
       "base64"
     );
+  };
+
+  const handleChangeUrl = (e) => {
+    banner.url = e.target.value;
   };
 
   const [loading, setLoading] = useState(true);
@@ -128,6 +133,21 @@ const AddBanners = () => {
                           />
                         </div>
 
+                        <div className="mb-3 col-md-12">
+                          <label className="form-label">
+                            Banner Deal URL <span className="red">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="basic-default-fullname"
+                            placeholder="John Doe"
+                            name="url"
+                            required
+                            onChange={handleChangeUrl}
+                          />
+                        </div>
+
                         <button
                           type="submit"
                           className="btn btn-primary"
@@ -138,6 +158,7 @@ const AddBanners = () => {
                       </div>
                     </div>
                   </div>
+
                   <h4 className="fw-bold py-3 mb-4">
                     <span className="text-muted fw-light">
                       {process.env.REACT_APP_NAME} /
