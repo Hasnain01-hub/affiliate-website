@@ -38,16 +38,35 @@ const Sliders = () => {
             {banners.map((b, i) => (
               <>
                 <SwiperSlide>
-                  <div
-                    style={{
-                      backgroundImage: "url(" + b.image + ")",
-                      height: "100%",
-                      width: "100%",
-                      backgroundRepeat: "no-repeat",
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  ></div>
+                  {b.url !== null ? (
+                    <>
+                      <a href={b.url} target="_blank" rel="noreferrer">
+                        <div
+                          style={{
+                            backgroundImage: "url(" + b.image + ")",
+                            height: "100%",
+                            width: "100%",
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                          }}
+                        ></div>
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      <div
+                        style={{
+                          backgroundImage: "url(" + b.image + ")",
+                          height: "100%",
+                          width: "100%",
+                          backgroundRepeat: "no-repeat",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      ></div>
+                    </>
+                  )}
                 </SwiperSlide>
               </>
             ))}
