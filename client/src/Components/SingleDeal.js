@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import SinglePageLoading from "./SinglePageLoading";
 
 const SingleDeal = () => {
   const [deal, setDeal] = useState();
@@ -31,9 +32,12 @@ const SingleDeal = () => {
     <>
       {loading === true ? (
         <>
-          <center>
-            <h1 className="p-5">Loading Deal....</h1>
-          </center>
+          <div className="product_details_wrapper mb-45">
+            {/*product details start*/}
+            <div className="product_details">
+              <SinglePageLoading />
+            </div>
+          </div>
         </>
       ) : (
         <>

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import ProductsLoader from "./ProductsLoader";
 
 const CategoryProducts = () => {
   const [product, setProduct] = useState();
@@ -12,14 +13,7 @@ const CategoryProducts = () => {
   // const [link, setLink] = useState("");
   const generatelink = (e, link) => {
     e.preventDefault();
-
-    let res = link.split("/com")[0];
-
-    let cp_link = res;
-
-    navigator.clipboard.writeText(cp_link).then(function () {
-      toast.success("Link Copied");
-    });
+    window.location.href = link;
   };
 
   const handleRedirect = (id) => {
@@ -44,13 +38,17 @@ const CategoryProducts = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <div className="row no-gutters shop_wrapper">
-                {loading === true ? (
-                  <>
-                    <h2>Loading Data....</h2>
-                  </>
-                ) : (
-                  <>
+              {loading === true ? (
+                <>
+                  <ProductsLoader />
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <h2>
+                    <b>{params.cat}</b>
+                  </h2>
+                  <div className="row no-gutters shop_wrapper">
                     {product.length === 0 ? (
                       <>
                         <h2>No Products Available</h2>
@@ -80,6 +78,7 @@ const CategoryProducts = () => {
                                           onClick={() => {
                                             handleRedirect(p._id);
                                           }}
+                                          href="#/"
                                         >
                                           {p.name}
                                         </a>
@@ -109,9 +108,9 @@ const CategoryProducts = () => {
                         ))}
                       </>
                     )}
-                  </>
-                )}
-              </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>

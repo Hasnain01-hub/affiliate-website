@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import ProductsLoader from "./ProductsLoader";
 
 const Shop = () => {
   const [product, setProduct] = useState();
@@ -28,7 +29,7 @@ const Shop = () => {
               <div className="row no-gutters shop_wrapper">
                 {loading === true ? (
                   <>
-                    <h2>Loading Data....</h2>
+                    <ProductsLoader />
                   </>
                 ) : (
                   <>

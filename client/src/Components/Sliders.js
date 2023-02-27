@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 import "./Slider.css";
 import axios from "axios";
+import SliderLoaders from "./SliderLoaders";
 
 const Sliders = () => {
+  SwiperCore.use([Autoplay]);
+
   const [banners, setBanners] = useState();
 
   const [loading, setLoading] = useState(true);
@@ -23,17 +26,21 @@ const Sliders = () => {
   return (
     <>
       {loading === true ? (
-        <></>
+        <>
+          <SliderLoaders />
+        </>
       ) : (
         <>
           <Swiper
+            pagination={{
+              type: "fraction",
+            }}
             slidesPerView={"auto"}
             spaceBetween={30}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination]}
+            modules={[Pagination, Navigation]}
             className="mySwiper"
+            navigation={true}
+            autoplay
           >
             {banners.map((b, i) => (
               <>
