@@ -148,22 +148,14 @@ const Home = () => {
                                   <div className="product_thumb">
                                     <a className="primary_img" href="#/">
                                       <img
-                                        style={{
-                                          height: "200px",
-                                          display: "block",
-                                          margin: "0 auto",
-                                        }}
+                                        className="prod_img"
                                         src={item.images[0]["url"]}
                                         alt=""
                                       />
                                     </a>
                                     <a className="secondary_img" href="#/">
                                       <img
-                                        style={{
-                                          height: "200px",
-                                          display: "block",
-                                          margin: "0 auto",
-                                        }}
+                                        className="prod_img"
                                         src={item.images[0]["url"]}
                                         alt=""
                                       />
@@ -303,22 +295,14 @@ const Home = () => {
                                   <div className="product_thumb">
                                     <a className="primary_img" href="#/">
                                       <img
-                                        style={{
-                                          height: "200px",
-                                          display: "block",
-                                          margin: "0 auto",
-                                        }}
+                                        className="prod_img"
                                         src={item.images[0]["url"]}
                                         alt=""
                                       />
                                     </a>
                                     <a className="secondary_img" href="#/">
                                       <img
-                                        style={{
-                                          height: "200px",
-                                          display: "block",
-                                          margin: "0 auto",
-                                        }}
+                                        className="prod_img"
                                         src={item.images[0]["url"]}
                                         alt=""
                                       />
@@ -458,22 +442,14 @@ const Home = () => {
                                   <div className="product_thumb">
                                     <a className="primary_img" href="#/">
                                       <img
-                                        style={{
-                                          height: "200px",
-                                          display: "block",
-                                          margin: "0 auto",
-                                        }}
+                                        className="prod_img"
                                         src={item.images[0]["url"]}
                                         alt=""
                                       />
                                     </a>
                                     <a className="secondary_img" href="#/">
                                       <img
-                                        style={{
-                                          height: "200px",
-                                          display: "block",
-                                          margin: "0 auto",
-                                        }}
+                                        className="prod_img"
                                         src={item.images[0]["url"]}
                                         alt=""
                                       />
@@ -612,22 +588,14 @@ const Home = () => {
                                   <div className="product_thumb">
                                     <a className="primary_img" href="#/">
                                       <img
-                                        style={{
-                                          height: "200px",
-                                          display: "block",
-                                          margin: "0 auto",
-                                        }}
+                                        className="prod_img"
                                         src={item.images[0]["url"]}
                                         alt=""
                                       />
                                     </a>
                                     <a className="secondary_img" href="#/">
                                       <img
-                                        style={{
-                                          height: "200px",
-                                          display: "block",
-                                          margin: "0 auto",
-                                        }}
+                                        className="prod_img"
                                         src={item.images[0]["url"]}
                                         alt=""
                                       />
@@ -765,22 +733,14 @@ const Home = () => {
                                   <div className="product_thumb">
                                     <a className="primary_img" href="#/">
                                       <img
-                                        style={{
-                                          height: "200px",
-                                          display: "block",
-                                          margin: "0 auto",
-                                        }}
+                                        className="prod_img"
                                         src={item.images[0]["url"]}
                                         alt=""
                                       />
                                     </a>
                                     <a className="secondary_img" href="#/">
                                       <img
-                                        style={{
-                                          height: "200px",
-                                          display: "block",
-                                          margin: "0 auto",
-                                        }}
+                                        className="prod_img"
                                         src={item.images[0]["url"]}
                                         alt=""
                                       />

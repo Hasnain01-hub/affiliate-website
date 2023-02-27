@@ -18,15 +18,25 @@
     object-fit: cover;
   }
   
-
+  .prod_img {
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    }
   @media (min-width:250px) and (max-width:720px) {
     .swiper {
-      height: 20vh !important;
+      height: 15vh !important;
     }
     .swiper-slide {
       width: 80%;
-      height: 20vh !important;
+      height: 15vh !important;
     }
+
+    .prod_img {
+      height: 150px;
+      display: block;
+      margin: 0 auto;
+      }
   }
 
   

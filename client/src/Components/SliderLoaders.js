@@ -2,14 +2,17 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 
 const SliderLoaders = (props) => {
+  const height = window.innerHeight - 75;
+  const width = "90vw";
+
   return (
     <>
       <ContentLoader
-        viewBox="0 0 1366 300"
+        viewBox={`0 0 ${height} ${width}`}
         {...props}
         backgroundColor="#DADADA"
         foregroundColor="#ecebeb"
-        style={{ width: "100%", height: "300px" }}
+        style={{ width: "90vw", height: "25vh" }}
       >
         <rect
           x="0"

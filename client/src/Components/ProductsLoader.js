@@ -2,17 +2,18 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 
 const ProductsLoader = ({
-  width = 1366,
+  width = window.innerWidth - 75,
   heading = { width: 140, height: 24 },
-  row = 2,
-  column = 4,
+  row = Math.floor(window.innerHeight / 250),
+  column = Math.floor(window.innerWidth / 350),
   padding = 12,
   borderRadius = 4,
   ...props
 }) => {
   const list = [];
-
   let height;
+
+  console.log(Math.floor(window.innerWidth / 150));
 
   for (let i = 1; i <= row; i++) {
     for (let j = 0; j < column; j++) {

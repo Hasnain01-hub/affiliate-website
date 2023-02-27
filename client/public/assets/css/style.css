@@ -4031,7 +4031,7 @@ textarea:-ms-input-placeholder {
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .section_title h2 {
-    font-size: 17px;
+    font-size: 24px;
     line-height: 22px;
     padding-bottom: 6px;
   }
@@ -4353,10 +4353,7 @@ textarea:-ms-input-placeholder {
 }
 .product_header .section_title {
   margin-bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80px;
+  height: 30px;
 }
 @media only screen and (max-width: 767px) {
   .product_header .product_tab_btn {
@@ -5672,8 +5669,9 @@ textarea:-ms-input-placeholder {
 }
 @media only screen and (max-width: 767px) {
   .shop_area {
-    padding: 60px 0 110px;
+    padding: 60px 30px 110px;
   }
+  
 }
 
 .sidebar_widget {
