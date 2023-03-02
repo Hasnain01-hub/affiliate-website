@@ -58,6 +58,8 @@ const ViewAdmins = () => {
                                   <h5 className="card-title">{admin.name}</h5>
                                   <b>Email :</b>
                                   <p className="card-text">{admin.email}</p>
+                                  <b>Role :</b>
+                                  <p className="card-text">{admin.role}</p>
                                 </div>
                               </div>
                             </div>

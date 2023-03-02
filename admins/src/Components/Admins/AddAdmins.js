@@ -11,6 +11,7 @@ const AddAdmins = () => {
     email: "",
     password: "",
     cp: "",
+    role: "",
   });
 
   const handleChange = (e) => {
@@ -143,6 +144,25 @@ const AddAdmins = () => {
                             required
                             onChange={handleChange}
                           />
+                        </div>
+
+                        <div className="mb-3">
+                          <label
+                            className="form-label"
+                            htmlFor="basic-default-fullname"
+                          >
+                            Select Role
+                          </label>
+                          <select
+                            name="role"
+                            onChange={handleChange}
+                            className="form-control"
+                          >
+                            <option value="Admin">Admin</option>
+                            <option value="SuperAdmin" className="form-">
+                              Super Admin
+                            </option>
+                          </select>
                         </div>
                         <button
                           type="submit"

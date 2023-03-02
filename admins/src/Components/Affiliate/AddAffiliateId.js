@@ -122,7 +122,6 @@ const AddAffiliateId = () => {
                               </>
                             ) : (
                               <>
-                                <option selected>-----------</option>
                                 {stores.map((store, i) => (
                                   <>
                                     <option value={store.name}>

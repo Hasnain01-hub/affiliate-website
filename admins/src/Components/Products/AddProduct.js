@@ -13,6 +13,10 @@ const AddProduct = () => {
     price: "",
     discount: "",
     category: "",
+    deal_category: "",
+    how_avail: "",
+    description: "",
+    end_date: "",
   });
 
   const [store, setStore] = useState();
@@ -43,6 +47,29 @@ const AddProduct = () => {
       };
     });
   };
+
+  const catogery = [
+    {
+      id: 1,
+      name: "Deal of The Day",
+    },
+    {
+      id: 2,
+      name: "Fashion Deals",
+    },
+    {
+      id: 3,
+      name: "Best-In-Beauty",
+    },
+    {
+      id: 4,
+      name: "Mobiles& TV",
+    },
+    {
+      id: 5,
+      name: "seasonal product",
+    },
+  ];
 
   const handleSubmit = () => {
     if (
@@ -106,6 +133,31 @@ const AddProduct = () => {
                             />
                           </div>
 
+                          <div className="mb-3">
+                            <label
+                              className="form-label"
+                              htmlFor="basic-default-fullname"
+                            >
+                              Deal Category
+                            </label>
+
+                            <select
+                              name="deal_category"
+                              onChange={handleChange}
+                              value={product.deal_category}
+                              className="form-control"
+                            >
+                              <option value="Select">Select Category</option>;
+                              {catogery.map((item) => {
+                                return (
+                                  <option value={item.name} key={item.id}>
+                                    {item.name}
+                                  </option>
+                                );
+                              })}
+                            </select>
+                          </div>
+
                           <div className="mb-3 col-md-6">
                             <label className="form-label">
                               Store <span className="red">*</span>
@@ -158,6 +210,57 @@ const AddProduct = () => {
                                 </>
                               )}
                             </select>
+                          </div>
+                          <div className="mb-3">
+                            <label
+                              className="form-label"
+                              htmlFor="basic-default-fullname"
+                            >
+                              How to avail
+                            </label>
+                            <textarea
+                              className="form-control"
+                              placeholder="How to avail"
+                              name="how_avail"
+                              value={product.how_avail}
+                              required
+                              onChange={handleChange}
+                            />
+                          </div>
+
+                          <div className="mb-3">
+                            <label
+                              className="form-label"
+                              htmlFor="basic-default-fullname"
+                            >
+                              End Date
+                            </label>
+                            <input
+                              type="date"
+                              className="form-control"
+                              placeholder="31-12-2022"
+                              value={product.end_date}
+                              name="end_date"
+                              required
+                              onChange={handleChange}
+                            />
+                          </div>
+
+                          <div className="mb-3">
+                            <label
+                              className="form-label"
+                              htmlFor="basic-default-fullname"
+                            >
+                              Description
+                            </label>
+                            <textarea
+                              className="form-control"
+                              placeholder="description"
+                              name="description"
+                              value={product.description}
+                              required
+                              onChange={handleChange}
+                            />
                           </div>
                           <div className="mb-3 col-md-12">
                             <label className="form-label">

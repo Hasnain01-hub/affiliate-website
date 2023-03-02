@@ -62,7 +62,7 @@ const Header = () => {
             <div className="app-brand demo">
               <a href="/" className="app-brand-link">
                 <span className="app-brand-text demo menu-text fw-bolder ms-0">
-                  LameFame
+                  DealsGhar
                 </span>
               </a>
               <a
@@ -90,7 +90,7 @@ const Header = () => {
               </li>
 
               <li className="menu-header small text-uppercase">
-                <span className="menu-header-text">Attorney</span>
+                <span className="menu-header-text">Menu Options</span>
               </li>
               <li className="menu-item">
                 <Link to="/" className="menu-link">
@@ -98,7 +98,7 @@ const Header = () => {
                   <div data-i18n="Analytics">Dashboard</div>
                 </Link>
               </li>
-              <li className="menu-item deals">
+              {/* <li className="menu-item deals">
                 <a
                   href="#/"
                   className="menu-link menu-toggle"
@@ -122,33 +122,40 @@ const Header = () => {
                     </Link>
                   </li>
                 </ul>
-              </li>
+              </li> */}
 
-              <li className="menu-item tag">
-                <a
-                  href="#/"
-                  className="menu-link menu-toggle"
-                  onClick={() => {
-                    menu("tag");
-                  }}
-                >
-                  <Users size={22} className="menu-icon" />
-                  <div data-i18n="Authentications">Admins</div>
-                </a>
-                <ul className="menu-sub">
-                  <li className="menu-item">
-                    <Link to="/add-admins" className="menu-link">
-                      <div data-i18n="Basic">Add Admins</div>
-                    </Link>
-                  </li>
-
-                  <li className="menu-item">
-                    <a href="/view-admins" className="menu-link">
-                      <div data-i18n="Basic">View Admins</div>
+              {admin.role === "SuperAdmin" ? (
+                <>
+                  <li className="menu-item tag">
+                    <a
+                      href="#/"
+                      className="menu-link menu-toggle"
+                      onClick={() => {
+                        menu("tag");
+                      }}
+                    >
+                      <Users size={22} className="menu-icon" />
+                      <div data-i18n="Authentications">Admins</div>
                     </a>
+                    <ul className="menu-sub">
+                      <li className="menu-item">
+                        <Link to="/add-admins" className="menu-link">
+                          <div data-i18n="Basic">Add Admins</div>
+                        </Link>
+                      </li>
+
+                      <li className="menu-item">
+                        <a href="/view-admins" className="menu-link">
+                          <div data-i18n="Basic">View Admins</div>
+                        </a>
+                      </li>
+                    </ul>
                   </li>
-                </ul>
-              </li>
+                </>
+              ) : (
+                <></>
+              )}
+
               <li className="menu-item ">
                 <a href="/Add-Store" className="menu-link">
                   <Users size={22} className="menu-icon" />
@@ -156,12 +163,18 @@ const Header = () => {
                 </a>
               </li>
 
-              <li className="menu-item ">
-                <a href="/users" className="menu-link">
-                  <Users size={22} className="menu-icon" />
-                  <div data-i18n="Authentications">Users</div>
-                </a>
-              </li>
+              {admin.role === "SuperAdmin" ? (
+                <>
+                  <li className="menu-item ">
+                    <a href="/users" className="menu-link">
+                      <Users size={22} className="menu-icon" />
+                      <div data-i18n="Authentications">Users</div>
+                    </a>
+                  </li>
+                </>
+              ) : (
+                <></>
+              )}
 
               <li className="menu-item ">
                 <a href="/Banners" className="menu-link">
@@ -170,31 +183,37 @@ const Header = () => {
                 </a>
               </li>
 
-              <li className="menu-item affiliate">
-                <a
-                  href="#/"
-                  className="menu-link menu-toggle"
-                  onClick={() => {
-                    menu("affiliate");
-                  }}
-                >
-                  <Users size={22} className="menu-icon" />
-                  <div data-i18n="Authentications">Affiliates</div>
-                </a>
-                <ul className="menu-sub">
-                  <li className="menu-item">
-                    <Link to="/Add-Affiliate-ID" className="menu-link">
-                      <div data-i18n="Basic">Add Affiliates IDs</div>
-                    </Link>
-                  </li>
-
-                  <li className="menu-item">
-                    <a href="/Attach-Affiliate" className="menu-link">
-                      <div data-i18n="Basic">Attach IDs to Users</div>
+              {admin.role === "SuperAdmin" ? (
+                <>
+                  <li className="menu-item affiliate">
+                    <a
+                      href="#/"
+                      className="menu-link menu-toggle"
+                      onClick={() => {
+                        menu("affiliate");
+                      }}
+                    >
+                      <Users size={22} className="menu-icon" />
+                      <div data-i18n="Authentications">Affiliates</div>
                     </a>
+                    <ul className="menu-sub">
+                      <li className="menu-item">
+                        <Link to="/Add-Affiliate-ID" className="menu-link">
+                          <div data-i18n="Basic">Add Affiliates IDs</div>
+                        </Link>
+                      </li>
+
+                      <li className="menu-item">
+                        <a href="/Attach-Affiliate" className="menu-link">
+                          <div data-i18n="Basic">Attach IDs to Users</div>
+                        </a>
+                      </li>
+                    </ul>
                   </li>
-                </ul>
-              </li>
+                </>
+              ) : (
+                <></>
+              )}
 
               <li className="menu-item dd">
                 <a

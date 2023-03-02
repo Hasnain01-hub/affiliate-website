@@ -36,7 +36,7 @@ const Login = () => {
       axios
         .post(`${process.env.REACT_APP_API}api/auth/admin/login`, admin)
         .then((res) => {
-          window.localStorage.setItem("admin", JSON.stringify(admin));
+          window.localStorage.setItem("admin", JSON.stringify(res.data));
           toast.success("Logged in Successful", {
             position: toast.POSITION.TOP_CENTER,
             theme: "dark",

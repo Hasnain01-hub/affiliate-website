@@ -120,8 +120,15 @@ const AddBanners = () => {
                             className="form-label"
                             htmlFor="basic-default-fullname"
                           >
-                            Banner Image
+                            Banner Image *{" "}
                           </label>
+                          <br />
+                          <b>
+                            Note : Image Resolution should be equal or little
+                            more or little less than 720 x 216 where 720 is the
+                            width and 216 is the height would look better on the
+                            website
+                          </b>
                           <input
                             type="file"
                             className="form-control"
