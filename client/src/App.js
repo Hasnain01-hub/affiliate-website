@@ -18,6 +18,7 @@ import SingleDeal from "./Components/SingleDeal";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import About from "./Components/About";
 import SingleProductDeal from "./Components/SingleProductDeal";
+import CategoryDeals from "./Components/CategoryDeals";
 
 function App() {
   const dispatch = useDispatch();
@@ -62,6 +63,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/about" element={<About />} />
         <Route path="/Deal/Product/:id" element={<SingleProductDeal />} />
+        <Route path="/Deals/:cat" element={<CategoryDeals />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/Incomplete-Profile" element={<NotAvailable />} />
       </Routes>

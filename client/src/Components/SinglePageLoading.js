@@ -2,8 +2,9 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 
 const SinglePageLoading = (props) => {
-  const height = window.innerHeight;
-  const width = window.innerWidth + 100;
+  const height = window.innerHeight - 2000;
+  const width = window.innerWidth + 2000;
+  console.log(width);
   return (
     <ContentLoader
       viewBox={`0 0 ${height} ${width}`}
@@ -12,7 +13,7 @@ const SinglePageLoading = (props) => {
       foregroundColor="#ecebeb"
       {...props}
     >
-      {width > 800 ? (
+      {width > 2800 ? (
         <>
           <rect x="64" y="18" rx="0" ry="0" width="346" height="300" />
           <rect x="229" y="300" rx="0" ry="0" width="0" height="0" />
@@ -33,14 +34,14 @@ const SinglePageLoading = (props) => {
             y="0"
             rx="0"
             ry="0"
-            style={{ width: width + 250, height: height - 350 }}
+            style={{ width: "80vw", height: "60%" }}
           />
 
-          <rect x="64" y="358" rx="0" ry="0" width="300" height="25" />
-          <rect x="64" y="388" rx="0" ry="0" width="300" height="6" />
-          <rect x="64" y="398" rx="0" ry="0" width="300" height="6" />
-          <rect x="64" y="408" rx="0" ry="0" width="300" height="6" />
-          <rect x="64" y="428" rx="0" ry="0" width="70" height="30" />
+          <rect x="64" y="168" rx="0" ry="0" width="300" height="25" />
+          <rect x="64" y="198" rx="0" ry="0" width="300" height="6" />
+          <rect x="64" y="208" rx="0" ry="0" width="300" height="6" />
+          <rect x="64" y="218" rx="0" ry="0" width="300" height="6" />
+          <rect x="64" y="238" rx="0" ry="0" width="70" height="30" />
         </>
       )}
     </ContentLoader>

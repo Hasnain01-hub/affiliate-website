@@ -39,6 +39,16 @@
       }
   }
 
+  .h2 {
+    width: 95vw !important;
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+  
+  .h2 span {
+    font-size: 16px;
+    font-weight: 400;
+  }
   
   @media (min-width:730px) and (max-width:946px) {
     .swiper, .swiper-slide {

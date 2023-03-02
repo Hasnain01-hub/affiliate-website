@@ -17,7 +17,7 @@ const CategoryProducts = () => {
   };
 
   const handleRedirect = (id) => {
-    window.location.href = "/Deal/Product/" + id;
+    window.location.href = "/Deal/" + id;
   };
 
   useEffect(() => {
@@ -44,27 +44,33 @@ const CategoryProducts = () => {
                 </>
               ) : (
                 <>
-                  {" "}
                   <h2>
                     <b>{params.cat}</b>
-                  </h2>
-                  <div className="row no-gutters shop_wrapper">
-                    {product.length === 0 ? (
-                      <>
-                        <h2>No Products Available</h2>
-                      </>
-                    ) : (
-                      <>
+                  </h2>{" "}
+                  {product.length === 0 ? (
+                    <>
+                      <br />
+                      <h2>No Products Available</h2>
+                    </>
+                  ) : (
+                    <>
+                      <div className="row no-gutters shop_wrapper">
                         {product.map((p, i) => (
                           <>
                             <div key={i} className="col-lg-3 col-md-4 col-12 ">
                               <article className="single_product">
                                 <figure>
                                   <div className="product_thumb">
-                                    <a className="primary_img" href="#/">
+                                    <a
+                                      className="primary_img"
+                                      href={"/Deal/" + p._id}
+                                    >
                                       <img src={p.image} alt="" />
                                     </a>
-                                    <a className="secondary_img" href="#/">
+                                    <a
+                                      className="secondary_img"
+                                      href={"/Deal/" + p._id}
+                                    >
                                       <img src={p.image} alt="" />
                                     </a>
                                     <div className="label_product">
@@ -106,9 +112,9 @@ const CategoryProducts = () => {
                             </div>
                           </>
                         ))}
-                      </>
-                    )}
-                  </div>
+                      </div>
+                    </>
+                  )}
                 </>
               )}
             </div>

@@ -25,6 +25,7 @@ const Home = () => {
       .get(process.env.REACT_APP_API + "api/admin/view-deals")
       .then((res) => {
         setdeals(res.data);
+        console.log(res.data);
       })
       .catch((err) => {});
   };
@@ -111,7 +112,12 @@ const Home = () => {
               <div className="col-12">
                 <div className="product_header">
                   <div className="section_title">
-                    <h2>DEAL OF THE DAY</h2>
+                    <h2 className="h2">
+                      DEAL OF THE DAY
+                      <a href={"/Deals/Deal of The Day"}>
+                        <span>View All</span>
+                      </a>
+                    </h2>
                   </div>
                 </div>
               </div>
@@ -134,7 +140,7 @@ const Home = () => {
                   }}
                 >
                   {deals.map((item, i) => {
-                    return item.category === "Deal of The Day"
+                    return item.deal_category === "Deal of The Day"
                       ? ((c += 1),
                         c <= 9 ? (
                           <div
@@ -146,17 +152,23 @@ const Home = () => {
                               <article className="single_product">
                                 <figure>
                                   <div className="product_thumb">
-                                    <a className="primary_img" href="#/">
+                                    <a
+                                      className="primary_img"
+                                      href={"/Deal/" + item._id}
+                                    >
                                       <img
                                         className="prod_img"
-                                        src={item.images[0]["url"]}
+                                        src={item.image}
                                         alt=""
                                       />
                                     </a>
-                                    <a className="secondary_img" href="#/">
+                                    <a
+                                      className="secondary_img"
+                                      href={"/Deal/" + item._id}
+                                    >
                                       <img
                                         className="prod_img"
-                                        src={item.images[0]["url"]}
+                                        src={item.image}
                                         alt=""
                                       />
                                     </a>
@@ -169,8 +181,8 @@ const Home = () => {
                                         className="label_sale"
                                       >
                                         {(
-                                          ((item.price - item.discount_price) /
-                                            item.discount_price) *
+                                          ((item.price - item.discount) /
+                                            item.price) *
                                           100
                                         ).toFixed(2)}
                                         %
@@ -181,7 +193,7 @@ const Home = () => {
                                     <div className="product_content_inner">
                                       <h4 className="product_name">
                                         <a href={"/Deal/" + item._id}>
-                                          {item.p_name}
+                                          {item.name}
                                         </a>
                                       </h4>
 
@@ -216,7 +228,7 @@ const Home = () => {
                                 </div> */}
                                         <p>
                                           <del>Rs{item.price}</del>&nbsp;&nbsp;
-                                          <b>Rs{item.discount_price}</b>
+                                          <b>Rs{item.discount}</b>
                                         </p>
                                       </div>
                                     </div>
@@ -257,7 +269,12 @@ const Home = () => {
               <div className="col-12">
                 <div className="product_header">
                   <div className="section_title">
-                    <h2>FASHION DEALS</h2>
+                    <h2 className="h2">
+                      FASHION DEALS{" "}
+                      <span>
+                        <a href={"/Deals/Fashion Deals"}> View All</a>
+                      </span>
+                    </h2>
                   </div>
                 </div>
               </div>
@@ -281,7 +298,7 @@ const Home = () => {
                   }}
                 >
                   {deals.map((item) => {
-                    return item.category === "Fashion Deals"
+                    return item.deal_category === "Fashion Deals"
                       ? ((d += 1),
                         d <= 9 ? (
                           <div
@@ -293,17 +310,23 @@ const Home = () => {
                               <article className="single_product">
                                 <figure>
                                   <div className="product_thumb">
-                                    <a className="primary_img" href="#/">
+                                    <a
+                                      className="primary_img"
+                                      href={"/Deal/" + item._id}
+                                    >
                                       <img
                                         className="prod_img"
-                                        src={item.images[0]["url"]}
+                                        src={item.image}
                                         alt=""
                                       />
                                     </a>
-                                    <a className="secondary_img" href="#/">
+                                    <a
+                                      className="secondary_img"
+                                      href={"/Deal/" + item._id}
+                                    >
                                       <img
                                         className="prod_img"
-                                        src={item.images[0]["url"]}
+                                        src={item.image}
                                         alt=""
                                       />
                                     </a>
@@ -316,8 +339,8 @@ const Home = () => {
                                         className="label_sale"
                                       >
                                         {(
-                                          ((item.price - item.discount_price) /
-                                            item.discount_price) *
+                                          ((item.price - item.discount) /
+                                            item.price) *
                                           100
                                         ).toFixed(2)}
                                         %
@@ -328,7 +351,7 @@ const Home = () => {
                                     <div className="product_content_inner">
                                       <h4 className="product_name">
                                         <a href={"/Deal/" + item._id}>
-                                          {item.p_name}
+                                          {item.name}
                                         </a>
                                       </h4>
 
@@ -363,7 +386,7 @@ const Home = () => {
                                 </div> */}
                                         <p>
                                           <del>Rs{item.price}</del>&nbsp;&nbsp;
-                                          <b>Rs{item.discount_price}</b>
+                                          <b>Rs{item.discount}</b>
                                         </p>
                                       </div>
                                     </div>
@@ -404,7 +427,12 @@ const Home = () => {
               <div className="col-12">
                 <div className="product_header">
                   <div className="section_title">
-                    <h2>BEST-IN-BEAUTY</h2>
+                    <h2 className="h2">
+                      BEST-IN-BEAUTY
+                      <a href={"/Deals/Best-In-Beauty"}>
+                        <span>View All</span>
+                      </a>
+                    </h2>
                   </div>
                 </div>
               </div>
@@ -428,7 +456,7 @@ const Home = () => {
                   }}
                 >
                   {deals.map((item) => {
-                    return item.category === "Best- In- Beauty"
+                    return item.deal_category === "Best- In- Beauty"
                       ? ((e += 1),
                         e <= 9 ? (
                           <div
@@ -440,17 +468,23 @@ const Home = () => {
                               <article className="single_product">
                                 <figure>
                                   <div className="product_thumb">
-                                    <a className="primary_img" href="#/">
+                                    <a
+                                      className="primary_img"
+                                      href={"/Deal/" + item._id}
+                                    >
                                       <img
                                         className="prod_img"
-                                        src={item.images[0]["url"]}
+                                        src={item.image}
                                         alt=""
                                       />
                                     </a>
-                                    <a className="secondary_img" href="#/">
+                                    <a
+                                      className="secondary_img"
+                                      href={"/Deal/" + item._id}
+                                    >
                                       <img
                                         className="prod_img"
-                                        src={item.images[0]["url"]}
+                                        src={item.image}
                                         alt=""
                                       />
                                     </a>
@@ -463,8 +497,8 @@ const Home = () => {
                                         className="label_sale"
                                       >
                                         {(
-                                          ((item.price - item.discount_price) /
-                                            item.discount_price) *
+                                          ((item.price - item.discount) /
+                                            item.price) *
                                           100
                                         ).toFixed(2)}
                                         %
@@ -475,7 +509,7 @@ const Home = () => {
                                     <div className="product_content_inner">
                                       <h4 className="product_name">
                                         <a href={"/Deal/" + item._id}>
-                                          {item.p_name}
+                                          {item.name}
                                         </a>
                                       </h4>
 
@@ -510,7 +544,7 @@ const Home = () => {
                                 </div> */}
                                         <p>
                                           <del>Rs{item.price}</del>&nbsp;&nbsp;
-                                          <b>Rs{item.discount_price}</b>
+                                          <b>Rs{item.discount}</b>
                                         </p>
                                       </div>
                                     </div>
@@ -552,7 +586,12 @@ const Home = () => {
               <div className="col-12">
                 <div className="product_header">
                   <div className="section_title">
-                    <h2>MOBILES & TV</h2>
+                    <h2 className="h2">
+                      MOBILES & TV{" "}
+                      <a href={"/Deals/Mobiles& TV"}>
+                        <span>View All</span>
+                      </a>
+                    </h2>
                   </div>
                 </div>
               </div>
@@ -575,7 +614,7 @@ const Home = () => {
                   }}
                 >
                   {deals.map((item) => {
-                    return item.category === "Mobiles& TV"
+                    return item.deal_category === "Mobiles& TV"
                       ? ((f += 1),
                         f <= 9 ? (
                           <div
@@ -586,17 +625,23 @@ const Home = () => {
                               <article className="single_product">
                                 <figure>
                                   <div className="product_thumb">
-                                    <a className="primary_img" href="#/">
+                                    <a
+                                      className="primary_img"
+                                      href={"/Deal/" + item._id}
+                                    >
                                       <img
                                         className="prod_img"
-                                        src={item.images[0]["url"]}
+                                        src={item.image}
                                         alt=""
                                       />
                                     </a>
-                                    <a className="secondary_img" href="#/">
+                                    <a
+                                      className="secondary_img"
+                                      href={"/Deal/" + item._id}
+                                    >
                                       <img
                                         className="prod_img"
-                                        src={item.images[0]["url"]}
+                                        src={item.image}
                                         alt=""
                                       />
                                     </a>
@@ -609,8 +654,8 @@ const Home = () => {
                                         className="label_sale"
                                       >
                                         {(
-                                          ((item.price - item.discount_price) /
-                                            item.discount_price) *
+                                          ((item.price - item.discount) /
+                                            item.price) *
                                           100
                                         ).toFixed(2)}
                                         %
@@ -621,7 +666,7 @@ const Home = () => {
                                     <div className="product_content_inner">
                                       <h4 className="product_name">
                                         <a href={"/Deal/" + item._id}>
-                                          {item.p_name}
+                                          {item.name}
                                         </a>
                                       </h4>
 
@@ -656,7 +701,7 @@ const Home = () => {
                                 </div> */}
                                         <p>
                                           <del>Rs{item.price}</del>&nbsp;&nbsp;
-                                          <b>Rs{item.discount_price}</b>
+                                          <b>Rs{item.discount}</b>
                                         </p>
                                       </div>
                                     </div>
@@ -697,7 +742,12 @@ const Home = () => {
               <div className="col-12">
                 <div className="product_header">
                   <div className="section_title">
-                    <h2>SEASONAL PRODUCT</h2>
+                    <h2 className="h2">
+                      SEASONAL PRODUCT{" "}
+                      <a href={"/Deals/seasonal product"}>
+                        <span>View All</span>
+                      </a>
+                    </h2>
                   </div>
                 </div>
               </div>
@@ -720,7 +770,7 @@ const Home = () => {
                   }}
                 >
                   {deals.map((item) => {
-                    return item.category === "seasonal product"
+                    return item.deal_category === "seasonal product"
                       ? ((g += 1),
                         g <= 9 ? (
                           <div
@@ -731,17 +781,23 @@ const Home = () => {
                               <article className="single_product">
                                 <figure>
                                   <div className="product_thumb">
-                                    <a className="primary_img" href="#/">
+                                    <a
+                                      className="primary_img"
+                                      href={"/Deal/" + item._id}
+                                    >
                                       <img
                                         className="prod_img"
-                                        src={item.images[0]["url"]}
+                                        src={item.image}
                                         alt=""
                                       />
                                     </a>
-                                    <a className="secondary_img" href="#/">
+                                    <a
+                                      className="secondary_img"
+                                      href={"/Deal/" + item._id}
+                                    >
                                       <img
                                         className="prod_img"
-                                        src={item.images[0]["url"]}
+                                        src={item.image}
                                         alt=""
                                       />
                                     </a>
@@ -754,8 +810,8 @@ const Home = () => {
                                         className="label_sale"
                                       >
                                         {(
-                                          ((item.price - item.discount_price) /
-                                            item.discount_price) *
+                                          ((item.price - item.discount) /
+                                            item.price) *
                                           100
                                         ).toFixed(2)}
                                         %
@@ -766,7 +822,7 @@ const Home = () => {
                                     <div className="product_content_inner">
                                       <h4 className="product_name">
                                         <a href={"/Deal/" + item._id}>
-                                          {item.p_name}
+                                          {item.name}
                                         </a>
                                       </h4>
 
@@ -801,7 +857,7 @@ const Home = () => {
                                 </div> */}
                                         <p>
                                           <del>Rs{item.price}</del>&nbsp;&nbsp;
-                                          <b>Rs{item.discount_price}</b>
+                                          <b>Rs{item.discount}</b>
                                         </p>
                                       </div>
                                     </div>

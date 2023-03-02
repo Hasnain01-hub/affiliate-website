@@ -4098,6 +4098,7 @@ textarea:-ms-input-placeholder {
   font-size: 14px;
   line-height: 19px;
   font-weight: 400;
+  height: 55px;
   color: #008cea;
   margin-bottom: 13px;
 }
@@ -4129,13 +4130,15 @@ textarea:-ms-input-placeholder {
   padding: 10px 10px 15px;
   visibility: visible;
 }
+
+
 .main_header {
   background-color: #320d7c;
 }
 .add_to_cart a {
   border: none;
   background-color: rgb(140 82 255);
-  color: #fff;
+  color: #fff !important;
   height: 45px;
   line-height: 41px;
   display: inline-block;
@@ -5665,11 +5668,11 @@ textarea:-ms-input-placeholder {
 
 .shop_area {
   background: #f5f5f9;
-  padding: 60px 0 133px;
+  padding: 60px 0 13px;
 }
 @media only screen and (max-width: 767px) {
   .shop_area {
-    padding: 60px 30px 110px;
+    padding: 60px 30px 10px;
   }
   
 }
@@ -5934,6 +5937,7 @@ textarea:-ms-input-placeholder {
 .recent_product_list .product_content h4 {
   font-size: 14px;
   line-height: 18px;
+  height: 55px;
   font-weight: 400;
   margin-bottom: 9px;
 }
