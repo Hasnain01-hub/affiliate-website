@@ -28,6 +28,7 @@ const {
   getDashboard,
   getSingleDeal,
   getSingleProductDeal,
+  getCategoryDeals,
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
 const router = express.Router();
@@ -42,6 +43,7 @@ router.get("/store/get", viewStore);
 router.get("/affiliate/get", getAffiliateIDS);
 router.get("/affiliate/delete/:id", deleteAffiliateID);
 router.get("/category/:cat", getCategoryProducts);
+router.get("/category_deal/:cat", getCategoryDeals);
 router.get("/removeproduct/:id", removeProduct);
 router.get("/removestore/:id", removeStore);
 router.get("/get_users", getUsers);

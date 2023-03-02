@@ -6,6 +6,18 @@ const ItemSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    end_date: {
+      type: String,
+    },
+    deal_category: {
+      type: String,
+    },
+    description: {
+      type: String,
+    },
+    how_avail: {
+      type: String,
+    },
     name: {
       type: String,
       required: true,

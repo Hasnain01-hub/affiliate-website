@@ -1,6 +1,5 @@
 const AdminModel = require("../model/Admin.model");
 const AffiliateIDModel = require("../model/AffiliateID.model");
-const productModel = require("../model/product.model");
 const StoreMode = require("../model/Store.mode");
 const ItemModel = require("../model/Item.model");
 const ProductCategoryModel = require("../model/ProductCategory.model");
@@ -34,8 +33,7 @@ exports.viewAdmin = (req, res) => {
 
 //View all admin side deals
 exports.viewAllDeals = (req, res) => {
-  productModel
-    .find({})
+  ItemModel.find({})
     .sort({ _id: -1 })
     .then((doc) => {
       if (doc) {
@@ -45,8 +43,7 @@ exports.viewAllDeals = (req, res) => {
 };
 
 exports.viewDeals = (req, res) => {
-  const product = productModel
-    .find({})
+  const product = ItemModel.find({})
     .sort({ _id: -1 })
     .then((doc) => {
       var datas = [];
@@ -72,12 +69,12 @@ exports.viewDeals = (req, res) => {
 };
 
 exports.deletedeals = (req, res) => {
-  const product = productModel
-    .findOneAndDelete({ _id: req.body._id })
-    .exec((err, data) => {
+  const product = ItemModel.findOneAndDelete({ _id: req.body._id }).exec(
+    (err, data) => {
       if (err) throw new Error(err);
       res.json("Paper deleted successfully");
-    });
+    }
+  );
 };
 
 exports.AddStore = (req, res) => {
@@ -319,7 +316,6 @@ exports.deleteBanner = (req, res) => {
 exports.getDashboard = (req, res) => {
   let data = {
     id: null,
-    products: null,
     deals: null,
     stores: null,
     categories: null,
@@ -331,7 +327,6 @@ exports.getDashboard = (req, res) => {
   Promise.all([
     AffiliateIDModel.count().exec(),
     ItemModel.count().exec(),
-    productModel.count().exec(),
     StoreMode.count().exec(),
     ProductCategoryModel.count().exec(),
     BannersModel.count().exec(),
@@ -339,23 +334,43 @@ exports.getDashboard = (req, res) => {
     AdminModel.count().exec(),
   ]).then((counts) => {
     (data.id = counts[0]),
-      (data.products = counts[1]),
-      (data.deals = counts[2]),
-      (data.stores = counts[3]),
-      (data.categories = counts[4]),
-      (data.banners = counts[5]),
-      (data.users = counts[6]),
-      (data.admins = counts[7]);
+      (data.deals = counts[1]),
+      (data.stores = counts[2]),
+      (data.categories = counts[3]),
+      (data.banners = counts[4]),
+      (data.users = counts[5]),
+      (data.admins = counts[6]);
 
     res.json(data);
   });
 };
 
 exports.getSingleDeal = (req, res) => {
-  const deal = productModel
-    .findById(req.params.id)
+  let deals = {
+    product: null,
+    similar: null,
+  };
+
+  const deal = ItemModel.findById(req.params.id)
     .then((doc) => {
-      return res.json(doc);
+      ItemModel.find({ _id: { $ne: doc.id }, deal_category: doc.deal_category })
+        .limit(4)
+        .then((docs) => {
+          deals.product = doc;
+          deals.similar = docs;
+          return res.json(deals);
+        });
+    })
+    .catch((err) => {
+      return res.json(err);
+    });
+};
+
+exports.getCategoryDeals = (req, res) => {
+  ItemModel.find({ deal_category: req.params.cat })
+    .then((doc) => {
+      console.log(doc);
+      res.json(doc);
     })
     .catch((err) => {
       return res.json(err);
@@ -365,7 +380,6 @@ exports.getSingleDeal = (req, res) => {
 exports.getSingleProductDeal = (req, res) => {
   ItemModel.findById(req.params.id)
     .then((doc) => {
-      console.log(doc);
       return res.json(doc);
     })
     .catch((err) => {
