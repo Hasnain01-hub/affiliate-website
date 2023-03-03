@@ -23,13 +23,16 @@
     display: block;
     margin: 0 auto;
     }
-  @media (min-width:250px) and (max-width:720px) {
+  @media (min-width:250px) and (max-width:800px) {
     .swiper {
-      height: 15vh !important;
+      height: 16vh !important;
+    }
+    .swiper-slide {
+      width: 100% !important;
     }
     .swiper-slide {
       width: 80%;
-      height: 15vh !important;
+      height: 16vh !important;
     }
 
     .prod_img {
@@ -68,7 +71,7 @@
   }
 
 
-  @media (min-width:520px) and (max-width:750px) {
+  @media (min-width:520px) and (max-width:770px) {
     .h2 {
       width: 75vw !important;
     }

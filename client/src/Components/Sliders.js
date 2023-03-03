@@ -36,7 +36,7 @@ const Sliders = () => {
               type: "fraction",
             }}
             slidesPerView={"auto"}
-            spaceBetween={30}
+            spaceBetween={15}
             modules={[Pagination, Navigation]}
             className="mySwiper"
             navigation={true}
