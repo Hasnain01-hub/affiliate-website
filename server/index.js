@@ -30,11 +30,10 @@ app.use(morgan("common"));
 
 app.use(bodyParser.json({ extended: true }));
 app.use(
-  cors()
-  // cors({
-  //   origin: [process.env.CLIENT_URL, "*"],
-  //   credentials: true,
-  // })
+  cors({
+    origin: [process.env.CLIENT_URL, "*"],
+    credentials: true,
+  })
 );
 
 // Importing Routes
