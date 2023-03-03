@@ -159,10 +159,7 @@ const SingleDeal = () => {
                     </h2>
                     <br />
                   </center>
-                  <div
-                    className="row no-gutters shop_wrapper"
-                    style={{ width: "95vw" }}
-                  >
+                  <div className="row no-gutters shop_wrapper">
                     {loading === true ? (
                       <>
                         <ProductsLoader />
