@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require("path");
 
 require("dotenv").config();
 
@@ -50,7 +51,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/", function (req, res) {
   res.send("Hello World");
 });
-
+app.set("views", path.join(__dirname, "..", "views"));
 //port
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
