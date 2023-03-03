@@ -5,6 +5,9 @@ const ItemModel = require("../model/Item.model");
 const ProductCategoryModel = require("../model/ProductCategory.model");
 const userModel = require("../model/user.model");
 const BannersModel = require("../model/Banners.model");
+const path = require("path");
+var nodemailer = require("nodemailer");
+var hbs = require("nodemailer-express-handlebars");
 
 exports.addAdmin = (req, res) => {
   const admin = new AdminModel(req.body);
@@ -369,7 +372,6 @@ exports.getSingleDeal = (req, res) => {
 exports.getCategoryDeals = (req, res) => {
   ItemModel.find({ deal_category: req.params.cat })
     .then((doc) => {
-      console.log(doc);
       res.json(doc);
     })
     .catch((err) => {
@@ -385,4 +387,46 @@ exports.getSingleProductDeal = (req, res) => {
     .catch((err) => {
       return res.json(err);
     });
+};
+
+exports.sendMail = (req, res) => {
+  console.log("I am here");
+  var transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "dealsghar00@gmail.com",
+      pass: "bjobkqldewbqvzoz",
+    },
+  });
+
+  const handlebarOptions = {
+    viewEngine: {
+      extName: ".handlebars",
+      partialsDir: path.resolve("./views"),
+      defaultLayout: false,
+    },
+    viewPath: path.resolve("./views"),
+    extName: ".handlebars",
+  };
+
+  transporter.use("compile", hbs(handlebarOptions));
+  var mailOptions = {
+    from: req.body.username,
+    to: "admin@dealsghar.com",
+    subject: "Message Sent Successfully",
+    template: "email",
+    context: {
+      username: req.body.username,
+      email: req.body.email,
+      message: req.body.message,
+    },
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      res.status(200).json({ message: "Mail Sent" });
+    }
+  });
 };

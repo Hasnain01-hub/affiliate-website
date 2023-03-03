@@ -29,6 +29,7 @@ const {
   getSingleDeal,
   getSingleProductDeal,
   getCategoryDeals,
+  sendMail,
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
 const router = express.Router();
@@ -66,5 +67,6 @@ router.post("/category/add", addProductCategory);
 router.post("/affiliate/attach", attachAffiliate);
 router.post("/user/edit", updateUser);
 router.post("/banner/add", addBanner);
+router.post("/sendmail", sendMail);
 
 module.exports = router;
