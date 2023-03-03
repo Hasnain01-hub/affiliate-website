@@ -40,6 +40,7 @@ router.post("/api/admin/sendmail", (req, res) => {
     if (error) {
       console.log(error);
     } else {
+      console.log("Mail Sent");
       res.status(200).json({ message: "Mail Sent" });
     }
   });
