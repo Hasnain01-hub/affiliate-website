@@ -9,6 +9,8 @@ var Handlebars = require("handlebars");
 router.post("/api/admin/sendmail", (req, res) => {
   var source = fs.readFileSync(path.join(process.cwd(), "email.hbs"), "utf8");
 
+  console.log(source);
+
   var templates = Handlebars.compile(source);
 
   var transporter = nodemailer.createTransport({
