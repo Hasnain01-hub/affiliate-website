@@ -16,10 +16,10 @@ router.post("/api/admin/sendmail", (req, res) => {
   const handlebarOptions = {
     viewEngine: {
       extName: ".handlebars",
-      partialsDir: path.join(__dirname, "..", "views"),
+      partialsDir: path.join(process.cwd(), "views"),
       defaultLayout: "email",
     },
-    viewPath: path.join(__dirname, "..", "views"),
+    viewPath: path.join(process.cwd(), "views"),
     extname: ".handlebars",
   };
 
