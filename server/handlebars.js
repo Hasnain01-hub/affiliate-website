@@ -6,13 +6,55 @@ var hbs = require("nodemailer-express-handlebars");
 var fs = require("fs");
 var Handlebars = require("handlebars");
 
+// router.post("/api/admin/sendmail", (req, res) => {
+//   var source = fs.readFileSync(path.join(process.cwd(), "email.hbs"), "utf8");
+
+//   console.log(source);
+
+//   var templates = Handlebars.compile(source);
+
+//   var transporter = nodemailer.createTransport({
+//     service: "gmail",
+//     auth: {
+//       user: "dealsghar00@gmail.com",
+//       pass: "bjobkqldewbqvzoz",
+//     },
+//   });
+
+//   const options = {
+//     viewEngine: {
+//       extname: ".hbs",
+//       layoutsDir: __dirname + "/views/",
+//       defaultLayout: "email",
+//     },
+//     viewPath: __dirname + "/views/",
+//   };
+
+//   transporter.use("compile", hbs(options));
+
+//   var mailOptions = {
+//     from: req.body.username,
+//     to: "admin@dealsghar.com",
+//     subject: "Message Sent Successfully",
+//     template: "email",
+//     context: {
+//       username: req.body.username,
+//       email: req.body.email,
+//       message: req.body.message,
+//     },
+//   };
+
+//   transporter.sendMail(mailOptions, function (error, info) {
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       console.log("Mail Sent");
+//       res.status(200).json({ message: "Mail Sent" });
+//     }
+//   });
+// });
+
 router.post("/api/admin/sendmail", (req, res) => {
-  var source = fs.readFileSync(path.join(process.cwd(), "email.hbs"), "utf8");
-
-  console.log(source);
-
-  var templates = Handlebars.compile(source);
-
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -21,20 +63,20 @@ router.post("/api/admin/sendmail", (req, res) => {
     },
   });
 
-  const options = {
+  const handlebarOptions = {
     viewEngine: {
-      extname: ".hbs",
-      layoutsDir: __dirname + "/views/",
-      defaultLayout: "email",
+      extName: ".handlebars",
+      partialsDir: path.resolve("./views"),
+      defaultLayout: false,
     },
-    viewPath: __dirname + "/views/",
+    viewPath: path.resolve("./views"),
+    extName: ".handlebars",
   };
 
-  transporter.use("compile", hbs(options));
-
+  transporter.use("compile", hbs(handlebarOptions));
   var mailOptions = {
     from: req.body.username,
-    to: "admin@dealsghar.com",
+    to: req.body.email,
     subject: "Message Sent Successfully",
     template: "email",
     context: {
@@ -48,7 +90,6 @@ router.post("/api/admin/sendmail", (req, res) => {
     if (error) {
       console.log(error);
     } else {
-      console.log("Mail Sent");
       res.status(200).json({ message: "Mail Sent" });
     }
   });
