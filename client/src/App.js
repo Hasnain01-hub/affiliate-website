@@ -19,6 +19,8 @@ import PrivacyPolicy from "./Components/PrivacyPolicy";
 import About from "./Components/About";
 import SingleProductDeal from "./Components/SingleProductDeal";
 import CategoryDeals from "./Components/CategoryDeals";
+import AffiliateDisclosure from "./Components/AffiliateDisclosure";
+import AAG from "./Components/AAG";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,7 +59,9 @@ function App() {
         <Route path="/Links" element={<Links />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/Affilaite-Disclosure" element={<AffiliateDisclosure />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/Amazon-Affiliate-Agreement" element={<AAG />} />
         <Route path="/shop/:cat" element={<CategoryProducts />} />
         <Route path="/Deal/:id" element={<SingleDeal />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

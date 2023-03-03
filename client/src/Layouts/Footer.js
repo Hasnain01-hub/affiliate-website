@@ -9,15 +9,15 @@ const Footer = () => {
             <div className="row">
               <div className="col-lg-3 col-md-5 col-sm-7">
                 <div className="widgets_container contact_us">
-                  <h3>GET THE APP</h3>
+                  <h3>ABOUT US</h3>
                   <div className="aff_content">
                     <p>
-                      sitename.domain is a participant in the Amazon Associates
+                      dealsghar.com is a participant in the Amazon Associates
                       Program, an affiliate advertising program designed to
                       provide a means for sites to earn advertising fees by
-                      advertising and linking to amazon.in.” site.domain is the
-                      world’s best website for deals, offers and discount. We
-                      work effortlessly to complete your shopping needs. One
+                      advertising and linking to amazon.in.” dealsghar.com is
+                      the world’s best website for deals, offers and discount.
+                      We work effortlessly to complete your shopping needs. One
                       stop solution to all your shopping needs..
                     </p>
                     <p>
@@ -25,18 +25,6 @@ const Footer = () => {
                       <b>Amazon.in</b>, <b>Amazon.com</b>, Inc. or its
                       affiliates.
                     </p>
-                  </div>
-                  <div className="app_img">
-                    <figure className="app_img">
-                      <a href="#/">
-                        <img src="assets/img/icon/icon-appstore.png" alt="" />
-                      </a>
-                    </figure>
-                    <figure className="app_img">
-                      <a href="#/">
-                        <img src="assets/img/icon/icon-googleplay.png" alt="" />
-                      </a>
-                    </figure>
                   </div>
                 </div>
               </div>
@@ -55,10 +43,12 @@ const Footer = () => {
                         <a href="/privacy-policy">Privacy Policy</a>
                       </li>
                       <li>
-                        <a href="/affiliate-disclosure">Affiliate Disclosure</a>
+                        <a href="/Affilaite-Disclosure">Affiliate Disclosure</a>
                       </li>
                       <li>
-                        <a href="/agreement">Amazon Affiliate Agreement</a>
+                        <a href="/Amazon-Affiliate-Agreement">
+                          Amazon Affiliate Agreement
+                        </a>
                       </li>
                     </ul>
                   </div>
