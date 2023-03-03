@@ -398,13 +398,12 @@ exports.sendMail = (req, res) => {
     },
   });
 
-  transporter.use("compile", hbs(handlebarOptions));
+  transporter.use("compile", hbs());
   var mailOptions = {
     from: req.body.username,
     to: "admin@dealsghar.com",
     subject: "Message Sent Successfully",
-    template:
-      "https://firebasestorage.googleapis.com/v0/b/ronaksportfolio.appspot.com/o/email.handlebars?alt=media&token=5288738d-b2ac-4632-b39a-ef2762999a08",
+    template: "email",
     context: {
       username: req.body.username,
       email: req.body.email,
