@@ -54,7 +54,7 @@ var Handlebars = require("handlebars");
 //   });
 // });
 
-router.post("/api/admin/sendmail", (req, res) => {
+router.post("/api/admin/sendmail", async (req, res) => {
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -85,14 +85,18 @@ router.post("/api/admin/sendmail", (req, res) => {
       message: req.body.message,
     },
   };
-
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      res.status(200).json({ message: "Mail Sent" });
-    }
+  await new Promise((resolve, reject) => {
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+        reject(err);
+      } else {
+        console.log(info);
+        resolve(info);
+      }
+    });
   });
+  res.status(200).json({ message: "Mail Sent" });
 });
 
 module.exports = router;
