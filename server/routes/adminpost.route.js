@@ -32,6 +32,7 @@ const {
   sendMail,
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
+
 const router = express.Router();
 
 //Get Routes
@@ -57,6 +58,7 @@ router.get("/single_deal/:id", getSingleDeal);
 router.get("/single_product/:id", getSingleProductDeal);
 
 //Post Routes
+
 router.post("/add-admin", addAdmin);
 router.post("/add-product", addproduct);
 router.post("/removedeals", deletedeals);
