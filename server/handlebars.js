@@ -3,8 +3,14 @@ const router = express.Router();
 const path = require("path");
 var nodemailer = require("nodemailer");
 var hbs = require("nodemailer-express-handlebars");
+var fs = require("fs");
+var Handlebars = require("handlebars");
 
 router.post("/api/admin/sendmail", (req, res) => {
+  var source = fs.readFileSync(path.join(process.cwd(), "email.hbs"), "utf8");
+
+  var templates = Handlebars.compile(source);
+
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -13,17 +19,17 @@ router.post("/api/admin/sendmail", (req, res) => {
     },
   });
 
-  const handlebarOptions = {
+  const options = {
     viewEngine: {
-      extName: ".handlebars",
-      partialsDir: path.join(process.cwd(), "views"),
+      extname: ".hbs",
+      layoutsDir: __dirname + "/views/",
       defaultLayout: "email",
     },
-    viewPath: path.join(process.cwd(), "views"),
-    extname: ".handlebars",
+    viewPath: __dirname + "/views/",
   };
 
-  transporter.use("compile", hbs(handlebarOptions));
+  transporter.use("compile", hbs(options));
+
   var mailOptions = {
     from: req.body.username,
     to: "admin@dealsghar.com",
