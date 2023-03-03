@@ -4,7 +4,7 @@ const path = require("path");
 var nodemailer = require("nodemailer");
 var hbs = require("nodemailer-express-handlebars");
 
-router.post("/send-mail", (req, res) => {
+router.post("/api/admin/sendmail", (req, res) => {
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
