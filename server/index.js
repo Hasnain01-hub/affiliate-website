@@ -29,12 +29,7 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.use(bodyParser.json({ extended: true }));
-app.use(
-  cors({
-    origin: [process.env.CLIENT_URL, "*"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 // Importing Routes
 const authRoute = require("./routes/auth.route");
