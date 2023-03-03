@@ -19,8 +19,8 @@ router.post("/api/admin/sendmail", (req, res) => {
       partialsDir: path.join(__dirname, "..", "views"),
       defaultLayout: "email",
     },
-    viewPath: path.resolve("./views"),
-    extName: ".handlebars",
+    viewPath: path.join(__dirname, "..", "views"),
+    extname: ".handlebars",
   };
 
   transporter.use("compile", hbs(handlebarOptions));
