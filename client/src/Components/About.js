@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const About = () => {
   return (
@@ -26,9 +27,10 @@ const About = () => {
                       ornare.
                     </p>
                     <div className="about_signature">
-                      <img
+                      <LazyLoadImage
                         src="assets/img/about/about-us-signature.png"
                         alt=""
+                        effect="blur"
                       />
                     </div>
                   </figcaption>
@@ -49,7 +51,11 @@ const About = () => {
               <div className="col-lg-4 col-md-4">
                 <div className="single_chose">
                   <div className="chose_icone">
-                    <img src="assets/img/about/About_icon1.png" alt="" />
+                    <LazyLoadImage
+                      src="assets/img/about/About_icon1.png"
+                      alt=""
+                      effect="blur"
+                    />
                   </div>
                   <div className="chose_content">
                     <h3>Creative Design</h3>
@@ -63,7 +69,11 @@ const About = () => {
               <div className="col-lg-4 col-md-4">
                 <div className="single_chose">
                   <div className="chose_icone">
-                    <img src="assets/img/about/About_icon2.png" alt="" />
+                    <LazyLoadImage
+                      src="assets/img/about/About_icon2.png"
+                      alt=""
+                      effect="blur"
+                    />
                   </div>
                   <div className="chose_content">
                     <h3>100% Money Back Guarantee</h3>
@@ -77,7 +87,11 @@ const About = () => {
               <div className="col-lg-4 col-md-4">
                 <div className="single_chose">
                   <div className="chose_icone">
-                    <img src="assets/img/about/About_icon3.png" alt="" />
+                    <LazyLoadImage
+                      src="assets/img/about/About_icon3.png"
+                      alt=""
+                      effect="blur"
+                    />
                   </div>
                   <div className="chose_content">
                     <h3>Online Support 24/7</h3>
@@ -98,7 +112,11 @@ const About = () => {
                 <article className="single_gallery_section">
                   <figure>
                     <div className="gallery_thumb">
-                      <img src="assets/img/about/about2.jpg" alt="" />
+                      <LazyLoadImage
+                        src="assets/img/about/about2.jpg"
+                        alt=""
+                        effect="blur"
+                      />
                     </div>
                     <figcaption className="about_gallery_content">
                       <h3>What do we do?</h3>
@@ -116,7 +134,11 @@ const About = () => {
                 <article className="single_gallery_section">
                   <figure>
                     <div className="gallery_thumb">
-                      <img src="assets/img/about/about3.jpg" alt="" />
+                      <LazyLoadImage
+                        src="assets/img/about/about3.jpg"
+                        alt=""
+                        effect="blur"
+                      />
                     </div>
                     <figcaption className="about_gallery_content">
                       <h3>Our Mission</h3>
@@ -134,7 +156,11 @@ const About = () => {
                 <article className="single_gallery_section">
                   <figure>
                     <div className="gallery_thumb">
-                      <img src="assets/img/about/about4.jpg" alt="" />
+                      <LazyLoadImage
+                        src="assets/img/about/about4.jpg"
+                        alt=""
+                        effect="blur"
+                      />
                     </div>
                     <figcaption className="about_gallery_content">
                       <h3>History Of Us</h3>

@@ -52,7 +52,7 @@
   
   @media (min-width:730px) and (max-width:946px) {
     .swiper, .swiper-slide {
-      height: 45vh !important;
+      height: 25vh !important;
     }
   }
 
@@ -62,8 +62,13 @@
     }
   }
 
+  .lazy-load-image-background.blur.lazy-load-image-loaded {
+    display: flex !important;
+    justify-content: center;
+  }
 
-  @media (min-width:650px) and (max-width:800px) {
+
+  @media (min-width:520px) and (max-width:750px) {
     .h2 {
       width: 75vw !important;
     }

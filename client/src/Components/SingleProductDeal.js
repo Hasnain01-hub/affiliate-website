@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import SinglePageLoading from "./SinglePageLoading";
@@ -44,11 +45,12 @@ const SingleProductDeal = () => {
                   <div className="product-details-tab">
                     <div id="img-1" className="zoomWrapper single-zoom">
                       <a href="#/">
-                        <img
+                        <LazyLoadImage
                           id="zoom1"
                           src={deal.image}
                           data-zoom-image={deal.image}
                           alt="big-1"
+                          effect="blur"
                         />
                       </a>
                     </div>

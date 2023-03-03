@@ -1,6 +1,7 @@
 import axios from "axios";
 import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Deals = () => {
   const [deals, setdeals] = useState([]);
@@ -54,25 +55,27 @@ const Deals = () => {
                                   className="primary_img"
                                   href="product-countdown.html"
                                 >
-                                  <img
+                                  <LazyLoadImage
+                                    src={item.image}
+                                    alt=""
+                                    effect="blur"
                                     style={{
                                       height: "200px",
                                       display: "block",
                                       margin: "0 auto",
                                     }}
-                                    src={item.images[0]["url"]}
-                                    alt=""
                                   />
                                 </a>
                                 <a className="secondary_img" href="#/">
-                                  <img
+                                  <LazyLoadImage
+                                    src={item.image}
+                                    alt=""
+                                    effect="blur"
                                     style={{
                                       height: "200px",
                                       display: "block",
                                       margin: "0 auto",
                                     }}
-                                    src={item.images[0]["url"]}
-                                    alt=""
                                   />
                                 </a>
                                 <div className="label_product">

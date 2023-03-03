@@ -6,6 +6,8 @@ import Sliders from "./Sliders";
 import "./Slider.css";
 import Categories from "./Categories";
 import ProductsLoader from "./ProductsLoader";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 // import { HashLoader } from "react-spinners";
 
 const Home = () => {
@@ -88,7 +90,11 @@ const Home = () => {
                       >
                         <div className="categories_product_thumb">
                           <a href={"/shop/" + cat.name}>
-                            <img src={cat.image} alt="" />
+                            <LazyLoadImage
+                              alt={cat.image}
+                              effect="blur"
+                              src={cat.image}
+                            />
                           </a>
                         </div>
                       </div>
@@ -155,20 +161,22 @@ const Home = () => {
                                       className="primary_img"
                                       href={"/Deal/" + item._id}
                                     >
-                                      <img
-                                        className="prod_img"
+                                      <LazyLoadImage
+                                        alt={item.image}
+                                        effect="blur"
                                         src={item.image}
-                                        alt=""
+                                        className="prod_img"
                                       />
                                     </a>
                                     <a
                                       className="secondary_img"
                                       href={"/Deal/" + item._id}
                                     >
-                                      <img
-                                        className="prod_img"
+                                      <LazyLoadImage
+                                        alt={item.image}
+                                        effect="blur"
                                         src={item.image}
-                                        alt=""
+                                        className="prod_img"
                                       />
                                     </a>
                                     <div className="label_product">
@@ -313,20 +321,22 @@ const Home = () => {
                                       className="primary_img"
                                       href={"/Deal/" + item._id}
                                     >
-                                      <img
-                                        className="prod_img"
+                                      <LazyLoadImage
+                                        alt={item.image}
+                                        effect="blur"
                                         src={item.image}
-                                        alt=""
+                                        className="prod_img"
                                       />
                                     </a>
                                     <a
                                       className="secondary_img"
                                       href={"/Deal/" + item._id}
                                     >
-                                      <img
-                                        className="prod_img"
+                                      <LazyLoadImage
+                                        alt={item.image}
+                                        effect="blur"
                                         src={item.image}
-                                        alt=""
+                                        className="prod_img"
                                       />
                                     </a>
                                     <div className="label_product">
@@ -471,20 +481,22 @@ const Home = () => {
                                       className="primary_img"
                                       href={"/Deal/" + item._id}
                                     >
-                                      <img
-                                        className="prod_img"
+                                      <LazyLoadImage
+                                        alt={item.image}
+                                        effect="blur"
                                         src={item.image}
-                                        alt=""
+                                        className="prod_img"
                                       />
                                     </a>
                                     <a
                                       className="secondary_img"
                                       href={"/Deal/" + item._id}
                                     >
-                                      <img
-                                        className="prod_img"
+                                      <LazyLoadImage
+                                        alt={item.image}
+                                        effect="blur"
                                         src={item.image}
-                                        alt=""
+                                        className="prod_img"
                                       />
                                     </a>
                                     <div className="label_product">
@@ -628,20 +640,22 @@ const Home = () => {
                                       className="primary_img"
                                       href={"/Deal/" + item._id}
                                     >
-                                      <img
-                                        className="prod_img"
+                                      <LazyLoadImage
+                                        alt={item.image}
+                                        effect="blur"
                                         src={item.image}
-                                        alt=""
+                                        className="prod_img"
                                       />
                                     </a>
                                     <a
                                       className="secondary_img"
                                       href={"/Deal/" + item._id}
                                     >
-                                      <img
-                                        className="prod_img"
+                                      <LazyLoadImage
+                                        alt={item.image}
+                                        effect="blur"
                                         src={item.image}
-                                        alt=""
+                                        className="prod_img"
                                       />
                                     </a>
                                     <div className="label_product">
@@ -784,20 +798,22 @@ const Home = () => {
                                       className="primary_img"
                                       href={"/Deal/" + item._id}
                                     >
-                                      <img
-                                        className="prod_img"
+                                      <LazyLoadImage
+                                        alt={item.image}
+                                        effect="blur"
                                         src={item.image}
-                                        alt=""
+                                        className="prod_img"
                                       />
                                     </a>
                                     <a
                                       className="secondary_img"
                                       href={"/Deal/" + item._id}
                                     >
-                                      <img
-                                        className="prod_img"
+                                      <LazyLoadImage
+                                        alt={item.image}
+                                        effect="blur"
                                         src={item.image}
-                                        alt=""
+                                        className="prod_img"
                                       />
                                     </a>
                                     <div className="label_product">

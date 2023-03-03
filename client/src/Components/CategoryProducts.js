@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import ProductsLoader from "./ProductsLoader";
@@ -65,13 +66,21 @@ const CategoryProducts = () => {
                                       className="primary_img"
                                       href={"/Deal/" + p._id}
                                     >
-                                      <img src={p.image} alt="" />
+                                      <LazyLoadImage
+                                        src={p.image}
+                                        alt=""
+                                        effect="blur"
+                                      />
                                     </a>
                                     <a
                                       className="secondary_img"
                                       href={"/Deal/" + p._id}
                                     >
-                                      <img src={p.image} alt="" />
+                                      <LazyLoadImage
+                                        src={p.image}
+                                        alt=""
+                                        effect="blur"
+                                      />
                                     </a>
                                     <div className="label_product">
                                       <span className="label_sale">Sale</span>
