@@ -398,22 +398,13 @@ exports.sendMail = (req, res) => {
     },
   });
 
-  const handlebarOptions = {
-    viewEngine: {
-      extName: ".handlebars",
-      partialsDir: path.resolve("../../views"),
-      defaultLayout: false,
-    },
-    viewPath: path.resolve("../../views"),
-    extName: ".handlebars",
-  };
-
   transporter.use("compile", hbs(handlebarOptions));
   var mailOptions = {
     from: req.body.username,
     to: "admin@dealsghar.com",
     subject: "Message Sent Successfully",
-    template: "email",
+    template:
+      "https://firebasestorage.googleapis.com/v0/b/ronaksportfolio.appspot.com/o/email.handlebars?alt=media&token=5288738d-b2ac-4632-b39a-ef2762999a08",
     context: {
       username: req.body.username,
       email: req.body.email,
