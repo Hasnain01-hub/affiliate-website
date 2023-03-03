@@ -57,6 +57,7 @@ var Handlebars = require("handlebars");
 router.post("/api/admin/sendmail", async (req, res) => {
   var transporter = nodemailer.createTransport({
     service: "gmail",
+    port: 465,
     auth: {
       user: "dealsghar00@gmail.com",
       pass: "bjobkqldewbqvzoz",
@@ -85,18 +86,16 @@ router.post("/api/admin/sendmail", async (req, res) => {
       message: req.body.message,
     },
   };
-  await new Promise((resolve, reject) => {
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
-        reject(err);
-      } else {
-        console.log(info);
-        resolve(info);
-      }
-    });
+
+  transporter.sendMail(mailOptions, async function (error, info) {
+    if (error) {
+      console.log(error);
+      res.status(400).json({ message: "Mail Not Sent" });
+    } else {
+      console.log(info);
+      res.status(200).json({ message: "Mail Sent" });
+    }
   });
-  res.status(200).json({ message: "Mail Sent" });
 });
 
 module.exports = router;
