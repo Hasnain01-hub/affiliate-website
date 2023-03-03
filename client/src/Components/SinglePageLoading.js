@@ -4,7 +4,6 @@ import ContentLoader from "react-content-loader";
 const SinglePageLoading = (props) => {
   const height = window.innerHeight - 2000;
   const width = window.innerWidth + 2000;
-  console.log(width);
   return (
     <ContentLoader
       viewBox={`0 0 ${height} ${width}`}

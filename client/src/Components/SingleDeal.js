@@ -20,7 +20,6 @@ const SingleDeal = () => {
     axios
       .get(process.env.REACT_APP_API + "api/admin/single_deal/" + params.id)
       .then((res) => {
-        console.log(res);
         setDeal(res.data.product);
         setSimilars(res.data.similar);
         setLoading(false);

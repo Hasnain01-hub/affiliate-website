@@ -2,7 +2,7 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 
 const ProductsLoader = ({
-  width = window.innerWidth - 75,
+  width = window.innerWidth - 150,
   heading = { width: 140, height: 24 },
   row = Math.floor(window.innerHeight / 250),
   column = Math.floor(window.innerWidth / 350),
@@ -12,8 +12,6 @@ const ProductsLoader = ({
 }) => {
   const list = [];
   let height;
-
-  console.log(Math.floor(window.innerWidth / 150));
 
   for (let i = 1; i <= row; i++) {
     for (let j = 0; j < column; j++) {

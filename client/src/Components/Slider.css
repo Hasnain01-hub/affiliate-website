@@ -62,6 +62,12 @@
     }
   }
 
+
+  @media (min-width:650px) and (max-width:800px) {
+    .h2 {
+      width: 75vw !important;
+    }
+  }
   .loader {
     position: fixed;
     height: 100vh;

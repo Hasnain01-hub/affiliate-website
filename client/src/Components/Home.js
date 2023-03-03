@@ -25,7 +25,6 @@ const Home = () => {
       .get(process.env.REACT_APP_API + "api/admin/view-deals")
       .then((res) => {
         setdeals(res.data);
-        console.log(res.data);
       })
       .catch((err) => {});
   };
@@ -235,17 +234,17 @@ const Home = () => {
                                   </div>
                                 </figure>
                                 <a
-                                  href={item.p_link}
+                                  href={item.link}
                                   target="_blank"
                                   rel="noreferrer"
                                   title="Grab Deal"
                                 >
                                   <div
-                                    // onClick={(e) => generatelink(e, item.p_link)}
+                                    // onClick={(e) => generatelink(e, item.link)}
                                     className="add_to_cart"
                                   >
                                     <a
-                                      href={item.p_link}
+                                      href={item.link}
                                       target="_blank"
                                       rel="noreferrer"
                                       title="Grab Deal"
@@ -393,17 +392,17 @@ const Home = () => {
                                   </div>
                                 </figure>
                                 <a
-                                  href={item.p_link}
+                                  href={item.link}
                                   target="_blank"
                                   rel="noreferrer"
                                   title="Grab Deal"
                                 >
                                   <div
-                                    // onClick={(e) => generatelink(e, item.p_link)}
+                                    // onClick={(e) => generatelink(e, item.link)}
                                     className="add_to_cart"
                                   >
                                     <a
-                                      href={item.p_link}
+                                      href={item.link}
                                       target="_blank"
                                       rel="noreferrer"
                                       title="Grab Deal"
@@ -456,7 +455,7 @@ const Home = () => {
                   }}
                 >
                   {deals.map((item) => {
-                    return item.deal_category === "Best- In- Beauty"
+                    return item.deal_category === "Best-In-Beauty"
                       ? ((e += 1),
                         e <= 9 ? (
                           <div
@@ -550,17 +549,17 @@ const Home = () => {
                                     </div>
 
                                     <a
-                                      href={item.p_link}
+                                      href={item.link}
                                       target="_blank"
                                       rel="noreferrer"
                                       title="Grab Deal"
                                     >
                                       <div
-                                        // onClick={(e) => generatelink(e, item.p_link)}
+                                        // onClick={(e) => generatelink(e, item.link)}
                                         className="add_to_cart"
                                       >
                                         <a
-                                          href={item.p_link}
+                                          href={item.link}
                                           target="_blank"
                                           rel="noreferrer"
                                           title="Grab Deal"
@@ -706,17 +705,17 @@ const Home = () => {
                                       </div>
                                     </div>
                                     <a
-                                      href={item.p_link}
+                                      href={item.link}
                                       target="_blank"
                                       rel="noreferrer"
                                       title="Grab Deal"
                                     >
                                       <div
-                                        // onClick={(e) => generatelink(e, item.p_link)}
+                                        // onClick={(e) => generatelink(e, item.link)}
                                         className="add_to_cart"
                                       >
                                         <a
-                                          href={item.p_link}
+                                          href={item.link}
                                           target="_blank"
                                           rel="noreferrer"
                                           title="Grab Deal"
@@ -862,11 +861,11 @@ const Home = () => {
                                       </div>
                                     </div>
                                     <div
-                                      // onClick={(e) => generatelink(e, item.p_link)}
+                                      // onClick={(e) => generatelink(e, item.link)}
                                       className="add_to_cart"
                                     >
                                       <a
-                                        href={item.p_link}
+                                        href={item.link}
                                         target="_blank"
                                         rel="noreferrer"
                                         title="Grab Deal"
