@@ -390,7 +390,6 @@ exports.getSingleProductDeal = (req, res) => {
 };
 
 exports.sendMail = (req, res) => {
-  console.log("I am here");
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -402,10 +401,10 @@ exports.sendMail = (req, res) => {
   const handlebarOptions = {
     viewEngine: {
       extName: ".handlebars",
-      partialsDir: path.resolve("./views"),
+      partialsDir: "./views",
       defaultLayout: false,
     },
-    viewPath: path.resolve("./views"),
+    viewPath: "./views",
     extName: ".handlebars",
   };
 
