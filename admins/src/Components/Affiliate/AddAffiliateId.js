@@ -7,7 +7,7 @@ import Header from "../../Layout/Slider";
 const AddAffiliateId = () => {
   const [affiliate, setAffiliate] = useState({
     name: "",
-    store: "",
+    store: "Amazon",
   });
 
   const [stores, setStores] = useState();
