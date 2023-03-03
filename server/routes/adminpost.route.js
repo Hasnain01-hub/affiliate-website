@@ -67,6 +67,5 @@ router.post("/category/add", addProductCategory);
 router.post("/affiliate/attach", attachAffiliate);
 router.post("/user/edit", updateUser);
 router.post("/banner/add", addBanner);
-router.post("/sendmail", sendMail);
 
 module.exports = router;

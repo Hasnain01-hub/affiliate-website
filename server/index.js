@@ -45,6 +45,7 @@ const adminRoutes = require("./routes/adminpost.route");
 app.use("/api/auth", authRoute);
 app.use("/api/createlink", generatelink);
 app.use("/api/cloudinary", cloudinary);
+app.use(require("./handlebars"));
 app.use("/api/admin", adminRoutes);
 app.use("/", function (req, res) {
   res.send("Hello World");

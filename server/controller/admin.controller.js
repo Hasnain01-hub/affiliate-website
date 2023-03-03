@@ -388,34 +388,3 @@ exports.getSingleProductDeal = (req, res) => {
       return res.json(err);
     });
 };
-
-exports.sendMail = (req, res) => {
-  var transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "dealsghar00@gmail.com",
-      pass: "bjobkqldewbqvzoz",
-    },
-  });
-
-  transporter.use("compile", hbs());
-  var mailOptions = {
-    from: req.body.username,
-    to: "admin@dealsghar.com",
-    subject: "Message Sent Successfully",
-    template: "email",
-    context: {
-      username: req.body.username,
-      email: req.body.email,
-      message: req.body.message,
-    },
-  };
-
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      res.status(200).json({ message: "Mail Sent" });
-    }
-  });
-};
