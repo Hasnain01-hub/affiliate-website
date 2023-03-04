@@ -21,9 +21,9 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setLoading(true);
-    axios
+    await axios
       .post(process.env.REACT_APP_API + "api/admin/sendmail", msg)
       .then((res) => {
         if (res.status === 200) {
