@@ -66,12 +66,12 @@ router.post("/api/admin/sendmail", async (req, res) => {
 
   const handlebarOptions = {
     viewEngine: {
-      extName: ".hbs",
+      extName: ".handlebars",
       partialsDir: path.resolve("./views"),
       defaultLayout: false,
     },
     viewPath: path.resolve("./views"),
-    extName: ".hbs",
+    extName: ".handlebars",
   };
 
   transporter.use("compile", hbs(handlebarOptions));
