@@ -10,6 +10,8 @@ const AddAffiliateId = () => {
     store: "Amazon",
   });
 
+  const [dataloading, setDataLoading] = useState(false);
+
   const [stores, setStores] = useState();
 
   const [ids, setIDS] = useState();
@@ -26,7 +28,9 @@ const AddAffiliateId = () => {
       .get(process.env.REACT_APP_API + "api/admin/affiliate/get")
       .then((res) => {
         setIDS(res.data);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       });
   };
   const [loading, setLoading] = useState(true);
@@ -42,6 +46,7 @@ const AddAffiliateId = () => {
   };
 
   const handleSubmit = () => {
+    setDataLoading(true);
     axios
       .post(process.env.REACT_APP_API + "api/admin/affiliate/add", affiliate)
       .then((res) => {
@@ -53,6 +58,7 @@ const AddAffiliateId = () => {
       .catch((err) => {
         toast.error("Internal Server Error");
       });
+    setDataLoading(false);
   };
   const deleteStore = (e, _id) => {
     e.preventDefault();
@@ -82,6 +88,13 @@ const AddAffiliateId = () => {
                   Add Affiliate IDS
                 </h4>
                 <div className="row">
+                  {dataloading === true ? (
+                    <>
+                      <h1>Adding ID</h1>
+                    </>
+                  ) : (
+                    <></>
+                  )}
                   <div className="col-xl">
                     <div className="card mb-4">
                       <div className="card-body">
