@@ -67,10 +67,10 @@ router.post("/api/admin/sendmail", async (req, res) => {
   const handlebarOptions = {
     viewEngine: {
       extName: ".hbs",
-      partialsDir: path.resolve("../server/views"),
+      partialsDir: path.join(__dirname),
       defaultLayout: false,
     },
-    viewPath: path.resolve("../server/views"),
+    viewPath: path.join(__dirname),
     extName: ".hbs",
   };
 
@@ -90,6 +90,7 @@ router.post("/api/admin/sendmail", async (req, res) => {
   transporter.sendMail(mailOptions, async function (error, info) {
     if (error) {
       console.log(error);
+      console.log(__dirname);
       res.status(400).json({ message: "Mail Not Sent" });
     } else {
       console.log(info);
