@@ -54,11 +54,12 @@ const AddAffiliateId = () => {
         setTimeout(() => {
           window.location.reload();
         }, 500);
+        setDataLoading(false);
       })
       .catch((err) => {
         toast.error("Internal Server Error");
+        setDataLoading(false);
       });
-    setDataLoading(false);
   };
   const deleteStore = (e, _id) => {
     e.preventDefault();
@@ -88,16 +89,16 @@ const AddAffiliateId = () => {
                   Add Affiliate IDS
                 </h4>
                 <div className="row">
-                  {dataloading === true ? (
-                    <>
-                      <h1>Adding ID</h1>
-                    </>
-                  ) : (
-                    <></>
-                  )}
                   <div className="col-xl">
                     <div className="card mb-4">
                       <div className="card-body">
+                        {dataloading === true ? (
+                          <>
+                            <h4>Adding ID</h4>
+                          </>
+                        ) : (
+                          <></>
+                        )}
                         <div className="mb-3">
                           <label
                             className="form-label"
