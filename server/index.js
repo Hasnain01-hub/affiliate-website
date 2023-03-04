@@ -29,11 +29,14 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.use(bodyParser.json({ extended: true }));
-const corsOptions = {
-  origin: true,
-  credentials: true,
-};
-app.options("*", cors(corsOptions));
+/* This is a CORS middleware. It allows the server to accept requests from different origins. */
+// const corsOptions = {
+//   origin: true,
+//   credentials: true,
+// };
+// app.options("*", cors(corsOptions));
+
+app.use(cors());
 
 // Importing Routes
 const authRoute = require("./routes/auth.route");
