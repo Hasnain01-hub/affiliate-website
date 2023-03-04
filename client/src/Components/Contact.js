@@ -111,7 +111,7 @@ const Contact = () => {
                     <></>
                   )}
 
-                  <button type="submit" onClick={handleSubmit}>
+                  <button type="button" onClick={handleSubmit}>
                     {" "}
                     Send
                   </button>
