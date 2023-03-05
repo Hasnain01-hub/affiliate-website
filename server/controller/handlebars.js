@@ -140,11 +140,11 @@ router.post("/api/admin/sendmail", async (req, res) => {
                                             <p
                                                 style="color:#455056; font-size:18px;line-height:20px; margin:0; font-weight: 500;">
                                                 <strong
-                                                    style="display: block;font-size: 13px; margin: 0 0 4px; color:rgba(0,0,0,.64); font-weight:normal;">Username</strong>{{username}}
+                                                    style="display: block;font-size: 13px; margin: 0 0 4px; color:rgba(0,0,0,.64); font-weight:normal;">Username</strong>${req.body.username}
                                                 <strong
-                                                    style="display: block; font-size: 13px; margin: 24px 0 4px 0; font-weight:normal; color:rgba(0,0,0,.64);">Email</strong>{{email}}
+                                                    style="display: block; font-size: 13px; margin: 24px 0 4px 0; font-weight:normal; color:rgba(0,0,0,.64);">Email</strong>${req.body.email}
                                                 <strong
-                                                    style="display: block; font-size: 13px; margin: 24px 0 4px 0; font-weight:normal; color:rgba(0,0,0,.64);">Message</strong>{{message}}
+                                                    style="display: block; font-size: 13px; margin: 24px 0 4px 0; font-weight:normal; color:rgba(0,0,0,.64);">Message</strong>${req.body.message}
                                             </p>
     
                                         </td>
