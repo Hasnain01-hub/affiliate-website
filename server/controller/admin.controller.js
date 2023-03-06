@@ -132,16 +132,23 @@ exports.getAffiliateIDS = (req, res) => {
 };
 
 exports.addProducts = (req, res) => {
-  const item = new ItemModel(req.body);
+  const { id } = req.body;
 
-  item
-    .save()
-    .then((doc) => {
-      return res.status(200).json({ message: "Added" });
-    })
-    .catch((err) => {
-      return res.status(400).json({ message: "Error" });
+  if (id == "1") {
+    const item = new ItemModel(req.body);
+    item
+      .save()
+      .then((doc) => {
+        return res.status(200).json({ message: "Added" });
+      })
+      .catch((err) => {
+        return res.status(400).json({ message: "Error" });
+      });
+  } else {
+    ItemModel.findByIdAndUpdate({ _id: id }, { $set: req.body }).then((doc) => {
+      return res.status(201).json({ data: doc });
     });
+  }
 };
 
 exports.viewProducts = (req, res) => {

@@ -29,7 +29,7 @@ function App() {
       <Route path="/Add-Store" element={<AddStores />} />
       <Route path="/Add-Affiliate-ID" element={<AddAffiliateId />} />
       <Route path="/Attach-Affiliate" element={<AttachAffiliate />} />
-      <Route path="/Add-Products" element={<AddProduct />} />
+      <Route path="/Add-Products/:id" element={<AddProduct />} />
       <Route path="/View-Products" element={<ViewProducts />} />
       <Route path="/Add-Category" element={<AddProductCategory />} />
       <Route path="/products/:cat" element={<ViewCategoryProducts />} />

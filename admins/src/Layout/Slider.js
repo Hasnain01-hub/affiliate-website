@@ -228,7 +228,7 @@ const Header = () => {
                 </a>
                 <ul className="menu-sub">
                   <li className="menu-item">
-                    <Link to="/Add-Products" className="menu-link">
+                    <Link to="/Add-Products/1" className="menu-link">
                       <div data-i18n="Basic">Add Products</div>
                     </Link>
                   </li>

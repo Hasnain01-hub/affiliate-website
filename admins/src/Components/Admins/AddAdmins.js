@@ -24,8 +24,8 @@ const AddAdmins = () => {
     });
   };
 
-  const handleSubmit = () => {
-    if (admin.name === "" || admin.email === "" || admin.password === "") {
+  const handleSubmit = async () => {
+    if (admin.name === "" && admin.email === "" && admin.password === "") {
       toast.error("Please Fill the whole form", {
         position: toast.POSITION.TOP_CENTER,
         theme: "dark",

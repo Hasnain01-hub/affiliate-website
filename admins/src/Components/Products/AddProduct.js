@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import Nav from "../../Layout/Nav";
 import Header from "../../Layout/Slider";
 
 const AddProduct = () => {
-  const [product, setProduct] = useState({
+  const _initialState = {
+    id: "",
     name: "",
     from: "",
     link: "",
@@ -18,26 +20,54 @@ const AddProduct = () => {
     description: "",
     end_date: "",
     isHomePageDeal: false,
-  });
+  };
+  const [product, setProduct] = useState(_initialState);
 
   const [store, setStore] = useState();
 
   const [loading, setLoading] = useState(true);
-
+  const { id } = useParams();
   const [category, setCategory] = useState();
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_API + "api/admin/store/get").then((res) => {
-      setStore(res.data);
-    });
+    const getdata = async () => {
+      if (id == "1") {
+        axios
+          .get(process.env.REACT_APP_API + "api/admin/store/get")
+          .then((res) => {
+            setStore(res.data);
+          });
 
-    axios
-      .get(process.env.REACT_APP_API + "api/admin/category/get")
-      .then((res) => {
-        setCategory(res.data);
-        setLoading(false);
-      });
-  }, []);
+        axios
+          .get(process.env.REACT_APP_API + "api/admin/category/get")
+          .then((res) => {
+            setCategory(res.data);
+            setLoading(false);
+          });
+        setProduct({ ...product, id: "1" });
+      } else {
+        await axios
+          .get(process.env.REACT_APP_API + "api/admin/store/get")
+          .then((res) => {
+            setStore(res.data);
+          });
+
+        await axios
+          .get(process.env.REACT_APP_API + "api/admin/category/get")
+          .then((res) => {
+            setCategory(res.data);
+            setLoading(false);
+          });
+        await axios
+          .get(process.env.REACT_APP_API + "api/admin/single_deal/" + id)
+          .then((res) => {
+            setProduct({ ...res.data.product, id: id });
+            setLoading(false);
+          });
+      }
+    };
+    getdata();
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -86,11 +116,11 @@ const AddProduct = () => {
     console.log(product);
 
     if (
-      product.name === "" ||
-      product.image === "" ||
-      product.link === "" ||
-      product.discount === "" ||
-      product.price === "" ||
+      product.name === "" &&
+      product.image === "" &&
+      product.link === "" &&
+      product.discount === "" &&
+      product.price === "" &&
       product.from === ""
     ) {
       toast.error("Please Fill the Whole Form");
@@ -100,9 +130,10 @@ const AddProduct = () => {
         .then((res) => {
           if (res.status === 200) {
             toast.success("Product Added Successfully");
-            setTimeout(() => {
-              window.location.reload();
-            }, 500);
+            setProduct(_initialState);
+          } else if (res.status === 201) {
+            toast.success("Product Updated Added Successfully");
+            setProduct(res.data);
           }
         })
         .catch((err) => {
@@ -113,6 +144,7 @@ const AddProduct = () => {
 
   return (
     <>
+      {console.log(product)}
       <div className="layout-wrapper layout-content-navbar">
         <div className="layout-container">
           <Header />
@@ -141,6 +173,7 @@ const AddProduct = () => {
                               id="basic-default-fullname"
                               placeholder="John Doe"
                               name="name"
+                              value={product.name}
                               required
                               onChange={handleChange}
                             />
@@ -177,6 +210,7 @@ const AddProduct = () => {
                             </label>
                             <select
                               onChange={handleChange}
+                              value={product.from}
                               name="from"
                               className="form-control"
                             >
@@ -204,6 +238,7 @@ const AddProduct = () => {
                             <select
                               onChange={handleChange}
                               name="category"
+                              value={product.category}
                               className="form-control"
                             >
                               {loading === true ? (
@@ -286,6 +321,7 @@ const AddProduct = () => {
                               className="form-control phone-mask"
                               placeholder="https://www.google.com/"
                               name="link"
+                              value={product.link}
                               required
                               onChange={handleChange}
                             />
@@ -299,6 +335,7 @@ const AddProduct = () => {
                                 type="number"
                                 className="form-control"
                                 placeholder="149"
+                                value={product.discount}
                                 name="discount"
                                 onChange={handleChange}
                                 required
@@ -313,6 +350,7 @@ const AddProduct = () => {
                                 className="form-control"
                                 placeholder="249"
                                 name="price"
+                                value={product.price}
                                 required
                                 onChange={handleChange}
                               />
@@ -323,6 +361,7 @@ const AddProduct = () => {
                               type="checkbox"
                               name="isHomePageDeal"
                               onChange={changeSelect}
+                              checked={product.isHomePageDeal}
                               className="form-check-input"
                               required
                             />
@@ -342,6 +381,7 @@ const AddProduct = () => {
                               placeholder="https://www.google.com/"
                               name="image"
                               required
+                              value={product.image}
                               onChange={handleChange}
                             />
                           </div>
