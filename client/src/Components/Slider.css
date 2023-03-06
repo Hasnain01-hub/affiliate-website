@@ -10,6 +10,10 @@
 .swiper-slide:nth-child(3n) {
   width: 100%;
 }
+
+.bx {
+  flex-wrap: wrap;
+}
   
   .swiper-slide img {
     display: block;
@@ -23,10 +27,12 @@
     display: block;
     margin: 0 auto;
     }
+  
   @media (min-width:250px) and (max-width:800px) {
     .swiper {
       height: 16vh !important;
     }
+   
     .swiper-slide {
       width: 100% !important;
     }
@@ -39,6 +45,10 @@
       height: 150px;
       display: block;
       margin: 0 auto;
+      }
+      .bx {
+        flex-wrap: nowrap !important;
+        gap: 5px;
       }
   }
 
@@ -74,6 +84,12 @@
   @media (min-width:520px) and (max-width:770px) {
     .h2 {
       width: 75vw !important;
+    }
+  }
+
+  @media (min-width:240px) and (max-width:600px) {
+    .product_content {
+      max-width: 180px;
     }
   }
   .loader {

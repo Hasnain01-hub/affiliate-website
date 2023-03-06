@@ -106,14 +106,7 @@ const Footer = () => {
             <div className="row align-items-center">
               <div className="col-lg-6 col-md-6">
                 <div className="copyright_area">
-                  <p>
-                    © 2022{" "}
-                    <a href="index-2.html" className="text-uppercase">
-                      LameFame
-                    </a>
-                    . Made with <i className="fa fa-heart" /> by{" "}
-                    <a href="https://www.darkcoders.com/">darkcoders</a>
-                  </p>
+                  <p>(©) Copyright 2023 Dealsghar. All Rights Reserved.</p>
                 </div>
               </div>
             </div>

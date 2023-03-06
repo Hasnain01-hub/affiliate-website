@@ -134,12 +134,10 @@ const Home = () => {
             ) : (
               <>
                 <div
-                  className="row"
+                  className="row bx"
                   style={{
-                    flexWrap: "nowrap",
                     overflowX: "auto",
                     scrollSnapType: "x mandatory",
-                    gap: "15px",
                     overflowY: `hidden`,
                     padding: "10px",
                   }}
@@ -294,13 +292,11 @@ const Home = () => {
             ) : (
               <>
                 <div
-                  className="row"
+                  className="row bx"
                   style={{
-                    flexWrap: "nowrap",
                     overflowX: "auto",
-                    gap: "15px",
-                    overflowY: `hidden`,
                     scrollSnapType: "x mandatory",
+                    overflowY: `hidden`,
                     padding: "10px",
                   }}
                 >
@@ -454,11 +450,9 @@ const Home = () => {
             ) : (
               <>
                 <div
-                  className="row"
+                  className="row bx"
                   style={{
-                    flexWrap: "nowrap",
                     overflowX: "auto",
-                    gap: "15px",
                     scrollSnapType: "x mandatory",
                     overflowY: `hidden`,
                     padding: "10px",
@@ -615,11 +609,10 @@ const Home = () => {
               <>
                 {" "}
                 <div
-                  className="row"
+                  className="row bx"
                   style={{
-                    flexWrap: "nowrap",
                     overflowX: "auto",
-                    gap: "15px",
+                    scrollSnapType: "x mandatory",
                     overflowY: `hidden`,
                     padding: "10px",
                   }}
@@ -773,11 +766,10 @@ const Home = () => {
             ) : (
               <>
                 <div
-                  className="row"
+                  className="row bx"
                   style={{
-                    flexWrap: "nowrap",
                     overflowX: "auto",
-                    gap: "15px",
+                    scrollSnapType: "x mandatory",
                     overflowY: `hidden`,
                     padding: "10px",
                   }}
@@ -786,63 +778,65 @@ const Home = () => {
                     return item.deal_category === "seasonal product"
                       ? ((g += 1),
                         g <= 9 ? (
-                          <div
-                            key={item._id}
-                            className="col-lg-3 col-md-4 col-sm-6"
-                          >
-                            <div className="owl-item active">
-                              <article className="single_product">
-                                <figure>
-                                  <div className="product_thumb">
-                                    <a
-                                      className="primary_img"
-                                      href={"/Deal/" + item._id}
-                                    >
-                                      <LazyLoadImage
-                                        alt={item.image}
-                                        effect="blur"
-                                        src={item.image}
-                                        className="prod_img"
-                                      />
-                                    </a>
-                                    <a
-                                      className="secondary_img"
-                                      href={"/Deal/" + item._id}
-                                    >
-                                      <LazyLoadImage
-                                        alt={item.image}
-                                        effect="blur"
-                                        src={item.image}
-                                        className="prod_img"
-                                      />
-                                    </a>
-                                    <div className="label_product">
-                                      <span
-                                        style={{
-                                          background: "rgb(255 49 48)",
-                                          color: "white",
-                                        }}
-                                        className="label_sale"
+                          <>
+                            {console.log(item)}
+                            <div
+                              key={item._id}
+                              className="col-lg-3 col-md-4 col-sm-6"
+                            >
+                              <div className="owl-item active">
+                                <article className="single_product">
+                                  <figure>
+                                    <div className="product_thumb">
+                                      <a
+                                        className="primary_img"
+                                        href={"/Deal/" + item._id}
                                       >
-                                        {(
-                                          ((item.price - item.discount) /
-                                            item.price) *
-                                          100
-                                        ).toFixed(2)}
-                                        %
-                                      </span>
+                                        <LazyLoadImage
+                                          alt={item.image}
+                                          effect="blur"
+                                          src={item.image}
+                                          className="prod_img"
+                                        />
+                                      </a>
+                                      <a
+                                        className="secondary_img"
+                                        href={"/Deal/" + item._id}
+                                      >
+                                        <LazyLoadImage
+                                          alt={item.image}
+                                          effect="blur"
+                                          src={item.image}
+                                          className="prod_img"
+                                        />
+                                      </a>
+                                      <div className="label_product">
+                                        <span
+                                          style={{
+                                            background: "rgb(255 49 48)",
+                                            color: "white",
+                                          }}
+                                          className="label_sale"
+                                        >
+                                          {(
+                                            ((item.price - item.discount) /
+                                              item.price) *
+                                            100
+                                          ).toFixed(2)}
+                                          %
+                                        </span>
+                                      </div>
                                     </div>
-                                  </div>
-                                  <div className="product_content">
-                                    <div className="product_content_inner">
-                                      <h4 className="product_name">
-                                        <a href={"/Deal/" + item._id}>
-                                          {item.name}
-                                        </a>
-                                      </h4>
+                                    <div className="product_content">
+                                      <div className="product_content_inner">
+                                        <h4 className="product_name">
+                                          <a href={"/Deal/" + item._id}>
+                                            {item.name}
+                                          </a>
+                                        </h4>
 
-                                      <div className="product_timing">
-                                        {/* <div data-countdown="2023/02/15">
+                                        <div className="product_timing">
+                                          {/* <div data-countdown="2023/02/15">
                                   <div className="countdown_area">
                                     <div className="single_countdown">
                                       <div className="countdown_number">08</div>
@@ -870,30 +864,32 @@ const Home = () => {
                                     </div>
                                   </div>
                                 </div> */}
-                                        <p>
-                                          <del>Rs{item.price}</del>&nbsp;&nbsp;
-                                          <b>Rs{item.discount}</b>
-                                        </p>
+                                          <p>
+                                            <del>Rs{item.price}</del>
+                                            &nbsp;&nbsp;
+                                            <b>Rs{item.discount}</b>
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <div
+                                        // onClick={(e) => generatelink(e, item.link)}
+                                        className="add_to_cart"
+                                      >
+                                        <a
+                                          href={item.link}
+                                          target="_blank"
+                                          rel="noreferrer"
+                                          title="Grab Deal"
+                                        >
+                                          Grab Deal
+                                        </a>
                                       </div>
                                     </div>
-                                    <div
-                                      // onClick={(e) => generatelink(e, item.link)}
-                                      className="add_to_cart"
-                                    >
-                                      <a
-                                        href={item.link}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        title="Grab Deal"
-                                      >
-                                        Grab Deal
-                                      </a>
-                                    </div>
-                                  </div>
-                                </figure>
-                              </article>
+                                  </figure>
+                                </article>
+                              </div>
                             </div>
-                          </div>
+                          </>
                         ) : null)
                       : null;
                   })}
