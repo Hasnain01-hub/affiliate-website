@@ -17,6 +17,7 @@ const AddProduct = () => {
     how_avail: "",
     description: "",
     end_date: "",
+    isHomePageDeal: false,
   });
 
   const [store, setStore] = useState();
@@ -46,6 +47,7 @@ const AddProduct = () => {
         [name]: value,
       };
     });
+    console.log({ name, value });
   };
 
   const catogery = [
@@ -71,7 +73,18 @@ const AddProduct = () => {
     },
   ];
 
+  const changeSelect = (e) => {
+    const data = e.target.name;
+    if (product[data] === false) {
+      product[data] = true;
+    } else {
+      product[data] = false;
+    }
+  };
+
   const handleSubmit = () => {
+    console.log(product);
+
     if (
       product.name === "" ||
       product.image === "" ||
@@ -304,6 +317,19 @@ const AddProduct = () => {
                                 onChange={handleChange}
                               />
                             </div>
+                          </div>
+                          <div className="mb-3 col-md-12">
+                            <input
+                              type="checkbox"
+                              name="isHomePageDeal"
+                              onChange={changeSelect}
+                              className="form-check-input"
+                              required
+                            />
+                            &nbsp;&nbsp;
+                            <label className="form-label">
+                              Is Home Page Deal?
+                            </label>
                           </div>
                           <div className="mb-3 col-md-12">
                             <label className="form-label">
