@@ -177,11 +177,8 @@ router.post("/api/admin/sendmail", async (req, res) => {
   };
   transporter.sendMail(mailOptions, async function (error, info) {
     if (error) {
-      console.log(error);
-      console.log(__dirname);
       res.status(400).json({ message: "Mail Not Sent" });
     } else {
-      console.log(info);
       res.status(200).json({ message: "Mail Sent" });
     }
   });

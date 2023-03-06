@@ -46,7 +46,7 @@ exports.viewAllDeals = (req, res) => {
 };
 
 exports.viewDeals = (req, res) => {
-  const product = ItemModel.find({})
+  const product = ItemModel.find({ isHomePageDeal: true })
     .sort({ _id: -1 })
     .then((doc) => {
       var datas = [];
