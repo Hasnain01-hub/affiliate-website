@@ -30,7 +30,7 @@
   
   @media (min-width:250px) and (max-width:800px) {
     .swiper {
-      height: 16vh !important;
+      height: 15vh !important;
     }
    
     .swiper-slide {
@@ -63,15 +63,9 @@
     font-weight: 400;
   }
   
-  @media (min-width:730px) and (max-width:946px) {
+  @media (min-width:850px) and (max-width:946px) {
     .swiper, .swiper-slide {
       height: 25vh !important;
-    }
-  }
-
-  @media (min-width:947px) and (max-width:1024px) {
-    .swiper, .swiper-slide {
-      height: 50vh !important;
     }
   }
 

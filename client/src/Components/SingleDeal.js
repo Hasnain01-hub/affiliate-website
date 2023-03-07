@@ -149,7 +149,7 @@ const SingleDeal = () => {
       ) : (
         <>
           <div className="shop_area shop_fullwidth">
-            <div className="container">
+            <div className="container" style={{ width: "80vw" }}>
               <div className="row">
                 <div className="col-12">
                   <center>
@@ -159,7 +159,10 @@ const SingleDeal = () => {
                     </h2>
                     <br />
                   </center>
-                  <div className="row no-gutters shop_wrapper">
+                  <div
+                    className="row no-gutters shop_wrapper"
+                    style={{ width: "90vw" }}
+                  >
                     {loading === true ? (
                       <>
                         <ProductsLoader />
