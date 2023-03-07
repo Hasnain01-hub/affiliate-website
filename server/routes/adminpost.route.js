@@ -29,7 +29,6 @@ const {
   getSingleDeal,
   getSingleProductDeal,
   getCategoryDeals,
-  sendMail,
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
 
