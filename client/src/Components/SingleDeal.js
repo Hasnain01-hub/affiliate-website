@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import ProductsLoader from "./ProductsLoader";
 import SinglePageLoading from "./SinglePageLoading";
+import "./Slider.css";
 
 const SingleDeal = () => {
   const [deal, setDeal] = useState();
@@ -159,10 +160,7 @@ const SingleDeal = () => {
                     </h2>
                     <br />
                   </center>
-                  <div
-                    className="row no-gutters shop_wrapper"
-                    style={{ width: "90vw" }}
-                  >
+                  <div className="row no-gutters shop_wrapper wrap">
                     {loading === true ? (
                       <>
                         <ProductsLoader />

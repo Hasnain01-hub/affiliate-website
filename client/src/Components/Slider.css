@@ -50,6 +50,9 @@
         flex-wrap: nowrap !important;
         gap: 5px;
       }
+      .wrap {
+        width: 90vw !important;
+      }
   }
 
   .h2 {
@@ -104,3 +107,4 @@
     flex-direction: column;
     gap: 15px;
   }
+
