@@ -1,14 +1,14 @@
 .swiper-slide {
-  width: 100%;
-  height: 50vh;
+  width: 897px;
+  height: 280px;
 }
 
 .swiper-slide:nth-child(2n) {
-  width: 100%;
+  width: 897px;
 }
 
 .swiper-slide:nth-child(3n) {
-  width: 100%;
+  width: 897px;
 }
 
 .bx {
@@ -90,6 +90,9 @@
   @media (min-width:240px) and (max-width:600px) {
     .product_content {
       max-width: 180px;
+    }
+    .grid_content {
+      max-width: 100% !important;
     }
   }
   .loader {
