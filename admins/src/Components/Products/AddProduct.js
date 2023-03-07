@@ -29,40 +29,39 @@ const AddProduct = () => {
   const { id } = useParams();
   const [category, setCategory] = useState();
 
+  const getCategories = () => {
+    axios
+      .get(process.env.REACT_APP_API + "api/admin/category/get")
+      .then((res) => {
+        setCategory(res.data);
+        setProduct({ ...product, id: "1" });
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
+      });
+  };
+
   useEffect(() => {
     const getdata = async () => {
-      if (id == "1") {
+      if (id === "1") {
         axios
           .get(process.env.REACT_APP_API + "api/admin/store/get")
           .then((res) => {
             setStore(res.data);
+            getCategories();
           });
-
-        axios
-          .get(process.env.REACT_APP_API + "api/admin/category/get")
-          .then((res) => {
-            setCategory(res.data);
-            setLoading(false);
-          });
-        setProduct({ ...product, id: "1" });
       } else {
         await axios
           .get(process.env.REACT_APP_API + "api/admin/store/get")
           .then((res) => {
             setStore(res.data);
+            getCategories();
           });
 
-        await axios
-          .get(process.env.REACT_APP_API + "api/admin/category/get")
-          .then((res) => {
-            setCategory(res.data);
-            setLoading(false);
-          });
         await axios
           .get(process.env.REACT_APP_API + "api/admin/single_deal/" + id)
           .then((res) => {
             setProduct({ ...res.data.product, id: id });
-            setLoading(false);
           });
       }
     };
@@ -77,7 +76,6 @@ const AddProduct = () => {
         [name]: value,
       };
     });
-    console.log({ name, value });
   };
 
   const catogery = [
@@ -113,8 +111,6 @@ const AddProduct = () => {
   };
 
   const handleSubmit = () => {
-    console.log(product);
-
     if (
       product.name === "" &&
       product.image === "" &&
@@ -132,8 +128,9 @@ const AddProduct = () => {
             toast.success("Product Added Successfully");
             setProduct(_initialState);
           } else if (res.status === 201) {
-            toast.success("Product Updated Added Successfully");
+            toast.success("Product Updated Successfully");
             setProduct(res.data);
+            window.location.reload();
           }
         })
         .catch((err) => {
@@ -144,7 +141,6 @@ const AddProduct = () => {
 
   return (
     <>
-      {console.log(product)}
       <div className="layout-wrapper layout-content-navbar">
         <div className="layout-container">
           <Header />
@@ -158,245 +154,262 @@ const AddProduct = () => {
                   </span>{" "}
                   Add Affiliate IDS
                 </h4>
-                <div className="row">
-                  <div className="col-xl">
-                    <div className="card mb-4">
-                      <div className="card-body">
-                        <div className="row">
-                          <div className="mb-3 col-md-6">
-                            <label className="form-label">
-                              Product Name <span className="red">*</span>
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="basic-default-fullname"
-                              placeholder="John Doe"
-                              name="name"
-                              value={product.name}
-                              required
-                              onChange={handleChange}
-                            />
-                          </div>
+                {loading === true ? (
+                  <>Loading Form.....</>
+                ) : (
+                  <>
+                    <div className="row">
+                      <div className="col-xl">
+                        <div className="card mb-4">
+                          <div className="card-body">
+                            <div className="row">
+                              <div className="mb-3 col-md-6">
+                                <label className="form-label">
+                                  Product Name <span className="red">*</span>
+                                </label>
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  id="basic-default-fullname"
+                                  placeholder="John Doe"
+                                  name="name"
+                                  value={product.name}
+                                  required
+                                  onChange={handleChange}
+                                />
+                              </div>
 
-                          <div className="mb-3">
-                            <label
-                              className="form-label"
-                              htmlFor="basic-default-fullname"
-                            >
-                              Deal Category
-                            </label>
+                              <div className="mb-3">
+                                <label
+                                  className="form-label"
+                                  htmlFor="basic-default-fullname"
+                                >
+                                  Deal Category
+                                </label>
 
-                            <select
-                              name="deal_category"
-                              onChange={handleChange}
-                              value={product.deal_category}
-                              className="form-control"
-                            >
-                              <option value="Select">Select Category</option>;
-                              {catogery.map((item) => {
-                                return (
-                                  <option value={item.name} key={item.id}>
-                                    {item.name}
+                                <select
+                                  name="deal_category"
+                                  onChange={handleChange}
+                                  value={product.deal_category}
+                                  className="form-control"
+                                >
+                                  <option value="Select">
+                                    Select Category
                                   </option>
-                                );
-                              })}
-                            </select>
-                          </div>
+                                  ;
+                                  {catogery.map((item) => {
+                                    return (
+                                      <option value={item.name} key={item.id}>
+                                        {item.name}
+                                      </option>
+                                    );
+                                  })}
+                                </select>
+                              </div>
 
-                          <div className="mb-3 col-md-6">
-                            <label className="form-label">
-                              Store <span className="red">*</span>
-                            </label>
-                            <select
-                              onChange={handleChange}
-                              value={product.from}
-                              name="from"
-                              className="form-control"
-                            >
-                              {loading === true ? (
-                                <>
-                                  <option selected>Loading Stores....</option>
-                                </>
-                              ) : (
-                                <>
-                                  <option selected>-------</option>
-                                  {store.map((s, i) => (
+                              <div className="mb-3 col-md-6">
+                                <label className="form-label">
+                                  Store <span className="red">*</span>
+                                </label>
+                                <select
+                                  onChange={handleChange}
+                                  value={product.from}
+                                  name="from"
+                                  className="form-control"
+                                >
+                                  {loading === true ? (
                                     <>
-                                      <option value={s.name}>{s.name}</option>
+                                      <option selected>
+                                        Loading Stores....
+                                      </option>
                                     </>
-                                  ))}
-                                </>
-                              )}
-                            </select>
-                          </div>
-
-                          <div className="mb-3 col-md-12">
-                            <label className="form-label">
-                              Categories <span className="red">*</span>
-                            </label>
-                            <select
-                              onChange={handleChange}
-                              name="category"
-                              value={product.category}
-                              className="form-control"
-                            >
-                              {loading === true ? (
-                                <>
-                                  <option selected>
-                                    Loading Categories....
-                                  </option>
-                                </>
-                              ) : (
-                                <>
-                                  <option selected>-------</option>
-                                  {category.map((s, i) => (
+                                  ) : (
                                     <>
-                                      <option value={s.name}>{s.name}</option>
+                                      <option selected>-------</option>
+                                      {store.map((s, i) => (
+                                        <>
+                                          <option value={s.name}>
+                                            {s.name}
+                                          </option>
+                                        </>
+                                      ))}
                                     </>
-                                  ))}
-                                </>
-                              )}
-                            </select>
-                          </div>
-                          <div className="mb-3">
-                            <label
-                              className="form-label"
-                              htmlFor="basic-default-fullname"
-                            >
-                              How to avail
-                            </label>
-                            <textarea
-                              className="form-control"
-                              placeholder="How to avail"
-                              name="how_avail"
-                              value={product.how_avail}
-                              required
-                              onChange={handleChange}
-                            />
-                          </div>
+                                  )}
+                                </select>
+                              </div>
 
-                          <div className="mb-3">
-                            <label
-                              className="form-label"
-                              htmlFor="basic-default-fullname"
-                            >
-                              End Date
-                            </label>
-                            <input
-                              type="date"
-                              className="form-control"
-                              placeholder="31-12-2022"
-                              value={product.end_date}
-                              name="end_date"
-                              required
-                              onChange={handleChange}
-                            />
-                          </div>
+                              <div className="mb-3 col-md-12">
+                                <label className="form-label">
+                                  Categories <span className="red">*</span>
+                                </label>
+                                <select
+                                  onChange={handleChange}
+                                  name="category"
+                                  value={product.category}
+                                  className="form-control"
+                                >
+                                  {loading === true ? (
+                                    <>
+                                      <option selected>
+                                        Loading Categories....
+                                      </option>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <option selected>-------</option>
+                                      {category.map((s, i) => (
+                                        <>
+                                          <option value={s.name}>
+                                            {s.name}
+                                          </option>
+                                        </>
+                                      ))}
+                                    </>
+                                  )}
+                                </select>
+                              </div>
+                              <div className="mb-3">
+                                <label
+                                  className="form-label"
+                                  htmlFor="basic-default-fullname"
+                                >
+                                  How to avail
+                                </label>
+                                <textarea
+                                  className="form-control"
+                                  placeholder="How to avail"
+                                  name="how_avail"
+                                  value={product.how_avail}
+                                  required
+                                  onChange={handleChange}
+                                />
+                              </div>
 
-                          <div className="mb-3">
-                            <label
-                              className="form-label"
-                              htmlFor="basic-default-fullname"
+                              <div className="mb-3">
+                                <label
+                                  className="form-label"
+                                  htmlFor="basic-default-fullname"
+                                >
+                                  End Date
+                                </label>
+                                <input
+                                  type="date"
+                                  className="form-control"
+                                  placeholder="31-12-2022"
+                                  value={product.end_date}
+                                  name="end_date"
+                                  required
+                                  onChange={handleChange}
+                                />
+                              </div>
+
+                              <div className="mb-3">
+                                <label
+                                  className="form-label"
+                                  htmlFor="basic-default-fullname"
+                                >
+                                  Description
+                                </label>
+                                <textarea
+                                  className="form-control"
+                                  placeholder="description"
+                                  name="description"
+                                  value={product.description}
+                                  required
+                                  onChange={handleChange}
+                                />
+                              </div>
+                              <div className="mb-3 col-md-12">
+                                <label className="form-label">
+                                  Product Affiliate Link
+                                  <span className="red">*</span>
+                                </label>
+                                <input
+                                  type="text"
+                                  id="basic-default-phone"
+                                  className="form-control phone-mask"
+                                  placeholder="https://www.google.com/"
+                                  name="link"
+                                  value={product.link}
+                                  required
+                                  onChange={handleChange}
+                                />
+                              </div>
+                              <div className="row">
+                                <div className="mb-3 col-md-6">
+                                  <label className="form-label">
+                                    Discount Price{" "}
+                                    <span className="red">*</span>
+                                  </label>
+                                  <input
+                                    type="number"
+                                    className="form-control"
+                                    placeholder="149"
+                                    value={product.discount}
+                                    name="discount"
+                                    onChange={handleChange}
+                                    required
+                                  />
+                                </div>
+                                <div className="mb-3 col-md-6">
+                                  <label className="form-label">
+                                    Original Price{" "}
+                                    <span className="red">*</span>
+                                  </label>
+                                  <input
+                                    type="number"
+                                    className="form-control"
+                                    placeholder="249"
+                                    name="price"
+                                    value={product.price}
+                                    required
+                                    onChange={handleChange}
+                                  />
+                                </div>
+                              </div>
+                              <div className="mb-3 col-md-12">
+                                <input
+                                  type="checkbox"
+                                  name="isHomePageDeal"
+                                  onChange={changeSelect}
+                                  defaultChecked={product.isHomePageDeal}
+                                  className="form-check-input"
+                                  required
+                                />
+                                &nbsp;&nbsp;
+                                <label className="form-label">
+                                  Is Home Page Deal?
+                                </label>
+                              </div>
+                              <div className="mb-3 col-md-12">
+                                <label className="form-label">
+                                  Product Image URL
+                                  <span className="red">*</span>
+                                </label>
+                                <input
+                                  type="text"
+                                  className="form-control phone-mask"
+                                  placeholder="https://www.google.com/"
+                                  name="image"
+                                  required
+                                  value={product.image}
+                                  onChange={handleChange}
+                                />
+                              </div>
+                            </div>
+                            <button
+                              type="submit"
+                              className="btn btn-primary"
+                              onClick={handleSubmit}
                             >
-                              Description
-                            </label>
-                            <textarea
-                              className="form-control"
-                              placeholder="description"
-                              name="description"
-                              value={product.description}
-                              required
-                              onChange={handleChange}
-                            />
-                          </div>
-                          <div className="mb-3 col-md-12">
-                            <label className="form-label">
-                              Product Affiliate Link
-                              <span className="red">*</span>
-                            </label>
-                            <input
-                              type="text"
-                              id="basic-default-phone"
-                              className="form-control phone-mask"
-                              placeholder="https://www.google.com/"
-                              name="link"
-                              value={product.link}
-                              required
-                              onChange={handleChange}
-                            />
-                          </div>
-                          <div className="row">
-                            <div className="mb-3 col-md-6">
-                              <label className="form-label">
-                                Discount Price <span className="red">*</span>
-                              </label>
-                              <input
-                                type="number"
-                                className="form-control"
-                                placeholder="149"
-                                value={product.discount}
-                                name="discount"
-                                onChange={handleChange}
-                                required
-                              />
-                            </div>
-                            <div className="mb-3 col-md-6">
-                              <label className="form-label">
-                                Original Price <span className="red">*</span>
-                              </label>
-                              <input
-                                type="number"
-                                className="form-control"
-                                placeholder="249"
-                                name="price"
-                                value={product.price}
-                                required
-                                onChange={handleChange}
-                              />
-                            </div>
-                          </div>
-                          <div className="mb-3 col-md-12">
-                            <input
-                              type="checkbox"
-                              name="isHomePageDeal"
-                              onChange={changeSelect}
-                              checked={product.isHomePageDeal}
-                              className="form-check-input"
-                              required
-                            />
-                            &nbsp;&nbsp;
-                            <label className="form-label">
-                              Is Home Page Deal?
-                            </label>
-                          </div>
-                          <div className="mb-3 col-md-12">
-                            <label className="form-label">
-                              Product Image URL
-                              <span className="red">*</span>
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control phone-mask"
-                              placeholder="https://www.google.com/"
-                              name="image"
-                              required
-                              value={product.image}
-                              onChange={handleChange}
-                            />
+                              Submit
+                            </button>
                           </div>
                         </div>
-                        <button
-                          type="submit"
-                          className="btn btn-primary"
-                          onClick={handleSubmit}
-                        >
-                          Submit
-                        </button>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
