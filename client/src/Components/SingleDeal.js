@@ -103,9 +103,19 @@ const SingleDeal = () => {
                       </div>
                       <div className="product_meta">
                         <span>
-                          How to Avail the Offer:{" "}
-                          <a href="#/">{deal.how_avail}</a>
+                          How to Avail the Offer:
+                          <text style={{ fontWeight: "400" }}>
+                            &nbsp;&nbsp;Click on 'Grab deal' button. You’ll be
+                            redirected to Amazon offer page. Place the order as
+                            usual on Amazon.
+                          </text>
+                          <br />
                         </span>
+                        <a href="#/" style={{ color: "red" }}>
+                          Please note- Sometimes you may see variation in
+                          product price due to “different seller” or “offer
+                          ended"
+                        </a>
                       </div>
                       <div className="product_meta">
                         <span>

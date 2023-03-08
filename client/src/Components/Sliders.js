@@ -31,53 +31,113 @@ const Sliders = () => {
         </>
       ) : (
         <>
-          <Swiper
-            pagination={{
-              type: "fraction",
-            }}
-            slidesPerView={"auto"}
-            spaceBetween={15}
-            modules={[Pagination, Navigation]}
-            className="mySwiper"
-            navigation={true}
-            autoplay
-          >
-            {banners.map((b, i) => (
-              <>
-                <SwiperSlide>
-                  {b.url !== null ? (
-                    <>
-                      <a href={b.url} target="_blank" rel="noreferrer">
-                        <div
-                          style={{
-                            backgroundImage: "url(" + b.image + ")",
-                            height: "100%",
-                            width: "100%",
-                            backgroundRepeat: "no-repeat",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                          }}
-                        ></div>
-                      </a>
-                    </>
-                  ) : (
-                    <>
-                      <div
-                        style={{
-                          backgroundImage: "url(" + b.image + ")",
-                          height: "100%",
-                          width: "100%",
-                          backgroundRepeat: "no-repeat",
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }}
-                      ></div>
-                    </>
-                  )}
-                </SwiperSlide>
-              </>
-            ))}
-          </Swiper>
+          {window.innerWidth < 800 ? (
+            <>
+              <Swiper
+                pagination={{
+                  type: "fraction",
+                }}
+                slidesPerView={1}
+                longSwipesRatio={0}
+                centeredSlides={true}
+                spaceBetween={30}
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+                navigation={true}
+                loop={true}
+                autoplay
+              >
+                {banners.map((b, i) => (
+                  <>
+                    <SwiperSlide>
+                      {b.url !== null ? (
+                        <>
+                          <a href={b.url} target="_blank" rel="noreferrer">
+                            <div
+                              style={{
+                                backgroundImage: "url(" + b.image + ")",
+                                height: "100%",
+                                width: "100%",
+                                backgroundRepeat: "no-repeat",
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                              }}
+                            ></div>
+                          </a>
+                        </>
+                      ) : (
+                        <>
+                          <div
+                            style={{
+                              backgroundImage: "url(" + b.image + ")",
+                              height: "100%",
+                              width: "100%",
+                              backgroundRepeat: "no-repeat",
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                            }}
+                          ></div>
+                        </>
+                      )}
+                    </SwiperSlide>
+                  </>
+                ))}
+              </Swiper>
+            </>
+          ) : (
+            <>
+              <Swiper
+                pagination={{
+                  type: "fraction",
+                }}
+                slidesPerView={1.7}
+                longSwipesRatio={0}
+                centeredSlides={true}
+                spaceBetween={30}
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+                navigation={true}
+                loop={true}
+                autoplay
+              >
+                {banners.map((b, i) => (
+                  <>
+                    <SwiperSlide>
+                      {b.url !== null ? (
+                        <>
+                          <a href={b.url} target="_blank" rel="noreferrer">
+                            <div
+                              style={{
+                                backgroundImage: "url(" + b.image + ")",
+                                height: "100%",
+                                width: "100%",
+                                backgroundRepeat: "no-repeat",
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                              }}
+                            ></div>
+                          </a>
+                        </>
+                      ) : (
+                        <>
+                          <div
+                            style={{
+                              backgroundImage: "url(" + b.image + ")",
+                              height: "100%",
+                              width: "100%",
+                              backgroundRepeat: "no-repeat",
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                            }}
+                          ></div>
+                        </>
+                      )}
+                    </SwiperSlide>
+                  </>
+                ))}
+              </Swiper>
+            </>
+          )}
         </>
       )}
 

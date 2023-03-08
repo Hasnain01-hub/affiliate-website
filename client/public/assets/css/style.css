@@ -781,8 +781,8 @@ textarea:-ms-input-placeholder {
 }
 @media only screen and (max-width: 767px) {
   .canvas_open {
-    right: 24px;
-    top: 24px;
+    right: 14px;
+    top: 14px;
   }
 }
 .canvas_open a {
@@ -1072,7 +1072,7 @@ textarea:-ms-input-placeholder {
 }
 @media only screen and (max-width: 575px) {
   .logo a img {
-    max-width: 105px;
+    max-width: 55px;
   }
 }
 
@@ -3896,6 +3896,9 @@ textarea:-ms-input-placeholder {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -3953,6 +3956,7 @@ textarea:-ms-input-placeholder {
   width: 100% !important;
   border: 1px solid #ebebeb;
   margin: -0.5px 0;
+ 
 }
 
 .categories_product_content {
@@ -3974,7 +3978,7 @@ textarea:-ms-input-placeholder {
 }
 
 .categories_product_thumb {
-  width: 100%;
+  width: 70%;
 }
 .categories_product_thumb img {
   width: 60% !important;
