@@ -126,7 +126,9 @@ const AddProduct = () => {
         .then((res) => {
           if (res.status === 200) {
             toast.success("Product Added Successfully");
-            setProduct(_initialState);
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
           } else if (res.status === 201) {
             toast.success("Product Updated Successfully");
             setProduct(res.data);
@@ -267,22 +269,6 @@ const AddProduct = () => {
                                     </>
                                   )}
                                 </select>
-                              </div>
-                              <div className="mb-3">
-                                <label
-                                  className="form-label"
-                                  htmlFor="basic-default-fullname"
-                                >
-                                  How to avail
-                                </label>
-                                <textarea
-                                  className="form-control"
-                                  placeholder="How to avail"
-                                  name="how_avail"
-                                  value={product.how_avail}
-                                  required
-                                  onChange={handleChange}
-                                />
                               </div>
 
                               <div className="mb-3">
