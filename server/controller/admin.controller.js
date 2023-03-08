@@ -151,6 +151,14 @@ exports.addProducts = (req, res) => {
   }
 };
 
+exports.updateCatogery = (req, res) => {
+  const { id } = req.params;
+  ProductCategoryModel.findByIdAndUpdate({ _id: id }, { $set: req.body }).then(
+    (doc) => {
+      return res.status(201).json({ data: doc });
+    }
+  );
+};
 exports.viewProducts = (req, res) => {
   const item = ItemModel.find({})
     .then((doc) => {

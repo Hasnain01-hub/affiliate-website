@@ -29,6 +29,7 @@ const {
   getSingleDeal,
   getSingleProductDeal,
   getCategoryDeals,
+  updateCatogery
 } = require("../controller/admin.controller");
 const { addproduct } = require("../controller/product.controller");
 
@@ -60,6 +61,7 @@ router.get("/single_product/:id", getSingleProductDeal);
 
 router.post("/add-admin", addAdmin);
 router.post("/add-product", addproduct);
+router.post("/category/update/:id", updateCatogery);
 router.post("/removedeals", deletedeals);
 router.post("/store/add", AddStore);
 router.post("/affiliate/add", addAFfiliateID);
