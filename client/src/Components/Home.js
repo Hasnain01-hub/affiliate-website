@@ -57,11 +57,12 @@ const Home = () => {
         />
         <h1>Loading</h1>
       </div>{" "} */}
+      {window.innerWidth < 800 ? <></> : <></>}
+      <Sliders />
       <div className="home_section_bg">
         {/*Categories product area start*/}
         <div className="categories_product_area mb-45">
           <div className="container">
-            <Sliders />
             {/* {user !== null ? (
               <>
                 {user.profit === null ? (

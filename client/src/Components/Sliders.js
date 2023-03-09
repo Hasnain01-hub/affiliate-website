@@ -39,13 +39,9 @@ const Sliders = () => {
                 }}
                 slidesPerView={1}
                 longSwipesRatio={0}
-                centeredSlides={true}
-                spaceBetween={30}
-                modules={[Pagination, Navigation]}
+                modules={[Pagination]}
                 className="mySwiper"
-                navigation={true}
                 loop={true}
-                autoplay
               >
                 {banners.map((b, i) => (
                   <>
@@ -98,7 +94,6 @@ const Sliders = () => {
                 className="mySwiper"
                 navigation={true}
                 loop={true}
-                autoplay
               >
                 {banners.map((b, i) => (
                   <>

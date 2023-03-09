@@ -1,7 +1,8 @@
 .swiper-slide {
-  width: 107px;
-  height: 280px;
-  filter: brightness(50%) blur(3px);
+  width: 450px;
+  height: 400px;
+  filter: brightness(50%);
+  margin-right: 0px !important;
 }
 
 .swiper-slide-active {
@@ -9,11 +10,13 @@
 }
 
 .swiper-slide:nth-child(2n) {
-  width: 597px;
+  width: 450px;
+  height: 400px;
 }
 
 .swiper-slide:nth-child(3n) {
-  width: 597px;
+  width: 450px;
+  height: 400px;
 }
 
 .bx {
@@ -35,15 +38,15 @@
   
   @media (min-width:250px) and (max-width:800px) {
     .swiper {
-      height: 15vh !important;
+      height: 20vh !important;
     }
    
-    .swiper-slide {
+    /* .swiper-slide {
       width: 100% !important;
-    }
+    } */
     .swiper-slide {
-      width: 80%;
-      height: 15vh !important;
+      width: 100vw !important;
+      height: 20vh !important;
     }
 
     .prod_img {
