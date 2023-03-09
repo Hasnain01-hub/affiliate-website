@@ -56,7 +56,9 @@ exports.viewDeals = (req, res) => {
           const end_date = new Date(element.end_date);
 
           if (curr_date.getFullYear() <= end_date.getFullYear()) {
-            if (curr_date.getMonth() < end_date.getMonth()) {
+            if (curr_date.getFullYear() < end_date.getFullYear()) {
+              datas.push(element);
+            } else if (curr_date.getMonth() < end_date.getMonth()) {
               datas.push(element);
             } else if (curr_date.getMonth() == end_date.getMonth()) {
               if (curr_date.getDate() <= end_date.getDate()) {
