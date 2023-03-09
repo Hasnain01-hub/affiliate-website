@@ -42,6 +42,7 @@ const Sliders = () => {
                 modules={[Pagination]}
                 className="mySwiper"
                 loop={true}
+                autoplay
               >
                 {banners.map((b, i) => (
                   <>
@@ -94,6 +95,7 @@ const Sliders = () => {
                 className="mySwiper"
                 navigation={true}
                 loop={true}
+                autoplay
               >
                 {banners.map((b, i) => (
                   <>

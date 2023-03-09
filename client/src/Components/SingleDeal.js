@@ -186,21 +186,33 @@ const SingleDeal = () => {
                                     <a
                                       className="primary_img"
                                       href={"/Deal/" + s._id}
+                                      style={{
+                                        height: "100%",
+                                        width: "100%",
+                                        objectFit: "contain",
+                                      }}
                                     >
                                       <LazyLoadImage
                                         src={s.image}
                                         alt=""
                                         effect="blur"
+                                        className="span"
                                       />
                                     </a>
                                     <a
                                       className="secondary_img"
                                       href={"/Deal/" + s._id}
+                                      style={{
+                                        height: "100%",
+                                        width: "100%",
+                                        objectFit: "contain",
+                                      }}
                                     >
                                       <LazyLoadImage
                                         src={s.image}
                                         alt=""
                                         effect="blur"
+                                        className="span"
                                       />
                                     </a>
                                     <div className="label_product">
