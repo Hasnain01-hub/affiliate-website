@@ -62,11 +62,6 @@ const Footer = () => {
                       <div className="contact_icone">
                         <img src="assets/img/icon/icon-phone.png" alt="" />
                       </div>
-                      <div className="contact_text">
-                        <p>
-                          Hotline Free 24/24: <br /> <strong>0123456789</strong>
-                        </p>
-                      </div>
                     </div>
                     <p>
                       Your address goes here. <br /> admin@dealsghar.com

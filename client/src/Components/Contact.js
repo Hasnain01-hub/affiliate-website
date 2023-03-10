@@ -49,24 +49,17 @@ const Contact = () => {
               <div className="col-lg-6 col-md-12" style={{ padding: "10px" }}>
                 <div className="contact_message content">
                   <h3>contact us</h3>
-                  <p>
+                  {/* <p>
                     Claritas est etiam processus dynamicus, qui sequitur
                     mutationem consuetudium lectorum. Mirum est notare quam
                     littera gothica, quam nunc putamus parum claram anteposuerit
                     litterarum formas human. qui sequitur mutationem
                     consuetudium lectorum. Mirum est notare quam
-                  </p>
+                  </p> */}
                   <ul>
                     <li>
-                      <i className="fa fa-fax" /> Address : Your address goes
-                      here.
-                    </li>
-                    <li>
                       <i className="fa fa-phone" />{" "}
-                      <a href="#/">admin@dealsghar.com</a>
-                    </li>
-                    <li>
-                      <i className="fa fa-envelope-o" /> 0123456789
+                      <a href="#/">support@dealsghar.com</a>
                     </li>
                   </ul>
                 </div>

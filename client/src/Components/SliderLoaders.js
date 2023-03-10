@@ -3,7 +3,7 @@ import ContentLoader from "react-content-loader";
 
 const SliderLoaders = (props) => {
   const height = window.innerHeight - 50;
-  const width = "90vw";
+  const width = "100vw";
 
   return (
     <>
@@ -14,7 +14,7 @@ const SliderLoaders = (props) => {
             {...props}
             backgroundColor="#DADADA"
             foregroundColor="#ecebeb"
-            style={{ width: "90vw", height: "25vh" }}
+            style={{ width: "100vw", height: "25vh" }}
           >
             <rect
               x="0"
@@ -32,7 +32,7 @@ const SliderLoaders = (props) => {
             {...props}
             backgroundColor="#DADADA"
             foregroundColor="#ecebeb"
-            style={{ width: "90vw", height: "45vh" }}
+            style={{ width: "100vw", height: "45vh" }}
           >
             <rect
               x="0"

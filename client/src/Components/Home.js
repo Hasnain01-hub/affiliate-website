@@ -57,7 +57,6 @@ const Home = () => {
         />
         <h1>Loading</h1>
       </div>{" "} */}
-      {window.innerWidth < 800 ? <></> : <></>}
       <Sliders />
       <div className="home_section_bg">
         {/*Categories product area start*/}

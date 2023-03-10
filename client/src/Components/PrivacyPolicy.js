@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
                   <h2>Who we are</h2>
                   <p>
                     Our website address is:{" "}
-                    <a href="#/">{"Link of the Site"}</a>
+                    <a href="https://dealsghar.com/">Dealsghar.com</a>
                   </p>
                 </div>
                 <div className="privacy_content section_2">
