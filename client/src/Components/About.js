@@ -1,5 +1,4 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const About = () => {
   return (
@@ -12,7 +11,7 @@ const About = () => {
               <div className="col-12">
                 <figure>
                   <figcaption className="about_content">
-                    <h1>About DealsGhar</h1>
+                    <h1>About “DealsGhar</h1>
                     <div className="aff_content">
                       <p>
                         dealsghar.com is a participant in the Amazon Associates
@@ -28,13 +27,6 @@ const About = () => {
                         <b>Amazon.in</b>, <b>Amazon.com</b>, Inc. or its
                         affiliates.
                       </p>
-                    </div>
-                    <div className="about_signature">
-                      <LazyLoadImage
-                        src="assets/img/about/about-us-signature.png"
-                        alt=""
-                        effect="blur"
-                      />
                     </div>
                   </figcaption>
                 </figure>

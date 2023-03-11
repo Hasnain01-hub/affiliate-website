@@ -63,9 +63,7 @@ const Footer = () => {
                         <img src="assets/img/icon/icon-phone.png" alt="" />
                       </div>
                     </div>
-                    <p>
-                      Your address goes here. <br /> admin@dealsghar.com
-                    </p>
+                    <p>admin@dealsghar.com</p>
                   </div>
                   <div className="footer_social">
                     <ul>
