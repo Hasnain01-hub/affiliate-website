@@ -42,7 +42,7 @@
       object-fit: contain;
     }
   
-  @media (min-width:250px) and (max-width:800px) {
+  @media (min-width:250px) and (max-width:600px) {
     .swiper {
       height: 20vh !important;
     }
@@ -68,7 +68,19 @@
         width: 90vw !important;
       }
   }
-
+  @media (min-width:250px) and (max-width:600px) {
+    .swiper {
+      height: 25vh !important;
+    }
+   
+    /* .swiper-slide {
+      width: 100% !important;
+    } */
+    .swiper-slide {
+      width: 100vw !important;
+      height: 25vh !important;
+    }
+  }
   .h2 {
     width: 95vw !important;
     display: flex !important;

@@ -21,6 +21,7 @@ import SingleProductDeal from "./Components/SingleProductDeal";
 import CategoryDeals from "./Components/CategoryDeals";
 import AffiliateDisclosure from "./Components/AffiliateDisclosure";
 import AAG from "./Components/AAG";
+import SEO from "react-seo-component";
 
 function App() {
   const dispatch = useDispatch();
@@ -52,6 +53,16 @@ function App() {
   };
   return (
     <>
+      <SEO
+        title="DealsGhar"
+        titleTemplate="DealsGhar.com"
+        titleSeparator={`-`}
+        description="Deals Ghar - India’s Fastest Site for Online Shopping Deals"
+        image="https://www.dealsghar.com/static/media/logo.3e7528cb1aa6be19cf48.png"
+        pathname="https://www.dealsghar.com/"
+        siteLanguage="en"
+        author="Aakash"
+      />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
