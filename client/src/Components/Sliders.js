@@ -31,7 +31,7 @@ const Sliders = () => {
         </>
       ) : (
         <>
-          {window.innerWidth < 800 ? (
+          {window.innerWidth < 900 ? (
             <>
               <Swiper
                 pagination={{
