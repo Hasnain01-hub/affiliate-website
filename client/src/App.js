@@ -55,11 +55,12 @@ function App() {
     <>
       <SEO
         title="DealsGhar"
-        titleTemplate="DealsGhar.com"
+        titleTemplate="Homepage - Dealsghar.com"
         titleSeparator={`-`}
         description="Deals Ghar - India’s Fastest Site for Online Shopping Deals"
         image="https://www.dealsghar.com/static/media/logo.3e7528cb1aa6be19cf48.png"
         pathname="https://www.dealsghar.com/"
+        siteLocale="en_us"
         siteLanguage="en"
         author="Aakash"
       />
