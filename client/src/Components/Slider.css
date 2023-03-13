@@ -112,7 +112,7 @@
 
   @media (min-width:240px) and (max-width:600px) {
     .product_content {
-      max-width: 180px;
+      max-width: 250px;
     }
     .grid_content {
       max-width: 100% !important;
