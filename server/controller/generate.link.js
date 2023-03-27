@@ -15,6 +15,22 @@ exports.generateLink = async (req, res) => {
     const modify = ds + "?" + tag;
 
     res.json(modify);
+  } else if (d.includes("/dp/")) {
+    const de = await axios.get(d);
+
+    const url = de.request.res.responseUrl;
+
+    let ds;
+
+    if (url.includes("ref=")) {
+      ds = url.split("ref=")[0];
+    } else if (url.includes("?tag=")) {
+      ds = url.split("?tag=")[0];
+    }
+    const tag = `tag=${req.body.tag}`;
+    const modify = ds + "?" + tag;
+
+    res.json(modify);
   } else if (d.includes("amzn.to") || d.includes("B0")) {
     /* This is the code that is responsible for the redirection. */
     const de = await axios.get(d);
