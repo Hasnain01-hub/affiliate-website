@@ -62,7 +62,7 @@ const Home = () => {
         {/*Categories product area start*/}
         <div className="categories_product_area mb-45">
           <div className="container">
-            {/* {user !== null ? (
+            {user !== null ? (
               <>
                 {user.profit === null ? (
                   <>
@@ -77,7 +77,7 @@ const Home = () => {
             ) : (
               <></>
             )}
-            <br /> */}
+            <br />
 
             <div className="categories_product_inner">
               {loading === false ? (
@@ -779,7 +779,6 @@ const Home = () => {
                       ? ((g += 1),
                         g <= 9 ? (
                           <>
-                            {console.log(item)}
                             <div
                               key={item._id}
                               className="col-lg-3 col-md-4 col-sm-6"
