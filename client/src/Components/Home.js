@@ -8,12 +8,13 @@ import Categories from "./Categories";
 import ProductsLoader from "./ProductsLoader";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useSelector } from "react-redux";
 // import { HashLoader } from "react-spinners";
 
 const Home = () => {
   const [deals, setdeals] = useState([]);
 
-  // const { user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   let c = 0;
   let d = 0;
   let e = 0;
