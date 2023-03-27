@@ -2,13 +2,15 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
-import { ReactTinyLink } from "react-tiny-link";
+import { decode as base64_decode, encode as base64_encode } from "base-64";
 
 export const MakeLink = () => {
   const { user } = useSelector((state) => state.user);
   const [link, setlink] = React.useState("");
 
   const [amz, setAmz] = useState(null);
+
+  const [dec, setDec] = useState();
 
   const handleSubmit = () => {
     if (link !== "") {
@@ -31,11 +33,16 @@ export const MakeLink = () => {
               toast.error("Invalid Link");
               setAmz(null);
             } else {
-              navigator.clipboard.writeText(res.data).then(function () {
-                toast.success("Affiliate Link Copied");
-                setlink("");
-                setAmz(res.data);
-              });
+              navigator.clipboard
+                .writeText(
+                  "https://lamefame.in/link/" + base64_encode(res.data)
+                )
+                .then(function () {
+                  toast.success("Affiliate Link Copied");
+                  setlink("");
+                  setAmz(base64_encode(res.data));
+                  setDec(base64_decode(base64_encode(res.data)));
+                });
             }
           })
           .catch((err) => {
@@ -86,14 +93,13 @@ export const MakeLink = () => {
                   The Affiliate Link is Here :
                 </h2>
                 <p>
-                  <a href={amz} target="_blank" rel="noreferrer">
-                    <ReactTinyLink
-                      maxLine={1}
-                      minLine={1}
-                      url={amz}
-                      showGraphic={false}
-                      cardSize="small"
-                    />
+                  <a
+                    href={"https://lamefame.in/link/" + amz}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ wordBreak: "break-word" }}
+                  >
+                    {"https://lamefame.in/link/" + amz}
                   </a>
                 </p>
               </>

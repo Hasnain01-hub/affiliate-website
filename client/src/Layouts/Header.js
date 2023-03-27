@@ -54,7 +54,7 @@ const Header = () => {
                     {user && (
                       <>
                         <li className="menu-item-has-children">
-                          <Link to="/Make-Links">Make-Links</Link>
+                          <Link to="/Links">Make-Links</Link>
                         </li>
                         <li className="menu-item-has-children">
                           <Link onClick={logout}>Logout</Link>
@@ -186,9 +186,9 @@ const Header = () => {
                         </li>
                         {user && (
                           <>
-                            {/* <li>
+                            <li>
                               <Link to="/Links">Make-Links</Link>
-                            </li> */}
+                            </li>
                             <li onClick={logout}>
                               <Link to="/"> logout</Link>
                             </li>
