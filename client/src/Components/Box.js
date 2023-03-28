@@ -1,0 +1,38 @@
+import React from "react";
+import { WhatsappIcon, WhatsappShareButton } from "react-share";
+import "./Slider.css";
+import $ from "jquery";
+
+const Box = (props) => {
+  const hideBox = () => {
+    $(".popup").fadeOut();
+  };
+
+  return (
+    <>
+      <div className="popup">
+        <div className="box">
+          <div className="icon" onClick={hideBox}>
+            X
+          </div>
+          <h2>The Affiliate Link is Here :</h2>
+          <p>
+            <a
+              href={"https://lamefame.in/link/" + props.link}
+              target="_blank"
+              rel="noreferrer"
+              style={{ wordBreak: "break-word" }}
+            >
+              {"https://lamefame.in/link/" + props.link}
+            </a>
+          </p>
+          <WhatsappShareButton title="Whatsapp">
+            <WhatsappIcon />
+          </WhatsappShareButton>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Box;

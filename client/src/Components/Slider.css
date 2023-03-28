@@ -109,7 +109,40 @@
       width: 75vw !important;
     }
   }
-
+  
+  .icon {
+    font-size: 28px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  .popup {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    background: rgba(0,0,0, 0.5);
+    justify-content: center;
+    align-items: center;
+   
+  }
+  .popup .box {
+    height: 250px;
+    padding: 20px;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+  }
   @media (min-width:240px) and (max-width:600px) {
     .product_content {
       max-width: 250px;

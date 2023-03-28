@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { decode as base64_decode, encode as base64_encode } from "base-64";
+import Box from "./Box";
 
 export const MakeLink = () => {
   const { user } = useSelector((state) => state.user);
@@ -87,21 +88,7 @@ export const MakeLink = () => {
             <br />
             {amz !== null ? (
               <>
-                <h2>
-                  Link is automatically copied
-                  <br />
-                  The Affiliate Link is Here :
-                </h2>
-                <p>
-                  <a
-                    href={"https://lamefame.in/link/" + amz}
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{ wordBreak: "break-word" }}
-                  >
-                    {"https://lamefame.in/link/" + amz}
-                  </a>
-                </p>
+                <Box link={amz} />
               </>
             ) : (
               <></>
