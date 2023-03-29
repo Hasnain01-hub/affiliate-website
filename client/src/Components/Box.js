@@ -5,7 +5,7 @@ import $ from "jquery";
 
 const Box = (props) => {
   const hideBox = () => {
-    $(".popup").fadeOut();
+    $(".popup").hide();
   };
 
   return (
@@ -26,9 +26,13 @@ const Box = (props) => {
               {"https://lamefame.in/link/" + props.link}
             </a>
           </p>
-          <WhatsappShareButton title="Whatsapp">
-            <WhatsappIcon />
-          </WhatsappShareButton>
+          <a
+            href={"https://wa.me/?text=https://lamefame.in/link/" + props.link}
+          >
+            <WhatsappShareButton title="Whatsapp">
+              <WhatsappIcon />
+            </WhatsappShareButton>
+          </a>
         </div>
       </div>
     </>

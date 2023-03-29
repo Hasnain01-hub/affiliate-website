@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { decode as base64_decode, encode as base64_encode } from "base-64";
 import Box from "./Box";
+import $ from "jquery";
 
 export const MakeLink = () => {
   const { user } = useSelector((state) => state.user);
@@ -42,6 +43,7 @@ export const MakeLink = () => {
                   toast.success("Affiliate Link Copied");
                   setlink("");
                   setAmz(base64_encode(res.data));
+                  $(".popup").show();
                   setDec(base64_decode(base64_encode(res.data)));
                 });
             }
