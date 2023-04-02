@@ -37,7 +37,8 @@ export const MakeLink = () => {
             } else {
               navigator.clipboard
                 .writeText(
-                  "https://lamefame.in/link/" + base64_encode(res.data)
+                  "https://lamefame.in/link.html?link=" +
+                    base64_encode(res.data)
                 )
                 .then(function () {
                   toast.success("Affiliate Link Copied");
