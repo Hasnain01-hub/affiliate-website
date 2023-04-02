@@ -35,17 +35,21 @@ export const MakeLink = () => {
               toast.error("Invalid Link");
               setAmz(null);
             } else {
-              navigator.clipboard
-                .writeText(
-                  "https://lamefame.in/link.html?link=" +
+              axios
+                .get(
+                  "https://api.shrtco.de/v2/shorten?url=https://lamefame.in/link.html?link=" +
                     base64_encode(res.data)
                 )
-                .then(function () {
-                  toast.success("Affiliate Link Copied");
-                  setlink("");
-                  setAmz(base64_encode(res.data));
-                  $(".popup").show();
-                  setDec(base64_decode(base64_encode(res.data)));
+                .then((result) => {
+                  navigator.clipboard
+                    .writeText(result.data.result.full_short_link)
+                    .then(function () {
+                      toast.success("Affiliate Link Copied");
+                      setlink("");
+                      setAmz(result.data.result.full_short_link);
+                      $(".popup").show();
+                      setDec(base64_decode(base64_encode(res.data)));
+                    });
                 });
             }
           })

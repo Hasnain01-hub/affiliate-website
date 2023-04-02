@@ -18,20 +18,15 @@ const Box = (props) => {
           <h2>The Affiliate Link is Here :</h2>
           <p>
             <a
-              href={"https://lamefame.in/link.html?link=" + props.link}
+              href={props.link}
               target="_blank"
               rel="noreferrer"
               style={{ wordBreak: "break-word" }}
             >
-              {"https://lamefame.in/link.html?link=" + props.link}
+              {props.link}
             </a>
           </p>
-          <a
-            href={
-              "https://wa.me/?text=https://lamefame.in/link.html?link=" +
-              props.link
-            }
-          >
+          <a href={"https://wa.me/?text=" + props.link}>
             <WhatsappShareButton title="Whatsapp">
               <WhatsappIcon />
             </WhatsappShareButton>
