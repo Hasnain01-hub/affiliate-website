@@ -134,7 +134,7 @@
   .popup .box {
     height: 250px;
     padding: 20px;
-    width: 80vw;
+    width: 60vw;
     display: flex;
     flex-direction: column;
     background-color: #fff;

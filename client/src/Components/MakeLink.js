@@ -84,7 +84,7 @@ export const MakeLink = () => {
                 <input
                   value={link}
                   onChange={(e) => setlink(e.target.value)}
-                  placeholder="Search product..."
+                  placeholder="Paste Your Link Here"
                   type="text"
                 />
                 <button type="submit" onClick={handleSubmit}>
